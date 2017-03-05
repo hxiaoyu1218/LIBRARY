@@ -46,11 +46,11 @@
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.TitleLabel.Font = new System.Drawing.Font("方正黑体简体", 11F);
+            this.TitleLabel.Font = new System.Drawing.Font("黑体", 11F);
             this.TitleLabel.ForeColor = System.Drawing.Color.White;
             this.TitleLabel.Location = new System.Drawing.Point(8, 7);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(104, 16);
+            this.TitleLabel.Size = new System.Drawing.Size(103, 15);
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "图书管理系统";
             // 
