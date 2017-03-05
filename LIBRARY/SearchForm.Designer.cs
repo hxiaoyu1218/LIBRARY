@@ -82,7 +82,7 @@
             this.SearchAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchAll.Font = new System.Drawing.Font("方正黑体_GBK", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchAll.Font = new System.Drawing.Font("方正黑体_GBK", 10F);
             this.SearchAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAll.Location = new System.Drawing.Point(253, 265);
             this.SearchAll.Name = "SearchAll";
@@ -121,7 +121,7 @@
             this.SearchAuthor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAuthor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchAuthor.Font = new System.Drawing.Font("方正黑体_GBK", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchAuthor.Font = new System.Drawing.Font("方正黑体_GBK", 10F);
             this.SearchAuthor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAuthor.Location = new System.Drawing.Point(430, 265);
             this.SearchAuthor.Name = "SearchAuthor";
@@ -140,7 +140,7 @@
             this.SearchISBN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchISBN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchISBN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchISBN.Font = new System.Drawing.Font("方正黑体_GBK", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchISBN.Font = new System.Drawing.Font("方正黑体_GBK", 10F);
             this.SearchISBN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchISBN.Location = new System.Drawing.Point(312, 265);
             this.SearchISBN.Name = "SearchISBN";
@@ -159,7 +159,7 @@
             this.SearchName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchName.Font = new System.Drawing.Font("方正黑体_GBK", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchName.Font = new System.Drawing.Font("方正黑体_GBK", 10F);
             this.SearchName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchName.Location = new System.Drawing.Point(371, 265);
             this.SearchName.Name = "SearchName";
