@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +10,17 @@ using System.Windows.Forms;
 
 namespace LIBRARY
 {
-    public partial class SearchForm : DMSkin.Main
+    public partial class SearchResultForm : DMSkin.Main
     {
         private MainForm frmMain;
         private int ButtonState;//控制滑块位置 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER
-        public SearchForm(MainForm frm)
+        public SearchResultForm(MainForm frm)
         {
-            InitializeComponent();
             frmMain = frm;
+            InitializeComponent();
         }
 
-        private void SearchForm_Load(object sender, EventArgs e)
+        private void SearchResultForm_Load(object sender, EventArgs e)
         {
             AllBackground.Show();
             SearchAll.ForeColor = Color.White;//默认检索条件：全部检索
@@ -31,12 +30,6 @@ namespace LIBRARY
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
             ButtonState = 1;
-            
-            GraphicsPath myPath = new GraphicsPath();
-            myPath.AddEllipse(0, 0, 138, 138);
-            //重新设置圆形按钮region范围
-            UserInfoButton.Region = new Region(myPath);
-            BookReturnButton.Region = new Region(myPath);
         }
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)//屏蔽换行回车键
         {
@@ -53,7 +46,7 @@ namespace LIBRARY
 
         private void SearchAll_MouseLeave(object sender, EventArgs e)
         {
-           if(ButtonState!=1)
+            if (ButtonState != 1)
             {
                 SearchAll.ForeColor = Color.FromArgb(26, 148, 129);
             }
@@ -66,7 +59,7 @@ namespace LIBRARY
 
         private void SearchISBN_MouseLeave(object sender, EventArgs e)
         {
-            if(ButtonState!=2)
+            if (ButtonState != 2)
             {
                 SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
             }
@@ -77,7 +70,7 @@ namespace LIBRARY
         }
         private void SearchName_MouseLeave(object sender, EventArgs e)
         {
-            if(ButtonState!=3)
+            if (ButtonState != 3)
             {
                 SearchName.ForeColor = Color.FromArgb(26, 148, 129);
             }
@@ -90,7 +83,7 @@ namespace LIBRARY
 
         private void SearchAuthor_MouseLeave(object sender, EventArgs e)
         {
-            if(ButtonState!=4)
+            if (ButtonState != 4)
             {
                 SearchAuthor.ForeColor = Color.FromArgb(26, 148, 129);
             }
@@ -103,7 +96,7 @@ namespace LIBRARY
 
         private void SearchPublisher_MouseLeave(object sender, EventArgs e)
         {
-            if(ButtonState!=5)
+            if (ButtonState != 5)
             {
                 SearchPublisher.ForeColor = Color.FromArgb(26, 148, 129);
             }
@@ -118,7 +111,7 @@ namespace LIBRARY
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
             SearchAll.ForeColor = Color.White;
-            SearchAll.BackColor = Color.FromArgb(26, 148, 129);       
+            SearchAll.BackColor = Color.FromArgb(26, 148, 129);
             SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
             SearchISBN.BackColor = Color.Transparent;
             SearchName.ForeColor = Color.FromArgb(26, 148, 129);
@@ -209,34 +202,6 @@ namespace LIBRARY
             SearchPublisher.BackColor = Color.FromArgb(26, 148, 129);
         }
 
-        private void UserInfoButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            UserInfoButton.BackgroundImage = UserInfoButton.DM_HoverImage;
-        }
-
-        private void UserInfoButton_MouseLeave(object sender, EventArgs e)
-        {
-            UserInfoButton.BackgroundImage = UserInfoButton.DM_NolImage;
-        }
-
-        private void BookReturnButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            BookReturnButton.BackgroundImage = BookReturnButton.DM_HoverImage;
-        }
-
-        private void BookReturnButton_MouseLeave(object sender, EventArgs e)
-        {
-            BookReturnButton.BackgroundImage = BookReturnButton.DM_NolImage;
-        }
-
-        private void SearchButton_Click(object sender, EventArgs e)//搜索按钮，进入searchResultForm
-        {
-            frmMain.MainPanel.Controls.Clear();
-            SearchResultForm searchResultForm = new SearchResultForm(frmMain);
-            searchResultForm.TopLevel = false;
-            searchResultForm.Dock = DockStyle.Fill;
-            frmMain.MainPanel.Controls.Add(searchResultForm);
-            searchResultForm.Show();
-        }
+        
     }
 }

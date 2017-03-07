@@ -97,11 +97,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Label TitleLabel;
         private DMSkin.Controls.DMButtonMinLight MinButton;
         private DMSkin.Controls.DMButtonCloseLight CloseButton;
+        public System.Windows.Forms.Panel MainPanel;
     }
 }
 
