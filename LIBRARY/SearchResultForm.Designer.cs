@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.SearchAll = new System.Windows.Forms.Button();
@@ -41,6 +46,11 @@
             this.AuthorBackground = new System.Windows.Forms.PictureBox();
             this.PublisherBackgound = new System.Windows.Forms.PictureBox();
             this.ResultDataSheet = new System.Windows.Forms.DataGridView();
+            this.ISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Op = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AllBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameBackground)).BeginInit();
@@ -217,13 +227,103 @@
             // 
             // ResultDataSheet
             // 
+            this.ResultDataSheet.AllowUserToAddRows = false;
+            this.ResultDataSheet.AllowUserToDeleteRows = false;
+            this.ResultDataSheet.AllowUserToResizeColumns = false;
+            this.ResultDataSheet.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.ResultDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ResultDataSheet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ResultDataSheet.Location = new System.Drawing.Point(76, 131);
+            this.ResultDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ResultDataSheet.CausesValidation = false;
+            this.ResultDataSheet.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.ResultDataSheet.ColumnHeadersHeight = 40;
+            this.ResultDataSheet.ColumnHeadersVisible = false;
+            this.ResultDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ISBN,
+            this.BookName,
+            this.Author,
+            this.Publisher,
+            this.Op});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ResultDataSheet.Location = new System.Drawing.Point(82, 131);
+            this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
-            this.ResultDataSheet.RowTemplate.Height = 23;
-            this.ResultDataSheet.Size = new System.Drawing.Size(650, 402);
-            this.ResultDataSheet.TabIndex = 13;
+            this.ResultDataSheet.ReadOnly = true;
+            this.ResultDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.ResultDataSheet.RowHeadersVisible = false;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.ResultDataSheet.RowTemplate.Height = 40;
+            this.ResultDataSheet.RowTemplate.ReadOnly = true;
+            this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ResultDataSheet.ShowEditingIcon = false;
+            this.ResultDataSheet.Size = new System.Drawing.Size(642, 402);
+            this.ResultDataSheet.StandardTab = true;
+            this.ResultDataSheet.TabIndex = 1;
+            this.ResultDataSheet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataSheet_CellClick);
+            // 
+            // ISBN
+            // 
+            this.ISBN.HeaderText = "ID";
+            this.ISBN.Name = "ISBN";
+            this.ISBN.ReadOnly = true;
+            this.ISBN.Width = 120;
+            // 
+            // BookName
+            // 
+            this.BookName.HeaderText = "书名";
+            this.BookName.Name = "BookName";
+            this.BookName.ReadOnly = true;
+            this.BookName.Width = 140;
+            // 
+            // Author
+            // 
+            this.Author.HeaderText = "作者";
+            this.Author.Name = "Author";
+            this.Author.ReadOnly = true;
+            this.Author.Width = 140;
+            // 
+            // Publisher
+            // 
+            this.Publisher.HeaderText = "出版社";
+            this.Publisher.Name = "Publisher";
+            this.Publisher.ReadOnly = true;
+            this.Publisher.Width = 140;
+            // 
+            // Op
+            // 
+            this.Op.HeaderText = "操作";
+            this.Op.Name = "Op";
+            this.Op.ReadOnly = true;
+            this.Op.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // SearchResultForm
             // 
@@ -275,6 +375,11 @@
         private System.Windows.Forms.PictureBox NameBackground;
         private System.Windows.Forms.PictureBox AuthorBackground;
         private System.Windows.Forms.PictureBox PublisherBackgound;
-        private System.Windows.Forms.DataGridView ResultDataSheet;
+        public System.Windows.Forms.DataGridView ResultDataSheet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ISBN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
+        private System.Windows.Forms.DataGridViewLinkColumn Op;
     }
 }

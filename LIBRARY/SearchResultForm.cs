@@ -14,7 +14,7 @@ namespace LIBRARY
     {
         private MainForm frmMain;
         private int ButtonState;//控制滑块位置 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER
-        public SearchResultForm(MainForm frm)
+        public SearchResultForm(MainForm frm)//待增加参数，用于接收searchForm页面的搜索参数并执行搜索，展示结果
         {
             frmMain = frm;
             InitializeComponent();
@@ -30,6 +30,24 @@ namespace LIBRARY
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
             ButtonState = 1;
+
+            
+            for (int i = 0; i < 12; i++)//searchform的搜索结果
+            {
+
+                DataGridViewRow row = new DataGridViewRow();
+                int index = ResultDataSheet.Rows.Add(row);
+                ResultDataSheet.Rows[index].Cells[0].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[1].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[2].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[3].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[4].Value = "借书";
+                ResultDataSheet.Rows[index].Height = 30;
+            }
+            ResultDataSheet.ClearSelection();
+
+            ResultDataSheet.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
         }
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)//屏蔽换行回车键
         {
@@ -202,6 +220,9 @@ namespace LIBRARY
             SearchPublisher.BackColor = Color.FromArgb(26, 148, 129);
         }
 
-        
+        private void ResultDataSheet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
     }
 }

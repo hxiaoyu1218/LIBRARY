@@ -37,6 +37,12 @@ namespace LIBRARY
             //重新设置圆形按钮region范围
             UserInfoButton.Region = new Region(myPath);
             BookReturnButton.Region = new Region(myPath);
+
+
+            
+            
+
+
         }
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)//屏蔽换行回车键
         {
