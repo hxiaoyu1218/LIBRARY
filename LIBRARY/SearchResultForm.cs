@@ -32,7 +32,7 @@ namespace LIBRARY
             ButtonState = 1;
 
             
-            for (int i = 0; i < 12; i++)//searchform的搜索结果
+            for (int i = 0; i < 12; i++)//searchform的搜索结果，测试填表
             {
 
                 DataGridViewRow row = new DataGridViewRow();
@@ -222,7 +222,39 @@ namespace LIBRARY
 
         private void ResultDataSheet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+            
+        }
+
+        private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //获得link点击事件
+            if (ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag == null && ResultDataSheet.Columns[e.ColumnIndex].GetType() == typeof(DataGridViewLinkColumn)) 
+            {
+                MessageBox.Show("选中操作列的第" + (e.RowIndex + 1).ToString() + "行");
+                ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = true;//重新搜索后需要重置tag值
+                ResultDataSheet.ClearSelection();
+                ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "已借阅";       
+            }
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)//重新检索按钮
+        {
+            ResultDataSheet.Rows.Clear();//清空上一次搜索表
+            for (int i = 0; i < 20; i++)//测试填表
+            {
+
+                DataGridViewRow row = new DataGridViewRow();
+                int index = ResultDataSheet.Rows.Add(row);
+                ResultDataSheet.Rows[index].Cells[0].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[1].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[2].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[3].Value = i.ToString();
+                ResultDataSheet.Rows[index].Cells[4].Value = "借书";
+                ResultDataSheet.Rows[index].Height = 30;
+            }
+            ResultDataSheet.ClearSelection();
+            ResultDataSheet.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
     }
+
 }
