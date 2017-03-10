@@ -33,7 +33,7 @@ namespace LIBRARY
             ButtonState = 1;
             
             GraphicsPath myPath = new GraphicsPath();
-            myPath.AddEllipse(0, 0, 138, 138);
+            myPath.AddEllipse(0, 0, 172, 172);
             //重新设置圆形按钮region范围
             UserInfoButton.Region = new Region(myPath);
             BookReturnButton.Region = new Region(myPath);
@@ -237,6 +237,7 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)//搜索按钮，进入searchResultForm
         {
+            frmMain.ReturnButton.Tag = true;
             frmMain.MainPanel.Controls.Clear();
             SearchResultForm searchResultForm = new SearchResultForm(frmMain);
             searchResultForm.TopLevel = false;

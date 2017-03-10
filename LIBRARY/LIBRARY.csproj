@@ -34,9 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DMSkin, Version=0.3.1.6, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="LibrarySystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\QQ File\595941634\FileRecv\LibrarySystem.dll</HintPath>
+    <Reference Include="LibrarySystemBackEnd">
+      <HintPath>..\..\..\QQ File\595941634\FileRecv\LibrarySystemBackEnd.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -102,9 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="LibrarySystem.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

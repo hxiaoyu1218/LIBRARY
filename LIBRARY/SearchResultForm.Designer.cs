@@ -51,23 +51,27 @@
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemainNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Op = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.DividerLine = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AllBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AuthorBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PublisherBackgound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DividerLine)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchBox
             // 
             this.SearchBox.BackColor = System.Drawing.Color.White;
-            this.SearchBox.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SearchBox.Location = new System.Drawing.Point(153, 20);
+            this.SearchBox.Font = new System.Drawing.Font("微软雅黑", 21.75F);
+            this.SearchBox.Location = new System.Drawing.Point(126, 20);
             this.SearchBox.Multiline = true;
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(422, 40);
+            this.SearchBox.Size = new System.Drawing.Size(665, 47);
             this.SearchBox.TabIndex = 1;
             this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
             // 
@@ -76,11 +80,11 @@
             this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchButton.FlatAppearance.BorderSize = 0;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchButton.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchButton.Font = new System.Drawing.Font("黑体", 16F);
             this.SearchButton.ForeColor = System.Drawing.Color.White;
-            this.SearchButton.Location = new System.Drawing.Point(574, 20);
+            this.SearchButton.Location = new System.Drawing.Point(791, 20);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(70, 40);
+            this.SearchButton.Size = new System.Drawing.Size(82, 47);
             this.SearchButton.TabIndex = 2;
             this.SearchButton.Text = "搜索";
             this.SearchButton.UseVisualStyleBackColor = false;
@@ -93,11 +97,11 @@
             this.SearchAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchAll.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchAll.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchAll.Location = new System.Drawing.Point(253, 84);
+            this.SearchAll.Location = new System.Drawing.Point(324, 86);
             this.SearchAll.Name = "SearchAll";
-            this.SearchAll.Size = new System.Drawing.Size(60, 25);
+            this.SearchAll.Size = new System.Drawing.Size(70, 30);
             this.SearchAll.TabIndex = 3;
             this.SearchAll.Text = "全部";
             this.SearchAll.UseVisualStyleBackColor = false;
@@ -112,12 +116,12 @@
             this.SearchPublisher.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchPublisher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchPublisher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchPublisher.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchPublisher.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchPublisher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchPublisher.Location = new System.Drawing.Point(489, 84);
+            this.SearchPublisher.Location = new System.Drawing.Point(600, 86);
             this.SearchPublisher.Margin = new System.Windows.Forms.Padding(0);
             this.SearchPublisher.Name = "SearchPublisher";
-            this.SearchPublisher.Size = new System.Drawing.Size(60, 25);
+            this.SearchPublisher.Size = new System.Drawing.Size(70, 30);
             this.SearchPublisher.TabIndex = 4;
             this.SearchPublisher.Text = "出版社";
             this.SearchPublisher.UseVisualStyleBackColor = false;
@@ -132,11 +136,11 @@
             this.SearchAuthor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAuthor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchAuthor.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchAuthor.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchAuthor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchAuthor.Location = new System.Drawing.Point(430, 84);
+            this.SearchAuthor.Location = new System.Drawing.Point(531, 86);
             this.SearchAuthor.Name = "SearchAuthor";
-            this.SearchAuthor.Size = new System.Drawing.Size(60, 25);
+            this.SearchAuthor.Size = new System.Drawing.Size(70, 30);
             this.SearchAuthor.TabIndex = 5;
             this.SearchAuthor.Text = "作家";
             this.SearchAuthor.UseVisualStyleBackColor = false;
@@ -151,11 +155,11 @@
             this.SearchISBN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchISBN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchISBN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchISBN.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchISBN.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchISBN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchISBN.Location = new System.Drawing.Point(312, 84);
+            this.SearchISBN.Location = new System.Drawing.Point(393, 86);
             this.SearchISBN.Name = "SearchISBN";
-            this.SearchISBN.Size = new System.Drawing.Size(60, 25);
+            this.SearchISBN.Size = new System.Drawing.Size(70, 30);
             this.SearchISBN.TabIndex = 6;
             this.SearchISBN.Text = "ISBN";
             this.SearchISBN.UseVisualStyleBackColor = false;
@@ -170,11 +174,11 @@
             this.SearchName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.SearchName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchName.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchName.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchName.Location = new System.Drawing.Point(371, 84);
+            this.SearchName.Location = new System.Drawing.Point(462, 86);
             this.SearchName.Name = "SearchName";
-            this.SearchName.Size = new System.Drawing.Size(60, 25);
+            this.SearchName.Size = new System.Drawing.Size(70, 30);
             this.SearchName.TabIndex = 7;
             this.SearchName.Text = "书名";
             this.SearchName.UseVisualStyleBackColor = false;
@@ -185,45 +189,45 @@
             // AllBackground
             // 
             this.AllBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.AllBackground.Location = new System.Drawing.Point(253, 80);
+            this.AllBackground.Location = new System.Drawing.Point(324, 82);
             this.AllBackground.Name = "AllBackground";
-            this.AllBackground.Size = new System.Drawing.Size(60, 33);
+            this.AllBackground.Size = new System.Drawing.Size(70, 38);
             this.AllBackground.TabIndex = 8;
             this.AllBackground.TabStop = false;
             // 
             // ISBNBackground
             // 
             this.ISBNBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.ISBNBackground.Location = new System.Drawing.Point(312, 80);
+            this.ISBNBackground.Location = new System.Drawing.Point(393, 82);
             this.ISBNBackground.Name = "ISBNBackground";
-            this.ISBNBackground.Size = new System.Drawing.Size(60, 33);
+            this.ISBNBackground.Size = new System.Drawing.Size(70, 38);
             this.ISBNBackground.TabIndex = 9;
             this.ISBNBackground.TabStop = false;
             // 
             // NameBackground
             // 
             this.NameBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.NameBackground.Location = new System.Drawing.Point(371, 80);
+            this.NameBackground.Location = new System.Drawing.Point(462, 82);
             this.NameBackground.Name = "NameBackground";
-            this.NameBackground.Size = new System.Drawing.Size(60, 33);
+            this.NameBackground.Size = new System.Drawing.Size(70, 38);
             this.NameBackground.TabIndex = 10;
             this.NameBackground.TabStop = false;
             // 
             // AuthorBackground
             // 
             this.AuthorBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.AuthorBackground.Location = new System.Drawing.Point(430, 80);
+            this.AuthorBackground.Location = new System.Drawing.Point(531, 82);
             this.AuthorBackground.Name = "AuthorBackground";
-            this.AuthorBackground.Size = new System.Drawing.Size(60, 33);
+            this.AuthorBackground.Size = new System.Drawing.Size(70, 38);
             this.AuthorBackground.TabIndex = 11;
             this.AuthorBackground.TabStop = false;
             // 
             // PublisherBackgound
             // 
             this.PublisherBackgound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.PublisherBackgound.Location = new System.Drawing.Point(489, 80);
+            this.PublisherBackgound.Location = new System.Drawing.Point(600, 82);
             this.PublisherBackgound.Name = "PublisherBackgound";
-            this.PublisherBackgound.Size = new System.Drawing.Size(60, 33);
+            this.PublisherBackgound.Size = new System.Drawing.Size(70, 38);
             this.PublisherBackgound.TabIndex = 12;
             this.PublisherBackgound.TabStop = false;
             // 
@@ -234,6 +238,7 @@
             this.ResultDataSheet.AllowUserToResizeColumns = false;
             this.ResultDataSheet.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -244,7 +249,7 @@
             this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -257,29 +262,31 @@
             this.BookName,
             this.Author,
             this.Publisher,
+            this.RemainNum,
             this.Op});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ResultDataSheet.Location = new System.Drawing.Point(82, 131);
+            this.ResultDataSheet.Location = new System.Drawing.Point(101, 191);
             this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
             this.ResultDataSheet.ReadOnly = true;
             this.ResultDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.ResultDataSheet.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.ResultDataSheet.RowTemplate.Height = 40;
@@ -287,7 +294,7 @@
             this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ResultDataSheet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ResultDataSheet.ShowEditingIcon = false;
-            this.ResultDataSheet.Size = new System.Drawing.Size(642, 402);
+            this.ResultDataSheet.Size = new System.Drawing.Size(814, 469);
             this.ResultDataSheet.StandardTab = true;
             this.ResultDataSheet.TabIndex = 1;
             this.ResultDataSheet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataSheet_CellClick);
@@ -298,28 +305,35 @@
             this.ISBN.HeaderText = "ID";
             this.ISBN.Name = "ISBN";
             this.ISBN.ReadOnly = true;
-            this.ISBN.Width = 120;
+            this.ISBN.Width = 130;
             // 
             // BookName
             // 
             this.BookName.HeaderText = "书名";
             this.BookName.Name = "BookName";
             this.BookName.ReadOnly = true;
-            this.BookName.Width = 140;
+            this.BookName.Width = 170;
             // 
             // Author
             // 
             this.Author.HeaderText = "作者";
             this.Author.Name = "Author";
             this.Author.ReadOnly = true;
-            this.Author.Width = 140;
+            this.Author.Width = 150;
             // 
             // Publisher
             // 
             this.Publisher.HeaderText = "出版社";
             this.Publisher.Name = "Publisher";
             this.Publisher.ReadOnly = true;
-            this.Publisher.Width = 140;
+            this.Publisher.Width = 160;
+            // 
+            // RemainNum
+            // 
+            this.RemainNum.HeaderText = "剩余数量";
+            this.RemainNum.Name = "RemainNum";
+            this.RemainNum.ReadOnly = true;
+            this.RemainNum.Width = 90;
             // 
             // Op
             // 
@@ -331,14 +345,36 @@
             this.Op.ReadOnly = true;
             this.Op.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Op.VisitedLinkColor = System.Drawing.Color.Black;
-            this.Op.Width = 85;
+            this.Op.Width = 95;
+            // 
+            // DividerLine
+            // 
+            this.DividerLine.BackColor = System.Drawing.Color.Silver;
+            this.DividerLine.Location = new System.Drawing.Point(101, 176);
+            this.DividerLine.Name = "DividerLine";
+            this.DividerLine.Size = new System.Drawing.Size(814, 1);
+            this.DividerLine.TabIndex = 13;
+            this.DividerLine.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體 Light", 16F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(99, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 28);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "检索结果";
             // 
             // SearchResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(800, 570);
+            this.ClientSize = new System.Drawing.Size(1000, 705);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DividerLine);
             this.Controls.Add(this.ResultDataSheet);
             this.Controls.Add(this.SearchName);
             this.Controls.Add(this.SearchISBN);
@@ -364,6 +400,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AuthorBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PublisherBackgound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DividerLine)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,6 +425,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Author;
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RemainNum;
         private System.Windows.Forms.DataGridViewLinkColumn Op;
+        private System.Windows.Forms.PictureBox DividerLine;
+        private System.Windows.Forms.Label label1;
     }
 }

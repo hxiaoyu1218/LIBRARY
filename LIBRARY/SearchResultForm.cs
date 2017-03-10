@@ -32,21 +32,22 @@ namespace LIBRARY
             ButtonState = 1;
 
             
-            for (int i = 0; i < 12; i++)//searchform的搜索结果，测试填表
+            for (int i = 0; i < 13; i++)//searchform的搜索结果，测试填表
             {
 
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[1].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[2].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[3].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[4].Value = "借书";
-                ResultDataSheet.Rows[index].Height = 30;
+                ResultDataSheet.Rows[index].Cells[0].Value = "2233456";
+                ResultDataSheet.Rows[index].Cells[1].Value = "c++ begin and give up";
+                ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
+                ResultDataSheet.Rows[index].Cells[3].Value = "c326 all";
+                ResultDataSheet.Rows[index].Cells[4].Value = "233";
+                ResultDataSheet.Rows[index].Cells[5].Value = "借书";
+                ResultDataSheet.Rows[index].Height = 40;
             }
             ResultDataSheet.ClearSelection();
 
-            ResultDataSheet.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)//屏蔽换行回车键
@@ -228,7 +229,7 @@ namespace LIBRARY
         private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //获得link点击事件
-            if (ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag == null && ResultDataSheet.Columns[e.ColumnIndex].GetType() == typeof(DataGridViewLinkColumn)) 
+            if (ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag == null && e.ColumnIndex == 5) 
             {
                 MessageBox.Show("选中操作列的第" + (e.RowIndex + 1).ToString() + "行");
                 ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = true;//重新搜索后需要重置tag值
@@ -240,20 +241,21 @@ namespace LIBRARY
         private void SearchButton_Click(object sender, EventArgs e)//重新检索按钮
         {
             ResultDataSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < 20; i++)//测试填表
+            for (int i = 0; i < 5; i++)//测试填表
             {
 
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[1].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[2].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[3].Value = i.ToString();
-                ResultDataSheet.Rows[index].Cells[4].Value = "借书";
-                ResultDataSheet.Rows[index].Height = 30;
+                ResultDataSheet.Rows[index].Cells[0].Value = "22";
+                ResultDataSheet.Rows[index].Cells[1].Value = "c# give up";
+                ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
+                ResultDataSheet.Rows[index].Cells[3].Value = "byr";
+                ResultDataSheet.Rows[index].Cells[4].Value = "233";
+                ResultDataSheet.Rows[index].Cells[5].Value = "借书";
+                ResultDataSheet.Rows[index].Height = 40;
             }
             ResultDataSheet.ClearSelection();
-            ResultDataSheet.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
     }
 
