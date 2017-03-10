@@ -23,6 +23,11 @@ namespace LIBRARY
 
         private void SearchForm_Load(object sender, EventArgs e)
         {
+            Point t = new Point(16, 11);
+            frmMain.ReturnButton.Hide();
+            frmMain.TitleLabel.Location = t;
+
+
             AllBackground.Show();
             SearchAll.ForeColor = Color.White;//默认检索条件：全部检索
             SearchAll.BackColor = Color.FromArgb(26, 148, 129);
@@ -237,7 +242,6 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)//搜索按钮，进入searchResultForm
         {
-            frmMain.ReturnButton.Tag = true;
             frmMain.MainPanel.Controls.Clear();
             SearchResultForm searchResultForm = new SearchResultForm(frmMain);
             searchResultForm.TopLevel = false;

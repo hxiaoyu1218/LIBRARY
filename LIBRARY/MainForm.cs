@@ -22,7 +22,6 @@ namespace LIBRARY
             //MFReturnButton.Hide();
             //login窗口载入点
 
-
             MainPanel.Controls.Clear();
             SearchForm searchForm = new SearchForm(this);
             searchForm.TopLevel = false;
@@ -41,7 +40,7 @@ namespace LIBRARY
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-            if(ReturnButton.Tag != null)//在主页，禁用返回键
+            if(ReturnButton.Tag != null)//不在主页，启用返回键
             {
                 MainPanel.Controls.Clear();
                 SearchForm searchForm = new SearchForm(this);

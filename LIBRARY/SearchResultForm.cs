@@ -22,6 +22,14 @@ namespace LIBRARY
 
         private void SearchResultForm_Load(object sender, EventArgs e)
         {
+
+            frmMain.ReturnButton.Tag = true;
+            Point t = new Point(61, 11);
+            frmMain.ReturnButton.Show();
+            frmMain.TitleLabel.Location = t;
+
+
+
             AllBackground.Show();
             SearchAll.ForeColor = Color.White;//默认检索条件：全部检索
             SearchAll.BackColor = Color.FromArgb(26, 148, 129);

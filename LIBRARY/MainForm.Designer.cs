@@ -50,7 +50,7 @@
             this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.TitleLabel.Font = new System.Drawing.Font("黑体", 16F);
             this.TitleLabel.ForeColor = System.Drawing.Color.White;
-            this.TitleLabel.Location = new System.Drawing.Point(11, 11);
+            this.TitleLabel.Location = new System.Drawing.Point(61, 11);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(142, 22);
             this.TitleLabel.TabIndex = 1;
@@ -65,7 +65,7 @@
             this.ReturnButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(146)))), ((int)(((byte)(126)))));
             this.ReturnButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(150)))));
             this.ReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReturnButton.Location = new System.Drawing.Point(162, 5);
+            this.ReturnButton.Location = new System.Drawing.Point(16, 5);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(35, 35);
             this.ReturnButton.TabIndex = 4;
@@ -128,11 +128,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label TitleLabel;
         public System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button ShutDownButton;
         private System.Windows.Forms.Button MinButton;
         public System.Windows.Forms.Button ReturnButton;
+        public System.Windows.Forms.Label TitleLabel;
     }
 }
 
