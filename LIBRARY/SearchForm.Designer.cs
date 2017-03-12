@@ -63,7 +63,7 @@
             // 
             // SearchButton
             // 
-            this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(166)))), ((int)(((byte)(146)))));
             this.SearchButton.FlatAppearance.BorderSize = 0;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Font = new System.Drawing.Font("黑体", 16F);
@@ -231,6 +231,7 @@
             this.UserInfoButton.Size = new System.Drawing.Size(172, 172);
             this.UserInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.UserInfoButton.TabIndex = 13;
+            this.UserInfoButton.Load += new System.EventHandler(this.UserInfoButton_Load);
             this.UserInfoButton.MouseLeave += new System.EventHandler(this.UserInfoButton_MouseLeave);
             this.UserInfoButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UserInfoButton_MouseMove);
             // 

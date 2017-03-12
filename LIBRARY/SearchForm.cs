@@ -249,5 +249,10 @@ namespace LIBRARY
             frmMain.MainPanel.Controls.Add(searchResultForm);
             searchResultForm.Show();
         }
+
+        private void UserInfoButton_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

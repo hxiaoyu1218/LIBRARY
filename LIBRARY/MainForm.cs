@@ -19,7 +19,10 @@ namespace LIBRARY
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //MFReturnButton.Hide();
+            LoginForm loginform = new LoginForm();
+            loginform.ShowDialog();
+            loginform.Dispose();
+            if ((bool)loginform.Tag == false) Application.Exit();
             //login窗口载入点
 
             MainPanel.Controls.Clear();
