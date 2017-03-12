@@ -117,6 +117,7 @@
             this.RegisterButton.Size = new System.Drawing.Size(96, 96);
             this.RegisterButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.RegisterButton.TabIndex = 14;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             this.RegisterButton.MouseLeave += new System.EventHandler(this.RegisterButton_MouseLeave);
             this.RegisterButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegisterButton_MouseMove);
             // 
@@ -222,6 +223,7 @@
             this.UserCueText.Size = new System.Drawing.Size(55, 15);
             this.UserCueText.TabIndex = 21;
             this.UserCueText.Text = "用户名";
+            this.UserCueText.Click += new System.EventHandler(this.UserCueText_Click);
             // 
             // PasswordCueText
             // 
@@ -234,6 +236,7 @@
             this.PasswordCueText.Size = new System.Drawing.Size(39, 15);
             this.PasswordCueText.TabIndex = 22;
             this.PasswordCueText.Text = "密码";
+            this.PasswordCueText.Click += new System.EventHandler(this.PasswordCueText_Click);
             // 
             // LoginForm
             // 
@@ -259,7 +262,7 @@
             this.DM_ShadowWidth = 5;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
+            this.Text = "登录";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.WhiteBg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePicture)).EndInit();

@@ -33,7 +33,7 @@ namespace LIBRARY
         private void ShutDownButton_Click(object sender, EventArgs e)
         {
             Tag = false;
-            Close();
+            Environment.Exit(0);
         }
 
         private void RegisterButton_MouseMove(object sender, MouseEventArgs e)
@@ -92,6 +92,31 @@ namespace LIBRARY
             //if(login) tag=true;
             Tag = true;
             Close();
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            RegistForm registForm = new RegistForm();
+            registForm.ShowDialog();
+            registForm.Dispose();
+        }
+
+        private void UserCueText_Click(object sender, EventArgs e)
+        {
+            if (UserTextBox.Text.Trim() == "")
+                UserCueText.Hide();
+            else if (UserTextBox.Text.Trim() != "" && UserCueText.Visible == false)
+                UserCueText.Hide();
+            UserTextBox.Focus();
+        }
+
+        private void PasswordCueText_Click(object sender, EventArgs e)
+        {
+            if (PasswordTextBox.Text.Trim() == "")
+                PasswordCueText.Hide();
+            else if (PasswordTextBox.Text.Trim() != "" && PasswordCueText.Visible == false)
+                PasswordCueText.Hide();
+            PasswordTextBox.Focus();
         }
     }
 }

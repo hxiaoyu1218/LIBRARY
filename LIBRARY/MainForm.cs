@@ -19,10 +19,9 @@ namespace LIBRARY
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginForm loginform = new LoginForm();
-            loginform.ShowDialog();
-            loginform.Dispose();
-            if ((bool)loginform.Tag == false) Application.Exit();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            loginForm.Dispose();
             //login窗口载入点
 
             MainPanel.Controls.Clear();
