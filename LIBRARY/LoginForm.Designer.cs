@@ -192,7 +192,7 @@
             this.UserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.UserTextBox.Location = new System.Drawing.Point(112, 263);
+            this.UserTextBox.Location = new System.Drawing.Point(116, 263);
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.Size = new System.Drawing.Size(259, 22);
             this.UserTextBox.TabIndex = 19;
@@ -204,7 +204,7 @@
             this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.PasswordTextBox.Location = new System.Drawing.Point(112, 345);
+            this.PasswordTextBox.Location = new System.Drawing.Point(116, 342);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(259, 22);
@@ -218,7 +218,7 @@
             this.UserCueText.BackColor = System.Drawing.Color.White;
             this.UserCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.UserCueText.Location = new System.Drawing.Point(117, 266);
+            this.UserCueText.Location = new System.Drawing.Point(112, 266);
             this.UserCueText.Name = "UserCueText";
             this.UserCueText.Size = new System.Drawing.Size(55, 15);
             this.UserCueText.TabIndex = 21;
@@ -231,7 +231,7 @@
             this.PasswordCueText.BackColor = System.Drawing.Color.White;
             this.PasswordCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.PasswordCueText.Location = new System.Drawing.Point(117, 345);
+            this.PasswordCueText.Location = new System.Drawing.Point(112, 345);
             this.PasswordCueText.Name = "PasswordCueText";
             this.PasswordCueText.Size = new System.Drawing.Size(39, 15);
             this.PasswordCueText.TabIndex = 22;

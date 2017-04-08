@@ -43,10 +43,18 @@
             this.PasswordBg2 = new System.Windows.Forms.PictureBox();
             this.StudentCheckBox = new DMSkin.Controls.DMCheckBox();
             this.TeacherCheckBox1 = new DMSkin.Controls.DMCheckBox();
+            this.IDCueText = new System.Windows.Forms.Label();
+            this.IDTextBox = new System.Windows.Forms.TextBox();
+            this.IDBg = new System.Windows.Forms.PictureBox();
+            this.AcademicCueText = new System.Windows.Forms.Label();
+            this.AcademicTextBox = new System.Windows.Forms.TextBox();
+            this.AcademicBg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.WhiteBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordBg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordBg2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDBg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AcademicBg)).BeginInit();
             this.SuspendLayout();
             // 
             // WhiteBg
@@ -102,11 +110,12 @@
             this.UserCueText.BackColor = System.Drawing.Color.White;
             this.UserCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.UserCueText.Location = new System.Drawing.Point(118, 154);
+            this.UserCueText.Location = new System.Drawing.Point(112, 154);
             this.UserCueText.Name = "UserCueText";
             this.UserCueText.Size = new System.Drawing.Size(55, 15);
             this.UserCueText.TabIndex = 22;
             this.UserCueText.Text = "用户名";
+            this.UserCueText.Click += new System.EventHandler(this.UserCueText_Click);
             // 
             // UserTextBox
             // 
@@ -114,7 +123,7 @@
             this.UserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.UserTextBox.Location = new System.Drawing.Point(112, 151);
+            this.UserTextBox.Location = new System.Drawing.Point(116, 151);
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.Size = new System.Drawing.Size(259, 22);
             this.UserTextBox.TabIndex = 23;
@@ -127,18 +136,19 @@
             this.PasswordCueText1.BackColor = System.Drawing.Color.White;
             this.PasswordCueText1.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordCueText1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.PasswordCueText1.Location = new System.Drawing.Point(117, 212);
+            this.PasswordCueText1.Location = new System.Drawing.Point(111, 212);
             this.PasswordCueText1.Name = "PasswordCueText1";
             this.PasswordCueText1.Size = new System.Drawing.Size(71, 15);
             this.PasswordCueText1.TabIndex = 26;
             this.PasswordCueText1.Text = "登陆密码";
+            this.PasswordCueText1.Click += new System.EventHandler(this.PasswordCueText1_Click);
             // 
             // PasswordTextBox1
             // 
             this.PasswordTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordTextBox1.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.PasswordTextBox1.Location = new System.Drawing.Point(112, 212);
+            this.PasswordTextBox1.Location = new System.Drawing.Point(116, 212);
             this.PasswordTextBox1.Name = "PasswordTextBox1";
             this.PasswordTextBox1.PasswordChar = '*';
             this.PasswordTextBox1.Size = new System.Drawing.Size(259, 22);
@@ -162,18 +172,19 @@
             this.PasswordCueText2.BackColor = System.Drawing.Color.White;
             this.PasswordCueText2.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordCueText2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.PasswordCueText2.Location = new System.Drawing.Point(117, 270);
+            this.PasswordCueText2.Location = new System.Drawing.Point(111, 270);
             this.PasswordCueText2.Name = "PasswordCueText2";
             this.PasswordCueText2.Size = new System.Drawing.Size(119, 15);
             this.PasswordCueText2.TabIndex = 29;
             this.PasswordCueText2.Text = "再输入一次密码";
+            this.PasswordCueText2.Click += new System.EventHandler(this.PasswordCueText2_Click);
             // 
             // PasswordTextBox2
             // 
             this.PasswordTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordTextBox2.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.PasswordTextBox2.Location = new System.Drawing.Point(112, 270);
+            this.PasswordTextBox2.Location = new System.Drawing.Point(116, 270);
             this.PasswordTextBox2.Name = "PasswordTextBox2";
             this.PasswordTextBox2.PasswordChar = '*';
             this.PasswordTextBox2.Size = new System.Drawing.Size(259, 22);
@@ -198,7 +209,7 @@
             this.StudentCheckBox.Checked = false;
             this.StudentCheckBox.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.StudentCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.StudentCheckBox.Location = new System.Drawing.Point(70, 446);
+            this.StudentCheckBox.Location = new System.Drawing.Point(70, 390);
             this.StudentCheckBox.Name = "StudentCheckBox";
             this.StudentCheckBox.Size = new System.Drawing.Size(86, 19);
             this.StudentCheckBox.TabIndex = 30;
@@ -211,11 +222,82 @@
             this.TeacherCheckBox1.Checked = false;
             this.TeacherCheckBox1.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TeacherCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.TeacherCheckBox1.Location = new System.Drawing.Point(298, 446);
+            this.TeacherCheckBox1.Location = new System.Drawing.Point(298, 390);
             this.TeacherCheckBox1.Name = "TeacherCheckBox1";
             this.TeacherCheckBox1.Size = new System.Drawing.Size(86, 19);
             this.TeacherCheckBox1.TabIndex = 31;
             this.TeacherCheckBox1.Text = "我是教师";
+            // 
+            // IDCueText
+            // 
+            this.IDCueText.AutoSize = true;
+            this.IDCueText.BackColor = System.Drawing.Color.White;
+            this.IDCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.IDCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.IDCueText.Location = new System.Drawing.Point(112, 96);
+            this.IDCueText.Name = "IDCueText";
+            this.IDCueText.Size = new System.Drawing.Size(39, 15);
+            this.IDCueText.TabIndex = 33;
+            this.IDCueText.Text = "学号";
+            this.IDCueText.Click += new System.EventHandler(this.IDCueText_Click);
+            // 
+            // IDTextBox
+            // 
+            this.IDTextBox.BackColor = System.Drawing.Color.White;
+            this.IDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.IDTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.IDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.IDTextBox.Location = new System.Drawing.Point(116, 93);
+            this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.Size = new System.Drawing.Size(259, 22);
+            this.IDTextBox.TabIndex = 34;
+            this.IDTextBox.Enter += new System.EventHandler(this.IDTextBox_Enter);
+            // 
+            // IDBg
+            // 
+            this.IDBg.BackColor = System.Drawing.Color.White;
+            this.IDBg.Image = ((System.Drawing.Image)(resources.GetObject("IDBg.Image")));
+            this.IDBg.Location = new System.Drawing.Point(70, 84);
+            this.IDBg.Name = "IDBg";
+            this.IDBg.Size = new System.Drawing.Size(314, 42);
+            this.IDBg.TabIndex = 32;
+            this.IDBg.TabStop = false;
+            // 
+            // AcademicCueText
+            // 
+            this.AcademicCueText.AutoSize = true;
+            this.AcademicCueText.BackColor = System.Drawing.Color.White;
+            this.AcademicCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AcademicCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.AcademicCueText.Location = new System.Drawing.Point(110, 328);
+            this.AcademicCueText.Name = "AcademicCueText";
+            this.AcademicCueText.Size = new System.Drawing.Size(39, 15);
+            this.AcademicCueText.TabIndex = 36;
+            this.AcademicCueText.Text = "学院";
+            this.AcademicCueText.Click += new System.EventHandler(this.AcademicCueText_Click);
+            // 
+            // AcademicTextBox
+            // 
+            this.AcademicTextBox.BackColor = System.Drawing.Color.White;
+            this.AcademicTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AcademicTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AcademicTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AcademicTextBox.Location = new System.Drawing.Point(114, 325);
+            this.AcademicTextBox.Name = "AcademicTextBox";
+            this.AcademicTextBox.Size = new System.Drawing.Size(259, 22);
+            this.AcademicTextBox.TabIndex = 37;
+            this.AcademicTextBox.Enter += new System.EventHandler(this.AcademicTextBox_Enter);
+            this.AcademicTextBox.Leave += new System.EventHandler(this.AcademicTextBox_Leave);
+            // 
+            // AcademicBg
+            // 
+            this.AcademicBg.BackColor = System.Drawing.Color.White;
+            this.AcademicBg.Image = ((System.Drawing.Image)(resources.GetObject("AcademicBg.Image")));
+            this.AcademicBg.Location = new System.Drawing.Point(68, 316);
+            this.AcademicBg.Name = "AcademicBg";
+            this.AcademicBg.Size = new System.Drawing.Size(314, 42);
+            this.AcademicBg.TabIndex = 35;
+            this.AcademicBg.TabStop = false;
             // 
             // RegistForm
             // 
@@ -223,6 +305,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(150)))));
             this.ClientSize = new System.Drawing.Size(450, 600);
+            this.Controls.Add(this.AcademicCueText);
+            this.Controls.Add(this.AcademicTextBox);
+            this.Controls.Add(this.AcademicBg);
+            this.Controls.Add(this.IDCueText);
+            this.Controls.Add(this.IDTextBox);
+            this.Controls.Add(this.IDBg);
             this.Controls.Add(this.TeacherCheckBox1);
             this.Controls.Add(this.StudentCheckBox);
             this.Controls.Add(this.PasswordCueText2);
@@ -248,6 +336,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserBg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordBg1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordBg2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDBg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AcademicBg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +359,11 @@
         private System.Windows.Forms.PictureBox PasswordBg2;
         private DMSkin.Controls.DMCheckBox StudentCheckBox;
         private DMSkin.Controls.DMCheckBox TeacherCheckBox1;
+        private System.Windows.Forms.Label IDCueText;
+        private System.Windows.Forms.TextBox IDTextBox;
+        private System.Windows.Forms.PictureBox IDBg;
+        private System.Windows.Forms.Label AcademicCueText;
+        private System.Windows.Forms.TextBox AcademicTextBox;
+        private System.Windows.Forms.PictureBox AcademicBg;
     }
 }
