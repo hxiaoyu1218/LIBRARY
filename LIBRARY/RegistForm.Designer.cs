@@ -42,13 +42,15 @@
             this.PasswordTextBox2 = new System.Windows.Forms.TextBox();
             this.PasswordBg2 = new System.Windows.Forms.PictureBox();
             this.StudentCheckBox = new DMSkin.Controls.DMCheckBox();
-            this.TeacherCheckBox1 = new DMSkin.Controls.DMCheckBox();
+            this.TeacherCheckBox = new DMSkin.Controls.DMCheckBox();
             this.IDCueText = new System.Windows.Forms.Label();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.IDBg = new System.Windows.Forms.PictureBox();
             this.AcademicCueText = new System.Windows.Forms.Label();
             this.AcademicTextBox = new System.Windows.Forms.TextBox();
             this.AcademicBg = new System.Windows.Forms.PictureBox();
+            this.ReturnButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.RegistButton = new DMSkin.Controls.DM.DMButtonImage();
             ((System.ComponentModel.ISupportInitialize)(this.WhiteBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordBg1)).BeginInit();
@@ -214,19 +216,21 @@
             this.StudentCheckBox.Size = new System.Drawing.Size(86, 19);
             this.StudentCheckBox.TabIndex = 30;
             this.StudentCheckBox.Text = "我是学生";
+            this.StudentCheckBox.Click += new System.EventHandler(this.StudentCheckBox_Click);
             // 
-            // TeacherCheckBox1
+            // TeacherCheckBox
             // 
-            this.TeacherCheckBox1.BackColor = System.Drawing.Color.White;
-            this.TeacherCheckBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.TeacherCheckBox1.Checked = false;
-            this.TeacherCheckBox1.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TeacherCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.TeacherCheckBox1.Location = new System.Drawing.Point(298, 390);
-            this.TeacherCheckBox1.Name = "TeacherCheckBox1";
-            this.TeacherCheckBox1.Size = new System.Drawing.Size(86, 19);
-            this.TeacherCheckBox1.TabIndex = 31;
-            this.TeacherCheckBox1.Text = "我是教师";
+            this.TeacherCheckBox.BackColor = System.Drawing.Color.White;
+            this.TeacherCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.TeacherCheckBox.Checked = false;
+            this.TeacherCheckBox.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TeacherCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.TeacherCheckBox.Location = new System.Drawing.Point(298, 390);
+            this.TeacherCheckBox.Name = "TeacherCheckBox";
+            this.TeacherCheckBox.Size = new System.Drawing.Size(86, 19);
+            this.TeacherCheckBox.TabIndex = 31;
+            this.TeacherCheckBox.Text = "我是教师";
+            this.TeacherCheckBox.Click += new System.EventHandler(this.TeacherCheckBox_Click);
             // 
             // IDCueText
             // 
@@ -252,6 +256,7 @@
             this.IDTextBox.Size = new System.Drawing.Size(259, 22);
             this.IDTextBox.TabIndex = 34;
             this.IDTextBox.Enter += new System.EventHandler(this.IDTextBox_Enter);
+            this.IDTextBox.Leave += new System.EventHandler(this.IDTextBox_Leave);
             // 
             // IDBg
             // 
@@ -299,19 +304,57 @@
             this.AcademicBg.TabIndex = 35;
             this.AcademicBg.TabStop = false;
             // 
+            // ReturnButton
+            // 
+            this.ReturnButton.BackColor = System.Drawing.Color.White;
+            this.ReturnButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.BackgroundImage")));
+            this.ReturnButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ReturnButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.DM_DownImage")));
+            this.ReturnButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.DM_HoverImage")));
+            this.ReturnButton.DM_Mode = false;
+            this.ReturnButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.DM_NolImage")));
+            this.ReturnButton.Location = new System.Drawing.Point(83, 451);
+            this.ReturnButton.Name = "ReturnButton";
+            this.ReturnButton.Size = new System.Drawing.Size(96, 96);
+            this.ReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.ReturnButton.TabIndex = 38;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            this.ReturnButton.MouseLeave += new System.EventHandler(this.ReturnButton_MouseLeave);
+            this.ReturnButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReturnButton_MouseMove);
+            // 
+            // RegistButton
+            // 
+            this.RegistButton.BackColor = System.Drawing.Color.White;
+            this.RegistButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RegistButton.BackgroundImage")));
+            this.RegistButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RegistButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("RegistButton.DM_DownImage")));
+            this.RegistButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("RegistButton.DM_HoverImage")));
+            this.RegistButton.DM_Mode = false;
+            this.RegistButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("RegistButton.DM_NolImage")));
+            this.RegistButton.Location = new System.Drawing.Point(273, 451);
+            this.RegistButton.Name = "RegistButton";
+            this.RegistButton.Size = new System.Drawing.Size(96, 96);
+            this.RegistButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.RegistButton.TabIndex = 39;
+            this.RegistButton.Click += new System.EventHandler(this.RegistButton_Click);
+            this.RegistButton.MouseLeave += new System.EventHandler(this.RegistButton_MouseLeave);
+            this.RegistButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegistButton_MouseMove);
+            // 
             // RegistForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(150)))));
             this.ClientSize = new System.Drawing.Size(450, 600);
+            this.Controls.Add(this.IDCueText);
+            this.Controls.Add(this.RegistButton);
+            this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.AcademicCueText);
             this.Controls.Add(this.AcademicTextBox);
             this.Controls.Add(this.AcademicBg);
-            this.Controls.Add(this.IDCueText);
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.IDBg);
-            this.Controls.Add(this.TeacherCheckBox1);
+            this.Controls.Add(this.TeacherCheckBox);
             this.Controls.Add(this.StudentCheckBox);
             this.Controls.Add(this.PasswordCueText2);
             this.Controls.Add(this.PasswordTextBox2);
@@ -358,12 +401,14 @@
         private System.Windows.Forms.TextBox PasswordTextBox2;
         private System.Windows.Forms.PictureBox PasswordBg2;
         private DMSkin.Controls.DMCheckBox StudentCheckBox;
-        private DMSkin.Controls.DMCheckBox TeacherCheckBox1;
+        private DMSkin.Controls.DMCheckBox TeacherCheckBox;
         private System.Windows.Forms.Label IDCueText;
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.PictureBox IDBg;
         private System.Windows.Forms.Label AcademicCueText;
         private System.Windows.Forms.TextBox AcademicTextBox;
         private System.Windows.Forms.PictureBox AcademicBg;
+        private DMSkin.Controls.DM.DMButtonImage ReturnButton;
+        private DMSkin.Controls.DM.DMButtonImage RegistButton;
     }
 }

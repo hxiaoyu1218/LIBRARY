@@ -96,8 +96,9 @@ namespace LIBRARY
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            RegistForm registForm = new RegistForm();
+            RegistForm registForm = new RegistForm(this);
             registForm.ShowDialog();
+            Show();
             registForm.Dispose();
         }
 
