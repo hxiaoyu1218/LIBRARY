@@ -86,7 +86,7 @@
             this.ShutDownButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(42)))), ((int)(((byte)(21)))));
             this.ShutDownButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(65)))), ((int)(((byte)(39)))));
             this.ShutDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShutDownButton.Location = new System.Drawing.Point(410, 5);
+            this.ShutDownButton.Location = new System.Drawing.Point(415, 0);
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 6;
@@ -155,6 +155,7 @@
             this.GuestLink.TabIndex = 16;
             this.GuestLink.TabStop = true;
             this.GuestLink.Text = "访客进入";
+            this.GuestLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GuestLink_LinkClicked);
             // 
             // PasswordForgetLink
             // 

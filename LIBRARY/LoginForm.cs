@@ -119,5 +119,12 @@ namespace LIBRARY
                 PasswordCueText.Hide();
             PasswordTextBox.Focus();
         }
+
+        private void GuestLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //guest set flag to main form
+            Tag = true;
+            Close();
+        }
     }
 }
