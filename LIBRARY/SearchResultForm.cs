@@ -23,7 +23,7 @@ namespace LIBRARY
         private void SearchResultForm_Load(object sender, EventArgs e)
         {
 
-            frmMain.ReturnButton.Tag = true;
+            frmMain.ReturnButton.Tag = 1;//1 代表搜索界面 2代表书籍详情
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
@@ -39,7 +39,7 @@ namespace LIBRARY
             PublisherBackgound.Hide();
             ButtonState = 1;
 
-            
+
             for (int i = 0; i < 13; i++)//searchform的搜索结果，测试填表
             {
 
@@ -231,18 +231,28 @@ namespace LIBRARY
 
         private void ResultDataSheet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //获得link点击事件
-            if (ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag == null && e.ColumnIndex == 5) 
+            /* if (ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag == null && e.ColumnIndex == 5) 
+             {
+                 MessageBox.Show("选中操作列的第" + (e.RowIndex + 1).ToString() + "行");
+                 ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = true;//重新搜索后需要重置tag值
+                 ResultDataSheet.ClearSelection();
+                 ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "已借阅";       
+             }*/
+            if (e.ColumnIndex == 5)
             {
-                MessageBox.Show("选中操作列的第" + (e.RowIndex + 1).ToString() + "行");
-                ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = true;//重新搜索后需要重置tag值
-                ResultDataSheet.ClearSelection();
-                ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "已借阅";       
+                frmMain.MainPanel.Controls.Clear();
+                BookDetailForm bookDetailForm = new BookDetailForm(frmMain);
+                bookDetailForm.TopLevel = false;
+                bookDetailForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(bookDetailForm);
+                bookDetailForm.Show();
+
             }
         }
 
