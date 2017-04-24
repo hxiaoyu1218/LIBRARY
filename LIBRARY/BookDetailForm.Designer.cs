@@ -59,6 +59,8 @@
             // BookPictureBox
             // 
             this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.BookPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookPictureBox.BackgroundImage")));
+            this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BookPictureBox.Location = new System.Drawing.Point(70, 141);
             this.BookPictureBox.Name = "BookPictureBox";
             this.BookPictureBox.Size = new System.Drawing.Size(170, 240);
@@ -175,11 +177,12 @@
             this.BookOrderButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookOrderButton.DM_HoverImage")));
             this.BookOrderButton.DM_Mode = false;
             this.BookOrderButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookOrderButton.DM_NolImage")));
-            this.BookOrderButton.Location = new System.Drawing.Point(689, 454);
+            this.BookOrderButton.Location = new System.Drawing.Point(568, 454);
             this.BookOrderButton.Name = "BookOrderButton";
             this.BookOrderButton.Size = new System.Drawing.Size(96, 96);
             this.BookOrderButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookOrderButton.TabIndex = 16;
+            this.BookOrderButton.Click += new System.EventHandler(this.BookOrderButton_Click);
             // 
             // BookDetailForm
             // 

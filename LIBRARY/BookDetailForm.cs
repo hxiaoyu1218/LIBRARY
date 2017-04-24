@@ -30,9 +30,20 @@ namespace LIBRARY
 
         private void BookBorrowButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ddd");
+            InfoBox infoBox = new InfoBox(1);
+            infoBox.ShowDialog();
+            infoBox.Dispose();
             BookBorrowButton.DM_NolImage = BookBorrowButton.DM_HoverImage;
             BookBorrowButton.Enabled = false;
+        }
+
+        private void BookOrderButton_Click(object sender, EventArgs e)
+        {
+            InfoBox infoBox = new InfoBox(2);
+            infoBox.ShowDialog();
+            infoBox.Dispose();
+            BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
+            BookOrderButton.Enabled = true;
         }
     }
 }
