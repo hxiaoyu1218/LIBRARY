@@ -30,8 +30,8 @@
         {
             this.InfoBg = new System.Windows.Forms.PictureBox();
             this.TitleLabel = new System.Windows.Forms.Label();
-            this.TextLabel = new System.Windows.Forms.Label();
             this.ConfirmButton = new System.Windows.Forms.Button();
+            this.TextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.InfoBg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,18 +56,6 @@
             this.TitleLabel.TabIndex = 2;
             this.TitleLabel.Text = "图书管理系统";
             // 
-            // TextLabel
-            // 
-            this.TextLabel.AutoSize = true;
-            this.TextLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.TextLabel.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextLabel.Location = new System.Drawing.Point(84, 61);
-            this.TextLabel.Name = "TextLabel";
-            this.TextLabel.Size = new System.Drawing.Size(82, 24);
-            this.TextLabel.TabIndex = 3;
-            this.TextLabel.Text = "测试文字";
-            this.TextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ConfirmButton
             // 
             this.ConfirmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
@@ -82,14 +70,26 @@
             this.ConfirmButton.UseVisualStyleBackColor = false;
             this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
+            // TextBox
+            // 
+            this.TextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.TextBox.Location = new System.Drawing.Point(7, 57);
+            this.TextBox.Name = "TextBox";
+            this.TextBox.Size = new System.Drawing.Size(236, 23);
+            this.TextBox.TabIndex = 7;
+            this.TextBox.Text = "测试文字";
+            this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // InfoBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(250, 150);
+            this.Controls.Add(this.TextBox);
             this.Controls.Add(this.ConfirmButton);
-            this.Controls.Add(this.TextLabel);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.InfoBg);
             this.DM_howBorder = false;
@@ -107,7 +107,7 @@
 
         private System.Windows.Forms.PictureBox InfoBg;
         public System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.Label TextLabel;
         private System.Windows.Forms.Button ConfirmButton;
+        private System.Windows.Forms.TextBox TextBox;
     }
 }

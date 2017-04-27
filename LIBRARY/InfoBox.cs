@@ -13,6 +13,9 @@ namespace LIBRARY
 {
     public partial class InfoBox : DMSkin.Main
     {
+
+
+
         [DllImport("user32")]
         private static extern bool AnimateWindow(IntPtr hwnd, int dwTime, int dwFlags);
         private const int AW_HOR_POSITIVE = 0x0001;//自左向右显示窗口，该标志可以在滚动动画和滑动动画中使用。使用AW_CENTER标志时忽略该标志
@@ -26,14 +29,17 @@ namespace LIBRARY
         private const int AW_BLEND = 0x80000;//使用淡入淡出效果
 
         private int textType;
+        private BookDetailForm bdf;
         /// <summary>
         /// 1 借阅 2 预订 3 修改 4 注册
         /// </summary>
         /// <param name="tT"></param>
-        public InfoBox(int tT)
+        public InfoBox(int tT, BookDetailForm b = null)
         {
             textType = tT;
+            bdf = b;
             InitializeComponent();
+            
         }
 
         private void InfoBox_Load(object sender, EventArgs e)
@@ -41,28 +47,49 @@ namespace LIBRARY
             AnimateWindow(this.Handle, 10, AW_CENTER);
             if (textType == 1)
             {
-                TextLabel.Text = "借阅成功";
+                TextBox.Text = "借阅成功";
             }
             else if (textType == 2)
             {
-                TextLabel.Text = "预订成功";
+                TextBox.Text = "预订成功";
             }
             else if (textType == 3)
             {
-                TextLabel.Text = "修改成功";
+                TextBox.Text = "修改成功";
             }
             else if (textType == 4)
             {
-                TextLabel.Text = "注册成功";
+                TextBox.Text = "注册成功";
             }
             else if (textType == 5)
             {
-
+                TextBox.Text = "用户名/密码错误";
+            }
+            else if (textType == 6)
+            {
+                TextBox.Text = "未选择用户类型";
+            }
+            else if (textType == 7)
+            {
+                TextBox.Text = "该学号已被注册";
+            }
+            else if (textType == 8)
+            {
+                TextBox.Text = "该用户名已被注册";
+            }
+            else if (textType == 9)
+            {
+                TextBox.Text = "未知错误，请重试";
+            }
+            else if (textType == 10)
+            {
+                TextBox.Text = "两次输入的密码不同，请重试";
             }
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
+            if (textType == 1 || textType == 2) bdf.Enabled = true;
             Close();
         }
     }

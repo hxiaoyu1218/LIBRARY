@@ -40,7 +40,7 @@ namespace LIBRARY
             ButtonState = 1;
 
 
-            for (int i = 0; i < 13; i++)//searchform的搜索结果，测试填表
+            for (int i = 0; i < 13; i++)//searchform的搜索结果，测试填表，共13行
             {
 
                 DataGridViewRow row = new DataGridViewRow();

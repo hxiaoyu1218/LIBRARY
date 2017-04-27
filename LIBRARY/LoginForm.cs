@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
+using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -21,11 +22,10 @@ namespace LIBRARY
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            // Win32Utility.SetCueText(UserTextBox, "用户名");
-            // Win32Utility.SetCueText(PasswordTextBox, "密码");
+            ClassBackEnd.StartUp();
+
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 96, 96);
-            //重新设置圆形按钮region范围
             RegisterButton.Region = new Region(myPath);
             LoginButton.Region = new Region(myPath);
         }
@@ -35,7 +35,7 @@ namespace LIBRARY
             Tag = false;
             Environment.Exit(0);
         }
-
+        #region 按钮动画和水印文字
         private void RegisterButton_MouseMove(object sender, MouseEventArgs e)
         {
             RegisterButton.BackgroundImage = RegisterButton.DM_HoverImage;
@@ -60,14 +60,14 @@ namespace LIBRARY
         {
             if (UserTextBox.Text.Trim() == "")
                 UserCueText.Hide();
-            else if (UserTextBox.Text.Trim() != "" && UserCueText.Visible == false) 
+            else if (UserTextBox.Text.Trim() != "" && UserCueText.Visible == false)
                 UserCueText.Hide();
         }
 
         private void UserTextBox_Leave(object sender, EventArgs e)
         {
-            if (UserTextBox.Text.Trim() == "")  
-                UserCueText.Show();         
+            if (UserTextBox.Text.Trim() == "")
+                UserCueText.Show();
             else
                 UserCueText.Hide();
         }
@@ -87,21 +87,6 @@ namespace LIBRARY
             else
                 PasswordCueText.Hide();
         }
-        private void LoginButton_Click(object sender, EventArgs e)
-        {
-            //if(login) tag=true;
-            Tag = true;
-            Close();
-        }
-
-        private void RegisterButton_Click(object sender, EventArgs e)
-        {
-            RegistForm registForm = new RegistForm(this);
-            registForm.ShowDialog();
-            Show();
-            registForm.Dispose();
-        }
-
         private void UserCueText_Click(object sender, EventArgs e)
         {
             if (UserTextBox.Text.Trim() == "")
@@ -119,6 +104,33 @@ namespace LIBRARY
                 PasswordCueText.Hide();
             PasswordTextBox.Focus();
         }
+        #endregion
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            var v = ClassBackEnd.LogIn(UserTextBox.Text, PasswordTextBox.Text);
+            if (v == 1)//用户登录
+            {
+                Tag = true;
+                Close();
+            }
+            else if (v == 0)
+            {
+                InfoBox ib = new InfoBox(5);
+                ib.ShowDialog();
+                ib.Dispose();
+            }
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            RegistForm registForm = new RegistForm(this);
+            registForm.ShowDialog();
+            Show();
+            registForm.Dispose();
+        }
+
+        
 
         private void GuestLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

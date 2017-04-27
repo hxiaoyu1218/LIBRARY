@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -28,7 +29,26 @@ namespace LIBRARY
         {
             Close();
         }
+        #region 水印文字及按钮响应方法
+        private void StudentCheckBox_Click(object sender, EventArgs e)
+        {
+            if (TeacherCheckBox.Checked)
+            {
+                StudentCheckBox.Checked = true;
+                TeacherCheckBox.Checked = false;
+            }
+            else StudentCheckBox.Checked = true;
+        }
 
+        private void TeacherCheckBox_Click(object sender, EventArgs e)
+        {
+            if (StudentCheckBox.Checked)
+            {
+                StudentCheckBox.Checked = false;
+                TeacherCheckBox.Checked = true;
+            }
+            else StudentCheckBox.Checked = true;
+        }
         private void UserTextBox_Enter(object sender, EventArgs e)
         {
             if (UserTextBox.Text.Trim() == "")
@@ -81,7 +101,7 @@ namespace LIBRARY
         {
             if (PasswordTextBox1.Text.Trim() == "")
                 PasswordCueText1.Hide();
-            else if (PasswordCueText1.Text.Trim() != "" &&PasswordCueText1.Visible == false)
+            else if (PasswordCueText1.Text.Trim() != "" && PasswordCueText1.Visible == false)
                 PasswordCueText1.Hide();
             PasswordTextBox1.Focus();
         }
@@ -143,7 +163,7 @@ namespace LIBRARY
             if (AcademicTextBox.Text.Trim() == "")
                 AcademicCueText.Hide();
             else if (AcademicTextBox.Text.Trim() != "" && AcademicCueText.Visible == false)
-               AcademicCueText.Hide();
+                AcademicCueText.Hide();
         }
 
         private void AcademicTextBox_Leave(object sender, EventArgs e)
@@ -151,7 +171,7 @@ namespace LIBRARY
             if (AcademicTextBox.Text.Trim() == "")
                 AcademicCueText.Show();
             else
-               AcademicCueText.Hide();
+                AcademicCueText.Hide();
         }
 
         private void ReturnButton_MouseMove(object sender, MouseEventArgs e)
@@ -173,26 +193,10 @@ namespace LIBRARY
         {
             RegistButton.BackgroundImage = RegistButton.DM_NolImage;
         }
+        #endregion
 
-        private void StudentCheckBox_Click(object sender, EventArgs e)
-        {
-            if(TeacherCheckBox.Checked)
-            {
-                StudentCheckBox.Checked = true;
-                TeacherCheckBox.Checked = false;
-            }
-            else StudentCheckBox.Checked = true;
-        }
 
-        private void TeacherCheckBox_Click(object sender, EventArgs e)
-        {
-            if (StudentCheckBox.Checked)
-            {
-                StudentCheckBox.Checked = false;
-                TeacherCheckBox.Checked = true;
-            }
-            else StudentCheckBox.Checked = true;
-        }
+
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
@@ -201,8 +205,50 @@ namespace LIBRARY
 
         private void RegistButton_Click(object sender, EventArgs e)
         {
-            /*To do check infomation*/
-            Close();
+            if (PasswordTextBox1.Text != PasswordTextBox2.Text)
+            {
+                InfoBox ib = new InfoBox(10);
+                ib.ShowDialog();
+                ib.Dispose();
+                return;
+            }
+            int type = 0;
+            if (StudentCheckBox.Checked == true) type = 1;
+            else if (TeacherCheckBox.Checked == true) type = 2;
+
+            if (type == 0)//user type has not been chosed
+            {
+                InfoBox ib = new InfoBox(6);
+                ib.ShowDialog();
+                ib.Dispose();
+                return;
+            }
+            var v = ClassBackEnd.Register(IDTextBox.Text, UserTextBox.Text, PasswordTextBox1.Text, type, AcademicTextBox.Text);
+            if (v == 1)//success
+            {
+                InfoBox ib = new InfoBox(4);
+                ib.ShowDialog();
+                ib.Dispose();
+                Close();
+            }
+            else if (v == 2)//id error
+            {
+                InfoBox ib = new InfoBox(7);
+                ib.ShowDialog();
+                ib.Dispose();
+            }
+            else if (v == 3)//username error
+            {
+                InfoBox ib = new InfoBox(8);
+                ib.ShowDialog();
+                ib.Dispose();
+            }
+            else if (v == 4)//unknown error
+            {
+                InfoBox ib = new InfoBox(9);
+                ib.ShowDialog();
+                ib.Dispose();
+            }
         }
     }
 }
