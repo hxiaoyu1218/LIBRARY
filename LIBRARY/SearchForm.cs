@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -23,11 +24,13 @@ namespace LIBRARY
 
         private void SearchForm_Load(object sender, EventArgs e)
         {
+            #region 返回按钮动画
             Point t = new Point(16, 11);
             frmMain.ReturnButton.Hide();
             frmMain.TitleLabel.Location = t;
+            #endregion
 
-
+            #region 默认搜索条件：全部检索
             AllBackground.Show();
             SearchAll.ForeColor = Color.White;//默认检索条件：全部检索
             SearchAll.BackColor = Color.FromArgb(26, 148, 129);
@@ -36,19 +39,18 @@ namespace LIBRARY
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
             ButtonState = 1;
-            
+            #endregion
+
+            #region 按钮触发范围设置
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 172, 172);
             //重新设置圆形按钮region范围
             UserInfoButton.Region = new Region(myPath);
             BookReturnButton.Region = new Region(myPath);
-
-
-            
-            
-
-
+            #endregion
         }
+
+        #region SearchForm 按钮动画处理
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)//屏蔽换行回车键
         {
             if ((int)e.KeyCode == 13)
@@ -239,9 +241,15 @@ namespace LIBRARY
         {
             BookReturnButton.BackgroundImage = BookReturnButton.DM_NolImage;
         }
+        #endregion
 
         private void SearchButton_Click(object sender, EventArgs e)//搜索按钮，进入searchResultForm
         {
+            //to do 根据buttonstate进行搜索
+
+            ClassBackEnd.SearchBook(ButtonState, SearchBox.Text);
+            
+            
             frmMain.MainPanel.Controls.Clear();
             SearchResultForm searchResultForm = new SearchResultForm(frmMain);
             searchResultForm.TopLevel = false;

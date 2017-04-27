@@ -59,7 +59,7 @@
             </summary>
             <returns>成功返回1，出现异常返回0</returns>
         </member>
-        <member name="M:LibrarySystemBackEnd.ClassBackEnd.AddBook(System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.AddBook(System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
             <summary>
             向图书系统添加图书，参数为书籍基本信息
             </summary>
@@ -69,7 +69,8 @@
             <param name="author">作者</param>
             <param name="bookimage">封面路径，默认null</param>
             <param name="introduction">简介，默认null</param>
-            <returns></returns>
+            <param name="n">添加书籍的数量</param>
+            <returns>成功/失败</returns>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBackEnd.SearchBook(System.Int32,System.String)">
             <summary>
@@ -86,10 +87,72 @@
             <param name="i">book数组的下标</param>
             <returns>true是可借，false是不可借</returns>
         </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.BorrowBook(System.Int32)">
+            <summary>
+            借书函数，完成操作用户类与书籍类，并写入文件
+            </summary>
+            <param name="i">在list(book)中的某一本书</param>
+            <returns>0未知错误，1成功，2已达到借书上限</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.ChangePassword(System.String)">
+            <summary>
+            修改密码函数
+            </summary>
+            <param name="newpassword">新密码</param>
+            <returns>成功/失败</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.ScheduleBook(System.Int32)">
+            <summary>
+            预约书
+            </summary>
+            <param name="i">在list(book)中的某一本书</param>
+            <returns>成功返回true，失败（达到预约书籍上限）false</returns>
+        </member>
         <member name="T:LibrarySystemBackEnd.BOOKSTATE">
             <summary>
             书籍状态 可借，已借，预约，不可用
             </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ABook.bookstate">
+            <summary>
+            书籍状态，BOOKSTATE类型
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ABook.borrowuserid">
+            <summary>
+            借阅的用户id，没人借就是空
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ABook.broughttime">
+            <summary>
+            借阅时间，没人借就是空
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ABook.extisbn">
+            <summary>
+            完整的isbn
+            </summary>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ABook.#ctor(LibrarySystemBackEnd.BOOKSTATE,System.String,System.DateTime,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="_bookstate">书籍状态，枚举类型</param>
+            <param name="_borrowuserid">借书用户id，没借为空</param>
+            <param name="_broughttime">结借书时间</param>
+            <param name="_extisbn">完整的isbn</param>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ABook.SaveToFile(System.IO.StreamWriter)">
+            <summary>
+            写入文件函数
+            </summary>
+            <param name="sw">streamwriter类型</param>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ABook.#ctor(System.IO.StreamReader)">
+            <summary>
+            从文件的构造函数
+            </summary>
+            <param name="sr">streamreader类型</param>
         </member>
         <member name="T:LibrarySystemBackEnd.ClassBook">
             <summary>
@@ -113,7 +176,7 @@
             <summary>
             从文件构造类classbook
             </summary>
-            <param name="path">文件路径</param>
+            <param name="pathandname">文件路径加上文件名</param>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBook.SaveToFile(System.String)">
             <summary>
@@ -371,10 +434,16 @@
             <param name="bookname">书名</param>
             <returns>借书成功返回1，失败(已达借书上限)返回0</returns>
         </member>
+        <member name="M:LibrarySystemBackEnd.ClassUser.CancelBorrowBook">
+            <summary>
+            借书的逆过程
+            </summary>
+        </member>
         <member name="M:LibrarySystemBackEnd.ClassUser.ScheduleBook(System.String,System.String)">
             <summary>
             预约函数
-            判断是否达到预约书上限，增加预约书数量，将书添加到预约书列表，添加预约成功通知。注意并不能检查书的余量
+            判断是否达到预约书上限，增加预约书数量，将书添加到预约书列表
+            添加预约成功通知。注意并不能检查书的余量
             </summary>
             <param name="bookisbn">书号</param>
             <param name="bookname">书名</param>

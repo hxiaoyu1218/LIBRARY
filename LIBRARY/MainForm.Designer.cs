@@ -118,6 +118,8 @@
             this.DM_CanResize = false;
             this.DM_howBorder = false;
             this.DM_ShadowWidth = 5;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "图书管理系统";

@@ -73,6 +73,7 @@
             this.ShutDownButton.BackColor = System.Drawing.Color.Transparent;
             this.ShutDownButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShutDownButton.BackgroundImage")));
             this.ShutDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ShutDownButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ShutDownButton.FlatAppearance.BorderSize = 0;
             this.ShutDownButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(42)))), ((int)(((byte)(21)))));
             this.ShutDownButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(65)))), ((int)(((byte)(39)))));
@@ -81,6 +82,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 7;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -128,7 +130,7 @@
             this.UserTextBox.Location = new System.Drawing.Point(116, 151);
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.Size = new System.Drawing.Size(259, 22);
-            this.UserTextBox.TabIndex = 23;
+            this.UserTextBox.TabIndex = 2;
             this.UserTextBox.Enter += new System.EventHandler(this.UserTextBox_Enter);
             this.UserTextBox.Leave += new System.EventHandler(this.UserTextBox_Leave);
             // 
@@ -154,7 +156,7 @@
             this.PasswordTextBox1.Name = "PasswordTextBox1";
             this.PasswordTextBox1.PasswordChar = '*';
             this.PasswordTextBox1.Size = new System.Drawing.Size(259, 22);
-            this.PasswordTextBox1.TabIndex = 25;
+            this.PasswordTextBox1.TabIndex = 3;
             this.PasswordTextBox1.Enter += new System.EventHandler(this.PasswordTextBox1_Enter);
             this.PasswordTextBox1.Leave += new System.EventHandler(this.PasswordTextBox1_Leave);
             // 
@@ -190,7 +192,7 @@
             this.PasswordTextBox2.Name = "PasswordTextBox2";
             this.PasswordTextBox2.PasswordChar = '*';
             this.PasswordTextBox2.Size = new System.Drawing.Size(259, 22);
-            this.PasswordTextBox2.TabIndex = 28;
+            this.PasswordTextBox2.TabIndex = 4;
             this.PasswordTextBox2.Enter += new System.EventHandler(this.PasswordTextBox2_Enter);
             this.PasswordTextBox2.Leave += new System.EventHandler(this.PasswordTextBox2_Leave);
             // 
@@ -214,7 +216,7 @@
             this.StudentCheckBox.Location = new System.Drawing.Point(70, 390);
             this.StudentCheckBox.Name = "StudentCheckBox";
             this.StudentCheckBox.Size = new System.Drawing.Size(86, 19);
-            this.StudentCheckBox.TabIndex = 30;
+            this.StudentCheckBox.TabIndex = 6;
             this.StudentCheckBox.Text = "我是学生";
             this.StudentCheckBox.Click += new System.EventHandler(this.StudentCheckBox_Click);
             // 
@@ -228,7 +230,7 @@
             this.TeacherCheckBox.Location = new System.Drawing.Point(298, 390);
             this.TeacherCheckBox.Name = "TeacherCheckBox";
             this.TeacherCheckBox.Size = new System.Drawing.Size(86, 19);
-            this.TeacherCheckBox.TabIndex = 31;
+            this.TeacherCheckBox.TabIndex = 7;
             this.TeacherCheckBox.Text = "我是教师";
             this.TeacherCheckBox.Click += new System.EventHandler(this.TeacherCheckBox_Click);
             // 
@@ -254,7 +256,7 @@
             this.IDTextBox.Location = new System.Drawing.Point(116, 93);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(259, 22);
-            this.IDTextBox.TabIndex = 34;
+            this.IDTextBox.TabIndex = 1;
             this.IDTextBox.Enter += new System.EventHandler(this.IDTextBox_Enter);
             this.IDTextBox.Leave += new System.EventHandler(this.IDTextBox_Leave);
             // 
@@ -290,7 +292,7 @@
             this.AcademicTextBox.Location = new System.Drawing.Point(114, 325);
             this.AcademicTextBox.Name = "AcademicTextBox";
             this.AcademicTextBox.Size = new System.Drawing.Size(259, 22);
-            this.AcademicTextBox.TabIndex = 37;
+            this.AcademicTextBox.TabIndex = 5;
             this.AcademicTextBox.Enter += new System.EventHandler(this.AcademicTextBox_Enter);
             this.AcademicTextBox.Leave += new System.EventHandler(this.AcademicTextBox_Leave);
             // 
@@ -318,6 +320,7 @@
             this.ReturnButton.Size = new System.Drawing.Size(96, 96);
             this.ReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.ReturnButton.TabIndex = 38;
+            this.ReturnButton.TabStop = false;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             this.ReturnButton.MouseLeave += new System.EventHandler(this.ReturnButton_MouseLeave);
             this.ReturnButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReturnButton_MouseMove);
@@ -335,7 +338,8 @@
             this.RegistButton.Name = "RegistButton";
             this.RegistButton.Size = new System.Drawing.Size(96, 96);
             this.RegistButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.RegistButton.TabIndex = 39;
+            this.RegistButton.TabIndex = 8;
+            this.RegistButton.TabStop = false;
             this.RegistButton.Click += new System.EventHandler(this.RegistButton_Click);
             this.RegistButton.MouseLeave += new System.EventHandler(this.RegistButton_MouseLeave);
             this.RegistButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegistButton_MouseMove);
@@ -345,6 +349,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(150)))));
+            this.CancelButton = this.ShutDownButton;
             this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.IDCueText);
             this.Controls.Add(this.RegistButton);

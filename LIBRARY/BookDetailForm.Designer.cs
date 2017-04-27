@@ -47,6 +47,11 @@
             this.ResultDataSheet = new System.Windows.Forms.DataGridView();
             this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AuthorText = new System.Windows.Forms.Label();
+            this.BookIDText = new System.Windows.Forms.Label();
+            this.PublisherText = new System.Windows.Forms.Label();
+            this.PubCountText = new System.Windows.Forms.Label();
+            this.PageNumText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +85,7 @@
             this.authorLabel.BackColor = System.Drawing.Color.Transparent;
             this.authorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.authorLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.authorLabel.Location = new System.Drawing.Point(282, 141);
+            this.authorLabel.Location = new System.Drawing.Point(268, 141);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(92, 27);
             this.authorLabel.TabIndex = 2;
@@ -92,7 +97,7 @@
             this.PublisherLabel.BackColor = System.Drawing.Color.Transparent;
             this.PublisherLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PublisherLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PublisherLabel.Location = new System.Drawing.Point(282, 203);
+            this.PublisherLabel.Location = new System.Drawing.Point(268, 203);
             this.PublisherLabel.Name = "PublisherLabel";
             this.PublisherLabel.Size = new System.Drawing.Size(92, 27);
             this.PublisherLabel.TabIndex = 3;
@@ -104,7 +109,7 @@
             this.BookIDLabel.BackColor = System.Drawing.Color.Transparent;
             this.BookIDLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BookIDLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookIDLabel.Location = new System.Drawing.Point(282, 172);
+            this.BookIDLabel.Location = new System.Drawing.Point(268, 172);
             this.BookIDLabel.Name = "BookIDLabel";
             this.BookIDLabel.Size = new System.Drawing.Size(92, 27);
             this.BookIDLabel.TabIndex = 4;
@@ -116,7 +121,7 @@
             this.PubCountLabel.BackColor = System.Drawing.Color.Transparent;
             this.PubCountLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PubCountLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PubCountLabel.Location = new System.Drawing.Point(282, 234);
+            this.PubCountLabel.Location = new System.Drawing.Point(268, 234);
             this.PubCountLabel.Name = "PubCountLabel";
             this.PubCountLabel.Size = new System.Drawing.Size(92, 27);
             this.PubCountLabel.TabIndex = 5;
@@ -128,7 +133,7 @@
             this.PageNumLabel.BackColor = System.Drawing.Color.Transparent;
             this.PageNumLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PageNumLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PageNumLabel.Location = new System.Drawing.Point(282, 265);
+            this.PageNumLabel.Location = new System.Drawing.Point(268, 265);
             this.PageNumLabel.Name = "PageNumLabel";
             this.PageNumLabel.Size = new System.Drawing.Size(92, 27);
             this.PageNumLabel.TabIndex = 6;
@@ -262,6 +267,66 @@
             this.BookState.ReadOnly = true;
             this.BookState.Width = 120;
             // 
+            // AuthorText
+            // 
+            this.AuthorText.AutoSize = true;
+            this.AuthorText.BackColor = System.Drawing.Color.Transparent;
+            this.AuthorText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AuthorText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AuthorText.Location = new System.Drawing.Point(351, 141);
+            this.AuthorText.Name = "AuthorText";
+            this.AuthorText.Size = new System.Drawing.Size(92, 27);
+            this.AuthorText.TabIndex = 18;
+            this.AuthorText.Text = "测试作者";
+            // 
+            // BookIDText
+            // 
+            this.BookIDText.AutoSize = true;
+            this.BookIDText.BackColor = System.Drawing.Color.Transparent;
+            this.BookIDText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BookIDText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookIDText.Location = new System.Drawing.Point(351, 172);
+            this.BookIDText.Name = "BookIDText";
+            this.BookIDText.Size = new System.Drawing.Size(108, 27);
+            this.BookIDText.TabIndex = 19;
+            this.BookIDText.Text = "12345678";
+            // 
+            // PublisherText
+            // 
+            this.PublisherText.AutoSize = true;
+            this.PublisherText.BackColor = System.Drawing.Color.Transparent;
+            this.PublisherText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PublisherText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PublisherText.Location = new System.Drawing.Point(351, 203);
+            this.PublisherText.Name = "PublisherText";
+            this.PublisherText.Size = new System.Drawing.Size(112, 27);
+            this.PublisherText.TabIndex = 20;
+            this.PublisherText.Text = "测试出版社";
+            // 
+            // PubCountText
+            // 
+            this.PubCountText.AutoSize = true;
+            this.PubCountText.BackColor = System.Drawing.Color.Transparent;
+            this.PubCountText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PubCountText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PubCountText.Location = new System.Drawing.Point(351, 234);
+            this.PubCountText.Name = "PubCountText";
+            this.PubCountText.Size = new System.Drawing.Size(72, 27);
+            this.PubCountText.TabIndex = 21;
+            this.PubCountText.Text = "第一版";
+            // 
+            // PageNumText
+            // 
+            this.PageNumText.AutoSize = true;
+            this.PageNumText.BackColor = System.Drawing.Color.Transparent;
+            this.PageNumText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PageNumText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PageNumText.Location = new System.Drawing.Point(351, 265);
+            this.PageNumText.Name = "PageNumText";
+            this.PageNumText.Size = new System.Drawing.Size(36, 27);
+            this.PageNumText.TabIndex = 22;
+            this.PageNumText.Text = "25";
+            // 
             // BookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -269,6 +334,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1000, 705);
+            this.Controls.Add(this.PageNumText);
+            this.Controls.Add(this.PubCountText);
+            this.Controls.Add(this.PublisherText);
+            this.Controls.Add(this.BookIDText);
+            this.Controls.Add(this.AuthorText);
             this.Controls.Add(this.ResultDataSheet);
             this.Controls.Add(this.BookOrderButton);
             this.Controls.Add(this.BookBorrowButton);
@@ -280,10 +350,14 @@
             this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.BookPictureBox);
             this.Controls.Add(this.BookNameLabel);
+            this.DM_CanMove = false;
+            this.DM_CanResize = false;
             this.DM_howBorder = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
             this.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BookDetailForm";
             this.Text = "BookDetailForm";
             this.Load += new System.EventHandler(this.BookDetailForm_Load);
@@ -309,5 +383,10 @@
         public System.Windows.Forms.DataGridView ResultDataSheet;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookState;
+        private System.Windows.Forms.Label AuthorText;
+        private System.Windows.Forms.Label BookIDText;
+        private System.Windows.Forms.Label PublisherText;
+        private System.Windows.Forms.Label PubCountText;
+        private System.Windows.Forms.Label PageNumText;
     }
 }

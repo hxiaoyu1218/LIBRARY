@@ -237,7 +237,7 @@
             this.ResultDataSheet.AllowUserToDeleteRows = false;
             this.ResultDataSheet.AllowUserToResizeColumns = false;
             this.ResultDataSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -245,7 +245,6 @@
             this.ResultDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ResultDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ResultDataSheet.CausesValidation = false;
-            this.ResultDataSheet.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
@@ -286,6 +285,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.ResultDataSheet.RowHeadersVisible = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle6;
@@ -297,7 +297,6 @@
             this.ResultDataSheet.Size = new System.Drawing.Size(814, 469);
             this.ResultDataSheet.StandardTab = true;
             this.ResultDataSheet.TabIndex = 1;
-            this.ResultDataSheet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataSheet_CellClick);
             this.ResultDataSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataSheet_CellContentClick);
             // 
             // ISBN
@@ -305,14 +304,14 @@
             this.ISBN.HeaderText = "ID";
             this.ISBN.Name = "ISBN";
             this.ISBN.ReadOnly = true;
-            this.ISBN.Width = 130;
+            this.ISBN.Width = 125;
             // 
             // BookName
             // 
             this.BookName.HeaderText = "书名";
             this.BookName.Name = "BookName";
             this.BookName.ReadOnly = true;
-            this.BookName.Width = 170;
+            this.BookName.Width = 175;
             // 
             // Author
             // 
@@ -388,6 +387,8 @@
             this.Controls.Add(this.NameBackground);
             this.Controls.Add(this.AuthorBackground);
             this.Controls.Add(this.PublisherBackgound);
+            this.DM_CanMove = false;
+            this.DM_CanResize = false;
             this.DM_howBorder = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
@@ -421,13 +422,13 @@
         private System.Windows.Forms.PictureBox AuthorBackground;
         private System.Windows.Forms.PictureBox PublisherBackgound;
         public System.Windows.Forms.DataGridView ResultDataSheet;
+        private System.Windows.Forms.PictureBox DividerLine;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ISBN;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Author;
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn RemainNum;
         private System.Windows.Forms.DataGridViewLinkColumn Op;
-        private System.Windows.Forms.PictureBox DividerLine;
-        private System.Windows.Forms.Label label1;
     }
 }

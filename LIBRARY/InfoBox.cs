@@ -39,7 +39,7 @@ namespace LIBRARY
             textType = tT;
             bdf = b;
             InitializeComponent();
-            
+
         }
 
         private void InfoBox_Load(object sender, EventArgs e)
@@ -85,11 +85,19 @@ namespace LIBRARY
             {
                 TextBox.Text = "两次输入的密码不同，请重试";
             }
+            else if (textType == 11)
+            {
+                TextBox.Text = "当前用户借书已达上限";
+            }
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            if (textType == 1 || textType == 2) bdf.Enabled = true;
+            if (textType == 1 || textType == 2)
+            {
+                bdf.Enabled = true;
+                bdf.BookListRefresh();
+            }
             Close();
         }
     }

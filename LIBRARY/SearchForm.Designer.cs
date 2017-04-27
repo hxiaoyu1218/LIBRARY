@@ -268,6 +268,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(1000, 705);
+            this.ControlBox = false;
             this.Controls.Add(this.BigTitlePictureBox);
             this.Controls.Add(this.BookReturnButton);
             this.Controls.Add(this.UserInfoButton);
@@ -283,8 +284,12 @@
             this.Controls.Add(this.NameBackground);
             this.Controls.Add(this.AuthorBackground);
             this.Controls.Add(this.PublisherBackgound);
+            this.DM_CanMove = false;
+            this.DM_CanResize = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SearchForm";
             this.Text = "SearchForm";
             this.Load += new System.EventHandler(this.SearchForm_Load);

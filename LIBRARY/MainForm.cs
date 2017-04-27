@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -42,6 +43,7 @@ namespace LIBRARY
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
+            ClassBackEnd.book.Clear();
             if(ReturnButton.Tag != null)//不在主页，启用返回键
             {
                 if((int)ReturnButton.Tag == 1)//back from SearchResultForm to SearchForm

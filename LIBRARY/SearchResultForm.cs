@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -22,14 +23,14 @@ namespace LIBRARY
 
         private void SearchResultForm_Load(object sender, EventArgs e)
         {
-
+            #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;//1 代表搜索界面 2代表书籍详情
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
+            #endregion
 
-
-
+            #region 默认搜索条件：全部检索
             AllBackground.Show();
             SearchAll.ForeColor = Color.White;//默认检索条件：全部检索
             SearchAll.BackColor = Color.FromArgb(26, 148, 129);
@@ -38,26 +39,41 @@ namespace LIBRARY
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
             ButtonState = 1;
+            #endregion
 
-
-            for (int i = 0; i < 13; i++)//searchform的搜索结果，测试填表，共13行
+            // to do 装载第一次搜索结果booklist
+            for (int i = 0; i < ClassBackEnd.book.Count; i++)
             {
-
+                var c = ClassBackEnd.book[i];
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = "2233456";
-                ResultDataSheet.Rows[index].Cells[1].Value = "c++ begin and give up";
-                ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
-                ResultDataSheet.Rows[index].Cells[3].Value = "c326 all";
-                ResultDataSheet.Rows[index].Cells[4].Value = "233";
-                ResultDataSheet.Rows[index].Cells[5].Value = "借书";
+                ResultDataSheet.Rows[index].Cells[0].Value = c.GetIsbn();
+                ResultDataSheet.Rows[index].Cells[1].Value = c.GetName();
+                ResultDataSheet.Rows[index].Cells[2].Value = c.GetAuthor();
+                ResultDataSheet.Rows[index].Cells[3].Value = c.GetPublisher();
+                ResultDataSheet.Rows[index].Cells[4].Value = c.GetAmount();
+                ResultDataSheet.Rows[index].Cells[5].Value = "详情";
                 ResultDataSheet.Rows[index].Height = 40;
             }
-            ResultDataSheet.ClearSelection();
 
+            //for (int i = 0; i < 13; i++)//searchform的搜索结果，测试填表，共13行
+            //{
+            //    DataGridViewRow row = new DataGridViewRow();
+            //    int index = ResultDataSheet.Rows.Add(row);
+            //    ResultDataSheet.Rows[index].Cells[0].Value = "2233456";
+            //    ResultDataSheet.Rows[index].Cells[1].Value = "c++ begin and give up";
+            //    ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
+            //    ResultDataSheet.Rows[index].Cells[3].Value = "c326 all";
+            //    ResultDataSheet.Rows[index].Cells[4].Value = "233";
+            //    ResultDataSheet.Rows[index].Cells[5].Value = "借书";
+            //    ResultDataSheet.Rows[index].Height = 40;
+            //}
+
+            ResultDataSheet.ClearSelection();
             ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }
+        #region SearchResultForm 按钮动画处理
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)//屏蔽换行回车键
         {
             if ((int)e.KeyCode == 13)
@@ -228,11 +244,7 @@ namespace LIBRARY
             SearchPublisher.ForeColor = Color.White;
             SearchPublisher.BackColor = Color.FromArgb(26, 148, 129);
         }
-
-        private void ResultDataSheet_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        #endregion
 
         private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -247,7 +259,7 @@ namespace LIBRARY
             if (e.ColumnIndex == 5)
             {
                 frmMain.MainPanel.Controls.Clear();
-                BookDetailForm bookDetailForm = new BookDetailForm(frmMain);
+                BookDetailForm bookDetailForm = new BookDetailForm(frmMain, e.RowIndex);
                 bookDetailForm.TopLevel = false;
                 bookDetailForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(bookDetailForm);
@@ -259,19 +271,39 @@ namespace LIBRARY
         private void SearchButton_Click(object sender, EventArgs e)//重新检索按钮
         {
             ResultDataSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < 5; i++)//测试填表
-            {
+            //to do 根据buttonstate决定搜索条件
+            ClassBackEnd.book.Clear();
+            ClassBackEnd.SearchBook(ButtonState, SearchBox.Text);
 
+            for (int i = 0; i < ClassBackEnd.book.Count; i++)
+            {
+                var c = ClassBackEnd.book[i];
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = "22";
-                ResultDataSheet.Rows[index].Cells[1].Value = "c# give up";
-                ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
-                ResultDataSheet.Rows[index].Cells[3].Value = "byr";
-                ResultDataSheet.Rows[index].Cells[4].Value = "233";
-                ResultDataSheet.Rows[index].Cells[5].Value = "借书";
+                ResultDataSheet.Rows[index].Cells[0].Value = c.GetIsbn();
+                ResultDataSheet.Rows[index].Cells[1].Value = c.GetName();
+                ResultDataSheet.Rows[index].Cells[2].Value = c.GetAuthor();
+                ResultDataSheet.Rows[index].Cells[3].Value = c.GetPublisher();
+                ResultDataSheet.Rows[index].Cells[4].Value = c.GetAmount();
+                ResultDataSheet.Rows[index].Cells[5].Value = "详情";
                 ResultDataSheet.Rows[index].Height = 40;
             }
+
+
+            //for (int i = 0; i < 5; i++)//测试填表
+            //{
+            //    DataGridViewRow row = new DataGridViewRow();
+            //    int index = ResultDataSheet.Rows.Add(row);
+            //    ResultDataSheet.Rows[index].Cells[0].Value = "22";
+            //    ResultDataSheet.Rows[index].Cells[1].Value = "c# give up";
+            //    ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
+            //    ResultDataSheet.Rows[index].Cells[3].Value = "byr";
+            //    ResultDataSheet.Rows[index].Cells[4].Value = "233";
+            //    ResultDataSheet.Rows[index].Cells[5].Value = "借书";
+            //    ResultDataSheet.Rows[index].Height = 40;
+            //}
+
+
             ResultDataSheet.ClearSelection();
             ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }

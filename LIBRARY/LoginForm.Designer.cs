@@ -90,6 +90,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 6;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -117,6 +118,7 @@
             this.RegisterButton.Size = new System.Drawing.Size(96, 96);
             this.RegisterButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.RegisterButton.TabIndex = 14;
+            this.RegisterButton.TabStop = false;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             this.RegisterButton.MouseLeave += new System.EventHandler(this.RegisterButton_MouseLeave);
             this.RegisterButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegisterButton_MouseMove);
@@ -135,6 +137,7 @@
             this.LoginButton.Size = new System.Drawing.Size(96, 96);
             this.LoginButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.LoginButton.TabIndex = 15;
+            this.LoginButton.TabStop = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             this.LoginButton.MouseLeave += new System.EventHandler(this.LoginButton_MouseLeave);
             this.LoginButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginButton_MouseMove);
@@ -153,7 +156,6 @@
             this.GuestLink.Name = "GuestLink";
             this.GuestLink.Size = new System.Drawing.Size(63, 14);
             this.GuestLink.TabIndex = 16;
-            this.GuestLink.TabStop = true;
             this.GuestLink.Text = "访客进入";
             this.GuestLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GuestLink_LinkClicked);
             // 
@@ -170,8 +172,7 @@
             this.PasswordForgetLink.Location = new System.Drawing.Point(297, 382);
             this.PasswordForgetLink.Name = "PasswordForgetLink";
             this.PasswordForgetLink.Size = new System.Drawing.Size(91, 14);
-            this.PasswordForgetLink.TabIndex = 17;
-            this.PasswordForgetLink.TabStop = true;
+            this.PasswordForgetLink.TabIndex = 0;
             this.PasswordForgetLink.Text = "忘记密码了？";
             // 
             // dmCheckBox1
@@ -196,7 +197,7 @@
             this.UserTextBox.Location = new System.Drawing.Point(116, 263);
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.Size = new System.Drawing.Size(259, 22);
-            this.UserTextBox.TabIndex = 19;
+            this.UserTextBox.TabIndex = 1;
             this.UserTextBox.Enter += new System.EventHandler(this.UserTextBox_Enter);
             this.UserTextBox.Leave += new System.EventHandler(this.UserTextBox_Leave);
             // 
@@ -209,7 +210,7 @@
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(259, 22);
-            this.PasswordTextBox.TabIndex = 20;
+            this.PasswordTextBox.TabIndex = 2;
             this.PasswordTextBox.Enter += new System.EventHandler(this.PasswordTextBox_Enter);
             this.PasswordTextBox.Leave += new System.EventHandler(this.PasswordTextBox_Leave);
             // 
@@ -259,8 +260,11 @@
             this.Controls.Add(this.UserBg);
             this.Controls.Add(this.TitlePicture);
             this.Controls.Add(this.WhiteBg);
+            this.DM_CanResize = false;
             this.DM_howBorder = false;
             this.DM_ShadowWidth = 5;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "登录";
