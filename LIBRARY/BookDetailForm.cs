@@ -72,6 +72,8 @@ namespace LIBRARY
         }
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
+
+
             BookDetailLoad();
             if(ClassBackEnd.HasBorrowed(bookIndex))
             {

@@ -144,7 +144,7 @@
             this.PasswordCueText1.Name = "PasswordCueText1";
             this.PasswordCueText1.Size = new System.Drawing.Size(71, 15);
             this.PasswordCueText1.TabIndex = 26;
-            this.PasswordCueText1.Text = "登陆密码";
+            this.PasswordCueText1.Text = "登录密码";
             this.PasswordCueText1.Click += new System.EventHandler(this.PasswordCueText1_Click);
             // 
             // PasswordTextBox1

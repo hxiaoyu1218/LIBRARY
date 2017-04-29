@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrarySystemBackEnd;
+
 
 namespace LIBRARY
 {
@@ -19,30 +21,50 @@ namespace LIBRARY
             frmMain = frm;
             InitializeComponent();
         }
-        private void test()
+        private void SheeetRefresh()
         {
             MessageSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < 6; i++)//至少填充6个
+            int i = 0;
+            for (; i < ClassBackEnd.usermessage.Count; i++)//至少填充6个
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = MessageSheet.Rows.Add(row);
-                MessageSheet.Rows[index].Cells[0].Value = i.ToString();
-                MessageSheet.Rows[index].Cells[1].Value = "你预约的书已经到库请注意";
-                MessageSheet.Rows[index].Height = 40;
+                MessageSheet.Rows[index].Cells[0].Value = (i + 1).ToString();
+                MessageSheet.Rows[index].Cells[1].Value = ClassBackEnd.usermessage[i];
+                MessageSheet.Rows[index].Height = 48;
+            }
+            while (i < 5)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = MessageSheet.Rows.Add(row);
+                MessageSheet.Rows[index].Cells[0].Value = "";
+                MessageSheet.Rows[index].Cells[1].Value = "";
+                MessageSheet.Rows[index].Height = 48;
+                i++;
             }
             MessageSheet.ClearSelection();
             MessageSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 
             BorrowInfoSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < 7; i++)
+            for (i = 0; i < ClassBackEnd.userborredbook.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
-                BorrowInfoSheet.Rows[index].Cells[0].Value = "SQL 从删库到跑路";
-                BorrowInfoSheet.Rows[index].Cells[1].Value = "2017-12-12 2015-2-21";
+                BorrowInfoSheet.Rows[index].Cells[0].Value = ClassBackEnd.userborredbook[i].bookname;
+                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.userborredbook[i].bsdate.ToShortDateString() + " " + ClassBackEnd.userborredbook[i].rgdate.ToShortDateString();
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
                 BorrowInfoSheet.Rows[index].Height = 60;
+            }
+            while (i < 7)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = BorrowInfoSheet.Rows.Add(row);
+                BorrowInfoSheet.Rows[index].Cells[0].Value = "";
+                BorrowInfoSheet.Rows[index].Cells[1].Value = "";
+                BorrowInfoSheet.Rows[index].Cells[2].Value = "";
+                BorrowInfoSheet.Rows[index].Height = 60;
+                i++;
             }
             BorrowInfoSheet.ClearSelection();
             BorrowInfoSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -52,7 +74,7 @@ namespace LIBRARY
 
 
             BookRecordSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < 7; i++)
+            for (i = 0; i < 7; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BookRecordSheet.Rows.Add(row);
@@ -68,10 +90,21 @@ namespace LIBRARY
 
 
         }
+        private void UserInfoLoad()
+        {
+            WelTextBox.Text = "欢迎，" + ClassBackEnd.userdetail[0] + "！";
+            AcedemicText.Text = ClassBackEnd.userdetail[1];
+            CreditText.Text = ClassBackEnd.userdetail[2];
+            MaxBorrowText.Text = ClassBackEnd.userdetail[3];
+            NowBorrowText.Text = ClassBackEnd.userdetail[4];
+            NowOrderText.Text = ClassBackEnd.userdetail[5];
+        }
         private void UserForm_Load(object sender, EventArgs e)
         {
+            ClassBackEnd.GetIntoPersonCenter();
+            UserInfoLoad();
             ButtonState = 0;
-            test();
+            SheeetRefresh();
             BookRecordSheet.Hide();
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;
@@ -103,6 +136,21 @@ namespace LIBRARY
         private void UserChangeButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Application.Restart();
+        }
+
+        private void ChargeButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChargeForm chargeForm = new ChargeForm();
+            chargeForm.ShowDialog();
+            chargeForm.Dispose();
+            CreditText.Text = ClassBackEnd.userdetail[2];
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PasswordChangeForm passwordChangeForm = new PasswordChangeForm();
+            passwordChangeForm.ShowDialog();
+            passwordChangeForm.Dispose();
         }
     }
 }

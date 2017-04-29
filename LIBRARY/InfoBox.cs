@@ -93,6 +93,18 @@ namespace LIBRARY
             {
                 TextBox.Text = "当前用户预约已达上限";
             }
+            else if (textType == 13)
+            {
+                TextBox.Text = "请输入正确的数字!";
+            }
+            else if (textType == 14)
+            {
+                TextBox.Text = "充值成功";
+            }
+            else if (textType == 15)
+            {
+                TextBox.Text = "原密码错误";
+            }
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)

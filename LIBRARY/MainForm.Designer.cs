@@ -81,7 +81,7 @@
             this.ShutDownButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(42)))), ((int)(((byte)(21)))));
             this.ShutDownButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(65)))), ((int)(((byte)(39)))));
             this.ShutDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShutDownButton.Location = new System.Drawing.Point(951, 5);
+            this.ShutDownButton.Location = new System.Drawing.Point(954, 5);
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 5;
@@ -97,7 +97,7 @@
             this.MinButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(124)))), ((int)(((byte)(194)))));
             this.MinButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(149)))), ((int)(((byte)(222)))));
             this.MinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinButton.Location = new System.Drawing.Point(898, 5);
+            this.MinButton.Location = new System.Drawing.Point(901, 5);
             this.MinButton.Name = "MinButton";
             this.MinButton.Size = new System.Drawing.Size(35, 35);
             this.MinButton.TabIndex = 6;

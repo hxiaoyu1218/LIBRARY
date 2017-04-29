@@ -70,6 +70,11 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.AcedemicText = new System.Windows.Forms.Label();
+            this.CreditText = new System.Windows.Forms.Label();
+            this.MaxBorrowText = new System.Windows.Forms.Label();
+            this.NowBorrowText = new System.Windows.Forms.Label();
+            this.NowOrderText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MessageSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).BeginInit();
@@ -214,6 +219,7 @@
             this.linkLabel1.TabIndex = 22;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "修改密码";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // ChargeButton
             // 
@@ -228,6 +234,7 @@
             this.ChargeButton.TabIndex = 23;
             this.ChargeButton.TabStop = true;
             this.ChargeButton.Text = "充值";
+            this.ChargeButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChargeButton_LinkClicked);
             // 
             // BookInfoButton
             // 
@@ -504,6 +511,61 @@
             this.dataGridViewLinkColumn1.VisitedLinkColor = System.Drawing.Color.Black;
             this.dataGridViewLinkColumn1.Width = 90;
             // 
+            // AcedemicText
+            // 
+            this.AcedemicText.AutoSize = true;
+            this.AcedemicText.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AcedemicText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.AcedemicText.Location = new System.Drawing.Point(226, 135);
+            this.AcedemicText.Name = "AcedemicText";
+            this.AcedemicText.Size = new System.Drawing.Size(118, 24);
+            this.AcedemicText.TabIndex = 28;
+            this.AcedemicText.Text = "测试学院文字";
+            // 
+            // CreditText
+            // 
+            this.CreditText.AutoSize = true;
+            this.CreditText.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CreditText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.CreditText.Location = new System.Drawing.Point(226, 165);
+            this.CreditText.Name = "CreditText";
+            this.CreditText.Size = new System.Drawing.Size(43, 24);
+            this.CreditText.TabIndex = 29;
+            this.CreditText.Text = "100";
+            // 
+            // MaxBorrowText
+            // 
+            this.MaxBorrowText.AutoSize = true;
+            this.MaxBorrowText.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaxBorrowText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.MaxBorrowText.Location = new System.Drawing.Point(226, 195);
+            this.MaxBorrowText.Name = "MaxBorrowText";
+            this.MaxBorrowText.Size = new System.Drawing.Size(32, 24);
+            this.MaxBorrowText.TabIndex = 30;
+            this.MaxBorrowText.Text = "12";
+            // 
+            // NowBorrowText
+            // 
+            this.NowBorrowText.AutoSize = true;
+            this.NowBorrowText.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NowBorrowText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.NowBorrowText.Location = new System.Drawing.Point(226, 225);
+            this.NowBorrowText.Name = "NowBorrowText";
+            this.NowBorrowText.Size = new System.Drawing.Size(21, 24);
+            this.NowBorrowText.TabIndex = 31;
+            this.NowBorrowText.Text = "2";
+            // 
+            // NowOrderText
+            // 
+            this.NowOrderText.AutoSize = true;
+            this.NowOrderText.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NowOrderText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.NowOrderText.Location = new System.Drawing.Point(226, 255);
+            this.NowOrderText.Name = "NowOrderText";
+            this.NowOrderText.Size = new System.Drawing.Size(21, 24);
+            this.NowOrderText.TabIndex = 32;
+            this.NowOrderText.Text = "4";
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -512,6 +574,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.ControlBox = false;
+            this.Controls.Add(this.NowOrderText);
+            this.Controls.Add(this.NowBorrowText);
+            this.Controls.Add(this.MaxBorrowText);
+            this.Controls.Add(this.CreditText);
+            this.Controls.Add(this.AcedemicText);
             this.Controls.Add(this.BookRecordSheet);
             this.Controls.Add(this.BorrowInfoSheet);
             this.Controls.Add(this.MessageSheet);
@@ -571,5 +638,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
+        private System.Windows.Forms.Label AcedemicText;
+        private System.Windows.Forms.Label CreditText;
+        private System.Windows.Forms.Label MaxBorrowText;
+        private System.Windows.Forms.Label NowBorrowText;
+        private System.Windows.Forms.Label NowOrderText;
     }
 }
