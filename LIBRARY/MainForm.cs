@@ -46,27 +46,32 @@ namespace LIBRARY
             ClassBackEnd.book.Clear();
             if(ReturnButton.Tag != null)//不在主页，启用返回键
             {
-                if((int)ReturnButton.Tag == 1)//back from SearchResultForm to SearchForm
+                if((int)ReturnButton.Tag == 1)
                 {
                     MainPanel.Controls.Clear();
                     SearchForm searchForm = new SearchForm(this);
                     searchForm.TopLevel = false;
                     searchForm.Dock = DockStyle.Fill;
-                    MainPanel.Controls.Add(searchForm);//添加到panel控件中
+                    MainPanel.Controls.Add(searchForm);
                     searchForm.Show();
                     ReturnButton.Tag = null;
                 }
-                else if((int)ReturnButton.Tag == 2)//back from BookDetailForm to SearchResultForm
+                else if((int)ReturnButton.Tag == 2)
                 {
                     MainPanel.Controls.Clear();
                     SearchResultForm searchResultForm = new SearchResultForm(this);
                     searchResultForm.TopLevel = false;
                     searchResultForm.Dock = DockStyle.Fill;
-                    MainPanel.Controls.Add(searchResultForm);//添加到panel控件中
+                    MainPanel.Controls.Add(searchResultForm);
                     searchResultForm.Show();
                     ReturnButton.Tag = 1;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

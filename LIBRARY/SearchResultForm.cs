@@ -24,7 +24,7 @@ namespace LIBRARY
         private void SearchResultForm_Load(object sender, EventArgs e)
         {
             #region 返回按钮处理
-            frmMain.ReturnButton.Tag = 1;//1 代表搜索界面 2代表书籍详情
+            frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
@@ -55,20 +55,6 @@ namespace LIBRARY
                 ResultDataSheet.Rows[index].Cells[5].Value = "详情";
                 ResultDataSheet.Rows[index].Height = 40;
             }
-
-            //for (int i = 0; i < 13; i++)//searchform的搜索结果，测试填表，共13行
-            //{
-            //    DataGridViewRow row = new DataGridViewRow();
-            //    int index = ResultDataSheet.Rows.Add(row);
-            //    ResultDataSheet.Rows[index].Cells[0].Value = "2233456";
-            //    ResultDataSheet.Rows[index].Cells[1].Value = "c++ begin and give up";
-            //    ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
-            //    ResultDataSheet.Rows[index].Cells[3].Value = "c326 all";
-            //    ResultDataSheet.Rows[index].Cells[4].Value = "233";
-            //    ResultDataSheet.Rows[index].Cells[5].Value = "借书";
-            //    ResultDataSheet.Rows[index].Height = 40;
-            //}
-
             ResultDataSheet.ClearSelection();
             ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -248,14 +234,6 @@ namespace LIBRARY
 
         private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //获得link点击事件
-            /* if (ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag == null && e.ColumnIndex == 5) 
-             {
-                 MessageBox.Show("选中操作列的第" + (e.RowIndex + 1).ToString() + "行");
-                 ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = true;//重新搜索后需要重置tag值
-                 ResultDataSheet.ClearSelection();
-                 ResultDataSheet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "已借阅";       
-             }*/
             if (e.ColumnIndex == 5)
             {
                 frmMain.MainPanel.Controls.Clear();
@@ -264,14 +242,13 @@ namespace LIBRARY
                 bookDetailForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(bookDetailForm);
                 bookDetailForm.Show();
-
             }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)//重新检索按钮
         {
-            ResultDataSheet.Rows.Clear();//清空上一次搜索表
-            //to do 根据buttonstate决定搜索条件
+            ResultDataSheet.Rows.Clear();
+
             ClassBackEnd.book.Clear();
             ClassBackEnd.SearchBook(ButtonState, SearchBox.Text);
 
@@ -288,22 +265,6 @@ namespace LIBRARY
                 ResultDataSheet.Rows[index].Cells[5].Value = "详情";
                 ResultDataSheet.Rows[index].Height = 40;
             }
-
-
-            //for (int i = 0; i < 5; i++)//测试填表
-            //{
-            //    DataGridViewRow row = new DataGridViewRow();
-            //    int index = ResultDataSheet.Rows.Add(row);
-            //    ResultDataSheet.Rows[index].Cells[0].Value = "22";
-            //    ResultDataSheet.Rows[index].Cells[1].Value = "c# give up";
-            //    ResultDataSheet.Rows[index].Cells[2].Value = "bupt";
-            //    ResultDataSheet.Rows[index].Cells[3].Value = "byr";
-            //    ResultDataSheet.Rows[index].Cells[4].Value = "233";
-            //    ResultDataSheet.Rows[index].Cells[5].Value = "借书";
-            //    ResultDataSheet.Rows[index].Height = 40;
-            //}
-
-
             ResultDataSheet.ClearSelection();
             ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }

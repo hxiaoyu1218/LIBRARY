@@ -245,8 +245,6 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)//搜索按钮，进入searchResultForm
         {
-            //to do 根据buttonstate进行搜索
-
             ClassBackEnd.SearchBook(ButtonState, SearchBox.Text);
             
             
@@ -256,6 +254,16 @@ namespace LIBRARY
             searchResultForm.Dock = DockStyle.Fill;
             frmMain.MainPanel.Controls.Add(searchResultForm);
             searchResultForm.Show();
+        }
+
+        private void UserInfoButton_Click(object sender, EventArgs e)
+        {
+            frmMain.MainPanel.Controls.Clear();
+            UserForm userForm = new UserForm(frmMain);
+            userForm.TopLevel = false;
+            userForm.Dock = DockStyle.Fill;
+            frmMain.MainPanel.Controls.Add(userForm);
+            userForm.Show();
         }
     }
 }

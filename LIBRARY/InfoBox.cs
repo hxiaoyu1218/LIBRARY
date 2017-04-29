@@ -51,7 +51,7 @@ namespace LIBRARY
             }
             else if (textType == 2)
             {
-                TextBox.Text = "预订成功";
+                TextBox.Text = "预约成功";
             }
             else if (textType == 3)
             {
@@ -88,6 +88,10 @@ namespace LIBRARY
             else if (textType == 11)
             {
                 TextBox.Text = "当前用户借书已达上限";
+            }
+            else if (textType == 12)
+            {
+                TextBox.Text = "当前用户预约已达上限";
             }
         }
 

@@ -60,6 +60,15 @@ namespace LIBRARY
             BookIDText.Text = ClassBackEnd.book[bookIndex].GetIsbn();
             PublisherText.Text = ClassBackEnd.book[bookIndex].GetPublisher();
             BookInfoTextbox.Text = ClassBackEnd.book[bookIndex].GetIntroduction();
+            try
+            {
+                BookPictureBox.BackgroundImage = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
+            }
+            catch
+            {
+                BookPictureBox.BackgroundImage = null;//set default image
+            }
+            
         }
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
@@ -109,7 +118,6 @@ namespace LIBRARY
 
         private void BookBorrowButton_Click(object sender, EventArgs e)
         {
-            //to do borrowbook function
             var b = ClassBackEnd.BorrowBook(bookIndex);
             if (b == 1)
             {
@@ -159,16 +167,31 @@ namespace LIBRARY
 
         private void BookOrderButton_Click(object sender, EventArgs e)
         {
-            //to do orderbook function
-            #region Infobox Show
-            InfoBox infoBox = new InfoBox(2, this);
-            infoBox.StartPosition = FormStartPosition.Manual;
-            Point p = frmMain.Location;
-            p.X += 375;
-            p.Y += 300;
-            infoBox.Location = p;
-            infoBox.Show();
-            #endregion
+            var v = ClassBackEnd.ScheduleBook(bookIndex);
+            if(v)
+            {
+                #region Infobox Show
+                InfoBox infoBox = new InfoBox(2, this);
+                infoBox.StartPosition = FormStartPosition.Manual;
+                Point p = frmMain.Location;
+                p.X += 375;
+                p.Y += 300;
+                infoBox.Location = p;
+                infoBox.Show();
+                #endregion
+            }
+            else
+            {
+                #region Infobox Show
+                InfoBox ib = new InfoBox(12, this);
+                ib.StartPosition = FormStartPosition.Manual;
+                Point p1 = frmMain.Location;
+                p1.X += 375;
+                p1.Y += 300;
+                ib.Location = p1;
+                ib.Show();
+                #endregion
+            }
             this.Enabled = false;
             BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
             BookOrderButton.Enabled = false;

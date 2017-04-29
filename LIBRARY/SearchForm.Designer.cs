@@ -233,6 +233,7 @@
             this.UserInfoButton.Size = new System.Drawing.Size(172, 172);
             this.UserInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.UserInfoButton.TabIndex = 13;
+            this.UserInfoButton.Click += new System.EventHandler(this.UserInfoButton_Click);
             this.UserInfoButton.MouseLeave += new System.EventHandler(this.UserInfoButton_MouseLeave);
             this.UserInfoButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UserInfoButton_MouseMove);
             // 
