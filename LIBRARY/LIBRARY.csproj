@@ -58,6 +58,12 @@
     <Compile Include="BookDetailForm.Designer.cs">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookReturnForm.Designer.cs">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChargeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="PasswordChangeForm.cs">
       <SubType>Form</SubType>
@@ -123,6 +132,9 @@
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BookReturnForm.resx">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChargeForm.resx">
       <DependentUpon>ChargeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +158,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegistForm.resx">
       <DependentUpon>RegistForm.cs</DependentUpon>
@@ -174,6 +187,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sbsbb11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noimage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

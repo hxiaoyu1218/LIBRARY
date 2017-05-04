@@ -66,6 +66,15 @@ namespace LIBRARY
                     searchResultForm.Show();
                     ReturnButton.Tag = 1;
                 }
+                else if ((int)ReturnButton.Tag == 3)
+                {
+                    MainPanel.Controls.Clear();
+                    UserForm userForm = new UserForm(this);
+                    userForm.TopLevel = false;
+                    userForm.Dock = DockStyle.Fill;
+                    MainPanel.Controls.Add(userForm);
+                    userForm.Show();
+                }
             }
         }
 

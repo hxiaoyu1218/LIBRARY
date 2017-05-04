@@ -15,12 +15,13 @@ namespace LIBRARY
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);        
-            //Application.Run(new MainForm());
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
             // Application.Run(new InfoBox(5));
             //Application.Run(new UserForm());
             //Application.Run(new PasswordChangeForm());
-            Application.Run(new ReturnForm());
+            //Application.Run(new ReturnForm());
+            //Application.Run(new BookReturnForm());
         }
     }
 }

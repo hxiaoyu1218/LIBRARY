@@ -243,11 +243,10 @@ namespace LIBRARY
         }
         #endregion
 
-        private void SearchButton_Click(object sender, EventArgs e)//搜索按钮，进入searchResultForm
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             ClassBackEnd.SearchBook(ButtonState, SearchBox.Text);
-            
-            
+
             frmMain.MainPanel.Controls.Clear();
             SearchResultForm searchResultForm = new SearchResultForm(frmMain);
             searchResultForm.TopLevel = false;
@@ -264,6 +263,16 @@ namespace LIBRARY
             userForm.Dock = DockStyle.Fill;
             frmMain.MainPanel.Controls.Add(userForm);
             userForm.Show();
+        }
+
+        private void BookReturnButton_Click(object sender, EventArgs e)
+        {
+            frmMain.MainPanel.Controls.Clear();
+            BookReturnForm bookReturnForm = new BookReturnForm(frmMain);
+            bookReturnForm.TopLevel = false;
+            bookReturnForm.Dock = DockStyle.Fill;
+            frmMain.MainPanel.Controls.Add(bookReturnForm);
+            bookReturnForm.Show();
         }
     }
 }

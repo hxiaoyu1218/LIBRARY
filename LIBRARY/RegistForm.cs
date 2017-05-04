@@ -47,7 +47,7 @@ namespace LIBRARY
                 StudentCheckBox.Checked = false;
                 TeacherCheckBox.Checked = true;
             }
-            else StudentCheckBox.Checked = true;
+            else TeacherCheckBox.Checked = true;
         }
         private void UserTextBox_Enter(object sender, EventArgs e)
         {

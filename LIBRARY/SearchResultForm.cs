@@ -15,7 +15,7 @@ namespace LIBRARY
     {
         private MainForm frmMain;
         private int ButtonState;//控制滑块位置 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER
-        public SearchResultForm(MainForm frm)//待增加参数，用于接收searchForm页面的搜索参数并执行搜索，展示结果
+        public SearchResultForm(MainForm frm)
         {
             frmMain = frm;
             InitializeComponent();
@@ -47,11 +47,11 @@ namespace LIBRARY
                 var c = ClassBackEnd.book[i];
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = c.GetIsbn();
-                ResultDataSheet.Rows[index].Cells[1].Value = c.GetName();
-                ResultDataSheet.Rows[index].Cells[2].Value = c.GetAuthor();
-                ResultDataSheet.Rows[index].Cells[3].Value = c.GetPublisher();
-                ResultDataSheet.Rows[index].Cells[4].Value = c.GetAmount();
+                ResultDataSheet.Rows[index].Cells[0].Value = c.bookisbn;
+                ResultDataSheet.Rows[index].Cells[1].Value = c.bookname;
+                ResultDataSheet.Rows[index].Cells[2].Value = c.author;
+                ResultDataSheet.Rows[index].Cells[3].Value = c.publisher;
+                ResultDataSheet.Rows[index].Cells[4].Value = c.bookamount;
                 ResultDataSheet.Rows[index].Cells[5].Value = "详情";
                 ResultDataSheet.Rows[index].Height = 40;
             }
@@ -257,11 +257,11 @@ namespace LIBRARY
                 var c = ClassBackEnd.book[i];
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = c.GetIsbn();
-                ResultDataSheet.Rows[index].Cells[1].Value = c.GetName();
-                ResultDataSheet.Rows[index].Cells[2].Value = c.GetAuthor();
-                ResultDataSheet.Rows[index].Cells[3].Value = c.GetPublisher();
-                ResultDataSheet.Rows[index].Cells[4].Value = c.GetAmount();
+                ResultDataSheet.Rows[index].Cells[0].Value = c.bookisbn;
+                ResultDataSheet.Rows[index].Cells[1].Value = c.bookname;
+                ResultDataSheet.Rows[index].Cells[2].Value = c.author;
+                ResultDataSheet.Rows[index].Cells[3].Value = c.publisher;
+                ResultDataSheet.Rows[index].Cells[4].Value = c.bookamount;
                 ResultDataSheet.Rows[index].Cells[5].Value = "详情";
                 ResultDataSheet.Rows[index].Height = 40;
             }

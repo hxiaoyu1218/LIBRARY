@@ -25,7 +25,7 @@ namespace LIBRARY
         public void BookListRefresh()
         {
             ResultDataSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < ClassBackEnd.book[bookIndex].GetAmount(); i++)
+            for (int i = 0; i < ClassBackEnd.book[bookIndex].bookamount; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
@@ -55,18 +55,18 @@ namespace LIBRARY
         }
         private void BookDetailLoad()
         {
-            BookNameLabel.Text = ClassBackEnd.book[bookIndex].GetName();
-            AuthorText.Text = ClassBackEnd.book[bookIndex].GetAuthor();
-            BookIDText.Text = ClassBackEnd.book[bookIndex].GetIsbn();
-            PublisherText.Text = ClassBackEnd.book[bookIndex].GetPublisher();
-            BookInfoTextbox.Text = ClassBackEnd.book[bookIndex].GetIntroduction();
+            BookNameLabel.Text = ClassBackEnd.book[bookIndex].bookname;
+            AuthorText.Text = ClassBackEnd.book[bookIndex].author;
+            BookIDText.Text = ClassBackEnd.book[bookIndex].bookisbn;
+            PublisherText.Text = ClassBackEnd.book[bookIndex].publisher;
+            BookInfoTextbox.Text = ClassBackEnd.book[bookIndex].introduction;
             try
             {
-                BookPictureBox.BackgroundImage = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
+                BookPictureBox.Image = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
             }
             catch
             {
-                BookPictureBox.BackgroundImage = null;//set default image
+                BookPictureBox.Image = Properties.Resources.noimage;//set default image
             }
             
         }
@@ -81,18 +81,17 @@ namespace LIBRARY
                 BookBorrowButton.Enabled = false;
                 BookOrderButton.Hide();
             }
-            else if(ClassBackEnd.HasScheduled(bookIndex))
+            else if(ClassBackEnd.GetBookState(bookIndex) )
             {
-                BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
-                BookOrderButton.Enabled = false;
-                BookBorrowButton.Hide();
+                BookOrderButton.Hide();
             }
             else
             {
-                if (ClassBackEnd.GetBookState(bookIndex))
+                if (ClassBackEnd.HasScheduled(bookIndex))
                 {
-                    BookBorrowButton.Show();
-                    BookOrderButton.Hide();
+                    BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
+                    BookOrderButton.Enabled = false;
+                    BookBorrowButton.Hide();
                 }
                 else
                 {
