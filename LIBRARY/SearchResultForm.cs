@@ -30,9 +30,9 @@ namespace LIBRARY
         {
             ResultDataSheet.Rows.Clear();
             ResultDataSheet.Hide();
-            int start = (page - 1) * 200;
-            int end = page * 200;
-            if (page == maxPage) end = ClassBackEnd.Book.Count;
+            int start = (nPage - 1) * 200;
+            int end = nPage * 200;
+            if (nPage == maxPage) end = ClassBackEnd.Book.Count;
 
             for (int i = start; i < end; i++)
             {
@@ -59,6 +59,7 @@ namespace LIBRARY
             }
             else
             {
+                PageLabel.Text = "当前第" + nPage.ToString() + "页";
                 DataSheetLoad(nPage);
             }
             #region 返回按钮处理

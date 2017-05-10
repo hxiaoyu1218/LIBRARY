@@ -103,9 +103,6 @@
     <Compile Include="NewPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NewPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="PasswordChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
