@@ -47,51 +47,51 @@ namespace LIBRARY
             AnimateWindow(this.Handle, 10, AW_CENTER);
             if (textType == 1)
             {
-                TextBox.Text = "借阅成功";
+                TextBox.Text = "借阅成功!";
             }
             else if (textType == 2)
             {
-                TextBox.Text = "预约成功";
+                TextBox.Text = "预约成功!";
             }
             else if (textType == 3)
             {
-                TextBox.Text = "修改成功";
+                TextBox.Text = "修改成功!";
             }
             else if (textType == 4)
             {
-                TextBox.Text = "注册成功";
+                TextBox.Text = "注册成功!";
             }
             else if (textType == 5)
             {
-                TextBox.Text = "用户名/密码错误";
+                TextBox.Text = "用户名/密码错误!";
             }
             else if (textType == 6)
             {
-                TextBox.Text = "未选择用户类型";
+                TextBox.Text = "未选择用户类型!";
             }
             else if (textType == 7)
             {
-                TextBox.Text = "该学号已被注册";
+                TextBox.Text = "该学号已被注册!";
             }
             else if (textType == 8)
             {
-                TextBox.Text = "该用户名已被注册";
+                TextBox.Text = "该用户名已被注册!";
             }
             else if (textType == 9)
             {
-                TextBox.Text = "未知错误，请重试";
+                TextBox.Text = "未知错误，请重试!";
             }
             else if (textType == 10)
             {
-                TextBox.Text = "两次输入的密码不同，请重试";
+                TextBox.Text = "两次输入的密码不同，请重试!";
             }
             else if (textType == 11)
             {
-                TextBox.Text = "当前用户借书已达上限";
+                TextBox.Text = "当前借书数量已达上限!";
             }
             else if (textType == 12)
             {
-                TextBox.Text = "当前用户预约已达上限";
+                TextBox.Text = "当前预约数量已达上限!";
             }
             else if (textType == 13)
             {
@@ -99,11 +99,35 @@ namespace LIBRARY
             }
             else if (textType == 14)
             {
-                TextBox.Text = "充值成功";
+                TextBox.Text = "充值成功!";
             }
             else if (textType == 15)
             {
-                TextBox.Text = "原密码错误";
+                TextBox.Text = "原密码错误!";
+            }
+            else if (textType == 16)
+            {
+                TextBox.Text = "还书成功!";
+            }
+            else if (textType == 17)
+            {
+                TextBox.Text = "续借成功!";
+            }
+            else if (textType == 18)
+            {
+                TextBox.Text = "只能续借一次!";
+            }
+            else if (textType == 19)
+            {
+                TextBox.Text = "离应还日期5天以上不能续借!";
+            }
+            else if (textType == 20)
+            {
+                TextBox.Text = "书籍已过期!";
+            }
+            else if (textType == 21)
+            {
+                TextBox.Text = "取消成功!";
             }
         }
 

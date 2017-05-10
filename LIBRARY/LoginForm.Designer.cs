@@ -38,7 +38,7 @@
             this.LoginButton = new DMSkin.Controls.DM.DMButtonImage();
             this.GuestLink = new System.Windows.Forms.LinkLabel();
             this.PasswordForgetLink = new System.Windows.Forms.LinkLabel();
-            this.dmCheckBox1 = new DMSkin.Controls.DMCheckBox();
+            this.RememberCheckBox = new DMSkin.Controls.DMCheckBox();
             this.UserTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.UserCueText = new System.Windows.Forms.Label();
@@ -156,6 +156,7 @@
             this.GuestLink.Name = "GuestLink";
             this.GuestLink.Size = new System.Drawing.Size(63, 14);
             this.GuestLink.TabIndex = 16;
+            this.GuestLink.TabStop = true;
             this.GuestLink.Text = "访客进入";
             this.GuestLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GuestLink_LinkClicked);
             // 
@@ -173,20 +174,21 @@
             this.PasswordForgetLink.Name = "PasswordForgetLink";
             this.PasswordForgetLink.Size = new System.Drawing.Size(91, 14);
             this.PasswordForgetLink.TabIndex = 0;
+            this.PasswordForgetLink.TabStop = true;
             this.PasswordForgetLink.Text = "忘记密码了？";
             // 
-            // dmCheckBox1
+            // RememberCheckBox
             // 
-            this.dmCheckBox1.BackColor = System.Drawing.Color.White;
-            this.dmCheckBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.dmCheckBox1.Checked = false;
-            this.dmCheckBox1.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dmCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.dmCheckBox1.Location = new System.Drawing.Point(72, 382);
-            this.dmCheckBox1.Name = "dmCheckBox1";
-            this.dmCheckBox1.Size = new System.Drawing.Size(86, 19);
-            this.dmCheckBox1.TabIndex = 18;
-            this.dmCheckBox1.Text = "记住我";
+            this.RememberCheckBox.BackColor = System.Drawing.Color.White;
+            this.RememberCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RememberCheckBox.Checked = false;
+            this.RememberCheckBox.Font = new System.Drawing.Font("黑体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RememberCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.RememberCheckBox.Location = new System.Drawing.Point(72, 382);
+            this.RememberCheckBox.Name = "RememberCheckBox";
+            this.RememberCheckBox.Size = new System.Drawing.Size(86, 19);
+            this.RememberCheckBox.TabIndex = 18;
+            this.RememberCheckBox.Text = "记住我";
             // 
             // UserTextBox
             // 
@@ -212,6 +214,7 @@
             this.PasswordTextBox.Size = new System.Drawing.Size(259, 22);
             this.PasswordTextBox.TabIndex = 2;
             this.PasswordTextBox.Enter += new System.EventHandler(this.PasswordTextBox_Enter);
+            this.PasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             this.PasswordTextBox.Leave += new System.EventHandler(this.PasswordTextBox_Leave);
             // 
             // UserCueText
@@ -250,7 +253,7 @@
             this.Controls.Add(this.UserCueText);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UserTextBox);
-            this.Controls.Add(this.dmCheckBox1);
+            this.Controls.Add(this.RememberCheckBox);
             this.Controls.Add(this.PasswordForgetLink);
             this.Controls.Add(this.GuestLink);
             this.Controls.Add(this.LoginButton);
@@ -289,7 +292,7 @@
         private DMSkin.Controls.DM.DMButtonImage LoginButton;
         private System.Windows.Forms.LinkLabel GuestLink;
         private System.Windows.Forms.LinkLabel PasswordForgetLink;
-        private DMSkin.Controls.DMCheckBox dmCheckBox1;
+        private DMSkin.Controls.DMCheckBox RememberCheckBox;
         private System.Windows.Forms.TextBox UserTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Label UserCueText;

@@ -47,7 +47,7 @@ namespace LIBRARY
                 StudentCheckBox.Checked = false;
                 TeacherCheckBox.Checked = true;
             }
-            else StudentCheckBox.Checked = true;
+            else TeacherCheckBox.Checked = true;
         }
         private void UserTextBox_Enter(object sender, EventArgs e)
         {
@@ -212,11 +212,11 @@ namespace LIBRARY
                 ib.Dispose();
                 return;
             }
-            int type = 0;
-            if (StudentCheckBox.Checked == true) type = 1;
-            else if (TeacherCheckBox.Checked == true) type = 2;
+            USERTYPE type = USERTYPE.Guest;
+            if (StudentCheckBox.Checked == true) type = USERTYPE.Student;
+            else if (TeacherCheckBox.Checked == true) type = USERTYPE.Lecturer;
 
-            if (type == 0)//user type has not been chosed
+            if (type == 0)
             {
                 InfoBox ib = new InfoBox(6);
                 ib.ShowDialog();

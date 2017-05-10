@@ -10,11 +10,15 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
 using LibrarySystemBackEnd;
+using System.IO;
+using System.IO.Compression;
 
 namespace LIBRARY
 {
     public partial class LoginForm : DMSkin.Main
     {
+        private static string RememberMeFileName = "remember.lbs";
+
         public LoginForm()
         {
             InitializeComponent();
@@ -23,16 +27,31 @@ namespace LIBRARY
         private void LoginForm_Load(object sender, EventArgs e)
         {
             ClassBackEnd.StartUp();
-
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 96, 96);
             RegisterButton.Region = new Region(myPath);
             LoginButton.Region = new Region(myPath);
+
+            string name = "";
+            string pass = "";
+
+            RememberMeRead(ref name, ref pass);
+
+            if (name != "")
+            {
+                UserTextBox.Text = name;
+                PasswordTextBox.Text = pass;
+                RememberCheckBox.Checked = true;
+
+
+                UserCueText.Hide();
+                PasswordCueText.Hide();
+
+            }
         }
 
         private void ShutDownButton_Click(object sender, EventArgs e)
         {
-            Tag = false;
             Environment.Exit(0);
         }
         #region 按钮动画和水印文字
@@ -111,7 +130,28 @@ namespace LIBRARY
             var v = ClassBackEnd.LogIn(UserTextBox.Text, PasswordTextBox.Text);
             if (v == 1)//用户登录
             {
-                Tag = true;
+                Tag = 1;
+                if (RememberCheckBox.Checked == true)
+                {
+                    RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
+                }
+                else
+                {
+                    RememberMeWrite(false);
+                }
+                Close();
+            }
+            else if (v == 2)//管理员登录
+            {
+                if (RememberCheckBox.Checked == true)
+                {
+                    RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
+                }
+                else
+                {
+                    RememberMeWrite(false);
+                }
+                Tag = 2;
                 Close();
             }
             else if (v == 0)
@@ -130,13 +170,66 @@ namespace LIBRARY
             registForm.Dispose();
         }
 
-        
-
         private void GuestLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //guest set flag to main form
             Tag = true;
             Close();
+        }
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                LoginButton_Click(sender, e);
+            }
+        }
+
+        private void RememberMeRead(ref string username, ref string userpassword)
+        {
+            FileStream fs = null; GZipStream gzip = null; StreamReader sr = null;
+            try
+            {
+                fs = new FileStream(RememberMeFileName, FileMode.OpenOrCreate);
+                gzip = new GZipStream(fs, CompressionMode.Decompress);
+                sr = new StreamReader(gzip);
+
+                while (!sr.EndOfStream)
+                {
+                    username = sr.ReadLine();
+                    userpassword = sr.ReadLine();
+                }
+            }
+            catch (Exception e) { return; }
+            finally
+            {
+                if (sr != null) sr.Close();
+                if (gzip != null) gzip.Close();
+                if (fs != null) fs.Close();
+            }
+        }
+
+        private void RememberMeWrite(bool rem, string username = "", string userpassword = "")
+        {
+            FileStream fs = null; GZipStream gzip = null; StreamWriter sw = null;
+            try
+            {
+                fs = new FileStream(RememberMeFileName, FileMode.Create);
+                gzip = new GZipStream(fs, CompressionMode.Compress);
+                sw = new StreamWriter(gzip);
+
+                if (rem == true)
+                {
+                    sw.WriteLine(username);
+                    sw.WriteLine(userpassword);
+                }
+            }
+            catch (Exception e) { return; }
+            finally
+            {
+                if (sw != null) sw.Close();
+                if (gzip != null) gzip.Close();
+                if (fs != null) fs.Close();
+            }
         }
     }
 }

@@ -14,9 +14,9 @@ namespace LIBRARY
 {
     public partial class BookDetailForm : DMSkin.Main
     {
-        private MainForm frmMain;
+        private UserMainForm frmMain;
         private int bookIndex;//booklist索引
-        public BookDetailForm(MainForm frm, int bookindex)
+        public BookDetailForm(UserMainForm frm, int bookindex)
         {
             bookIndex = bookindex;
             frmMain = frm;
@@ -25,24 +25,24 @@ namespace LIBRARY
         public void BookListRefresh()
         {
             ResultDataSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < ClassBackEnd.book[bookIndex].GetAmount(); i++)
+            for (int i = 0; i < ClassBackEnd.Currentbook.Bookamount; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = ClassBackEnd.book[bookIndex].book[i].extisbn;
-                if (ClassBackEnd.book[bookIndex].book[i].bookstate == BOOKSTATE.Available)
+                ResultDataSheet.Rows[index].Cells[0].Value = ClassBackEnd.Currentbook.Book[i].Extisbn;
+                if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Available)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "可借";
                 }
-                else if (ClassBackEnd.book[bookIndex].book[i].bookstate == BOOKSTATE.Borrowed)
+                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Borrowed)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "已借";
                 }
-                else if (ClassBackEnd.book[bookIndex].book[i].bookstate == BOOKSTATE.Invailable)
+                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Invailable)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "不可用";
                 }
-                else if (ClassBackEnd.book[bookIndex].book[i].bookstate == BOOKSTATE.Scheduled)
+                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Scheduled)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "仅预约";
                 }
@@ -55,44 +55,41 @@ namespace LIBRARY
         }
         private void BookDetailLoad()
         {
-            BookNameLabel.Text = ClassBackEnd.book[bookIndex].GetName();
-            AuthorText.Text = ClassBackEnd.book[bookIndex].GetAuthor();
-            BookIDText.Text = ClassBackEnd.book[bookIndex].GetIsbn();
-            PublisherText.Text = ClassBackEnd.book[bookIndex].GetPublisher();
-            BookInfoTextbox.Text = ClassBackEnd.book[bookIndex].GetIntroduction();
+			ClassBackEnd.LoadSearchResult(bookIndex);
+            BookNameLabel.Text = ClassBackEnd.Currentbook.Bookname;
+            AuthorText.Text = ClassBackEnd.Currentbook.Author;
+            BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
+            PublisherText.Text = ClassBackEnd.Currentbook.Publisher;
+            BookInfoTextbox.Text = ClassBackEnd.Currentbook.Introduction;
             try
             {
-                BookPictureBox.BackgroundImage = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
+                BookPictureBox.Image = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
             }
             catch
             {
-                BookPictureBox.BackgroundImage = null;//set default image
+                BookPictureBox.Image = Properties.Resources.noimage;//set default image
             }
             
         }
-        private void BookDetailForm_Load(object sender, EventArgs e)
+        private void OrderOrBorrow()
         {
-
-
-            BookDetailLoad();
-            if(ClassBackEnd.HasBorrowed(bookIndex))
+            if (ClassBackEnd.HasBorrowed(bookIndex))
             {
                 BookBorrowButton.DM_NolImage = BookBorrowButton.DM_HoverImage;
                 BookBorrowButton.Enabled = false;
                 BookOrderButton.Hide();
             }
-            else if(ClassBackEnd.HasScheduled(bookIndex))
+            else if (ClassBackEnd.GetBookState(bookIndex))
             {
-                BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
-                BookOrderButton.Enabled = false;
-                BookBorrowButton.Hide();
+                BookOrderButton.Hide();
             }
             else
             {
-                if (ClassBackEnd.GetBookState(bookIndex))
+                if (ClassBackEnd.HasScheduled(bookIndex))
                 {
-                    BookBorrowButton.Show();
-                    BookOrderButton.Hide();
+                    BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
+                    BookOrderButton.Enabled = false;
+                    BookBorrowButton.Hide();
                 }
                 else
                 {
@@ -100,8 +97,14 @@ namespace LIBRARY
                     BookOrderButton.Show();
                 }
             }
+        }
+        private void BookDetailForm_Load(object sender, EventArgs e)
+        {
 
-            frmMain.ReturnButton.Tag = 2;//return from bookdetailform to searchresultform
+
+            BookDetailLoad();
+            OrderOrBorrow();
+            frmMain.ReturnButton.Tag = 2;
 
             #region 设置圆形按钮区域
             GraphicsPath myPath = new GraphicsPath();
@@ -111,8 +114,8 @@ namespace LIBRARY
             #endregion
 
             SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
-            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
+            SetStyle(ControlStyles.DoubleBuffer, true); 
 
             BookListRefresh();
 

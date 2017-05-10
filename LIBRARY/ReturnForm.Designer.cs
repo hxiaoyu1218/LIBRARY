@@ -32,7 +32,6 @@
             this.BgImage = new System.Windows.Forms.PictureBox();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.ShutDownButton = new System.Windows.Forms.Button();
-            this.BookNameText = new System.Windows.Forms.Label();
             this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.PublisherText = new System.Windows.Forms.Label();
             this.BookIDText = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ReturnButton = new DMSkin.Controls.DM.DMButtonImage();
             this.ReBorrowButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.BookNameText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,26 +89,14 @@
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
-            // BookNameText
-            // 
-            this.BookNameText.AutoSize = true;
-            this.BookNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookNameText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BookNameText.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookNameText.Location = new System.Drawing.Point(177, 63);
-            this.BookNameText.Name = "BookNameText";
-            this.BookNameText.Size = new System.Drawing.Size(245, 57);
-            this.BookNameText.TabIndex = 9;
-            this.BookNameText.Text = "人民的名义";
-            // 
             // BookPictureBox
             // 
-            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.BookPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookPictureBox.BackgroundImage")));
+            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BookPictureBox.Location = new System.Drawing.Point(85, 142);
             this.BookPictureBox.Name = "BookPictureBox";
             this.BookPictureBox.Size = new System.Drawing.Size(170, 240);
+            this.BookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.BookPictureBox.TabIndex = 10;
             this.BookPictureBox.TabStop = false;
             // 
@@ -280,12 +268,26 @@
             this.ReBorrowButton.MouseLeave += new System.EventHandler(this.ReBorrowButton_MouseLeave);
             this.ReBorrowButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReBorrowButton_MouseMove);
             // 
+            // BookNameText
+            // 
+            this.BookNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookNameText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BookNameText.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameText.Location = new System.Drawing.Point(0, 52);
+            this.BookNameText.Multiline = true;
+            this.BookNameText.Name = "BookNameText";
+            this.BookNameText.Size = new System.Drawing.Size(600, 66);
+            this.BookNameText.TabIndex = 36;
+            this.BookNameText.Text = "测试";
+            this.BookNameText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // ReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(600, 650);
+            this.Controls.Add(this.BookNameText);
             this.Controls.Add(this.ReBorrowButton);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.textBox1);
@@ -300,7 +302,6 @@
             this.Controls.Add(this.BookIDLabel);
             this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.BookPictureBox);
-            this.Controls.Add(this.BookNameText);
             this.Controls.Add(this.ShutDownButton);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.BgImage);
@@ -325,7 +326,6 @@
         private System.Windows.Forms.PictureBox BgImage;
         public System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button ShutDownButton;
-        private System.Windows.Forms.Label BookNameText;
         private System.Windows.Forms.PictureBox BookPictureBox;
         private System.Windows.Forms.Label PublisherText;
         private System.Windows.Forms.Label BookIDText;
@@ -340,5 +340,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private DMSkin.Controls.DM.DMButtonImage ReturnButton;
         private DMSkin.Controls.DM.DMButtonImage ReBorrowButton;
+        private System.Windows.Forms.TextBox BookNameText;
     }
 }

@@ -393,6 +393,7 @@
             this.BorrowInfoSheet.Size = new System.Drawing.Size(408, 428);
             this.BorrowInfoSheet.StandardTab = true;
             this.BorrowInfoSheet.TabIndex = 26;
+            this.BorrowInfoSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BorrowInfoSheet_CellContentClick);
             // 
             // BookName
             // 
@@ -484,6 +485,7 @@
             this.BookRecordSheet.Size = new System.Drawing.Size(408, 428);
             this.BookRecordSheet.StandardTab = true;
             this.BookRecordSheet.TabIndex = 27;
+            this.BookRecordSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BookRecordSheet_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 

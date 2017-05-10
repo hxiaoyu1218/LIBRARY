@@ -251,6 +251,7 @@
             this.BookReturnButton.Size = new System.Drawing.Size(172, 172);
             this.BookReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookReturnButton.TabIndex = 14;
+            this.BookReturnButton.Click += new System.EventHandler(this.BookReturnButton_Click);
             this.BookReturnButton.MouseLeave += new System.EventHandler(this.BookReturnButton_MouseLeave);
             this.BookReturnButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookReturnButton_MouseMove);
             // 

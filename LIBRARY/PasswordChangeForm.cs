@@ -123,8 +123,9 @@ namespace LIBRARY
                 NPasswordTextBox1.Focus();
                 return;
             }
-            //是否与原密码相同判断 to do：
+
             var v = ClassBackEnd.ChangePassword(OPasswordTextBox.Text, NPasswordTextBox1.Text);
+
             if (v == 0)
             {
                 InfoBox infoBox = new InfoBox(9);

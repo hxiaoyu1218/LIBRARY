@@ -52,11 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMainForm.Designer.cs">
+      <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BookDetailForm.Designer.cs">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookReturnForm.Designer.cs">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ChargeForm.cs">
       <SubType>Form</SubType>
@@ -76,11 +88,20 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="AdminFunctionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="AdminFunctionForm.Designer.cs">
+      <DependentUpon>AdminFunctionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserMainForm.Designer.cs">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="PasswordChangeForm.cs">
       <SubType>Form</SubType>
@@ -120,8 +141,14 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminMainForm.resx">
+      <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookReturnForm.resx">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChargeForm.resx">
       <DependentUpon>ChargeForm.cs</DependentUpon>
@@ -132,8 +159,11 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminFunctionForm.resx">
+      <DependentUpon>AdminFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMainForm.resx">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
@@ -146,6 +176,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegistForm.resx">
       <DependentUpon>RegistForm.cs</DependentUpon>
@@ -174,6 +205,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sbsbb11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noimage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

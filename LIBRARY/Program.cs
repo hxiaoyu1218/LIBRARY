@@ -15,12 +15,20 @@ namespace LIBRARY
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);        
-            //Application.Run(new MainForm());
-            // Application.Run(new InfoBox(5));
-            //Application.Run(new UserForm());
-            //Application.Run(new PasswordChangeForm());
-            Application.Run(new ReturnForm());
+            Application.SetCompatibleTextRenderingDefault(false);
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            loginForm.Dispose();
+            //Application.Run(new AdminMainForm());
+            if ((int)loginForm.Tag == 1)
+            {
+                Application.Run(new UserMainForm());
+
+            }
+            else if ((int)loginForm.Tag == 2)
+            {
+                Application.Run(new AdminMainForm());
+            }
         }
     }
 }

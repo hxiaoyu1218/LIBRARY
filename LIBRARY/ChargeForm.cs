@@ -71,7 +71,6 @@ namespace LIBRARY
             try
             {
                 var num = Convert.ToInt32(MoneyTextBox.Text);
-                //to do charge();
                 if(!ClassBackEnd.ChargeCredit(num))
                 {
                     InfoBox ib = new InfoBox(9);

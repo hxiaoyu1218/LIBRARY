@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
 
@@ -13,16 +13,54 @@ namespace LIBRARY
 {
     public partial class SearchResultForm : DMSkin.Main
     {
-        private MainForm frmMain;
+        private UserMainForm frmMain;
+        private static int maxPage;
+        private static int nPage;
+        private int lastState;
+        private string lastString;
         private int ButtonState;//控制滑块位置 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER
-        public SearchResultForm(MainForm frm)//待增加参数，用于接收searchForm页面的搜索参数并执行搜索，展示结果
+        public SearchResultForm(UserMainForm frm, int state, string searchS)
         {
+            lastState = state;
+            lastString = searchS;
             frmMain = frm;
             InitializeComponent();
         }
+        private void DataSheetLoad(int page)
+        {
+            ResultDataSheet.Rows.Clear();
+            ResultDataSheet.Hide();
+            int start = (page - 1) * 200;
+            int end = page * 200;
+            if (page == maxPage) end = ClassBackEnd.Book.Count;
 
+            for (int i = start; i < end; i++)
+            {
+                var c = ClassBackEnd.Book[i];
+                DataGridViewRow row = (DataGridViewRow)ResultDataSheet.RowTemplate.Clone();
+                int index = ResultDataSheet.Rows.Add(row);
+                ResultDataSheet.Rows[index].Cells[0].Value = c.Bookisbn;
+                ResultDataSheet.Rows[index].Cells[1].Value = c.Bookname;
+                ResultDataSheet.Rows[index].Cells[2].Value = c.Author;
+                ResultDataSheet.Rows[index].Cells[3].Value = c.Publisher;
+                ResultDataSheet.Rows[index].Cells[4].Value = "详情";
+            }
+            LoadGIFBox.Hide();
+            ResultDataSheet.Show();
+            ResultDataSheet.ClearSelection();
+            ResultDataSheet.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+        }
         private void SearchResultForm_Load(object sender, EventArgs e)
         {
+            if ((bool)Tag == true)
+            {
+                SearchWorker.RunWorkerAsync();
+            }
+            else
+            {
+                DataSheetLoad(nPage);
+            }
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
             Point t = new Point(61, 11);
@@ -40,23 +78,6 @@ namespace LIBRARY
             PublisherBackgound.Hide();
             ButtonState = 1;
             #endregion
-
-            // to do 装载第一次搜索结果booklist
-            for (int i = 0; i < ClassBackEnd.book.Count; i++)
-            {
-                var c = ClassBackEnd.book[i];
-                DataGridViewRow row = new DataGridViewRow();
-                int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = c.GetIsbn();
-                ResultDataSheet.Rows[index].Cells[1].Value = c.GetName();
-                ResultDataSheet.Rows[index].Cells[2].Value = c.GetAuthor();
-                ResultDataSheet.Rows[index].Cells[3].Value = c.GetPublisher();
-                ResultDataSheet.Rows[index].Cells[4].Value = c.GetAmount();
-                ResultDataSheet.Rows[index].Cells[5].Value = "详情";
-                ResultDataSheet.Rows[index].Height = 40;
-            }
-            ResultDataSheet.ClearSelection();
-            ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }
         #region SearchResultForm 按钮动画处理
@@ -234,10 +255,10 @@ namespace LIBRARY
 
         private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 4)
             {
                 frmMain.MainPanel.Controls.Clear();
-                BookDetailForm bookDetailForm = new BookDetailForm(frmMain, e.RowIndex);
+                BookDetailForm bookDetailForm = new BookDetailForm(frmMain, e.RowIndex + (nPage - 1) * 200);
                 bookDetailForm.TopLevel = false;
                 bookDetailForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(bookDetailForm);
@@ -245,28 +266,58 @@ namespace LIBRARY
             }
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)//重新检索按钮
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             ResultDataSheet.Rows.Clear();
-
-            ClassBackEnd.book.Clear();
-            ClassBackEnd.SearchBook(ButtonState, SearchBox.Text);
-
-            for (int i = 0; i < ClassBackEnd.book.Count; i++)
+            lastState = ButtonState;
+            lastString = SearchBox.Text;
+            LoadGIFBox.Show();
+            while (SearchWorker.IsBusy)
             {
-                var c = ClassBackEnd.book[i];
-                DataGridViewRow row = new DataGridViewRow();
-                int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = c.GetIsbn();
-                ResultDataSheet.Rows[index].Cells[1].Value = c.GetName();
-                ResultDataSheet.Rows[index].Cells[2].Value = c.GetAuthor();
-                ResultDataSheet.Rows[index].Cells[3].Value = c.GetPublisher();
-                ResultDataSheet.Rows[index].Cells[4].Value = c.GetAmount();
-                ResultDataSheet.Rows[index].Cells[5].Value = "详情";
-                ResultDataSheet.Rows[index].Height = 40;
+                SearchWorker.CancelAsync();
             }
-            ResultDataSheet.ClearSelection();
-            ResultDataSheet.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            SearchWorker.RunWorkerAsync();
+        }
+
+        private void SearchWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker);
+            System.Threading.Thread.Sleep(800);
+        }
+
+        private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (ClassBackEnd.Book.Count <= 200) maxPage = 1;
+            else maxPage = ClassBackEnd.Book.Count / 200 + 1;
+            PageLabel.Text = "当前第1页";
+            nPage = 1;
+            DataSheetLoad(1);
+        }
+
+        private void FirstPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PageLabel.Text = "当前第1页";
+            nPage = 1;
+            DataSheetLoad(1);
+        }
+
+        private void TailPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PageLabel.Text = "当前第" + maxPage.ToString() + "页";
+            nPage = maxPage;
+            DataSheetLoad(maxPage);
+        }
+
+        private void NextPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PageLabel.Text = "当前第" + (++nPage).ToString() + "页";
+            DataSheetLoad(nPage);
+        }
+
+        private void LastPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PageLabel.Text = "当前第" + (--nPage).ToString() + "页";
+            DataSheetLoad(nPage);
         }
     }
 
