@@ -30,8 +30,8 @@ namespace LIBRARY
         {
             ResultDataSheet.Rows.Clear();
             ResultDataSheet.Hide();
-            int start = (nPage - 1) * 200;
-            int end = nPage * 200;
+            int start = (nPage - 1) * 10;
+            int end = nPage * 10;
             if (nPage == maxPage) end = ClassBackEnd.Book.Count;
 
             for (int i = start; i < end; i++)
@@ -53,13 +53,14 @@ namespace LIBRARY
         }
         private void SearchResultForm_Load(object sender, EventArgs e)
         {
+
             if ((bool)Tag == true)
             {
                 SearchWorker.RunWorkerAsync();
             }
             else
             {
-                PageLabel.Text = "当前第" + nPage.ToString() + "页";
+                JumpPTextBox.Text = nPage.ToString();
                 DataSheetLoad(nPage);
             }
             #region 返回按钮处理
@@ -259,7 +260,7 @@ namespace LIBRARY
             if (e.ColumnIndex == 4)
             {
                 frmMain.MainPanel.Controls.Clear();
-                BookDetailForm bookDetailForm = new BookDetailForm(frmMain, e.RowIndex + (nPage - 1) * 200);
+                BookDetailForm bookDetailForm = new BookDetailForm(frmMain, e.RowIndex + (nPage - 1) * 10);
                 bookDetailForm.TopLevel = false;
                 bookDetailForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(bookDetailForm);
@@ -288,37 +289,50 @@ namespace LIBRARY
 
         private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (ClassBackEnd.Book.Count <= 200) maxPage = 1;
-            else maxPage = ClassBackEnd.Book.Count / 200 + 1;
-            PageLabel.Text = "当前第1页";
+            if (ClassBackEnd.Book.Count <= 10) maxPage = 1;
+            else maxPage = ClassBackEnd.Book.Count / 10 + 1;
+            PageTextBox.Text = maxPage.ToString();
+            JumpPTextBox.Text = "1";
             nPage = 1;
             DataSheetLoad(1);
         }
 
-        private void FirstPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PageLabel.Text = "当前第1页";
-            nPage = 1;
-            DataSheetLoad(1);
-        }
 
-        private void TailPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PageLabel.Text = "当前第" + maxPage.ToString() + "页";
-            nPage = maxPage;
-            DataSheetLoad(maxPage);
-        }
 
-        private void NextPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LastPButton_Click(object sender, EventArgs e)
         {
-            PageLabel.Text = "当前第" + (++nPage).ToString() + "页";
+            if (nPage == 1) return;
+            JumpPTextBox.Text = (--nPage).ToString();
             DataSheetLoad(nPage);
         }
 
-        private void LastPageButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void NextPButton_Click(object sender, EventArgs e)
         {
-            PageLabel.Text = "当前第" + (--nPage).ToString() + "页";
+            if (nPage == maxPage) return;
+            JumpPTextBox.Text = (++nPage).ToString();
             DataSheetLoad(nPage);
+        }
+
+        private void JumpPTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
+                if (JumpPage > maxPage)
+                {
+                    nPage = maxPage;
+                    JumpPTextBox.Text = nPage.ToString();
+                }
+                else nPage = Convert.ToInt32(JumpPTextBox.Text);
+                DataSheetLoad(nPage);
+            }
+            catch
+            {
+                InfoBox infoBox = new InfoBox(13);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                JumpPTextBox.Focus();
+            }
         }
     }
 

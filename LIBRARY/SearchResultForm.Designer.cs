@@ -54,14 +54,13 @@
             this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Op = new System.Windows.Forms.DataGridViewLinkColumn();
             this.DividerLine = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SearchWorker = new System.ComponentModel.BackgroundWorker();
             this.LoadGIFBox = new System.Windows.Forms.PictureBox();
-            this.NextPageButton = new System.Windows.Forms.LinkLabel();
-            this.LastPageButton = new System.Windows.Forms.LinkLabel();
-            this.FirstPageButton = new System.Windows.Forms.LinkLabel();
-            this.TailPageButton = new System.Windows.Forms.LinkLabel();
-            this.PageLabel = new System.Windows.Forms.Label();
+            this.DividePicture = new System.Windows.Forms.PictureBox();
+            this.JumpPTextBox = new System.Windows.Forms.TextBox();
+            this.PageTextBox = new System.Windows.Forms.TextBox();
+            this.LastPButton = new System.Windows.Forms.PictureBox();
+            this.NextPbutton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.AllBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameBackground)).BeginInit();
@@ -70,6 +69,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DividerLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DividePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchBox
@@ -278,7 +280,7 @@
             dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle22;
-            this.ResultDataSheet.Location = new System.Drawing.Point(101, 191);
+            this.ResultDataSheet.Location = new System.Drawing.Point(101, 161);
             this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
             this.ResultDataSheet.ReadOnly = true;
@@ -296,7 +298,7 @@
             dataGridViewCellStyle24.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle24;
-            this.ResultDataSheet.RowTemplate.Height = 40;
+            this.ResultDataSheet.RowTemplate.Height = 45;
             this.ResultDataSheet.RowTemplate.ReadOnly = true;
             this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ResultDataSheet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -318,7 +320,7 @@
             this.BookName.HeaderText = "书名";
             this.BookName.Name = "BookName";
             this.BookName.ReadOnly = true;
-            this.BookName.Width = 215;
+            this.BookName.Width = 225;
             // 
             // Author
             // 
@@ -332,7 +334,7 @@
             this.Publisher.HeaderText = "出版社";
             this.Publisher.Name = "Publisher";
             this.Publisher.ReadOnly = true;
-            this.Publisher.Width = 180;
+            this.Publisher.Width = 184;
             // 
             // Op
             // 
@@ -344,27 +346,16 @@
             this.Op.ReadOnly = true;
             this.Op.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Op.VisitedLinkColor = System.Drawing.Color.Black;
-            this.Op.Width = 110;
+            this.Op.Width = 114;
             // 
             // DividerLine
             // 
             this.DividerLine.BackColor = System.Drawing.Color.Silver;
-            this.DividerLine.Location = new System.Drawing.Point(101, 176);
+            this.DividerLine.Location = new System.Drawing.Point(101, 147);
             this.DividerLine.Name = "DividerLine";
             this.DividerLine.Size = new System.Drawing.Size(814, 1);
             this.DividerLine.TabIndex = 13;
             this.DividerLine.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體 Light", 16F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(99, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 28);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "检索结果";
             // 
             // SearchWorker
             // 
@@ -375,82 +366,63 @@
             // LoadGIFBox
             // 
             this.LoadGIFBox.Image = ((System.Drawing.Image)(resources.GetObject("LoadGIFBox.Image")));
-            this.LoadGIFBox.Location = new System.Drawing.Point(453, 362);
+            this.LoadGIFBox.Location = new System.Drawing.Point(450, 326);
             this.LoadGIFBox.Name = "LoadGIFBox";
             this.LoadGIFBox.Size = new System.Drawing.Size(102, 96);
             this.LoadGIFBox.TabIndex = 15;
             this.LoadGIFBox.TabStop = false;
             // 
-            // NextPageButton
+            // DividePicture
             // 
-            this.NextPageButton.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.NextPageButton.AutoSize = true;
-            this.NextPageButton.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.NextPageButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.NextPageButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.NextPageButton.Location = new System.Drawing.Point(833, 149);
-            this.NextPageButton.Name = "NextPageButton";
-            this.NextPageButton.Size = new System.Drawing.Size(58, 21);
-            this.NextPageButton.TabIndex = 25;
-            this.NextPageButton.TabStop = true;
-            this.NextPageButton.Text = "下一页";
-            this.NextPageButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.NextPageButton_LinkClicked);
+            this.DividePicture.Image = ((System.Drawing.Image)(resources.GetObject("DividePicture.Image")));
+            this.DividePicture.Location = new System.Drawing.Point(493, 645);
+            this.DividePicture.Name = "DividePicture";
+            this.DividePicture.Size = new System.Drawing.Size(18, 26);
+            this.DividePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.DividePicture.TabIndex = 30;
+            this.DividePicture.TabStop = false;
             // 
-            // LastPageButton
+            // JumpPTextBox
             // 
-            this.LastPageButton.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.LastPageButton.AutoSize = true;
-            this.LastPageButton.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.LastPageButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.LastPageButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.LastPageButton.Location = new System.Drawing.Point(772, 149);
-            this.LastPageButton.Name = "LastPageButton";
-            this.LastPageButton.Size = new System.Drawing.Size(58, 21);
-            this.LastPageButton.TabIndex = 26;
-            this.LastPageButton.TabStop = true;
-            this.LastPageButton.Text = "上一页";
-            this.LastPageButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LastPageButton_LinkClicked);
+            this.JumpPTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.JumpPTextBox.Location = new System.Drawing.Point(411, 645);
+            this.JumpPTextBox.Name = "JumpPTextBox";
+            this.JumpPTextBox.Size = new System.Drawing.Size(68, 27);
+            this.JumpPTextBox.TabIndex = 31;
+            this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.JumpPTextBox.TextChanged += new System.EventHandler(this.JumpPTextBox_TextChanged);
             // 
-            // FirstPageButton
+            // PageTextBox
             // 
-            this.FirstPageButton.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.FirstPageButton.AutoSize = true;
-            this.FirstPageButton.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.FirstPageButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.FirstPageButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.FirstPageButton.Location = new System.Drawing.Point(678, 149);
-            this.FirstPageButton.Name = "FirstPageButton";
-            this.FirstPageButton.Size = new System.Drawing.Size(42, 21);
-            this.FirstPageButton.TabIndex = 27;
-            this.FirstPageButton.TabStop = true;
-            this.FirstPageButton.Text = "首页";
-            this.FirstPageButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.FirstPageButton_LinkClicked);
+            this.PageTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.PageTextBox.Location = new System.Drawing.Point(522, 645);
+            this.PageTextBox.Name = "PageTextBox";
+            this.PageTextBox.ReadOnly = true;
+            this.PageTextBox.Size = new System.Drawing.Size(68, 27);
+            this.PageTextBox.TabIndex = 32;
+            this.PageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // TailPageButton
+            // LastPButton
             // 
-            this.TailPageButton.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.TailPageButton.AutoSize = true;
-            this.TailPageButton.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.TailPageButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.TailPageButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.TailPageButton.Location = new System.Drawing.Point(726, 149);
-            this.TailPageButton.Name = "TailPageButton";
-            this.TailPageButton.Size = new System.Drawing.Size(42, 21);
-            this.TailPageButton.TabIndex = 28;
-            this.TailPageButton.TabStop = true;
-            this.TailPageButton.Text = "尾页";
-            this.TailPageButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.TailPageButton_LinkClicked);
+            this.LastPButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LastPButton.Image = ((System.Drawing.Image)(resources.GetObject("LastPButton.Image")));
+            this.LastPButton.Location = new System.Drawing.Point(376, 640);
+            this.LastPButton.Name = "LastPButton";
+            this.LastPButton.Size = new System.Drawing.Size(20, 36);
+            this.LastPButton.TabIndex = 33;
+            this.LastPButton.TabStop = false;
+            this.LastPButton.Click += new System.EventHandler(this.LastPButton_Click);
             // 
-            // PageLabel
+            // NextPbutton
             // 
-            this.PageLabel.AutoSize = true;
-            this.PageLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.PageLabel.Location = new System.Drawing.Point(456, 147);
-            this.PageLabel.Name = "PageLabel";
-            this.PageLabel.Size = new System.Drawing.Size(83, 21);
-            this.PageLabel.TabIndex = 29;
-            this.PageLabel.Text = "当前第1页";
+            this.NextPbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NextPbutton.Image = ((System.Drawing.Image)(resources.GetObject("NextPbutton.Image")));
+            this.NextPbutton.Location = new System.Drawing.Point(605, 640);
+            this.NextPbutton.Name = "NextPbutton";
+            this.NextPbutton.Size = new System.Drawing.Size(20, 36);
+            this.NextPbutton.TabIndex = 35;
+            this.NextPbutton.TabStop = false;
+            this.NextPbutton.Click += new System.EventHandler(this.NextPButton_Click);
             // 
             // SearchResultForm
             // 
@@ -458,13 +430,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(1000, 705);
-            this.Controls.Add(this.PageLabel);
-            this.Controls.Add(this.TailPageButton);
-            this.Controls.Add(this.FirstPageButton);
-            this.Controls.Add(this.LastPageButton);
-            this.Controls.Add(this.NextPageButton);
+            this.Controls.Add(this.NextPbutton);
+            this.Controls.Add(this.LastPButton);
+            this.Controls.Add(this.PageTextBox);
+            this.Controls.Add(this.JumpPTextBox);
+            this.Controls.Add(this.DividePicture);
             this.Controls.Add(this.LoadGIFBox);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.DividerLine);
             this.Controls.Add(this.ResultDataSheet);
             this.Controls.Add(this.SearchName);
@@ -495,6 +466,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DividerLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DividePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,18 +490,17 @@
         private System.Windows.Forms.PictureBox PublisherBackgound;
         public System.Windows.Forms.DataGridView ResultDataSheet;
         private System.Windows.Forms.PictureBox DividerLine;
-        private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker SearchWorker;
         private System.Windows.Forms.PictureBox LoadGIFBox;
+        private System.Windows.Forms.PictureBox DividePicture;
+        private System.Windows.Forms.TextBox JumpPTextBox;
+        private System.Windows.Forms.TextBox PageTextBox;
+        private System.Windows.Forms.PictureBox LastPButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn ISBN;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Author;
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
         private System.Windows.Forms.DataGridViewLinkColumn Op;
-        private System.Windows.Forms.LinkLabel NextPageButton;
-        private System.Windows.Forms.LinkLabel LastPageButton;
-        private System.Windows.Forms.LinkLabel FirstPageButton;
-        private System.Windows.Forms.LinkLabel TailPageButton;
-        private System.Windows.Forms.Label PageLabel;
+        private System.Windows.Forms.PictureBox NextPbutton;
     }
 }
