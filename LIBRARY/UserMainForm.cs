@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
 
@@ -83,7 +77,8 @@ namespace LIBRARY
                 if (myworker.CancellationPending != true)
                 {
                     TimeWork.GetLastInputTime();
-                    myworker.ReportProgress(1, ClassTime.SystemTime.ToString());
+                    string[] a = ClassTime.SystemTime.Split();
+                    myworker.ReportProgress(1, a[0]);
                 }
                 System.Threading.Thread.Sleep(5000);
             }

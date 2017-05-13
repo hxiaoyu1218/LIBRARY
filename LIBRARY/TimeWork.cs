@@ -1,10 +1,6 @@
 ﻿using System;
 using LibrarySystemBackEnd;
 using System.Runtime.InteropServices;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LIBRARY
 {
@@ -39,8 +35,6 @@ namespace LIBRARY
                 uint lastInputTick = lastInputInfo.dwTime;
 
                 idleTime = envTicks - lastInputTick;
-                Console.WriteLine(idleTime);
-                Console.WriteLine(k);
                 if (idleTime >= 5000 * k)
                 {
                     ClassTime.inc();

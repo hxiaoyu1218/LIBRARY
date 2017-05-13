@@ -112,7 +112,7 @@
             this.TimeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TimeTextBox.Font = new System.Drawing.Font("黑体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TimeTextBox.ForeColor = System.Drawing.Color.White;
-            this.TimeTextBox.Location = new System.Drawing.Point(332, 11);
+            this.TimeTextBox.Location = new System.Drawing.Point(341, 13);
             this.TimeTextBox.Name = "TimeTextBox";
             this.TimeTextBox.Size = new System.Drawing.Size(336, 25);
             this.TimeTextBox.TabIndex = 7;
