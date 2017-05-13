@@ -15,11 +15,13 @@ namespace LIBRARY
     {
         public UserMainForm()
         {
+            ClassBackEnd.StartTime();
             InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            TimeWorker.RunWorkerAsync();
             MainPanel.Controls.Clear();
             SearchForm searchForm = new SearchForm(this);
             searchForm.TopLevel = false;
@@ -38,7 +40,7 @@ namespace LIBRARY
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-            if (ReturnButton.Tag != null)//不在主页，启用返回键
+            if (ReturnButton.Tag != null)
             {
                 if ((int)ReturnButton.Tag == 1)
                 {
@@ -73,5 +75,23 @@ namespace LIBRARY
             }
         }
 
+        private void TimeWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker myworker = (BackgroundWorker)sender;
+            while (true)
+            {
+                if (myworker.CancellationPending != true)
+                {
+                    TimeWork.GetLastInputTime();
+                    myworker.ReportProgress(1, ClassTime.SystemTime.ToString());
+                }
+                System.Threading.Thread.Sleep(5000);
+            }
+        }
+
+        private void TimeWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            TimeTextBox.Text = e.UserState.ToString();
+        }
     }
 }

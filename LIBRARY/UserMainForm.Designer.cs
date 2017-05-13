@@ -34,6 +34,8 @@
             this.ReturnButton = new System.Windows.Forms.Button();
             this.ShutDownButton = new System.Windows.Forms.Button();
             this.MinButton = new System.Windows.Forms.Button();
+            this.TimeTextBox = new System.Windows.Forms.TextBox();
+            this.TimeWorker = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -104,12 +106,33 @@
             this.MinButton.UseVisualStyleBackColor = false;
             this.MinButton.Click += new System.EventHandler(this.MinButton_Click);
             // 
-            // MainForm
+            // TimeTextBox
+            // 
+            this.TimeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.TimeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TimeTextBox.Font = new System.Drawing.Font("黑体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TimeTextBox.ForeColor = System.Drawing.Color.White;
+            this.TimeTextBox.Location = new System.Drawing.Point(332, 11);
+            this.TimeTextBox.Name = "TimeTextBox";
+            this.TimeTextBox.Size = new System.Drawing.Size(336, 25);
+            this.TimeTextBox.TabIndex = 7;
+            this.TimeTextBox.Text = "13/05/2017";
+            this.TimeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TimeWorker
+            // 
+            this.TimeWorker.WorkerReportsProgress = true;
+            this.TimeWorker.WorkerSupportsCancellation = true;
+            this.TimeWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.TimeWorker_DoWork);
+            this.TimeWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.TimeWorker_ProgressChanged);
+            // 
+            // UserMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(1000, 750);
+            this.Controls.Add(this.TimeTextBox);
             this.Controls.Add(this.MinButton);
             this.Controls.Add(this.ShutDownButton);
             this.Controls.Add(this.ReturnButton);
@@ -120,7 +143,7 @@
             this.DM_ShadowWidth = 5;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "UserMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
@@ -134,6 +157,8 @@
         private System.Windows.Forms.Button MinButton;
         public System.Windows.Forms.Button ReturnButton;
         public System.Windows.Forms.Label TitleLabel;
+        private System.Windows.Forms.TextBox TimeTextBox;
+        private System.ComponentModel.BackgroundWorker TimeWorker;
     }
 }
 

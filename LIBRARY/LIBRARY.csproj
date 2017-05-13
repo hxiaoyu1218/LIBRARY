@@ -94,6 +94,7 @@
     <Compile Include="AdminFunctionForm.Designer.cs">
       <DependentUpon>AdminFunctionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimeWork.cs" />
     <Compile Include="UserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -56,7 +56,7 @@
             // 
             this.SearchBox.BackColor = System.Drawing.Color.White;
             this.SearchBox.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SearchBox.Location = new System.Drawing.Point(126, 282);
+            this.SearchBox.Location = new System.Drawing.Point(127, 282);
             this.SearchBox.Multiline = true;
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(665, 47);
@@ -70,7 +70,7 @@
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Font = new System.Drawing.Font("黑体", 16F);
             this.SearchButton.ForeColor = System.Drawing.Color.White;
-            this.SearchButton.Location = new System.Drawing.Point(791, 282);
+            this.SearchButton.Location = new System.Drawing.Point(792, 282);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(82, 47);
             this.SearchButton.TabIndex = 2;
@@ -87,7 +87,7 @@
             this.SearchAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchAll.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchAll.Location = new System.Drawing.Point(324, 359);
+            this.SearchAll.Location = new System.Drawing.Point(327, 359);
             this.SearchAll.Name = "SearchAll";
             this.SearchAll.Size = new System.Drawing.Size(70, 30);
             this.SearchAll.TabIndex = 3;
@@ -106,7 +106,7 @@
             this.SearchPublisher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchPublisher.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchPublisher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchPublisher.Location = new System.Drawing.Point(600, 359);
+            this.SearchPublisher.Location = new System.Drawing.Point(603, 359);
             this.SearchPublisher.Margin = new System.Windows.Forms.Padding(0);
             this.SearchPublisher.Name = "SearchPublisher";
             this.SearchPublisher.Size = new System.Drawing.Size(70, 30);
@@ -126,7 +126,7 @@
             this.SearchAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchAuthor.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchAuthor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchAuthor.Location = new System.Drawing.Point(531, 359);
+            this.SearchAuthor.Location = new System.Drawing.Point(534, 359);
             this.SearchAuthor.Name = "SearchAuthor";
             this.SearchAuthor.Size = new System.Drawing.Size(70, 30);
             this.SearchAuthor.TabIndex = 5;
@@ -145,11 +145,11 @@
             this.SearchISBN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchISBN.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchISBN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchISBN.Location = new System.Drawing.Point(393, 359);
+            this.SearchISBN.Location = new System.Drawing.Point(396, 359);
             this.SearchISBN.Name = "SearchISBN";
             this.SearchISBN.Size = new System.Drawing.Size(70, 30);
             this.SearchISBN.TabIndex = 6;
-            this.SearchISBN.Text = "ISBN";
+            this.SearchISBN.Text = "编号";
             this.SearchISBN.UseVisualStyleBackColor = false;
             this.SearchISBN.Click += new System.EventHandler(this.SearchISBN_Click);
             this.SearchISBN.MouseLeave += new System.EventHandler(this.SearchISBN_MouseLeave);
@@ -164,7 +164,7 @@
             this.SearchName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchName.Font = new System.Drawing.Font("黑体", 12F);
             this.SearchName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.SearchName.Location = new System.Drawing.Point(462, 359);
+            this.SearchName.Location = new System.Drawing.Point(465, 359);
             this.SearchName.Name = "SearchName";
             this.SearchName.Size = new System.Drawing.Size(70, 30);
             this.SearchName.TabIndex = 7;
@@ -177,7 +177,7 @@
             // AllBackground
             // 
             this.AllBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.AllBackground.Location = new System.Drawing.Point(324, 355);
+            this.AllBackground.Location = new System.Drawing.Point(327, 355);
             this.AllBackground.Name = "AllBackground";
             this.AllBackground.Size = new System.Drawing.Size(70, 38);
             this.AllBackground.TabIndex = 8;
@@ -186,7 +186,7 @@
             // ISBNBackground
             // 
             this.ISBNBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.ISBNBackground.Location = new System.Drawing.Point(393, 355);
+            this.ISBNBackground.Location = new System.Drawing.Point(396, 355);
             this.ISBNBackground.Name = "ISBNBackground";
             this.ISBNBackground.Size = new System.Drawing.Size(70, 38);
             this.ISBNBackground.TabIndex = 9;
@@ -195,7 +195,7 @@
             // NameBackground
             // 
             this.NameBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.NameBackground.Location = new System.Drawing.Point(462, 355);
+            this.NameBackground.Location = new System.Drawing.Point(465, 355);
             this.NameBackground.Name = "NameBackground";
             this.NameBackground.Size = new System.Drawing.Size(70, 38);
             this.NameBackground.TabIndex = 10;
@@ -204,7 +204,7 @@
             // AuthorBackground
             // 
             this.AuthorBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.AuthorBackground.Location = new System.Drawing.Point(531, 355);
+            this.AuthorBackground.Location = new System.Drawing.Point(534, 355);
             this.AuthorBackground.Name = "AuthorBackground";
             this.AuthorBackground.Size = new System.Drawing.Size(70, 38);
             this.AuthorBackground.TabIndex = 11;
@@ -213,7 +213,7 @@
             // PublisherBackgound
             // 
             this.PublisherBackgound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.PublisherBackgound.Location = new System.Drawing.Point(600, 355);
+            this.PublisherBackgound.Location = new System.Drawing.Point(603, 355);
             this.PublisherBackgound.Name = "PublisherBackgound";
             this.PublisherBackgound.Size = new System.Drawing.Size(70, 38);
             this.PublisherBackgound.TabIndex = 12;
@@ -258,9 +258,9 @@
             // BigTitlePictureBox
             // 
             this.BigTitlePictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BigTitlePictureBox.BackgroundImage")));
-            this.BigTitlePictureBox.Location = new System.Drawing.Point(298, 75);
+            this.BigTitlePictureBox.Location = new System.Drawing.Point(286, 75);
             this.BigTitlePictureBox.Name = "BigTitlePictureBox";
-            this.BigTitlePictureBox.Size = new System.Drawing.Size(431, 148);
+            this.BigTitlePictureBox.Size = new System.Drawing.Size(428, 148);
             this.BigTitlePictureBox.TabIndex = 15;
             this.BigTitlePictureBox.TabStop = false;
             // 
