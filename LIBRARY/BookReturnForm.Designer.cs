@@ -51,7 +51,7 @@ namespace LIBRARY
             // Panel
             // 
             this.Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.Panel.BackgroundImage = global::LIBRARY.Properties.Resources.sbsbb11;
+            this.Panel.BackgroundImage = global::LIBRARY.Properties.Resources.UserFormBG;
             this.Panel.Controls.Add(this.RemindLabel);
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
@@ -73,7 +73,7 @@ namespace LIBRARY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::LIBRARY.Properties.Resources.sbsbb11;
+            this.BackgroundImage = global::LIBRARY.Properties.Resources.UserFormBG;
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.Panel);

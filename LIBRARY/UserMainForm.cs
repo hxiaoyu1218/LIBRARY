@@ -77,8 +77,7 @@ namespace LIBRARY
                 if (myworker.CancellationPending != true)
                 {
                     TimeWork.GetLastInputTime();
-                    string[] a = ClassTime.SystemTime.Split();
-                    myworker.ReportProgress(1, a[0]);
+                    myworker.ReportProgress(1, ClassTime.SystemTime);
                 }
                 System.Threading.Thread.Sleep(5000);
             }

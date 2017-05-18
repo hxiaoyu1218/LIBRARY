@@ -63,9 +63,9 @@ namespace LIBRARY.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap noimage {
+        internal static System.Drawing.Bitmap BookNullImage {
             get {
-                object obj = ResourceManager.GetObject("noimage", resourceCulture);
+                object obj = ResourceManager.GetObject("BookNullImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace LIBRARY.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap sbsbb11 {
+        internal static System.Drawing.Bitmap UserFormBG {
             get {
-                object obj = ResourceManager.GetObject("sbsbb11", resourceCulture);
+                object obj = ResourceManager.GetObject("UserFormBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

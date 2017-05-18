@@ -67,7 +67,7 @@ namespace LIBRARY
             }
             catch
             {
-                BookPictureBox.Image = Properties.Resources.noimage;//set default image
+                BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
             }
             
         }

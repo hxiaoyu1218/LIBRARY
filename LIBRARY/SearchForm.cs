@@ -44,7 +44,6 @@ namespace LIBRARY
             #region 按钮触发范围设置
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 172, 172);
-            //重新设置圆形按钮region范围
             UserInfoButton.Region = new Region(myPath);
             BookReturnButton.Region = new Region(myPath);
             #endregion

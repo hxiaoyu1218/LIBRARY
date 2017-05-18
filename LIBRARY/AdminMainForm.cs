@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,16 @@ namespace LIBRARY
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-
+            int v = (int)ReturnButton.Tag;
+            if (v == 1)
+            {
+                MainPanel.Controls.Clear();
+                AdminFunctionForm adminFunctionForm = new AdminFunctionForm(this);
+                adminFunctionForm.TopLevel = false;
+                adminFunctionForm.Dock = DockStyle.Fill;
+                MainPanel.Controls.Add(adminFunctionForm);
+                adminFunctionForm.Show();
+            }
         }
 
         private void TimeWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -51,8 +61,7 @@ namespace LIBRARY
                 if (myworker.CancellationPending != true)
                 {
                     TimeWork.GetLastInputTime();
-                    string[] a = ClassTime.SystemTime.Split();
-                    myworker.ReportProgress(1, a[0]);
+                    myworker.ReportProgress(1, ClassTime.SystemTime);
                 }
                 System.Threading.Thread.Sleep(5000);
             }
@@ -62,5 +71,6 @@ namespace LIBRARY
         {
             TimeTextBox.Text = e.UserState.ToString();
         }
+
     }
 }

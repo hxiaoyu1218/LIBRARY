@@ -43,7 +43,7 @@ namespace LIBRARY
                 }
                 catch
                 {
-                    pic.Image = Properties.Resources.noimage;//set default image
+                    pic.Image = Properties.Resources.BookNullImage;//set default image
                 }
                 pic.Location = new Point(x, y);
                 pic.Name = (i - 1).ToString();

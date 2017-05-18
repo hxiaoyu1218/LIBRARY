@@ -94,6 +94,12 @@
     <Compile Include="AdminFunctionForm.Designer.cs">
       <DependentUpon>AdminFunctionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookManageForm.Designer.cs">
+      <DependentUpon>BookManageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimeWork.cs" />
     <Compile Include="UserMainForm.cs">
       <SubType>Form</SubType>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminFunctionForm.resx">
       <DependentUpon>AdminFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookManageForm.resx">
+      <DependentUpon>BookManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>

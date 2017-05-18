@@ -9,6 +9,21 @@
             管理员类
             </summary>
         </member>
+        <member name="P:LibrarySystemBackEnd.ClassAdministrator.Id">
+            <summary>
+            管理员ID
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassAdministrator.Name">
+            <summary>
+            管理员姓名
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassAdministrator.Password">
+            <summary>
+            管理员密码
+            </summary>
+        </member>
         <member name="M:LibrarySystemBackEnd.ClassAdministrator.#ctor(System.String,System.String,System.String)">
             <summary>
             构造函数
@@ -273,6 +288,16 @@
             <param name="i">bsbook中第i本</param>
             <returns>成功/失败</returns>
         </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.StartTime">
+            <summary>
+            程序启动时调用，从文件读取时间
+            </summary>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.StopTime">
+            <summary>
+            程序停止时调用，将时间写入文件
+            </summary>
+        </member>
         <member name="T:LibrarySystemBackEnd.BOOKSTATE">
             <summary>
             书籍状态 可借，已借，预约，不可用
@@ -449,9 +474,20 @@
             每一本书
             </summary>
         </member>
-        <member name="M:LibrarySystemBackEnd.ClassBook.#ctor(System.String,System.String,System.Int32,System.DateTime,System.String,System.String,System.String,System.String)">
+        <member name="M:LibrarySystemBackEnd.ClassBook.UpdateHistory(System.String,System.DateTime,System.String,System.Int32)">
+            <summary>
+            写入历史文件
+            </summary>
+            <param name="bookid">书籍编号，带扩展编号</param>
+            <param name="time">操作发生时间</param>
+            <param name="userid">用户id</param>
+            <param name="cat">操作种类，0表示购入，1表示借阅，2表示归还，3表示预约，4表示取消预约，5表示管理员取走维护，6表示维护结束</param>
+            <returns>成功/失败</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBook.#ctor(System.String,System.String,System.Int32,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             构造函数 构造时 名字 isbn 数量 购入时间 不能为空 其余可以
+            生成历史文件
             </summary>
             <param name="_name">书名</param>
             <param name="_isbn">书号</param>
@@ -461,6 +497,7 @@
             <param name="_auther">作者</param>
             <param name="_introduction">简介</param>
             <param name="_bookimage">书籍封面地址</param>
+            <param name="_adminid">管理员id</param>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBook.#ctor(System.IO.StreamReader)">
             <summary>
@@ -493,12 +530,13 @@
             </summary>
             <param name="sw">StreamWriter</param>
         </member>
-        <member name="M:LibrarySystemBackEnd.ClassBook.AddBook(System.Int32,System.DateTime)">
+        <member name="M:LibrarySystemBackEnd.ClassBook.AddBook(System.Int32,System.DateTime,System.String)">
             <summary>
             添加书的数量
             </summary>
             <param name="n">数量</param>
             <param name="time">购入时间</param>
+            <param name="_adminid">管理员ID</param>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBook.DeleteBook(System.Int32)">
             <summary>
@@ -692,6 +730,21 @@
             写入文件函数
             </summary>
             <param name="sw">StreamWriter</param>
+        </member>
+        <member name="T:LibrarySystemBackEnd.ClassTime">
+            <summary>
+            系统时间
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassTime.SystemTime">
+            <summary>
+            get属性，set属性
+            </summary>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassTime.inc">
+            <summary>
+            增长时间
+            </summary>
         </member>
         <member name="T:LibrarySystemBackEnd.USERTYPE">
             <summary>

@@ -71,7 +71,7 @@
             // BookPictureBox
             // 
             this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookPictureBox.BackgroundImage = global::LIBRARY.Properties.Resources.noimage;
+            this.BookPictureBox.BackgroundImage = global::LIBRARY.Properties.Resources.BookNullImage;
             this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BookPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BookPictureBox.Location = new System.Drawing.Point(70, 141);
