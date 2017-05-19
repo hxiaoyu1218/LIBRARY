@@ -23,8 +23,7 @@ namespace LIBRARY
             ComponentDynamicLoad(ClassBackEnd.Userbsbook.Count);     
         }
         private void ComponentDynamicLoad(int num)
-        {
-            
+        {        
             Panel.Controls.Clear();
             int x = 86, y = 138;
             int x1 = 103, y1 = 341;

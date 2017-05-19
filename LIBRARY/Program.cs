@@ -16,19 +16,20 @@ namespace LIBRARY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //LoginForm loginForm = new LoginForm();
-            //loginForm.ShowDialog();
-            //loginForm.Dispose();
-            Application.Run(new AdminMainForm());
-            //if ((int)loginForm.Tag == 1)
-            //{
-            //    Application.Run(new UserMainForm());
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            loginForm.Dispose();
 
-            //}
-            //else if ((int)loginForm.Tag == 2)
-            //{
-            //    Application.Run(new AdminMainForm());
-            //}
+            if ((int)loginForm.Tag == 1)
+            {
+                Application.Run(new UserMainForm());
+
+            }
+            else if ((int)loginForm.Tag == 2)
+            {
+                Application.Run(new AdminMainForm());
+            }
+            //Application.Run(new AdminMainForm());
         }
     }
 }

@@ -22,6 +22,7 @@ namespace LIBRARY
 
         private void AdminMainForm_Load(object sender, EventArgs e)
         {
+            TimeWorker.RunWorkerAsync();
             MainPanel.Controls.Clear();
             AdminFunctionForm adminFunctionForm = new AdminFunctionForm(this);
             adminFunctionForm.TopLevel = false;
@@ -50,6 +51,15 @@ namespace LIBRARY
                 adminFunctionForm.Dock = DockStyle.Fill;
                 MainPanel.Controls.Add(adminFunctionForm);
                 adminFunctionForm.Show();
+            }
+            else if (v == 2)
+            {
+                MainPanel.Controls.Clear();
+                BookMangeForm bookManageForm = new BookMangeForm(this);
+                bookManageForm.TopLevel = false;
+                bookManageForm.Dock = DockStyle.Fill;
+                MainPanel.Controls.Add(bookManageForm);
+                bookManageForm.Show();
             }
         }
 

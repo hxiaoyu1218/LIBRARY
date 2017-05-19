@@ -58,6 +58,12 @@
     <Compile Include="AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookDetailAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookDetailAdminForm.Designer.cs">
+      <DependentUpon>BookDetailAdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
       <DependentUpon>BookManageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TimeWork.cs" />
+    <Compile Include="UserDetailAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDetailAdminForm.Designer.cs">
+      <DependentUpon>UserDetailAdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,9 @@
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BookDetailAdminForm.resx">
+      <DependentUpon>BookDetailAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookManageForm.resx">
       <DependentUpon>BookManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDetailAdminForm.resx">
+      <DependentUpon>UserDetailAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>
@@ -221,6 +239,87 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\I.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\O.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\U.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\V.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Y.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Z.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0moren.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

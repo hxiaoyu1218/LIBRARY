@@ -216,7 +216,7 @@ namespace LIBRARY
             if (StudentCheckBox.Checked == true) type = USERTYPE.Student;
             else if (TeacherCheckBox.Checked == true) type = USERTYPE.Lecturer;
 
-            if (type == 0)
+            if (type == USERTYPE.Guest) 
             {
                 InfoBox ib = new InfoBox(6);
                 ib.ShowDialog();

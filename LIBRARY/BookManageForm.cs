@@ -278,12 +278,12 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 4)
             {
-                //frmMain.MainPanel.Controls.Clear();
-                //BookDetailForm bookDetailForm = new BookDetailForm(frmMain, e.RowIndex + (nPage - 1) * 10);
-                //bookDetailForm.TopLevel = false;
-                //bookDetailForm.Dock = DockStyle.Fill;
-                //frmMain.MainPanel.Controls.Add(bookDetailForm);
-                //bookDetailForm.Show();
+                frmMain.MainPanel.Controls.Clear();
+                BookDetailAdminForm bookDetailAdminForm = new BookDetailAdminForm(frmMain, e.RowIndex + (nPage - 1) * 10);
+                bookDetailAdminForm.TopLevel = false;
+                bookDetailAdminForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
+                bookDetailAdminForm.Show();
             }
         }
 

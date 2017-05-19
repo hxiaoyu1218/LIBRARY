@@ -75,18 +75,21 @@
             this.MaxBorrowText = new System.Windows.Forms.Label();
             this.NowBorrowText = new System.Windows.Forms.Label();
             this.NowOrderText = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.UserPicBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MessageSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicBox)).BeginInit();
             this.SuspendLayout();
             // 
             // WelTextBox
             // 
-            this.WelTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.WelTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.WelTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.WelTextBox.Font = new System.Drawing.Font("黑体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.WelTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.WelTextBox.Location = new System.Drawing.Point(582, 9);
+            this.WelTextBox.Location = new System.Drawing.Point(616, 9);
             this.WelTextBox.Name = "WelTextBox";
             this.WelTextBox.ReadOnly = true;
             this.WelTextBox.Size = new System.Drawing.Size(308, 25);
@@ -198,7 +201,7 @@
             this.UserChangeButton.Font = new System.Drawing.Font("黑体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserChangeButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.UserChangeButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.UserChangeButton.Location = new System.Drawing.Point(888, 8);
+            this.UserChangeButton.Location = new System.Drawing.Point(820, 37);
             this.UserChangeButton.Name = "UserChangeButton";
             this.UserChangeButton.Size = new System.Drawing.Size(98, 22);
             this.UserChangeButton.TabIndex = 21;
@@ -568,6 +571,25 @@
             this.NowOrderText.TabIndex = 32;
             this.NowOrderText.Text = "4";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "label1";
+            // 
+            // UserPicBox
+            // 
+            this.UserPicBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.UserPicBox.Location = new System.Drawing.Point(921, 7);
+            this.UserPicBox.Name = "UserPicBox";
+            this.UserPicBox.Size = new System.Drawing.Size(55, 55);
+            this.UserPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.UserPicBox.TabIndex = 34;
+            this.UserPicBox.TabStop = false;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -576,6 +598,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.ControlBox = false;
+            this.Controls.Add(this.UserPicBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.NowOrderText);
             this.Controls.Add(this.NowBorrowText);
             this.Controls.Add(this.MaxBorrowText);
@@ -609,6 +633,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MessageSheet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -645,5 +670,7 @@
         private System.Windows.Forms.Label MaxBorrowText;
         private System.Windows.Forms.Label NowBorrowText;
         private System.Windows.Forms.Label NowOrderText;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox UserPicBox;
     }
 }

@@ -29,10 +29,19 @@ namespace LIBRARY
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookReturnForm));
             this.TitleLabel = new System.Windows.Forms.Label();
             this.Panel = new LIBRARY.MyPanel();
             this.RemindLabel = new System.Windows.Forms.Label();
+            this.LastPButton = new System.Windows.Forms.PictureBox();
+            this.JumpPTextBox = new System.Windows.Forms.TextBox();
+            this.DividePicture = new System.Windows.Forms.PictureBox();
+            this.PageTextBox = new System.Windows.Forms.TextBox();
+            this.NextPbutton = new System.Windows.Forms.PictureBox();
             this.Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DividePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -52,6 +61,11 @@ namespace LIBRARY
             // 
             this.Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.Panel.BackgroundImage = global::LIBRARY.Properties.Resources.UserFormBG;
+            this.Panel.Controls.Add(this.NextPbutton);
+            this.Panel.Controls.Add(this.PageTextBox);
+            this.Panel.Controls.Add(this.DividePicture);
+            this.Panel.Controls.Add(this.JumpPTextBox);
+            this.Panel.Controls.Add(this.LastPButton);
             this.Panel.Controls.Add(this.RemindLabel);
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
@@ -68,6 +82,55 @@ namespace LIBRARY
             this.RemindLabel.Size = new System.Drawing.Size(292, 27);
             this.RemindLabel.TabIndex = 0;
             this.RemindLabel.Text = "这里空空的。。。快去借点书吧";
+            // 
+            // LastPButton
+            // 
+            this.LastPButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LastPButton.Image = ((System.Drawing.Image)(resources.GetObject("LastPButton.Image")));
+            this.LastPButton.Location = new System.Drawing.Point(404, 655);
+            this.LastPButton.Name = "LastPButton";
+            this.LastPButton.Size = new System.Drawing.Size(20, 36);
+            this.LastPButton.TabIndex = 34;
+            this.LastPButton.TabStop = false;
+            // 
+            // JumpPTextBox
+            // 
+            this.JumpPTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.JumpPTextBox.Location = new System.Drawing.Point(439, 660);
+            this.JumpPTextBox.Name = "JumpPTextBox";
+            this.JumpPTextBox.Size = new System.Drawing.Size(40, 27);
+            this.JumpPTextBox.TabIndex = 35;
+            this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DividePicture
+            // 
+            this.DividePicture.Image = ((System.Drawing.Image)(resources.GetObject("DividePicture.Image")));
+            this.DividePicture.Location = new System.Drawing.Point(493, 660);
+            this.DividePicture.Name = "DividePicture";
+            this.DividePicture.Size = new System.Drawing.Size(18, 26);
+            this.DividePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.DividePicture.TabIndex = 36;
+            this.DividePicture.TabStop = false;
+            // 
+            // PageTextBox
+            // 
+            this.PageTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.PageTextBox.Location = new System.Drawing.Point(522, 660);
+            this.PageTextBox.Name = "PageTextBox";
+            this.PageTextBox.ReadOnly = true;
+            this.PageTextBox.Size = new System.Drawing.Size(40, 27);
+            this.PageTextBox.TabIndex = 37;
+            this.PageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // NextPbutton
+            // 
+            this.NextPbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NextPbutton.Image = ((System.Drawing.Image)(resources.GetObject("NextPbutton.Image")));
+            this.NextPbutton.Location = new System.Drawing.Point(577, 655);
+            this.NextPbutton.Name = "NextPbutton";
+            this.NextPbutton.Size = new System.Drawing.Size(20, 36);
+            this.NextPbutton.TabIndex = 38;
+            this.NextPbutton.TabStop = false;
             // 
             // BookReturnForm
             // 
@@ -88,6 +151,9 @@ namespace LIBRARY
             this.Load += new System.EventHandler(this.BookReturnForm_Load);
             this.Panel.ResumeLayout(false);
             this.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DividePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,5 +164,10 @@ namespace LIBRARY
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label RemindLabel;
         private MyPanel Panel;
+        private System.Windows.Forms.PictureBox LastPButton;
+        private System.Windows.Forms.TextBox JumpPTextBox;
+        private System.Windows.Forms.PictureBox DividePicture;
+        private System.Windows.Forms.TextBox PageTextBox;
+        private System.Windows.Forms.PictureBox NextPbutton;
     }
 }
