@@ -130,7 +130,6 @@ namespace LIBRARY
             var v = ClassBackEnd.LogIn(UserTextBox.Text, PasswordTextBox.Text);
             if (v == 1)//用户登录
             {
-                Tag = 1;
                 if (RememberCheckBox.Checked == true)
                 {
                     RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
@@ -139,6 +138,7 @@ namespace LIBRARY
                 {
                     RememberMeWrite(false);
                 }
+                Tag = 1;
                 Close();
             }
             else if (v == 2)//管理员登录
@@ -172,7 +172,8 @@ namespace LIBRARY
 
         private void GuestLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Tag = true;
+            Tag = 1;
+            Guest.GuestFlag = 1;
             Close();
         }
         private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -199,7 +200,7 @@ namespace LIBRARY
                     userpassword = sr.ReadLine();
                 }
             }
-            catch  { return; }
+            catch { return; }
             finally
             {
                 if (sr != null) sr.Close();

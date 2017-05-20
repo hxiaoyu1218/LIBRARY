@@ -21,6 +21,11 @@ namespace LIBRARY
             bookIndex = bookindex;
             frmMain = frm;
             InitializeComponent();
+            if (Guest.GuestFlag == 1)
+            {
+                BookBorrowButton.Hide();
+                BookOrderButton.Hide();
+            }
         }
         public void BookListRefresh()
         {
@@ -55,7 +60,7 @@ namespace LIBRARY
         }
         private void BookDetailLoad()
         {
-			ClassBackEnd.LoadSearchResult(bookIndex);
+            ClassBackEnd.LoadSearchResult(bookIndex);
             BookNameLabel.Text = ClassBackEnd.Currentbook.Bookname;
             AuthorText.Text = ClassBackEnd.Currentbook.Author;
             BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
@@ -69,7 +74,7 @@ namespace LIBRARY
             {
                 BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
             }
-            
+
         }
         private void OrderOrBorrow()
         {
@@ -103,7 +108,8 @@ namespace LIBRARY
 
 
             BookDetailLoad();
-            OrderOrBorrow();
+            if (Guest.GuestFlag != 1) OrderOrBorrow();
+
             frmMain.ReturnButton.Tag = 2;
 
             #region 设置圆形按钮区域
@@ -114,8 +120,8 @@ namespace LIBRARY
             #endregion
 
             SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
-            SetStyle(ControlStyles.DoubleBuffer, true); 
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
 
             BookListRefresh();
 
@@ -173,7 +179,7 @@ namespace LIBRARY
         private void BookOrderButton_Click(object sender, EventArgs e)
         {
             var v = ClassBackEnd.ScheduleBook(bookIndex);
-            if(v)
+            if (v)
             {
                 #region Infobox Show
                 InfoBox infoBox = new InfoBox(2, this);

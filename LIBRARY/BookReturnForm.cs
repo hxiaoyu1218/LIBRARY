@@ -14,20 +14,50 @@ namespace LIBRARY
     public partial class BookReturnForm : DMSkin.Main
     {
         private UserMainForm frmMain;
+        private int maxPage;
         public BookReturnForm(UserMainForm frm)
         {
             ClassBackEnd.LoadBorrowedBook();
 
             frmMain = frm;
             InitializeComponent();
-            ComponentDynamicLoad(ClassBackEnd.Userbsbook.Count);     
+            maxPage = ClassBackEnd.Userbsbook.Count > 10 ? 2 : 1;
+            ComponentDynamicLoad(1);
         }
-        private void ComponentDynamicLoad(int num)
-        {        
+        private void PageButtonLoad()
+        {
+            if(ClassBackEnd.Userbsbook.Count==0)
+            {
+                LastPButton.Hide();
+                NextPbutton.Hide();
+                JumpPTextBox.Hide();
+                PageTextBox.Hide();
+                DividePicture.Hide();
+            }
+            else
+            {
+                LastPButton.Show();
+                NextPbutton.Show();
+                JumpPTextBox.Show();
+                PageTextBox.Show();
+                DividePicture.Show();
+            }
+        }
+        private void ComponentDynamicLoad(int page)
+        {
             Panel.Controls.Clear();
+            PageButtonLoad();
+
+            PageTextBox.Text = maxPage.ToString();
+            JumpPTextBox.Text = page.ToString();
+
+            int start = (page - 1) * 10 + 1;
+            int end = page * 10;
+            if (page == maxPage) end = ClassBackEnd.Userbsbook.Count;
+            int num = end - start + 1;
             int x = 86, y = 138;
-            int x1 = 103, y1 = 341;
-            for (int i = 1; i <= num; i++)
+            int x1 = 86, y1 = 341;
+            for (int i = start, j = 1; i <= end; j++, i++)
             {
                 PictureBox pic = new PictureBox();
                 pic.Cursor = Cursors.Hand;
@@ -38,7 +68,7 @@ namespace LIBRARY
                 pic.Size = new Size(140, 200);
                 try
                 {
-                   pic.Image = Image.FromFile(@"data/book/" + ClassBackEnd.Userbsbook[i-1].Bookisbn.Substring(0,10) + ".jpg");
+                    pic.Image = Image.FromFile(@"data/book/" + ClassBackEnd.Userbsbook[i - 1].Bookisbn.Substring(0, 10) + ".jpg");
                 }
                 catch
                 {
@@ -53,24 +83,25 @@ namespace LIBRARY
 
                 LinkLabel NameLink = new LinkLabel();
                 NameLink.ActiveLinkColor = Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-                NameLink.AutoSize = true;
-                NameLink.BackColor = Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-                NameLink.Font = new Font("微软雅黑", 14F, FontStyle.Regular, GraphicsUnit.Point, 134);
+                NameLink.AutoSize = false;
+                NameLink.TextAlign= System.Drawing.ContentAlignment.TopCenter;
+                NameLink.BackColor = System.Drawing.Color.Transparent;
+                NameLink.Font = new Font("微软雅黑", 13F, FontStyle.Regular, GraphicsUnit.Point, 134);
                 NameLink.LinkBehavior = LinkBehavior.HoverUnderline;
                 NameLink.LinkColor = Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
                 NameLink.Location = new Point(x1, y1);
-                NameLink.Name = (i-1).ToString();
-                NameLink.Size = new Size(107, 25);
+                NameLink.Name = (i - 1).ToString();
+                NameLink.Size = new Size(140, 55);
                 NameLink.TabStop = false;
-                NameLink.Text = ClassBackEnd.Userbsbook[i-1].Bookname;
+                NameLink.Text = ClassBackEnd.Userbsbook[i - 1].Bookname;
                 NameLink.Click += new EventHandler(NameLink_Click);
                 Panel.Controls.Add(NameLink);
                 x1 += 170;
 
-                if (i % 5 == 0)
+                if (j % 5 == 0)
                 {
-                    y = 399;y1 = 602;
-                    x = 86;x1 = 103;
+                    y = 399; y1 = 602;
+                    x = 86; x1 = 86;
                 }
             }
             if (num == 0) RemindLabel.Show();
@@ -89,14 +120,16 @@ namespace LIBRARY
             returnForm.Dispose();
 
             ClassBackEnd.LoadBorrowedBook();
-            ComponentDynamicLoad(ClassBackEnd.Userbsbook.Count);
+            maxPage = ClassBackEnd.Userbsbook.Count > 10 ? 2 : 1;
+            if (linkID>9) ComponentDynamicLoad(2);
+            else ComponentDynamicLoad(1);
 
         }
         private void pic_Click(object sender, EventArgs e)
         {
             PictureBox pic = sender as PictureBox;
             int picID = Convert.ToInt32(pic.Name);
-            if(!ClassBackEnd.BorrowedBookIDown(picID))
+            if (!ClassBackEnd.BorrowedBookIDown(picID))
             {
                 InfoBox ib = new InfoBox(9);
                 ib.ShowDialog();
@@ -107,16 +140,44 @@ namespace LIBRARY
             returnForm.Dispose();
 
             ClassBackEnd.LoadBorrowedBook();
-            ComponentDynamicLoad(ClassBackEnd.Userbsbook.Count);
+            maxPage = ClassBackEnd.Userbsbook.Count > 10 ? 2 : 1;
+            if (picID > 9) ComponentDynamicLoad(2);
+            else ComponentDynamicLoad(1);
         }
         private void BookReturnForm_Load(object sender, EventArgs e)
-        {       
+        {
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
             #endregion
+        }
+
+        private void LastPButton_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(JumpPTextBox.Text)==1)
+            {
+                return;
+            }
+            else
+            {
+                ComponentDynamicLoad(Convert.ToInt32(JumpPTextBox.Text) - 1);
+                JumpPTextBox.Text = "1";
+            }
+        }
+
+        private void NextPbutton_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(JumpPTextBox.Text) == maxPage)
+            {
+                return;
+            }
+            else
+            {
+                ComponentDynamicLoad(Convert.ToInt32(JumpPTextBox.Text) + 1);
+                JumpPTextBox.Text = "2";
+            }
         }
     }
 }

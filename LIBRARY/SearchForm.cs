@@ -20,6 +20,15 @@ namespace LIBRARY
         {
             InitializeComponent();
             frmMain = frm;
+            if (Guest.GuestFlag == 1)
+            {
+                UserInfoButton.Hide();
+                BookReturnButton.Hide();
+                Point p = SearchPanel.Location;
+                p.Y += 70;
+                SearchPanel.Location = p;
+
+            }
         }
 
         private void SearchForm_Load(object sender, EventArgs e)
@@ -50,11 +59,11 @@ namespace LIBRARY
         }
 
         #region SearchForm 按钮动画处理
-        private void SearchBox_KeyDown(object sender, KeyEventArgs e)//屏蔽换行回车键
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if ((int)e.KeyCode == 13)
             {
-                e.SuppressKeyPress = true;
+                SearchButton.PerformClick();
             }
         }
 

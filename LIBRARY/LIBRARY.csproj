@@ -85,6 +85,7 @@
     <Compile Include="ChargeForm.Designer.cs">
       <DependentUpon>ChargeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Guest.cs" />
     <Compile Include="InfoBox.cs">
       <SubType>Form</SubType>
     </Compile>
