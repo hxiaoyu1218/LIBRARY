@@ -43,10 +43,10 @@
             this.ReturnDateLabel = new System.Windows.Forms.Label();
             this.ReturnDateText = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ReturnButton = new DMSkin.Controls.DM.DMButtonImage();
             this.ReBorrowButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.BookNameText = new System.Windows.Forms.TextBox();
+            this.BookNameText = new System.Windows.Forms.Label();
+            this.RemindLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -219,19 +219,6 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(145, 404);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 108);
-            this.textBox1.TabIndex = 32;
-            this.textBox1.Text = "还书逾期1天扣1点信用\r\n距应还日期5日以内可以续借\r\n1次延长15天，1本书只能续借1次";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // ReturnButton
             // 
             this.ReturnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
@@ -271,15 +258,24 @@
             // BookNameText
             // 
             this.BookNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookNameText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BookNameText.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookNameText.Location = new System.Drawing.Point(0, 52);
-            this.BookNameText.Multiline = true;
+            this.BookNameText.Font = new System.Drawing.Font("微软雅黑", 33F);
+            this.BookNameText.Location = new System.Drawing.Point(0, 58);
             this.BookNameText.Name = "BookNameText";
-            this.BookNameText.Size = new System.Drawing.Size(600, 66);
-            this.BookNameText.TabIndex = 36;
-            this.BookNameText.Text = "测试";
-            this.BookNameText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BookNameText.Size = new System.Drawing.Size(600, 58);
+            this.BookNameText.TabIndex = 37;
+            this.BookNameText.Text = "I\'m B00K Name";
+            this.BookNameText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RemindLabel
+            // 
+            this.RemindLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.RemindLabel.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.RemindLabel.Location = new System.Drawing.Point(120, 401);
+            this.RemindLabel.Name = "RemindLabel";
+            this.RemindLabel.Size = new System.Drawing.Size(360, 93);
+            this.RemindLabel.TabIndex = 38;
+            this.RemindLabel.Text = "还书逾期1天扣1点信用\r\n距应还日期5日以内可以续借\r\n1次延长15天，1本书只能续借1次";
+            this.RemindLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ReturnForm
             // 
@@ -287,10 +283,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(600, 650);
+            this.Controls.Add(this.RemindLabel);
             this.Controls.Add(this.BookNameText);
             this.Controls.Add(this.ReBorrowButton);
             this.Controls.Add(this.ReturnButton);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ReturnDateText);
             this.Controls.Add(this.ReturnDateLabel);
@@ -337,9 +333,9 @@
         private System.Windows.Forms.Label ReturnDateLabel;
         private System.Windows.Forms.Label ReturnDateText;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
         private DMSkin.Controls.DM.DMButtonImage ReturnButton;
         private DMSkin.Controls.DM.DMButtonImage ReBorrowButton;
-        private System.Windows.Forms.TextBox BookNameText;
+        private System.Windows.Forms.Label BookNameText;
+        private System.Windows.Forms.Label RemindLabel;
     }
 }

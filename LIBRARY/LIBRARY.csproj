@@ -33,10 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DMSkin, Version=0.3.1.6, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DMSkin, Version=0.3.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\DMSkin.dll</HintPath>
+    </Reference>
     <Reference Include="LibrarySystemBackEnd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LibrarySystemBackEnd.dll</HintPath>
+      <HintPath>.\LibrarySystemBackEnd.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

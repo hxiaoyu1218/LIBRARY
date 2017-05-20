@@ -199,7 +199,7 @@ namespace LIBRARY
                     userpassword = sr.ReadLine();
                 }
             }
-            catch (Exception e) { return; }
+            catch  { return; }
             finally
             {
                 if (sr != null) sr.Close();
@@ -223,7 +223,7 @@ namespace LIBRARY
                     sw.WriteLine(userpassword);
                 }
             }
-            catch (Exception e) { return; }
+            catch { return; }
             finally
             {
                 if (sw != null) sw.Close();

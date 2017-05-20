@@ -46,7 +46,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
-            this.WelTextBox = new System.Windows.Forms.TextBox();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.AcedemicLabel = new System.Windows.Forms.Label();
             this.CreditLabel = new System.Windows.Forms.Label();
@@ -77,26 +76,12 @@
             this.NowOrderText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.UserPicBox = new System.Windows.Forms.PictureBox();
+            this.WelTextBox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MessageSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // WelTextBox
-            // 
-            this.WelTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.WelTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WelTextBox.Font = new System.Drawing.Font("黑体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.WelTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.WelTextBox.Location = new System.Drawing.Point(616, 9);
-            this.WelTextBox.Name = "WelTextBox";
-            this.WelTextBox.ReadOnly = true;
-            this.WelTextBox.Size = new System.Drawing.Size(308, 25);
-            this.WelTextBox.TabIndex = 8;
-            this.WelTextBox.TabStop = false;
-            this.WelTextBox.Text = "欢迎，xzx！";
-            this.WelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TitleLabel
             // 
@@ -590,6 +575,17 @@
             this.UserPicBox.TabIndex = 34;
             this.UserPicBox.TabStop = false;
             // 
+            // WelTextBox
+            // 
+            this.WelTextBox.Font = new System.Drawing.Font("黑体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.WelTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.WelTextBox.Location = new System.Drawing.Point(648, 8);
+            this.WelTextBox.Name = "WelTextBox";
+            this.WelTextBox.Size = new System.Drawing.Size(283, 23);
+            this.WelTextBox.TabIndex = 35;
+            this.WelTextBox.Text = "欢迎，xzx！";
+            this.WelTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -640,8 +636,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox WelTextBox;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label AcedemicLabel;
         private System.Windows.Forms.Label CreditLabel;
@@ -672,5 +666,6 @@
         private System.Windows.Forms.Label NowOrderText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox UserPicBox;
+        private System.Windows.Forms.Label WelTextBox;
     }
 }

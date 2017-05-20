@@ -15,7 +15,7 @@ namespace LIBRARY
     public partial class UserDetailAdminForm : DMSkin.Main
     {
         private AdminMainForm frmMain;
-        private int ButtonState;//0 借书信息 1 借阅记录 （默认0）
+
         public UserDetailAdminForm(AdminMainForm frm)
         {
             frmMain = frm;
@@ -94,11 +94,10 @@ namespace LIBRARY
             NameText.Text = ClassBackEnd.Currentuser.Currentborrowedamount.ToString();
             RegistTimeText.Text = ClassBackEnd.Currentuser.Currentscheduleamount.ToString();
         }
-        private void UserForm_Load(object sender, EventArgs e)
+        private void UserDetailAdminForm_Load(object sender, EventArgs e)
         {
             ClassBackEnd.GetIntoPersonCenter();
             UserInfoLoad();
-            ButtonState = 0;
             SheeetRefresh();
             BookRecordSheet.Hide();
             #region 返回按钮处理
