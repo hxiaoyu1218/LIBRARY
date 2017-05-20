@@ -33,7 +33,7 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.PageTextBox = new System.Windows.Forms.TextBox();
             this.JumpPTextBox = new System.Windows.Forms.TextBox();
-            this.UserPanel = new System.Windows.Forms.Panel();
+            this.UserPanel = new MyPanel();
             this.NextPbutton = new System.Windows.Forms.PictureBox();
             this.LastPButton = new System.Windows.Forms.PictureBox();
             this.DividePicture = new System.Windows.Forms.PictureBox();

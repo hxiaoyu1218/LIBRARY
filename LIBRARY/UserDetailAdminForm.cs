@@ -15,10 +15,11 @@ namespace LIBRARY
     public partial class UserDetailAdminForm : DMSkin.Main
     {
         private AdminMainForm frmMain;
-
-        public UserDetailAdminForm(AdminMainForm frm)
+        private int UserIndex;
+        public UserDetailAdminForm(AdminMainForm frm, int index)
         {
             frmMain = frm;
+            UserIndex = index;
             InitializeComponent();
         }
         private void SheeetRefresh()
@@ -90,31 +91,31 @@ namespace LIBRARY
         {
             AcedemicText.Text = ClassBackEnd.Currentuser.School;
             CreditText.Text = ClassBackEnd.Currentuser.Credit.ToString();
-            IDText.Text = ClassBackEnd.Currentuser.Currentmaxborrowableamount.ToString();
-            NameText.Text = ClassBackEnd.Currentuser.Currentborrowedamount.ToString();
-            RegistTimeText.Text = ClassBackEnd.Currentuser.Currentscheduleamount.ToString();
+            IDText.Text = ClassBackEnd.Currentuser.Userid;
+            NameText.Text = ClassBackEnd.Currentuser.Username;
+            UserCategoryText.Text = ClassBackEnd.Currentuser.Usertype == USERTYPE.Student ? "学生" : "老师";
+            RegistTimeText.Text = ClassBackEnd.Currentuser.RegisterDate;
         }
         private void UserDetailAdminForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.GetIntoPersonCenter();
+            ClassBackEnd.SearchUserIDown(UserIndex);
             UserInfoLoad();
             SheeetRefresh();
-            BookRecordSheet.Hide();
             #region 返回按钮处理
-            frmMain.ReturnButton.Tag = 1;
+            frmMain.ReturnButton.Tag = 3;
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
             #endregion
         }
-   
+
         private void UserChangeButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Application.Restart();
         }
 
-    
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void PwdChangedLinkButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             PasswordChangeForm passwordChangeForm = new PasswordChangeForm();
             passwordChangeForm.ShowDialog();

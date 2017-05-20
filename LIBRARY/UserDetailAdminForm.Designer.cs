@@ -178,7 +178,7 @@
             this.PwdChangedLinkButton.TabIndex = 22;
             this.PwdChangedLinkButton.TabStop = true;
             this.PwdChangedLinkButton.Text = "重置密码";
-            this.PwdChangedLinkButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.PwdChangedLinkButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.PwdChangedLinkButton_LinkClicked);
             // 
             // CreditRecordButton
             // 
@@ -206,6 +206,7 @@
             dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
             this.BorrowInfoSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.BorrowInfoSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BorrowInfoSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BorrowInfoSheet.CausesValidation = false;
             this.BorrowInfoSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -297,6 +298,7 @@
             dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
             this.BookRecordSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.BookRecordSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookRecordSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BookRecordSheet.CausesValidation = false;
             this.BookRecordSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -458,6 +460,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BackgroundImage = global::LIBRARY.Properties.Resources.UserFormBG;
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.ControlBox = false;
             this.Controls.Add(this.UserCategoryText);

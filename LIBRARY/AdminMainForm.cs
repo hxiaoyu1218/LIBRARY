@@ -61,6 +61,15 @@ namespace LIBRARY
                 MainPanel.Controls.Add(bookManageForm);
                 bookManageForm.Show();
             }
+            else if (v == 3)
+            {
+                this.MainPanel.Controls.Clear();
+                UserManageForm userManageForm = new UserManageForm(this);
+                userManageForm.TopLevel = false;
+                userManageForm.Dock = DockStyle.Fill;
+                this.MainPanel.Controls.Add(userManageForm);
+                userManageForm.Show();
+            }
         }
 
         private void TimeWorker_DoWork(object sender, DoWorkEventArgs e)

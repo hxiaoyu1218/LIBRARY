@@ -358,6 +358,12 @@
             <param name="state">状态数组</param>
             <returns>成功/失败</returns>
         </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.SearchUserIDown(System.Int32)">
+            <summary>
+            管理员进入用户详情页前调用
+            </summary>
+            <param name="i">usersearch第i个</param>
+        </member>
         <member name="T:LibrarySystemBackEnd.BOOKSTATE">
             <summary>
             书籍状态 可借，已借，预约，不可用

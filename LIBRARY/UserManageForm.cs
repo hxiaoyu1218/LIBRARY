@@ -21,14 +21,18 @@ namespace LIBRARY
 
         private void UserManageForm_Load(object sender, EventArgs e)
         {
-
+          
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
             #endregion
+            if (ClassBackEnd.UsersearchList.Count == 0) return;
+            maxPage = (ClassBackEnd.UsersearchList.Count - 1) / 15 + 1;
+            JumpPTextBox.Text = nPage.ToString();
 
+           ComponentDynamicLoad(nPage);
         }
         private void PageButtonLoad()
         {
@@ -56,8 +60,6 @@ namespace LIBRARY
 
             //PageButtonLoad();
             PageTextBox.Text = maxPage.ToString();
-            //JumpPTextBox.Text = page.ToString();
-
 
             int picX = 81, picY = 20;
             int nameX = 161, nameY = 16;
@@ -81,7 +83,7 @@ namespace LIBRARY
                 pic.TabIndex = 76;
                 pic.TabStop = false;
                 pic.Click += new EventHandler(Pic_Click);
-                pic.Image = Guest.LoadHeadImage(ClassBackEnd.UsersearchList[i-1].Username);//image load
+                pic.Image = Guest.LoadHeadImage(ClassBackEnd.UsersearchList[i - 1].Username);//image load
 
                 Label lab = new Label();
                 lab.AutoSize = true;
@@ -92,7 +94,7 @@ namespace LIBRARY
                 lab.TabIndex = 91;
                 lab.Cursor = Cursors.Hand;
                 lab.Click += new EventHandler(Label_Click);
-                lab.Text = ClassBackEnd.UsersearchList[i-1].Username;//user name load
+                lab.Text = ClassBackEnd.UsersearchList[i - 1].Username;//user name load
 
                 Label lab1 = new Label();
                 lab1.AutoSize = true;
@@ -103,7 +105,7 @@ namespace LIBRARY
                 lab1.TabIndex = 92;
                 lab1.Cursor = Cursors.Hand;
                 lab1.Click += new EventHandler(Label_Click);
-                lab1.Text = ClassBackEnd.UsersearchList[i-1].Userid;//load user id
+                lab1.Text = ClassBackEnd.UsersearchList[i - 1].Userid;//load user id
 
                 Label lab2 = new Label();
                 lab2.AutoSize = true;
@@ -114,7 +116,7 @@ namespace LIBRARY
                 lab2.TabIndex = 93;
                 lab2.Cursor = Cursors.Hand;
                 lab2.Click += new EventHandler(Label_Click);
-                lab2.Text = ClassBackEnd.UsersearchList[i-1].School;//load acedemic name
+                lab2.Text = ClassBackEnd.UsersearchList[i - 1].School;//load acedemic name
 
                 UserPanel.Controls.Add(pic);
                 UserPanel.Controls.Add(lab);
@@ -146,7 +148,7 @@ namespace LIBRARY
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
-              SearchButton_Click(sender, e);
+                SearchButton_Click(sender, e);
             }
         }
 
@@ -155,7 +157,7 @@ namespace LIBRARY
 
             ClassBackEnd.SearchUser(SearchBox.Text);
             nPage = 1;
-            
+
             if (ClassBackEnd.UsersearchList.Count == 0) return;
             maxPage = (ClassBackEnd.UsersearchList.Count - 1) / 15 + 1;
             JumpPTextBox.Text = "1";
@@ -167,12 +169,24 @@ namespace LIBRARY
             string LabName = c.Name.Substring(1);
             int LabID = Convert.ToInt32(LabName);
             //to do
+            frmMain.MainPanel.Controls.Clear();
+            UserDetailAdminForm userDetailAdminForm = new UserDetailAdminForm(frmMain, LabID);
+            userDetailAdminForm.TopLevel = false;
+            userDetailAdminForm.Dock = DockStyle.Fill;
+            frmMain.MainPanel.Controls.Add(userDetailAdminForm);
+            userDetailAdminForm.Show();
         }
         private void Pic_Click(object sender, EventArgs e)
         {
             PictureBox p = sender as PictureBox;
             int PicID = Convert.ToInt32(p.Name);
-
+            //to do
+            frmMain.MainPanel.Controls.Clear();
+            UserDetailAdminForm userDetailAdminForm = new UserDetailAdminForm(frmMain, PicID);
+            userDetailAdminForm.TopLevel = false;
+            userDetailAdminForm.Dock = DockStyle.Fill;
+            frmMain.MainPanel.Controls.Add(userDetailAdminForm);
+            userDetailAdminForm.Show();
         }
 
         private void LastPButton_Click(object sender, EventArgs e)
