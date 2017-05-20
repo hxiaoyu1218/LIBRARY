@@ -73,6 +73,12 @@
     <Compile Include="BookDetailForm.Designer.cs">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManageForm.Designer.cs">
+      <DependentUpon>UserManageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManageForm.resx">
+      <DependentUpon>UserManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BookReturnForm.resx">
       <DependentUpon>BookReturnForm.cs</DependentUpon>
@@ -324,6 +333,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\0moren.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\不可预约.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

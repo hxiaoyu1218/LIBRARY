@@ -74,7 +74,6 @@
             this.MaxBorrowText = new System.Windows.Forms.Label();
             this.NowBorrowText = new System.Windows.Forms.Label();
             this.NowOrderText = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.UserPicBox = new System.Windows.Forms.PictureBox();
             this.WelTextBox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MessageSheet)).BeginInit();
@@ -556,15 +555,6 @@
             this.NowOrderText.TabIndex = 32;
             this.NowOrderText.Text = "4";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "label1";
-            // 
             // UserPicBox
             // 
             this.UserPicBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
@@ -595,7 +585,6 @@
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.ControlBox = false;
             this.Controls.Add(this.UserPicBox);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.NowOrderText);
             this.Controls.Add(this.NowBorrowText);
             this.Controls.Add(this.MaxBorrowText);
@@ -664,7 +653,6 @@
         private System.Windows.Forms.Label MaxBorrowText;
         private System.Windows.Forms.Label NowBorrowText;
         private System.Windows.Forms.Label NowOrderText;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox UserPicBox;
         private System.Windows.Forms.Label WelTextBox;
     }

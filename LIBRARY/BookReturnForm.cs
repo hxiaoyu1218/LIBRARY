@@ -55,8 +55,8 @@ namespace LIBRARY
             int end = page * 10;
             if (page == maxPage) end = ClassBackEnd.Userbsbook.Count;
             int num = end - start + 1;
-            int x = 86, y = 138;
-            int x1 = 86, y1 = 341;
+            int x = 86, y = 48;
+            int x1 = 86, y1 = 251;
             for (int i = start, j = 1; i <= end; j++, i++)
             {
                 PictureBox pic = new PictureBox();
@@ -100,7 +100,7 @@ namespace LIBRARY
 
                 if (j % 5 == 0)
                 {
-                    y = 399; y1 = 602;
+                    y = 309; y1 = 512;
                     x = 86; x1 = 86;
                 }
             }

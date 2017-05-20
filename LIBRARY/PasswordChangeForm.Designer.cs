@@ -50,7 +50,7 @@
             // 
             // BgImage
             // 
-            this.BgImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BgImage.BackColor = System.Drawing.Color.White;
             this.BgImage.Location = new System.Drawing.Point(0, 35);
             this.BgImage.Name = "BgImage";
             this.BgImage.Size = new System.Drawing.Size(410, 345);
@@ -91,7 +91,7 @@
             this.OPasswordCueText.BackColor = System.Drawing.Color.White;
             this.OPasswordCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OPasswordCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.OPasswordCueText.Location = new System.Drawing.Point(92, 80);
+            this.OPasswordCueText.Location = new System.Drawing.Point(89, 80);
             this.OPasswordCueText.Name = "OPasswordCueText";
             this.OPasswordCueText.Size = new System.Drawing.Size(55, 15);
             this.OPasswordCueText.TabIndex = 25;
@@ -103,7 +103,7 @@
             this.OPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OPasswordTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.OPasswordTextBox.Location = new System.Drawing.Point(96, 80);
+            this.OPasswordTextBox.Location = new System.Drawing.Point(94, 80);
             this.OPasswordTextBox.Name = "OPasswordTextBox";
             this.OPasswordTextBox.PasswordChar = '*';
             this.OPasswordTextBox.Size = new System.Drawing.Size(259, 22);
@@ -113,9 +113,9 @@
             // 
             // OPasswordBg
             // 
-            this.OPasswordBg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.OPasswordBg.BackColor = System.Drawing.Color.White;
             this.OPasswordBg.Image = ((System.Drawing.Image)(resources.GetObject("OPasswordBg.Image")));
-            this.OPasswordBg.Location = new System.Drawing.Point(50, 68);
+            this.OPasswordBg.Location = new System.Drawing.Point(48, 68);
             this.OPasswordBg.Name = "OPasswordBg";
             this.OPasswordBg.Size = new System.Drawing.Size(314, 42);
             this.OPasswordBg.TabIndex = 24;
@@ -139,7 +139,7 @@
             this.NPasswordTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NPasswordTextBox1.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NPasswordTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.NPasswordTextBox1.Location = new System.Drawing.Point(94, 148);
+            this.NPasswordTextBox1.Location = new System.Drawing.Point(94, 147);
             this.NPasswordTextBox1.Name = "NPasswordTextBox1";
             this.NPasswordTextBox1.PasswordChar = '*';
             this.NPasswordTextBox1.Size = new System.Drawing.Size(259, 22);
@@ -149,7 +149,7 @@
             // 
             // NPasswordBg1
             // 
-            this.NPasswordBg1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.NPasswordBg1.BackColor = System.Drawing.Color.White;
             this.NPasswordBg1.Image = ((System.Drawing.Image)(resources.GetObject("NPasswordBg1.Image")));
             this.NPasswordBg1.Location = new System.Drawing.Point(48, 136);
             this.NPasswordBg1.Name = "NPasswordBg1";
@@ -175,7 +175,7 @@
             this.NPasswordTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NPasswordTextBox2.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NPasswordTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.NPasswordTextBox2.Location = new System.Drawing.Point(94, 216);
+            this.NPasswordTextBox2.Location = new System.Drawing.Point(94, 214);
             this.NPasswordTextBox2.Name = "NPasswordTextBox2";
             this.NPasswordTextBox2.PasswordChar = '*';
             this.NPasswordTextBox2.Size = new System.Drawing.Size(259, 22);
@@ -185,7 +185,7 @@
             // 
             // NPasswordBg2
             // 
-            this.NPasswordBg2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.NPasswordBg2.BackColor = System.Drawing.Color.White;
             this.NPasswordBg2.Image = ((System.Drawing.Image)(resources.GetObject("NPasswordBg2.Image")));
             this.NPasswordBg2.Location = new System.Drawing.Point(48, 204);
             this.NPasswordBg2.Name = "NPasswordBg2";
@@ -195,7 +195,7 @@
             // 
             // OKButton
             // 
-            this.OKButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.OKButton.BackColor = System.Drawing.Color.White;
             this.OKButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OKButton.BackgroundImage")));
             this.OKButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OKButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("OKButton.DM_DownImage")));

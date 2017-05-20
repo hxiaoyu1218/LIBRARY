@@ -81,5 +81,15 @@ namespace LIBRARY
             frmMain. MainPanel.Controls.Add(bookManageForm);
             bookManageForm.Show();
         }
+
+        private void UserManageButton_Click(object sender, EventArgs e)
+        {
+            frmMain.MainPanel.Controls.Clear();
+            UserManageForm userManageForm = new UserManageForm(frmMain);
+            userManageForm.TopLevel = false;
+            userManageForm.Dock = DockStyle.Fill;
+            frmMain.MainPanel.Controls.Add(userManageForm);
+            userManageForm.Show();
+        }
     }
 }

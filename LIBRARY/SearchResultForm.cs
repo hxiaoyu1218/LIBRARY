@@ -324,6 +324,7 @@ namespace LIBRARY
             }
             catch
             {
+                if (JumpPTextBox.Text == "") return;
                 InfoBox infoBox = new InfoBox(13);
                 infoBox.ShowDialog();
                 infoBox.Dispose();

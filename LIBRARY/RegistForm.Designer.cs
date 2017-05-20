@@ -114,7 +114,7 @@
             this.UserCueText.BackColor = System.Drawing.Color.White;
             this.UserCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.UserCueText.Location = new System.Drawing.Point(112, 154);
+            this.UserCueText.Location = new System.Drawing.Point(111, 154);
             this.UserCueText.Name = "UserCueText";
             this.UserCueText.Size = new System.Drawing.Size(55, 15);
             this.UserCueText.TabIndex = 22;
@@ -152,7 +152,7 @@
             this.PasswordTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordTextBox1.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.PasswordTextBox1.Location = new System.Drawing.Point(116, 212);
+            this.PasswordTextBox1.Location = new System.Drawing.Point(116, 209);
             this.PasswordTextBox1.Name = "PasswordTextBox1";
             this.PasswordTextBox1.PasswordChar = '*';
             this.PasswordTextBox1.Size = new System.Drawing.Size(259, 22);
@@ -188,7 +188,7 @@
             this.PasswordTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordTextBox2.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswordTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.PasswordTextBox2.Location = new System.Drawing.Point(116, 270);
+            this.PasswordTextBox2.Location = new System.Drawing.Point(116, 267);
             this.PasswordTextBox2.Name = "PasswordTextBox2";
             this.PasswordTextBox2.PasswordChar = '*';
             this.PasswordTextBox2.Size = new System.Drawing.Size(259, 22);
@@ -240,7 +240,7 @@
             this.IDCueText.BackColor = System.Drawing.Color.White;
             this.IDCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.IDCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.IDCueText.Location = new System.Drawing.Point(112, 96);
+            this.IDCueText.Location = new System.Drawing.Point(111, 96);
             this.IDCueText.Name = "IDCueText";
             this.IDCueText.Size = new System.Drawing.Size(39, 15);
             this.IDCueText.TabIndex = 33;
@@ -276,7 +276,7 @@
             this.AcademicCueText.BackColor = System.Drawing.Color.White;
             this.AcademicCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AcademicCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.AcademicCueText.Location = new System.Drawing.Point(110, 328);
+            this.AcademicCueText.Location = new System.Drawing.Point(111, 328);
             this.AcademicCueText.Name = "AcademicCueText";
             this.AcademicCueText.Size = new System.Drawing.Size(39, 15);
             this.AcademicCueText.TabIndex = 36;
@@ -289,7 +289,7 @@
             this.AcademicTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AcademicTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AcademicTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.AcademicTextBox.Location = new System.Drawing.Point(114, 325);
+            this.AcademicTextBox.Location = new System.Drawing.Point(116, 325);
             this.AcademicTextBox.Name = "AcademicTextBox";
             this.AcademicTextBox.Size = new System.Drawing.Size(259, 22);
             this.AcademicTextBox.TabIndex = 5;
@@ -300,7 +300,7 @@
             // 
             this.AcademicBg.BackColor = System.Drawing.Color.White;
             this.AcademicBg.Image = ((System.Drawing.Image)(resources.GetObject("AcademicBg.Image")));
-            this.AcademicBg.Location = new System.Drawing.Point(68, 316);
+            this.AcademicBg.Location = new System.Drawing.Point(70, 316);
             this.AcademicBg.Name = "AcademicBg";
             this.AcademicBg.Size = new System.Drawing.Size(314, 42);
             this.AcademicBg.TabIndex = 35;

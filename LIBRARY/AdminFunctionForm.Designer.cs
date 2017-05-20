@@ -95,6 +95,7 @@
             this.UserManageButton.Size = new System.Drawing.Size(172, 172);
             this.UserManageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.UserManageButton.TabIndex = 24;
+            this.UserManageButton.Click += new System.EventHandler(this.UserManageButton_Click);
             this.UserManageButton.MouseLeave += new System.EventHandler(this.UserManageButton_MouseLeave);
             this.UserManageButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UserManageButton_MouseMove);
             // 

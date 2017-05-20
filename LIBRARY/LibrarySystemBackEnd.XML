@@ -37,6 +37,11 @@
             静态类，全局函数
             </summary>
         </member>
+        <member name="F:LibrarySystemBackEnd.ClassBackEnd.SystemInformation">
+            <summary>
+            SystemInformation保存书籍数量，用户数量，借阅率
+            </summary>
+        </member>
         <member name="F:LibrarySystemBackEnd.ClassBackEnd.book">
             <summary>
             书籍数组
@@ -102,6 +107,26 @@
             用户借阅的图书
             </summary>
         </member>
+        <member name="P:LibrarySystemBackEnd.ClassBackEnd.Useramount">
+            <summary>
+            用户数量
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassBackEnd.Bookamount">
+            <summary>
+            书籍数量
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassBackEnd.Lendingrate">
+            <summary>
+            借阅率
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassBackEnd.UsersearchList">
+            <summary>
+            用户的搜索
+            </summary>
+        </member>
         <member name="M:LibrarySystemBackEnd.ClassBackEnd.LoadUserInformation">
             <summary>
             加载除消息队列以外的用户信息（消息队列在进入个人中心时加载）
@@ -114,6 +139,14 @@
             </summary>
             <param name="bk">书籍类，只需要包含基本信息即可</param>
             <param name="addordelete">true是添加，false是删除</param>
+            <returns>成功/失败</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.RefreshSystemInformation(System.Int32,System.Int32)">
+            <summary>
+            更新系统文件信息
+            </summary>
+            <param name="n"></param>
+            <param name="cat">种类，0表示不更新读取后直接返回，1表示书籍数量，2表示用户数量，3表示借阅率的借阅数量，4表示借阅率的总数量</param>
             <returns>成功/失败</returns>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBackEnd.GetBookList">
@@ -177,10 +210,10 @@
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBackEnd.GetBookState(System.Int32)">
             <summary>
-            返回书是否可借
+            返回书籍可用状态
             </summary>
-            <param name="i">book数组的下标</param>
-            <returns>true是可借，false是不可借</returns>
+            <param name="i">搜索book数组中第i本书</param>
+            <returns>1可借，2可预约，3不可以</returns>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBackEnd.BorrowBook(System.Int32)">
             <summary>
@@ -297,6 +330,33 @@
             <summary>
             程序停止时调用，将时间写入文件
             </summary>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.SearchUser(System.String)">
+            <summary>
+            管理员搜索用户
+            </summary>
+            <param name="s">搜索条件，全局搜索</param>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.ChangeBookImage(System.String)">
+            <summary>
+            换书籍封面
+            </summary>
+            <param name="s">新书籍封面地址</param>
+            <returns>成功/失败</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.ChangeBookIntroduction(System.String)">
+            <summary>
+            更改书籍简介
+            </summary>
+            <param name="s">新简介</param>
+            <returns>成功/失败</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.MaintainBook(System.Collections.Generic.List{LibrarySystemBackEnd.BOOKSTATE})">
+            <summary>
+            维护书籍
+            </summary>
+            <param name="state">状态数组</param>
+            <returns>成功/失败</returns>
         </member>
         <member name="T:LibrarySystemBackEnd.BOOKSTATE">
             <summary>
@@ -551,6 +611,12 @@
             </summary>
             <returns>序号</returns>
         </member>
+        <member name="M:LibrarySystemBackEnd.ClassBook.Scheduleable">
+            <summary>
+            当预约人数到达可用书籍的2倍时，该书籍不可预约
+            </summary>
+            <returns>可以/不可以</returns>
+        </member>
         <member name="M:LibrarySystemBackEnd.ClassBook.BorrowBook(System.Int32,System.String)">
             <summary>
             借书
@@ -600,6 +666,13 @@
             </summary>
             <param name="i">book数组中第i个</param>
             <returns>扩展isbn号</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBook.ChangeBookState(System.Collections.Generic.List{LibrarySystemBackEnd.BOOKSTATE})">
+            <summary>
+            修改书籍状态
+            </summary>
+            <param name="state">状态数组，保证长度为书籍数量</param>
+            <returns>成功/失败</returns>
         </member>
         <member name="T:LibrarySystemBackEnd.ClassBorrowedBook">
             <summary>
@@ -921,6 +994,11 @@
         <member name="P:LibrarySystemBackEnd.ClassUser.Credit">
             <summary>
             信用
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassUser.RegisterDate">
+            <summary>
+            注册日期
             </summary>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassUser.GetBorrowedBook">

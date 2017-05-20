@@ -51,7 +51,7 @@ namespace LIBRARY
             this.TitleLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TitleLabel.Font = new System.Drawing.Font("微软雅黑", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.TitleLabel.Location = new System.Drawing.Point(62, 56);
+            this.TitleLabel.Location = new System.Drawing.Point(71, 23);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(178, 51);
             this.TitleLabel.TabIndex = 19;
@@ -62,7 +62,7 @@ namespace LIBRARY
             this.LastPButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.LastPButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LastPButton.Image = ((System.Drawing.Image)(resources.GetObject("LastPButton.Image")));
-            this.LastPButton.Location = new System.Drawing.Point(404, 656);
+            this.LastPButton.Location = new System.Drawing.Point(404, 647);
             this.LastPButton.Name = "LastPButton";
             this.LastPButton.Size = new System.Drawing.Size(20, 36);
             this.LastPButton.TabIndex = 39;
@@ -74,7 +74,7 @@ namespace LIBRARY
             this.NextPbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.NextPbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NextPbutton.Image = ((System.Drawing.Image)(resources.GetObject("NextPbutton.Image")));
-            this.NextPbutton.Location = new System.Drawing.Point(577, 656);
+            this.NextPbutton.Location = new System.Drawing.Point(577, 647);
             this.NextPbutton.Name = "NextPbutton";
             this.NextPbutton.Size = new System.Drawing.Size(20, 36);
             this.NextPbutton.TabIndex = 43;
@@ -84,7 +84,7 @@ namespace LIBRARY
             // PageTextBox
             // 
             this.PageTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.PageTextBox.Location = new System.Drawing.Point(522, 661);
+            this.PageTextBox.Location = new System.Drawing.Point(522, 652);
             this.PageTextBox.Name = "PageTextBox";
             this.PageTextBox.ReadOnly = true;
             this.PageTextBox.Size = new System.Drawing.Size(40, 27);
@@ -95,7 +95,7 @@ namespace LIBRARY
             // 
             this.DividePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.DividePicture.Image = ((System.Drawing.Image)(resources.GetObject("DividePicture.Image")));
-            this.DividePicture.Location = new System.Drawing.Point(493, 661);
+            this.DividePicture.Location = new System.Drawing.Point(493, 652);
             this.DividePicture.Name = "DividePicture";
             this.DividePicture.Size = new System.Drawing.Size(18, 26);
             this.DividePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -105,7 +105,7 @@ namespace LIBRARY
             // JumpPTextBox
             // 
             this.JumpPTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.JumpPTextBox.Location = new System.Drawing.Point(439, 661);
+            this.JumpPTextBox.Location = new System.Drawing.Point(439, 652);
             this.JumpPTextBox.Name = "JumpPTextBox";
             this.JumpPTextBox.ReadOnly = true;
             this.JumpPTextBox.Size = new System.Drawing.Size(40, 27);
@@ -115,11 +115,12 @@ namespace LIBRARY
             // Panel
             // 
             this.Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.Panel.BackgroundImage = global::LIBRARY.Properties.Resources.UserFormBG;
+            this.Panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Panel.BackgroundImage")));
+            this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Panel.Controls.Add(this.RemindLabel);
-            this.Panel.Location = new System.Drawing.Point(0, 0);
+            this.Panel.Location = new System.Drawing.Point(0, 56);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(1000, 650);
+            this.Panel.Size = new System.Drawing.Size(1000, 594);
             this.Panel.TabIndex = 20;
             // 
             // RemindLabel
@@ -127,7 +128,7 @@ namespace LIBRARY
             this.RemindLabel.AutoSize = true;
             this.RemindLabel.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.RemindLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.RemindLabel.Location = new System.Drawing.Point(354, 347);
+            this.RemindLabel.Location = new System.Drawing.Point(354, 288);
             this.RemindLabel.Name = "RemindLabel";
             this.RemindLabel.Size = new System.Drawing.Size(292, 27);
             this.RemindLabel.TabIndex = 0;

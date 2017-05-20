@@ -129,6 +129,10 @@ namespace LIBRARY
             {
                 TextBox.Text = "取消成功!";
             }
+            else if (textType == 22)
+            {
+                TextBox.Text = "当前预约人数过多!";
+            }
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)

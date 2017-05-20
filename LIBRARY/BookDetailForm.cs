@@ -84,7 +84,7 @@ namespace LIBRARY
                 BookBorrowButton.Enabled = false;
                 BookOrderButton.Hide();
             }
-            else if (ClassBackEnd.GetBookState(bookIndex))
+            else if (ClassBackEnd.GetBookState(bookIndex) == 1)
             {
                 BookOrderButton.Hide();
             }
@@ -96,10 +96,16 @@ namespace LIBRARY
                     BookOrderButton.Enabled = false;
                     BookBorrowButton.Hide();
                 }
-                else
+                else if(ClassBackEnd.GetBookState(bookIndex) == 2)
                 {
                     BookBorrowButton.Hide();
                     BookOrderButton.Show();
+                }
+                else
+                {
+                    BookBorrowButton.Hide();
+                    BookOrderButton.Hide();
+                    NoUseButton.Show();
                 }
             }
         }
@@ -206,6 +212,19 @@ namespace LIBRARY
             this.Enabled = false;
             BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
             BookOrderButton.Enabled = false;
+        }
+
+        private void NoUseButton_Click(object sender, EventArgs e)
+        {
+            #region Infobox Show
+            InfoBox infoBox = new InfoBox(22, this);
+            infoBox.StartPosition = FormStartPosition.Manual;
+            Point p = frmMain.Location;
+            p.X += 375;
+            p.Y += 300;
+            infoBox.Location = p;
+            infoBox.Show();
+            #endregion
         }
     }
 }

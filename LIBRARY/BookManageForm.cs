@@ -96,7 +96,7 @@ namespace LIBRARY
         {
             if ((int)e.KeyCode == 13)
             {
-                e.SuppressKeyPress = true;
+                SearchButton.PerformClick();
             }
         }
 
