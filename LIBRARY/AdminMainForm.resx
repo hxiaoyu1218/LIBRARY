@@ -117,20 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="TitleLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MainPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="TimeWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="TimeTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MinButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="MinButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -139,9 +127,6 @@
         +P///0Eg/kADfJCGhv8/CABf4LPbiDQfmwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="ShutDownButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="ShutDownButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABUAAAASCAYAAAC0EpUuAAAABGdBTUEAALGPC/xhBQAAAUZJREFUOE+l
@@ -153,9 +138,6 @@
         /SPJue8SnrNiYO0jH/wLzqmqD/ycu01PVOeeAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="ReturnButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="ReturnButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABcAAAARCAYAAAA2cze9AAAABGdBTUEAALGPC/xhBQAAAVtJREFUOE+t
@@ -167,7 +149,18 @@
         fRmZIXReh/AAbVEPIm+RGfro7/YWuyiG9SJDmaGPTkA9mhBx5V7sE9rH4KlyWZvFAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="UserChangeButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABsAAAAZCAYAAADAHFVeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAH/SURBVEhLrdY/SFVhGMfxKLRyCGxpaGtIatO5Gor+0KSILREECSIVUS01RBAUTdEWEaVLUkOB
+        Elg4GI6KBi0VNAVGUUP/CJLg9P299zyX933Pw+HSvT/4wHmf5znnqOef64qiaMUWnMULfIPlA6YwDG+/
+        hFvMnMYPxPmCvPYaB+AdI3CLkQewPMJB9ML623Ecr2AZRXyMJrdYug1LK3+mm7AcQmWmUijthuUovBnP
+        PSi/0I2knywiD6E8gdevo+upDCHpJYvSenyFMgJvpo5d5/tIesmi1IM/UPbBm6lzBcoKkl6yKG2A3daD
+        8Gbq3IIyh6SXLCLPodyB16/zDsoFJL1kEdkPZQ074M14zsGiZzDpJ4vMPJTP2AlvJnYMlhuozFQKET0n
+        y1B0w1xC5adFPyZh0ZsmnwncYkY7W/5iCTOYhV0fy2V4xwjcYmkXdJHtt2slj3ECm1E5ZqVQuo44HzEB
+        fWaOYC/24DDOQCf5DssqKu/TZAF9txZgeYOT2IR8NrcVF/ETFj1zzZl4WDfEe1j0Fo/7rdqGp7DcRejF
+        Qy9hGUPc+x86ieU8mic7pUqZq4h3asczWPpU2IjfYVkUi8h3aEcX9LgosyqMN7ZDBpDv0K5rUNa0mG5s
+        h9s7H+wEvVtDtPjU2Axf53ywU0K08Rb6fulftnyoU/iQFqv/AEp8gJ+VHWGbAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

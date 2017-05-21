@@ -36,6 +36,8 @@
             this.MinButton = new System.Windows.Forms.Button();
             this.ShutDownButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.UserChangeButton = new System.Windows.Forms.Button();
+            this.RemindLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -75,6 +77,8 @@
             this.TimeTextBox.Size = new System.Drawing.Size(164, 22);
             this.TimeTextBox.TabIndex = 17;
             this.TimeTextBox.Text = "2017年04月21日";
+            this.TimeTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimeTextBox_MouseDown);
+            this.TimeTextBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TimeTextBox_MouseMove);
             // 
             // MinButton
             // 
@@ -124,12 +128,43 @@
             this.ReturnButton.UseVisualStyleBackColor = false;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
+            // UserChangeButton
+            // 
+            this.UserChangeButton.BackColor = System.Drawing.Color.Transparent;
+            this.UserChangeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UserChangeButton.BackgroundImage")));
+            this.UserChangeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.UserChangeButton.FlatAppearance.BorderSize = 0;
+            this.UserChangeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(146)))), ((int)(((byte)(126)))));
+            this.UserChangeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(150)))));
+            this.UserChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UserChangeButton.Location = new System.Drawing.Point(848, 5);
+            this.UserChangeButton.Name = "UserChangeButton";
+            this.UserChangeButton.Size = new System.Drawing.Size(35, 35);
+            this.UserChangeButton.TabIndex = 18;
+            this.UserChangeButton.UseVisualStyleBackColor = false;
+            this.UserChangeButton.Click += new System.EventHandler(this.UserChangeButton_Click);
+            this.UserChangeButton.MouseLeave += new System.EventHandler(this.UserChangeButton_MouseLeave);
+            this.UserChangeButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UserChangeButton_MouseMove);
+            // 
+            // RemindLabel
+            // 
+            this.RemindLabel.AutoSize = true;
+            this.RemindLabel.ForeColor = System.Drawing.Color.White;
+            this.RemindLabel.Location = new System.Drawing.Point(795, 27);
+            this.RemindLabel.Name = "RemindLabel";
+            this.RemindLabel.Size = new System.Drawing.Size(53, 12);
+            this.RemindLabel.TabIndex = 19;
+            this.RemindLabel.Text = "切换用户";
+            this.RemindLabel.Visible = false;
+            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(1000, 750);
+            this.Controls.Add(this.RemindLabel);
+            this.Controls.Add(this.UserChangeButton);
             this.Controls.Add(this.TimeTextBox);
             this.Controls.Add(this.MinButton);
             this.Controls.Add(this.ShutDownButton);
@@ -159,5 +194,7 @@
         public System.Windows.Forms.Panel MainPanel;
         private System.ComponentModel.BackgroundWorker TimeWorker;
         private System.Windows.Forms.Label TimeTextBox;
+        private System.Windows.Forms.Button UserChangeButton;
+        private System.Windows.Forms.Label RemindLabel;
     }
 }

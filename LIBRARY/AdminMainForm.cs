@@ -14,6 +14,7 @@ namespace LIBRARY
 {
     public partial class AdminMainForm : DMSkin.Main
     {
+        private Point offset;
         public AdminMainForm()
         {
             ClassBackEnd.StartTime();
@@ -91,5 +92,35 @@ namespace LIBRARY
             TimeTextBox.Text = e.UserState.ToString();
         }
 
+        private void TimeTextBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                offset = new Point(e.X, e.Y);
+            }
+        }
+
+        private void TimeTextBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
+            }
+        }
+
+        private void UserChangeButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            RemindLabel.Show();
+        }
+
+        private void UserChangeButton_MouseLeave(object sender, EventArgs e)
+        {
+            RemindLabel.Hide();
+        }
+
+        private void UserChangeButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }
