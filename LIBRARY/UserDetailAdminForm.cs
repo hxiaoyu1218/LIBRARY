@@ -32,15 +32,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = ClassBackEnd.Userbsbook[i].Bookname;
-                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate.ToShortDateString() + " " + ClassBackEnd.Userbsbook[i].Rgdate.ToShortDateString();
-                if (ClassBackEnd.Userbsbook[i].Isborrowed)
-                {
-                    BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
-                }
-                else
-                {
-                    BorrowInfoSheet.Rows[index].Cells[2].Value = "取消预约";
-                }
+                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate.ToShortDateString() + " " + ClassBackEnd.Userbsbook[i].Rgdate.ToShortDateString();             
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
             while (i < 4)
@@ -49,13 +41,11 @@ namespace LIBRARY
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = "";
                 BorrowInfoSheet.Rows[index].Cells[1].Value = "";
-                BorrowInfoSheet.Rows[index].Cells[2].Value = "";
                 BorrowInfoSheet.Rows[index].Height = 60;
                 i++;
             }
             BorrowInfoSheet.ClearSelection();
             BorrowInfoSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            BorrowInfoSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             BorrowInfoSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 

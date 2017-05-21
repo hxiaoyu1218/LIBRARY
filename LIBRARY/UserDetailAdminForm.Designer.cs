@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.AcedemicLabel = new System.Windows.Forms.Label();
             this.CreditLabel = new System.Windows.Forms.Label();
@@ -51,9 +50,6 @@
             this.PwdChangedLinkButton = new System.Windows.Forms.LinkLabel();
             this.CreditRecordButton = new System.Windows.Forms.LinkLabel();
             this.BorrowInfoSheet = new System.Windows.Forms.DataGridView();
-            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Op = new System.Windows.Forms.DataGridViewLinkColumn();
             this.BookRecordSheet = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +61,8 @@
             this.RegistTimeText = new System.Windows.Forms.Label();
             this.UserCategoryText = new System.Windows.Forms.Label();
             this.UserCategoryLabel = new System.Windows.Forms.Label();
+            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).BeginInit();
             this.SuspendLayout();
@@ -200,56 +198,55 @@
             this.BorrowInfoSheet.AllowUserToDeleteRows = false;
             this.BorrowInfoSheet.AllowUserToResizeColumns = false;
             this.BorrowInfoSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.BorrowInfoSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.BorrowInfoSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.BorrowInfoSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BorrowInfoSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BorrowInfoSheet.CausesValidation = false;
             this.BorrowInfoSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BorrowInfoSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BorrowInfoSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.BorrowInfoSheet.ColumnHeadersHeight = 40;
             this.BorrowInfoSheet.ColumnHeadersVisible = false;
             this.BorrowInfoSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookName,
-            this.Time,
-            this.Op});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BorrowInfoSheet.DefaultCellStyle = dataGridViewCellStyle16;
+            this.Time});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BorrowInfoSheet.DefaultCellStyle = dataGridViewCellStyle3;
             this.BorrowInfoSheet.Location = new System.Drawing.Point(79, 378);
             this.BorrowInfoSheet.MultiSelect = false;
             this.BorrowInfoSheet.Name = "BorrowInfoSheet";
             this.BorrowInfoSheet.ReadOnly = true;
             this.BorrowInfoSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BorrowInfoSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BorrowInfoSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.BorrowInfoSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BorrowInfoSheet.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BorrowInfoSheet.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.BorrowInfoSheet.RowTemplate.Height = 40;
             this.BorrowInfoSheet.RowTemplate.ReadOnly = true;
             this.BorrowInfoSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -260,88 +257,62 @@
             this.BorrowInfoSheet.TabIndex = 26;
             this.BorrowInfoSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BorrowInfoSheet_CellContentClick);
             // 
-            // BookName
-            // 
-            this.BookName.HeaderText = "BookName";
-            this.BookName.Name = "BookName";
-            this.BookName.ReadOnly = true;
-            this.BookName.Width = 175;
-            // 
-            // Time
-            // 
-            this.Time.HeaderText = "Time";
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            this.Time.Width = 120;
-            // 
-            // Op
-            // 
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            this.Op.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Op.HeaderText = "操作";
-            this.Op.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.Op.Name = "Op";
-            this.Op.ReadOnly = true;
-            this.Op.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Op.VisitedLinkColor = System.Drawing.Color.Black;
-            this.Op.Width = 90;
-            // 
             // BookRecordSheet
             // 
             this.BookRecordSheet.AllowUserToAddRows = false;
             this.BookRecordSheet.AllowUserToDeleteRows = false;
             this.BookRecordSheet.AllowUserToResizeColumns = false;
             this.BookRecordSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            this.BookRecordSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.BookRecordSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.BookRecordSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BookRecordSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BookRecordSheet.CausesValidation = false;
             this.BookRecordSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BookRecordSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BookRecordSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.BookRecordSheet.ColumnHeadersHeight = 40;
             this.BookRecordSheet.ColumnHeadersVisible = false;
             this.BookRecordSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewLinkColumn1});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BookRecordSheet.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BookRecordSheet.DefaultCellStyle = dataGridViewCellStyle9;
             this.BookRecordSheet.Location = new System.Drawing.Point(523, 195);
             this.BookRecordSheet.MultiSelect = false;
             this.BookRecordSheet.Name = "BookRecordSheet";
             this.BookRecordSheet.ReadOnly = true;
             this.BookRecordSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BookRecordSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BookRecordSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.BookRecordSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BookRecordSheet.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BookRecordSheet.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.BookRecordSheet.RowTemplate.Height = 40;
             this.BookRecordSheet.RowTemplate.ReadOnly = true;
             this.BookRecordSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -368,8 +339,8 @@
             // 
             // dataGridViewLinkColumn1
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLinkColumn1.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.dataGridViewLinkColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewLinkColumn1.HeaderText = "操作";
             this.dataGridViewLinkColumn1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
@@ -455,6 +426,20 @@
             this.UserCategoryLabel.TabIndex = 33;
             this.UserCategoryLabel.Text = "用　户　类　别：";
             // 
+            // BookName
+            // 
+            this.BookName.HeaderText = "BookName";
+            this.BookName.Name = "BookName";
+            this.BookName.ReadOnly = true;
+            this.BookName.Width = 255;
+            // 
+            // Time
+            // 
+            this.Time.HeaderText = "Time";
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
+            this.Time.Width = 130;
+            // 
             // UserDetailAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -510,9 +495,6 @@
         private System.Windows.Forms.LinkLabel PwdChangedLinkButton;
         private System.Windows.Forms.LinkLabel CreditRecordButton;
         public System.Windows.Forms.DataGridView BorrowInfoSheet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewLinkColumn Op;
         public System.Windows.Forms.DataGridView BookRecordSheet;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -524,5 +506,7 @@
         private System.Windows.Forms.Label RegistTimeText;
         private System.Windows.Forms.Label UserCategoryText;
         private System.Windows.Forms.Label UserCategoryLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
     }
 }
