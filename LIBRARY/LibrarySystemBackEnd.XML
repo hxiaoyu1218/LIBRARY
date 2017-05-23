@@ -364,6 +364,20 @@
             </summary>
             <param name="i">usersearch第i个</param>
         </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.GetBookState(System.Collections.Generic.List{LibrarySystemBackEnd.BOOKSTATE}@)">
+            <summary>
+            获取一本书的状态
+            </summary>
+            <param name="state">状态数组，会被清空</param>
+            <returns>成功/失败</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.GetUserCreditFile(System.Collections.Generic.List{System.String}@)">
+            <summary>
+            获取信用记录
+            </summary>
+            <param name="credit">数组，内部会清空</param>
+            <returns>成功/失败</returns>
+        </member>
         <member name="T:LibrarySystemBackEnd.BOOKSTATE">
             <summary>
             书籍状态 可借，已借，预约，不可用
@@ -680,6 +694,12 @@
             <param name="state">状态数组，保证长度为书籍数量</param>
             <returns>成功/失败</returns>
         </member>
+        <member name="M:LibrarySystemBackEnd.ClassBook.GetBookState(System.Collections.Generic.List{LibrarySystemBackEnd.BOOKSTATE}@)">
+            <summary>
+            获取书籍状态
+            </summary>
+            <param name="state">状态数组，函数内部会清空state</param>
+        </member>
         <member name="T:LibrarySystemBackEnd.ClassBorrowedBook">
             <summary>
             用户已借阅图书封装类
@@ -824,6 +844,12 @@
             <summary>
             增长时间
             </summary>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassTime.getNextIsbn">
+            <summary>
+            获取下一本书的ISBN
+            </summary>
+            <returns>ISBN,10位,为年4+月2+日2+当天的书籍序号2</returns>
         </member>
         <member name="T:LibrarySystemBackEnd.USERTYPE">
             <summary>

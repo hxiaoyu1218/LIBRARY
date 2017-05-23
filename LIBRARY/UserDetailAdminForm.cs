@@ -15,7 +15,7 @@ namespace LIBRARY
     public partial class UserDetailAdminForm : DMSkin.Main
     {
         private AdminMainForm frmMain;
-        private int UserIndex;
+        public static int UserIndex;
         public UserDetailAdminForm(AdminMainForm frm, int index)
         {
             frmMain = frm;
@@ -32,7 +32,9 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = ClassBackEnd.Userbsbook[i].Bookname;
-                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate.ToShortDateString() + " " + ClassBackEnd.Userbsbook[i].Rgdate.ToShortDateString();             
+                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate + " " + ClassBackEnd.Userbsbook[i].Rgdate;
+                if (ClassBackEnd.Userbsbook[i].Isborrowed) BorrowInfoSheet.Rows[index].Cells[2].Value = "借阅";
+                else BorrowInfoSheet.Rows[index].Cells[2].Value = "预约";
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
             while (i < 4)
@@ -41,10 +43,12 @@ namespace LIBRARY
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = "";
                 BorrowInfoSheet.Rows[index].Cells[1].Value = "";
+                BorrowInfoSheet.Rows[index].Cells[2].Value = "";
                 BorrowInfoSheet.Rows[index].Height = 60;
                 i++;
             }
             BorrowInfoSheet.ClearSelection();
+            BorrowInfoSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             BorrowInfoSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             BorrowInfoSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -56,7 +60,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BookRecordSheet.Rows.Add(row);
                 BookRecordSheet.Rows[index].Cells[0].Value = ClassBackEnd.Borrowhis[i].Bookname;
-                BookRecordSheet.Rows[index].Cells[1].Value = ClassBackEnd.Borrowhis[i].Borrowdata.ToShortDateString() + " " + ClassBackEnd.Borrowhis[i].Returndata.ToShortDateString();
+                BookRecordSheet.Rows[index].Cells[1].Value = ClassBackEnd.Borrowhis[i].Borrowdata + " " + ClassBackEnd.Borrowhis[i].Returndata;
                 BookRecordSheet.Rows[index].Cells[2].Value = "详情";
                 BookRecordSheet.Rows[index].Height = 60;
             }
@@ -116,47 +120,22 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 2)
             {
-                //frmMain.MainPanel.Controls.Clear();
-                //ClassBackEnd.BorrowHistoryIDown(e.RowIndex);
-                //BookDetailForm bookDetailForm = new BookDetailForm(frmMain, 0);
-                //bookDetailForm.TopLevel = false;
-                //bookDetailForm.Dock = DockStyle.Fill;
-                //frmMain.MainPanel.Controls.Add(bookDetailForm);
-                //bookDetailForm.Show();
-                //frmMain.ReturnButton.Tag = 3;
+                frmMain.MainPanel.Controls.Clear();
+                ClassBackEnd.BorrowHistoryIDown(e.RowIndex);
+                BookDetailAdminForm bookDetailAdminForm = new BookDetailAdminForm(frmMain, 0);
+                bookDetailAdminForm.TopLevel = false;
+                bookDetailAdminForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
+                bookDetailAdminForm.Show();
+                frmMain.ReturnButton.Tag = 4;
             }
         }
 
-        private void BorrowInfoSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CreditRecordButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (e.ColumnIndex == 2)
-            {
-                if (BorrowInfoSheet.Rows[e.RowIndex].Cells[2].Value.ToString() == "归还/续借")
-                {
-
-                    ClassBackEnd.BorrowedBookIDown(e.RowIndex);
-
-                    ReturnForm returnForm = new ReturnForm(e.RowIndex);
-                    returnForm.ShowDialog();
-                    returnForm.Dispose();
-
-                    ClassBackEnd.GetIntoPersonCenter();
-                    SheeetRefresh();
-                    UserInfoLoad();
-                }
-                else
-                {
-                    ClassBackEnd.CancelScheduleBook(e.RowIndex);
-                    InfoBox ib = new InfoBox(21);
-                    ib.ShowDialog();
-                    ib.Dispose();
-
-                    ClassBackEnd.GetIntoPersonCenter();
-                    SheeetRefresh();
-                    UserInfoLoad();
-                }
-
-            }
+            CreditRecordForm creditRecordForm = new CreditRecordForm();
+            creditRecordForm.ShowDialog();
+            creditRecordForm.Dispose();
         }
     }
 }

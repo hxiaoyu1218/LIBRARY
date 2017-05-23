@@ -33,11 +33,11 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.PageTextBox = new System.Windows.Forms.TextBox();
             this.JumpPTextBox = new System.Windows.Forms.TextBox();
-            this.UserPanel = new MyPanel();
             this.NextPbutton = new System.Windows.Forms.PictureBox();
             this.LastPButton = new System.Windows.Forms.PictureBox();
             this.DividePicture = new System.Windows.Forms.PictureBox();
             this.DividerLine = new System.Windows.Forms.PictureBox();
+            this.UserPanel = new LIBRARY.MyPanel();
             ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DividePicture)).BeginInit();
@@ -53,6 +53,7 @@
             this.SearchBox.Size = new System.Drawing.Size(530, 46);
             this.SearchBox.TabIndex = 1;
             this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
+            this.SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBox_KeyPress);
             // 
             // SearchButton
             // 
@@ -88,13 +89,6 @@
             this.JumpPTextBox.TabIndex = 51;
             this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.JumpPTextBox.TextChanged += new System.EventHandler(this.JumpPTextBox_TextChanged);
-            // 
-            // UserPanel
-            // 
-            this.UserPanel.Location = new System.Drawing.Point(0, 106);
-            this.UserPanel.Name = "UserPanel";
-            this.UserPanel.Size = new System.Drawing.Size(1000, 541);
-            this.UserPanel.TabIndex = 76;
             // 
             // NextPbutton
             // 
@@ -136,6 +130,13 @@
             this.DividerLine.Size = new System.Drawing.Size(880, 1);
             this.DividerLine.TabIndex = 13;
             this.DividerLine.TabStop = false;
+            // 
+            // UserPanel
+            // 
+            this.UserPanel.Location = new System.Drawing.Point(0, 106);
+            this.UserPanel.Name = "UserPanel";
+            this.UserPanel.Size = new System.Drawing.Size(1000, 541);
+            this.UserPanel.TabIndex = 76;
             // 
             // UserManageForm
             // 
@@ -181,6 +182,6 @@
         private System.Windows.Forms.TextBox PageTextBox;
         private System.Windows.Forms.TextBox JumpPTextBox;
         private System.Windows.Forms.PictureBox DividePicture;
-        private System.Windows.Forms.Panel UserPanel;
+        private MyPanel UserPanel;
     }
 }

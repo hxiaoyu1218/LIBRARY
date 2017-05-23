@@ -259,9 +259,9 @@
             // 
             this.BookNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BookNameText.Font = new System.Drawing.Font("微软雅黑", 33F);
-            this.BookNameText.Location = new System.Drawing.Point(0, 58);
+            this.BookNameText.Location = new System.Drawing.Point(2, 58);
             this.BookNameText.Name = "BookNameText";
-            this.BookNameText.Size = new System.Drawing.Size(600, 58);
+            this.BookNameText.Size = new System.Drawing.Size(596, 58);
             this.BookNameText.TabIndex = 37;
             this.BookNameText.Text = "I\'m B00K Name";
             this.BookNameText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

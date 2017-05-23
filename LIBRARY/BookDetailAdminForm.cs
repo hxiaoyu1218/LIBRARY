@@ -55,19 +55,19 @@ namespace LIBRARY
         }
         private void BookDetailLoad()
         {
-			ClassBackEnd.LoadSearchResult(bookIndex);
+            ClassBackEnd.LoadSearchResult(bookIndex);
             BookNameLabel.Text = ClassBackEnd.Currentbook.Bookname;
             AuthorText.Text = ClassBackEnd.Currentbook.Author;
             BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
             PublisherText.Text = ClassBackEnd.Currentbook.Publisher;
-            if (ClassBackEnd.Currentbook.Introduction=="")
+            if (ClassBackEnd.Currentbook.Introduction == "")
             {
                 BookInfoTextbox.Text = "该书暂无相关简介。";
             }
             else
             {
                 BookInfoTextbox.Text = ClassBackEnd.Currentbook.Introduction;
-            }            
+            }
             try
             {
                 BookPictureBox.Image = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
@@ -76,9 +76,9 @@ namespace LIBRARY
             {
                 BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
             }
-            
+
         }
-        
+
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
 
@@ -95,15 +95,19 @@ namespace LIBRARY
             #endregion
 
             SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
-            SetStyle(ControlStyles.DoubleBuffer, true); 
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
 
             BookListRefresh();
 
         }
 
-       
-
-        
+        private void BookInfoButton_Click(object sender, EventArgs e)
+        {
+            BookInfoChangeForm bookInfoChangeForm = new BookInfoChangeForm();
+            bookInfoChangeForm.ShowDialog();
+            bookInfoChangeForm.Dispose();
+            BookDetailLoad();
+        }
     }
 }

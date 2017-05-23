@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Type.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ShutDownButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABUAAAASCAYAAAC0EpUuAAAABGdBTUEAALGPC/xhBQAAAUZJREFUOE+l
+        1L1KA0EUhmFLCwtLQbCwttNa8A4sRBshjb3gFQgWgpcgNoJIvBPxp1DQKxBUUDv/jev7LrPD7Dhq1AMP
+        2fnOmckmWTJQVVUPZ/D6v87R86ID6wL50G+43+o0wRye8YCZkPVrGu57wbxZ2pzAPd4wFrKfjMJ597m/
+        zvMh3cJaQ6nfsG/dodVrLYJBHME72ApZbhP2j+F8q99aZLqwTpHmJ7D2kOZRMUz4xXtH/rIj4dX1Akrz
+        tWKYWYIHWT7TrktzUTHMTKE51FfXpbmoGCbW4d35REziJqw3UJqvFcNgF+/wF07zQ5jbT/OoGOIA1g5K
+        /W1YvsGnfh6M4xp+d6sh+4r9VzjvvthLh/QED5xNsu8457z7Yt5cLMLmI4ZD1q8huM/9nlMfugw/xhX6
+        /SPJue8SnrNiYO0jH/wLzqmqD/ycu01PVOeeAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Content.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

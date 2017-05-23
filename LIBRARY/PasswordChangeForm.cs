@@ -36,6 +36,7 @@ namespace LIBRARY
             if (OPasswordTextBox.Text == "")
             {
                 OPasswordCueText.Hide();
+                OPasswordTextBox.Focus();
             }
         }
 
@@ -44,6 +45,7 @@ namespace LIBRARY
             if (NPasswordTextBox1.Text == "")
             {
                 NPasswordCueText1.Hide();
+                NPasswordTextBox1.Focus();
             }
         }
 
@@ -52,6 +54,7 @@ namespace LIBRARY
             if (NPasswordTextBox2.Text == "")
             {
                 NPasswordCueText2.Hide();
+                NPasswordTextBox2.Focus();
             }
         }
 

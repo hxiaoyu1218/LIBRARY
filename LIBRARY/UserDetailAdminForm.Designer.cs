@@ -63,6 +63,7 @@
             this.UserCategoryLabel = new System.Windows.Forms.Label();
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).BeginInit();
             this.SuspendLayout();
@@ -170,7 +171,7 @@
             this.PwdChangedLinkButton.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PwdChangedLinkButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.PwdChangedLinkButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.PwdChangedLinkButton.Location = new System.Drawing.Point(271, 83);
+            this.PwdChangedLinkButton.Location = new System.Drawing.Point(269, 83);
             this.PwdChangedLinkButton.Name = "PwdChangedLinkButton";
             this.PwdChangedLinkButton.Size = new System.Drawing.Size(88, 25);
             this.PwdChangedLinkButton.TabIndex = 22;
@@ -185,12 +186,13 @@
             this.CreditRecordButton.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.CreditRecordButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.CreditRecordButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.CreditRecordButton.Location = new System.Drawing.Point(262, 209);
+            this.CreditRecordButton.Location = new System.Drawing.Point(263, 209);
             this.CreditRecordButton.Name = "CreditRecordButton";
             this.CreditRecordButton.Size = new System.Drawing.Size(74, 21);
             this.CreditRecordButton.TabIndex = 23;
             this.CreditRecordButton.TabStop = true;
             this.CreditRecordButton.Text = "不良记录";
+            this.CreditRecordButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreditRecordButton_LinkClicked);
             // 
             // BorrowInfoSheet
             // 
@@ -219,7 +221,8 @@
             this.BorrowInfoSheet.ColumnHeadersVisible = false;
             this.BorrowInfoSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookName,
-            this.Time});
+            this.Time,
+            this.Type});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 11.5F);
@@ -255,7 +258,6 @@
             this.BorrowInfoSheet.Size = new System.Drawing.Size(405, 245);
             this.BorrowInfoSheet.StandardTab = true;
             this.BorrowInfoSheet.TabIndex = 26;
-            this.BorrowInfoSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BorrowInfoSheet_CellContentClick);
             // 
             // BookRecordSheet
             // 
@@ -431,7 +433,7 @@
             this.BookName.HeaderText = "BookName";
             this.BookName.Name = "BookName";
             this.BookName.ReadOnly = true;
-            this.BookName.Width = 255;
+            this.BookName.Width = 190;
             // 
             // Time
             // 
@@ -439,6 +441,13 @@
             this.Time.Name = "Time";
             this.Time.ReadOnly = true;
             this.Time.Width = 130;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 65;
             // 
             // UserDetailAdminForm
             // 
@@ -508,5 +517,6 @@
         private System.Windows.Forms.Label UserCategoryLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }

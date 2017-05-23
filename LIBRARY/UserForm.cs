@@ -52,7 +52,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = ClassBackEnd.Userbsbook[i].Bookname;
-                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate.ToShortDateString() + " " + ClassBackEnd.Userbsbook[i].Rgdate.ToShortDateString();
+                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate + " " + ClassBackEnd.Userbsbook[i].Rgdate;
                 if (ClassBackEnd.Userbsbook[i].Isborrowed)
                 {
                     BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
@@ -86,7 +86,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BookRecordSheet.Rows.Add(row);
                 BookRecordSheet.Rows[index].Cells[0].Value = ClassBackEnd.Borrowhis[i].Bookname;
-                BookRecordSheet.Rows[index].Cells[1].Value = ClassBackEnd.Borrowhis[i].Borrowdata.ToShortDateString() + " " + ClassBackEnd.Borrowhis[i].Returndata.ToShortDateString();
+                BookRecordSheet.Rows[index].Cells[1].Value = ClassBackEnd.Borrowhis[i].Borrowdata + " " + ClassBackEnd.Borrowhis[i].Returndata;
                 BookRecordSheet.Rows[index].Cells[2].Value = "详情";
                 BookRecordSheet.Rows[index].Height = 60;
             }

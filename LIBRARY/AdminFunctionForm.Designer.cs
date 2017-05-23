@@ -37,6 +37,9 @@
             this.BookManageButton = new DMSkin.Controls.DM.DMButtonImage();
             this.SystemLogButton = new DMSkin.Controls.DM.DMButtonImage();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.BookAmountText = new System.Windows.Forms.Label();
+            this.UserAmountText = new System.Windows.Forms.Label();
+            this.BorrowRateText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BigTitlePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -143,6 +146,42 @@
             this.pictureBox4.TabIndex = 30;
             this.pictureBox4.TabStop = false;
             // 
+            // BookAmountText
+            // 
+            this.BookAmountText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookAmountText.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Bold);
+            this.BookAmountText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.BookAmountText.Location = new System.Drawing.Point(172, 603);
+            this.BookAmountText.Name = "BookAmountText";
+            this.BookAmountText.Size = new System.Drawing.Size(165, 42);
+            this.BookAmountText.TabIndex = 31;
+            this.BookAmountText.Text = "29292";
+            this.BookAmountText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UserAmountText
+            // 
+            this.UserAmountText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.UserAmountText.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Bold);
+            this.UserAmountText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.UserAmountText.Location = new System.Drawing.Point(466, 603);
+            this.UserAmountText.Name = "UserAmountText";
+            this.UserAmountText.Size = new System.Drawing.Size(165, 42);
+            this.UserAmountText.TabIndex = 32;
+            this.UserAmountText.Text = "29292";
+            this.UserAmountText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BorrowRateText
+            // 
+            this.BorrowRateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BorrowRateText.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Bold);
+            this.BorrowRateText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.BorrowRateText.Location = new System.Drawing.Point(768, 603);
+            this.BorrowRateText.Name = "BorrowRateText";
+            this.BorrowRateText.Size = new System.Drawing.Size(165, 42);
+            this.BorrowRateText.TabIndex = 33;
+            this.BorrowRateText.Text = "12.34%";
+            this.BorrowRateText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AdminFunctionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -150,6 +189,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.ControlBox = false;
+            this.Controls.Add(this.BorrowRateText);
+            this.Controls.Add(this.UserAmountText);
+            this.Controls.Add(this.BookAmountText);
             this.Controls.Add(this.BigTitlePictureBox);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -186,5 +228,8 @@
         private DMSkin.Controls.DM.DMButtonImage BookManageButton;
         private DMSkin.Controls.DM.DMButtonImage SystemLogButton;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label BookAmountText;
+        private System.Windows.Forms.Label UserAmountText;
+        private System.Windows.Forms.Label BorrowRateText;
     }
 }

@@ -342,6 +342,7 @@
             this.BookInfoButton.Size = new System.Drawing.Size(96, 96);
             this.BookInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookInfoButton.TabIndex = 24;
+            this.BookInfoButton.Click += new System.EventHandler(this.BookInfoButton_Click);
             // 
             // BookDetailAdminForm
             // 

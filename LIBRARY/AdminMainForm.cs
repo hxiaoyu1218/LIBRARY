@@ -64,12 +64,21 @@ namespace LIBRARY
             }
             else if (v == 3)
             {
-                this.MainPanel.Controls.Clear();
+                MainPanel.Controls.Clear();
                 UserManageForm userManageForm = new UserManageForm(this);
                 userManageForm.TopLevel = false;
                 userManageForm.Dock = DockStyle.Fill;
-                this.MainPanel.Controls.Add(userManageForm);
+                MainPanel.Controls.Add(userManageForm);
                 userManageForm.Show();
+            }
+            else if (v == 4)
+            {
+                MainPanel.Controls.Clear();
+                UserDetailAdminForm userDetailAdminForm = new UserDetailAdminForm(this, UserDetailAdminForm.UserIndex);
+                userDetailAdminForm.TopLevel = false;
+                userDetailAdminForm.Dock = DockStyle.Fill;
+                MainPanel.Controls.Add(userDetailAdminForm);
+                userDetailAdminForm.Show();
             }
         }
 

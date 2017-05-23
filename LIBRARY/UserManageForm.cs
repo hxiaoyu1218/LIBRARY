@@ -16,49 +16,49 @@ namespace LIBRARY
         {
             frmMain = frm;
             InitializeComponent();
-
+            SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor, true);
         }
 
         private void UserManageForm_Load(object sender, EventArgs e)
         {
-          
+
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
             #endregion
+            PageButtonLoad(0);
             if (ClassBackEnd.UsersearchList.Count == 0) return;
             maxPage = (ClassBackEnd.UsersearchList.Count - 1) / 15 + 1;
             JumpPTextBox.Text = nPage.ToString();
 
-           ComponentDynamicLoad(nPage);
+            ComponentDynamicLoad(nPage);
         }
-        private void PageButtonLoad()
+        private void PageButtonLoad(int num)
         {
-            //if ( == 0)
-            //{
-            //    LastPButton.Hide();
-            //    NextPbutton.Hide();
-            //    JumpPTextBox.Hide();
-            //    PageTextBox.Hide();
-            //    DividePicture.Hide();
-            //}
-            //else
-            //{
-            //    LastPButton.Show();
-            //    NextPbutton.Show();
-            //    JumpPTextBox.Show();
-            //    PageTextBox.Show();
-            //    DividePicture.Show();
-            //}
+            if (num == 0)
+            {
+                LastPButton.Hide();
+                NextPbutton.Hide();
+                JumpPTextBox.Hide();
+                PageTextBox.Hide();
+                DividePicture.Hide();
+            }
+            else
+            {
+                LastPButton.Show();
+                NextPbutton.Show();
+                JumpPTextBox.Show();
+                PageTextBox.Show();
+                DividePicture.Show();
+            }
         }
         private void ComponentDynamicLoad(int page)
         {
             UserPanel.Controls.Clear();
 
-
-            //PageButtonLoad();
+            PageButtonLoad(ClassBackEnd.UsersearchList.Count);
             PageTextBox.Text = maxPage.ToString();
 
             int picX = 81, picY = 20;
@@ -83,6 +83,8 @@ namespace LIBRARY
                 pic.TabIndex = 76;
                 pic.TabStop = false;
                 pic.Click += new EventHandler(Pic_Click);
+                pic.MouseMove += new MouseEventHandler(Pic_MouseMove);
+                pic.MouseLeave += new EventHandler(Pic_MouseLeave);
                 pic.Image = Guest.LoadHeadImage(ClassBackEnd.UsersearchList[i - 1].Username);//image load
 
                 Label lab = new Label();
@@ -94,6 +96,8 @@ namespace LIBRARY
                 lab.TabIndex = 91;
                 lab.Cursor = Cursors.Hand;
                 lab.Click += new EventHandler(Label_Click);
+                lab.MouseMove += new MouseEventHandler(Label_MouseMove);
+                lab.MouseLeave += new EventHandler(Label_MouseLeave);
                 lab.Text = ClassBackEnd.UsersearchList[i - 1].Username;//user name load
 
                 Label lab1 = new Label();
@@ -105,6 +109,8 @@ namespace LIBRARY
                 lab1.TabIndex = 92;
                 lab1.Cursor = Cursors.Hand;
                 lab1.Click += new EventHandler(Label_Click);
+                lab1.MouseMove += new MouseEventHandler(Label_MouseMove);
+                lab1.MouseLeave += new EventHandler(Label_MouseLeave);
                 lab1.Text = ClassBackEnd.UsersearchList[i - 1].Userid;//load user id
 
                 Label lab2 = new Label();
@@ -116,6 +122,8 @@ namespace LIBRARY
                 lab2.TabIndex = 93;
                 lab2.Cursor = Cursors.Hand;
                 lab2.Click += new EventHandler(Label_Click);
+                lab2.MouseMove += new MouseEventHandler(Label_MouseMove);
+                lab2.MouseLeave += new EventHandler(Label_MouseLeave);
                 lab2.Text = ClassBackEnd.UsersearchList[i - 1].School;//load acedemic name
 
                 UserPanel.Controls.Add(pic);
@@ -139,7 +147,6 @@ namespace LIBRARY
                     idY += 108;
                     aceY += 108;
                 }
-
             }
         }
 
@@ -154,11 +161,15 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-
             ClassBackEnd.SearchUser(SearchBox.Text);
             nPage = 1;
 
-            if (ClassBackEnd.UsersearchList.Count == 0) return;
+            if (ClassBackEnd.UsersearchList.Count == 0)
+            {
+                UserPanel.Controls.Clear();
+                PageButtonLoad(0);
+                return;
+            }
             maxPage = (ClassBackEnd.UsersearchList.Count - 1) / 15 + 1;
             JumpPTextBox.Text = "1";
             ComponentDynamicLoad(1);
@@ -168,7 +179,6 @@ namespace LIBRARY
             Control c = sender as Control;
             string LabName = c.Name.Substring(1);
             int LabID = Convert.ToInt32(LabName);
-            //to do
             frmMain.MainPanel.Controls.Clear();
             UserDetailAdminForm userDetailAdminForm = new UserDetailAdminForm(frmMain, LabID);
             userDetailAdminForm.TopLevel = false;
@@ -189,6 +199,74 @@ namespace LIBRARY
             userDetailAdminForm.Show();
         }
 
+        private void Label_MouseMove(object sender, EventArgs e)
+        {
+            Control c = sender as Control;
+            string LabName = c.Name.Substring(1);
+            int LabID = Convert.ToInt32(LabName);
+            string LabelName1 = "a" + LabID.ToString();
+            string LabelName2 = "b" + LabID.ToString();
+            string LabelName3 = "c" + LabID.ToString();
+            foreach (Control lab in UserPanel.Controls)
+            {
+                if (lab.Name == LabelName1 || lab.Name == LabelName2 || lab.Name == LabelName3)
+                {
+                    Label la = lab as Label;
+                    la.Font = new Font(la.Font, FontStyle.Underline);
+                }
+            }
+        }
+        private void Pic_MouseMove(object sender, EventArgs e)
+        {
+            Control c = sender as Control;
+            string PicName = c.Name;
+            int PicID = Convert.ToInt32(PicName);
+            string LabelName1 = "a" + PicID.ToString();
+            string LabelName2 = "b" + PicID.ToString();
+            string LabelName3 = "c" + PicID.ToString();
+            foreach (Control lab in UserPanel.Controls)
+            {
+                if (lab.Name == LabelName1 || lab.Name == LabelName2 || lab.Name == LabelName3)
+                {
+                    Label la = lab as Label;
+                    la.Font = new Font(la.Font, FontStyle.Underline);
+                }
+            }
+        }
+        private void Pic_MouseLeave(object sender, EventArgs e)
+        {
+            Control c = sender as Control;
+            string PicName = c.Name;
+            int PicID = Convert.ToInt32(PicName);
+            string LabelName1 = "a" + PicID.ToString();
+            string LabelName2 = "b" + PicID.ToString();
+            string LabelName3 = "c" + PicID.ToString();
+            foreach (Control lab in UserPanel.Controls)
+            {
+                if (lab.Name == LabelName1 || lab.Name == LabelName2 || lab.Name == LabelName3)
+                {
+                    Label la = lab as Label;
+                    la.Font = new Font(la.Font, FontStyle.Regular);
+                }
+            }
+        }
+        private void Label_MouseLeave(object sender, EventArgs e)
+        {
+            Control c = sender as Control;
+            string LabName = c.Name.Substring(1);
+            int LabID = Convert.ToInt32(LabName);
+            string LabelName1 = "a" + LabID.ToString();
+            string LabelName2 = "b" + LabID.ToString();
+            string LabelName3 = "c" + LabID.ToString();
+            foreach (Control lab in UserPanel.Controls)
+            {
+                if (lab.Name == LabelName1 || lab.Name == LabelName2 || lab.Name == LabelName3)
+                {
+                    Label la = lab as Label;
+                    la.Font = new Font(la.Font, FontStyle.Regular);
+                }
+            }
+        }
         private void LastPButton_Click(object sender, EventArgs e)
         {
             if (nPage == 1) return;
@@ -223,6 +301,14 @@ namespace LIBRARY
                 infoBox.ShowDialog();
                 infoBox.Dispose();
                 JumpPTextBox.Focus();
+            }
+        }
+
+        private void SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == System.Convert.ToChar(13))
+            {
+                e.Handled = true;
             }
         }
     }

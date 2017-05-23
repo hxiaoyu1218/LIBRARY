@@ -1,0 +1,449 @@
+﻿namespace LIBRARY
+{
+    partial class AddBookForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBookForm));
+            this.TitleLabel = new System.Windows.Forms.Label();
+            this.ShutDownButton = new System.Windows.Forms.Button();
+            this.BgImage = new System.Windows.Forms.PictureBox();
+            this.IDCueText = new System.Windows.Forms.Label();
+            this.IDTextBox = new System.Windows.Forms.TextBox();
+            this.IDBg = new System.Windows.Forms.PictureBox();
+            this.BookNameCueText = new System.Windows.Forms.Label();
+            this.BookNameTextBox = new System.Windows.Forms.TextBox();
+            this.BookNameBg = new System.Windows.Forms.PictureBox();
+            this.AuthorCueText = new System.Windows.Forms.Label();
+            this.AuthorTextBox = new System.Windows.Forms.TextBox();
+            this.AuthorBg = new System.Windows.Forms.PictureBox();
+            this.PublisherCueText = new System.Windows.Forms.Label();
+            this.PublisherTextBox = new System.Windows.Forms.TextBox();
+            this.PublisherBg = new System.Windows.Forms.PictureBox();
+            this.BookAmountCueText = new System.Windows.Forms.Label();
+            this.BookAmountTextBox = new System.Windows.Forms.TextBox();
+            this.BookAmountBg = new System.Windows.Forms.PictureBox();
+            this.BookInfoCueText = new System.Windows.Forms.Label();
+            this.BookInfoTextBox = new System.Windows.Forms.TextBox();
+            this.BookInfoBg = new System.Windows.Forms.PictureBox();
+            this.BookImagePictureBox = new System.Windows.Forms.PictureBox();
+            this.OKButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.AddImageButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.OpenImage = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDBg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookNameBg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AuthorBg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PublisherBg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookAmountBg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookInfoBg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookImagePictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TitleLabel.Font = new System.Drawing.Font("微软雅黑", 14F);
+            this.TitleLabel.ForeColor = System.Drawing.Color.White;
+            this.TitleLabel.Location = new System.Drawing.Point(7, 4);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(88, 25);
+            this.TitleLabel.TabIndex = 4;
+            this.TitleLabel.Text = "添加图书";
+            // 
+            // ShutDownButton
+            // 
+            this.ShutDownButton.BackColor = System.Drawing.Color.Transparent;
+            this.ShutDownButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShutDownButton.BackgroundImage")));
+            this.ShutDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ShutDownButton.FlatAppearance.BorderSize = 0;
+            this.ShutDownButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(42)))), ((int)(((byte)(21)))));
+            this.ShutDownButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(65)))), ((int)(((byte)(39)))));
+            this.ShutDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShutDownButton.Location = new System.Drawing.Point(565, 0);
+            this.ShutDownButton.Name = "ShutDownButton";
+            this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
+            this.ShutDownButton.TabIndex = 8;
+            this.ShutDownButton.UseVisualStyleBackColor = false;
+            this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
+            // 
+            // BgImage
+            // 
+            this.BgImage.BackColor = System.Drawing.Color.White;
+            this.BgImage.Location = new System.Drawing.Point(0, 35);
+            this.BgImage.Name = "BgImage";
+            this.BgImage.Size = new System.Drawing.Size(600, 565);
+            this.BgImage.TabIndex = 0;
+            this.BgImage.TabStop = false;
+            // 
+            // IDCueText
+            // 
+            this.IDCueText.AutoSize = true;
+            this.IDCueText.BackColor = System.Drawing.Color.White;
+            this.IDCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.IDCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.IDCueText.Location = new System.Drawing.Point(87, 110);
+            this.IDCueText.Name = "IDCueText";
+            this.IDCueText.Size = new System.Drawing.Size(71, 15);
+            this.IDCueText.TabIndex = 36;
+            this.IDCueText.Text = "书籍编号";
+            // 
+            // IDTextBox
+            // 
+            this.IDTextBox.BackColor = System.Drawing.Color.White;
+            this.IDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.IDTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.IDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.IDTextBox.Location = new System.Drawing.Point(92, 107);
+            this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.Size = new System.Drawing.Size(254, 22);
+            this.IDTextBox.TabIndex = 34;
+            // 
+            // IDBg
+            // 
+            this.IDBg.BackColor = System.Drawing.Color.White;
+            this.IDBg.Image = ((System.Drawing.Image)(resources.GetObject("IDBg.Image")));
+            this.IDBg.Location = new System.Drawing.Point(46, 98);
+            this.IDBg.Name = "IDBg";
+            this.IDBg.Size = new System.Drawing.Size(311, 42);
+            this.IDBg.TabIndex = 35;
+            this.IDBg.TabStop = false;
+            // 
+            // BookNameCueText
+            // 
+            this.BookNameCueText.AutoSize = true;
+            this.BookNameCueText.BackColor = System.Drawing.Color.White;
+            this.BookNameCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.BookNameCueText.Location = new System.Drawing.Point(87, 168);
+            this.BookNameCueText.Name = "BookNameCueText";
+            this.BookNameCueText.Size = new System.Drawing.Size(39, 15);
+            this.BookNameCueText.TabIndex = 39;
+            this.BookNameCueText.Text = "书名";
+            this.BookNameCueText.Click += new System.EventHandler(this.BookNameCueText_Click);
+            // 
+            // BookNameTextBox
+            // 
+            this.BookNameTextBox.BackColor = System.Drawing.Color.White;
+            this.BookNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BookNameTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.BookNameTextBox.Location = new System.Drawing.Point(92, 165);
+            this.BookNameTextBox.Name = "BookNameTextBox";
+            this.BookNameTextBox.Size = new System.Drawing.Size(254, 22);
+            this.BookNameTextBox.TabIndex = 37;
+            this.BookNameTextBox.Enter += new System.EventHandler(this.BookNameTextBox_Enter);
+            this.BookNameTextBox.Leave += new System.EventHandler(this.BookNameTextBox_Leave);
+            // 
+            // BookNameBg
+            // 
+            this.BookNameBg.BackColor = System.Drawing.Color.White;
+            this.BookNameBg.Image = ((System.Drawing.Image)(resources.GetObject("BookNameBg.Image")));
+            this.BookNameBg.Location = new System.Drawing.Point(46, 156);
+            this.BookNameBg.Name = "BookNameBg";
+            this.BookNameBg.Size = new System.Drawing.Size(311, 42);
+            this.BookNameBg.TabIndex = 38;
+            this.BookNameBg.TabStop = false;
+            // 
+            // AuthorCueText
+            // 
+            this.AuthorCueText.AutoSize = true;
+            this.AuthorCueText.BackColor = System.Drawing.Color.White;
+            this.AuthorCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AuthorCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.AuthorCueText.Location = new System.Drawing.Point(87, 228);
+            this.AuthorCueText.Name = "AuthorCueText";
+            this.AuthorCueText.Size = new System.Drawing.Size(39, 15);
+            this.AuthorCueText.TabIndex = 42;
+            this.AuthorCueText.Text = "作者";
+            // 
+            // AuthorTextBox
+            // 
+            this.AuthorTextBox.BackColor = System.Drawing.Color.White;
+            this.AuthorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AuthorTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AuthorTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AuthorTextBox.Location = new System.Drawing.Point(92, 225);
+            this.AuthorTextBox.Name = "AuthorTextBox";
+            this.AuthorTextBox.Size = new System.Drawing.Size(254, 22);
+            this.AuthorTextBox.TabIndex = 40;
+            this.AuthorTextBox.Enter += new System.EventHandler(this.AuthorTextBox_Enter);
+            this.AuthorTextBox.Leave += new System.EventHandler(this.AuthorTextBox_Leave);
+            // 
+            // AuthorBg
+            // 
+            this.AuthorBg.BackColor = System.Drawing.Color.White;
+            this.AuthorBg.Image = ((System.Drawing.Image)(resources.GetObject("AuthorBg.Image")));
+            this.AuthorBg.Location = new System.Drawing.Point(46, 216);
+            this.AuthorBg.Name = "AuthorBg";
+            this.AuthorBg.Size = new System.Drawing.Size(311, 42);
+            this.AuthorBg.TabIndex = 41;
+            this.AuthorBg.TabStop = false;
+            // 
+            // PublisherCueText
+            // 
+            this.PublisherCueText.AutoSize = true;
+            this.PublisherCueText.BackColor = System.Drawing.Color.White;
+            this.PublisherCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PublisherCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.PublisherCueText.Location = new System.Drawing.Point(87, 286);
+            this.PublisherCueText.Name = "PublisherCueText";
+            this.PublisherCueText.Size = new System.Drawing.Size(55, 15);
+            this.PublisherCueText.TabIndex = 45;
+            this.PublisherCueText.Text = "出版社";
+            this.PublisherCueText.Click += new System.EventHandler(this.PublisherCueText_Click);
+            // 
+            // PublisherTextBox
+            // 
+            this.PublisherTextBox.BackColor = System.Drawing.Color.White;
+            this.PublisherTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PublisherTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PublisherTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.PublisherTextBox.Location = new System.Drawing.Point(92, 283);
+            this.PublisherTextBox.Name = "PublisherTextBox";
+            this.PublisherTextBox.Size = new System.Drawing.Size(254, 22);
+            this.PublisherTextBox.TabIndex = 43;
+            this.PublisherTextBox.Enter += new System.EventHandler(this.PublisherTextBox_Enter);
+            this.PublisherTextBox.Leave += new System.EventHandler(this.PublisherTextBox_Leave);
+            // 
+            // PublisherBg
+            // 
+            this.PublisherBg.BackColor = System.Drawing.Color.White;
+            this.PublisherBg.Image = ((System.Drawing.Image)(resources.GetObject("PublisherBg.Image")));
+            this.PublisherBg.Location = new System.Drawing.Point(46, 274);
+            this.PublisherBg.Name = "PublisherBg";
+            this.PublisherBg.Size = new System.Drawing.Size(311, 42);
+            this.PublisherBg.TabIndex = 44;
+            this.PublisherBg.TabStop = false;
+            // 
+            // BookAmountCueText
+            // 
+            this.BookAmountCueText.AutoSize = true;
+            this.BookAmountCueText.BackColor = System.Drawing.Color.White;
+            this.BookAmountCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookAmountCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.BookAmountCueText.Location = new System.Drawing.Point(87, 344);
+            this.BookAmountCueText.Name = "BookAmountCueText";
+            this.BookAmountCueText.Size = new System.Drawing.Size(39, 15);
+            this.BookAmountCueText.TabIndex = 48;
+            this.BookAmountCueText.Text = "数量";
+            this.BookAmountCueText.Click += new System.EventHandler(this.BookAmountCueText_Click);
+            // 
+            // BookAmountTextBox
+            // 
+            this.BookAmountTextBox.BackColor = System.Drawing.Color.White;
+            this.BookAmountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BookAmountTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookAmountTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.BookAmountTextBox.Location = new System.Drawing.Point(92, 341);
+            this.BookAmountTextBox.Name = "BookAmountTextBox";
+            this.BookAmountTextBox.Size = new System.Drawing.Size(254, 22);
+            this.BookAmountTextBox.TabIndex = 46;
+            this.BookAmountTextBox.Enter += new System.EventHandler(this.BookAmountTextBox_Enter);
+            this.BookAmountTextBox.Leave += new System.EventHandler(this.BookAmountTextBox_Leave);
+            // 
+            // BookAmountBg
+            // 
+            this.BookAmountBg.BackColor = System.Drawing.Color.White;
+            this.BookAmountBg.Image = ((System.Drawing.Image)(resources.GetObject("BookAmountBg.Image")));
+            this.BookAmountBg.Location = new System.Drawing.Point(46, 332);
+            this.BookAmountBg.Name = "BookAmountBg";
+            this.BookAmountBg.Size = new System.Drawing.Size(311, 42);
+            this.BookAmountBg.TabIndex = 47;
+            this.BookAmountBg.TabStop = false;
+            // 
+            // BookInfoCueText
+            // 
+            this.BookInfoCueText.AutoSize = true;
+            this.BookInfoCueText.BackColor = System.Drawing.Color.White;
+            this.BookInfoCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookInfoCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.BookInfoCueText.Location = new System.Drawing.Point(87, 402);
+            this.BookInfoCueText.Name = "BookInfoCueText";
+            this.BookInfoCueText.Size = new System.Drawing.Size(39, 15);
+            this.BookInfoCueText.TabIndex = 51;
+            this.BookInfoCueText.Text = "简介";
+            this.BookInfoCueText.Click += new System.EventHandler(this.BookInfoCueText_Click);
+            // 
+            // BookInfoTextBox
+            // 
+            this.BookInfoTextBox.BackColor = System.Drawing.Color.White;
+            this.BookInfoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BookInfoTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookInfoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.BookInfoTextBox.Location = new System.Drawing.Point(92, 399);
+            this.BookInfoTextBox.Multiline = true;
+            this.BookInfoTextBox.Name = "BookInfoTextBox";
+            this.BookInfoTextBox.Size = new System.Drawing.Size(254, 121);
+            this.BookInfoTextBox.TabIndex = 49;
+            this.BookInfoTextBox.Enter += new System.EventHandler(this.BookInfoTextBox_Enter);
+            this.BookInfoTextBox.Leave += new System.EventHandler(this.BookInfoTextBox_Leave);
+            // 
+            // BookInfoBg
+            // 
+            this.BookInfoBg.BackColor = System.Drawing.Color.White;
+            this.BookInfoBg.Image = ((System.Drawing.Image)(resources.GetObject("BookInfoBg.Image")));
+            this.BookInfoBg.Location = new System.Drawing.Point(46, 390);
+            this.BookInfoBg.Name = "BookInfoBg";
+            this.BookInfoBg.Size = new System.Drawing.Size(311, 140);
+            this.BookInfoBg.TabIndex = 50;
+            this.BookInfoBg.TabStop = false;
+            // 
+            // BookImagePictureBox
+            // 
+            this.BookImagePictureBox.BackColor = System.Drawing.Color.White;
+            this.BookImagePictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookImagePictureBox.BackgroundImage")));
+            this.BookImagePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BookImagePictureBox.Location = new System.Drawing.Point(385, 98);
+            this.BookImagePictureBox.Name = "BookImagePictureBox";
+            this.BookImagePictureBox.Size = new System.Drawing.Size(171, 242);
+            this.BookImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BookImagePictureBox.TabIndex = 52;
+            this.BookImagePictureBox.TabStop = false;
+            // 
+            // OKButton
+            // 
+            this.OKButton.BackColor = System.Drawing.Color.White;
+            this.OKButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OKButton.BackgroundImage")));
+            this.OKButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.OKButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("OKButton.DM_DownImage")));
+            this.OKButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("OKButton.DM_HoverImage")));
+            this.OKButton.DM_Mode = false;
+            this.OKButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("OKButton.DM_NolImage")));
+            this.OKButton.Location = new System.Drawing.Point(425, 402);
+            this.OKButton.Name = "OKButton";
+            this.OKButton.Size = new System.Drawing.Size(96, 96);
+            this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.OKButton.TabIndex = 53;
+            this.OKButton.TabStop = false;
+            this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
+            this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);
+            // 
+            // AddImageButton
+            // 
+            this.AddImageButton.BackColor = System.Drawing.SystemColors.Control;
+            this.AddImageButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddImageButton.BackgroundImage")));
+            this.AddImageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddImageButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("AddImageButton.DM_DownImage")));
+            this.AddImageButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("AddImageButton.DM_HoverImage")));
+            this.AddImageButton.DM_Mode = false;
+            this.AddImageButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("AddImageButton.DM_NolImage")));
+            this.AddImageButton.Location = new System.Drawing.Point(425, 165);
+            this.AddImageButton.Name = "AddImageButton";
+            this.AddImageButton.Size = new System.Drawing.Size(96, 96);
+            this.AddImageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.AddImageButton.TabIndex = 54;
+            this.AddImageButton.TabStop = false;
+            this.AddImageButton.Click += new System.EventHandler(this.AddImageButton_Click);
+            this.AddImageButton.MouseLeave += new System.EventHandler(this.AddImageButton_MouseLeave);
+            this.AddImageButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddImageButton_MouseMove);
+            // 
+            // OpenImage
+            // 
+            this.OpenImage.Filter = "图片|*.jpg;*.png;*.gif;*.jpeg;*.bmp";
+            // 
+            // AddBookForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.AddImageButton);
+            this.Controls.Add(this.OKButton);
+            this.Controls.Add(this.BookImagePictureBox);
+            this.Controls.Add(this.BookInfoCueText);
+            this.Controls.Add(this.BookInfoTextBox);
+            this.Controls.Add(this.BookInfoBg);
+            this.Controls.Add(this.BookAmountCueText);
+            this.Controls.Add(this.BookAmountTextBox);
+            this.Controls.Add(this.BookAmountBg);
+            this.Controls.Add(this.PublisherCueText);
+            this.Controls.Add(this.PublisherTextBox);
+            this.Controls.Add(this.PublisherBg);
+            this.Controls.Add(this.AuthorCueText);
+            this.Controls.Add(this.AuthorTextBox);
+            this.Controls.Add(this.AuthorBg);
+            this.Controls.Add(this.BookNameCueText);
+            this.Controls.Add(this.BookNameTextBox);
+            this.Controls.Add(this.BookNameBg);
+            this.Controls.Add(this.IDCueText);
+            this.Controls.Add(this.IDTextBox);
+            this.Controls.Add(this.IDBg);
+            this.Controls.Add(this.ShutDownButton);
+            this.Controls.Add(this.TitleLabel);
+            this.Controls.Add(this.BgImage);
+            this.DM_CanResize = false;
+            this.DM_howBorder = false;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "AddBookForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "ReturnForm";
+            this.Load += new System.EventHandler(this.ReturnForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.BgImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDBg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookNameBg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AuthorBg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PublisherBg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookAmountBg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookInfoBg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookImagePictureBox)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox BgImage;
+        public System.Windows.Forms.Label TitleLabel;
+        private System.Windows.Forms.Button ShutDownButton;
+        private System.Windows.Forms.Label IDCueText;
+        private System.Windows.Forms.TextBox IDTextBox;
+        private System.Windows.Forms.PictureBox IDBg;
+        private System.Windows.Forms.Label BookNameCueText;
+        private System.Windows.Forms.TextBox BookNameTextBox;
+        private System.Windows.Forms.PictureBox BookNameBg;
+        private System.Windows.Forms.Label AuthorCueText;
+        private System.Windows.Forms.TextBox AuthorTextBox;
+        private System.Windows.Forms.PictureBox AuthorBg;
+        private System.Windows.Forms.Label PublisherCueText;
+        private System.Windows.Forms.TextBox PublisherTextBox;
+        private System.Windows.Forms.PictureBox PublisherBg;
+        private System.Windows.Forms.Label BookAmountCueText;
+        private System.Windows.Forms.TextBox BookAmountTextBox;
+        private System.Windows.Forms.PictureBox BookAmountBg;
+        private System.Windows.Forms.Label BookInfoCueText;
+        private System.Windows.Forms.TextBox BookInfoTextBox;
+        private System.Windows.Forms.PictureBox BookInfoBg;
+        private System.Windows.Forms.PictureBox BookImagePictureBox;
+        private DMSkin.Controls.DM.DMButtonImage OKButton;
+        private DMSkin.Controls.DM.DMButtonImage AddImageButton;
+        private System.Windows.Forms.OpenFileDialog OpenImage;
+    }
+}

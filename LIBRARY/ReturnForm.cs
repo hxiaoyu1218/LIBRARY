@@ -58,8 +58,8 @@ namespace LIBRARY
             AuthorText.Text = ClassBackEnd.Currentbook.Author;
             BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
             PublisherText.Text = ClassBackEnd.Currentbook.Publisher;
-            BorrowDateText.Text = ClassBackEnd.BorrowedBookI.Bsdate.ToShortDateString();
-            ReturnDateText.Text = ClassBackEnd.BorrowedBookI.Rgdate.ToShortDateString();
+            BorrowDateText.Text = ClassBackEnd.BorrowedBookI.Bsdate;
+            ReturnDateText.Text = ClassBackEnd.BorrowedBookI.Rgdate;
             try
             {
                 BookPictureBox.Image = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
