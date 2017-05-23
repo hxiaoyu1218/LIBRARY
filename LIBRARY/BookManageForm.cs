@@ -356,7 +356,12 @@ namespace LIBRARY
             }
         }
 
-        
+        private void AddBookButton_Click(object sender, EventArgs e)
+        {
+            AddBookForm addBookForm = new AddBookForm();
+            addBookForm.ShowDialog();
+            addBookForm.Dispose();
+        }
     }
 
 }

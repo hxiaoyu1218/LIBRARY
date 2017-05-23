@@ -175,6 +175,7 @@
             this.BookImageButton.Size = new System.Drawing.Size(96, 96);
             this.BookImageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookImageButton.TabIndex = 16;
+            this.BookImageButton.Click += new System.EventHandler(this.BookImageButton_Click);
             // 
             // ResultDataSheet
             // 

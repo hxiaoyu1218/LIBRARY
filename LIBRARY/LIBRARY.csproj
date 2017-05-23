@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeBookImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeBookImageForm.Designer.cs">
+      <DependentUpon>ChangeBookImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangeBookImageForm.resx">
+      <DependentUpon>ChangeBookImageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>

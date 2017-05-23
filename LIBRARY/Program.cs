@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -16,20 +17,21 @@ namespace LIBRARY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //LoginForm loginForm = new LoginForm();
-            //loginForm.ShowDialog();
-            //loginForm.Dispose();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            loginForm.Dispose();
 
-            //if ((int)loginForm.Tag == 1)
-            //{
-            //    Application.Run(new UserMainForm());
+            if ((int)loginForm.Tag == 1)
+            {
+                Application.Run(new UserMainForm());
 
-            //}
-            //else if ((int)loginForm.Tag == 2)
-            //{
-            //    Application.Run(new AdminMainForm());
-            //}
-            Application.Run(new AddBookForm());
+            }
+            else if ((int)loginForm.Tag == 2)
+            {
+                Application.Run(new AdminMainForm());
+            }
+            ClassBackEnd.StopTime();
+            //Application.Run(new AddBookForm());
         }
     }
 }

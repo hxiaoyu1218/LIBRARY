@@ -9,6 +9,7 @@ namespace LIBRARY
     class Guest
     {
         public static int GuestFlag = 0;
+        public static string DeletePath = "";
         public static Image LoadHeadImage(string name)
         {
             switch (name[0])

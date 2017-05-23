@@ -70,7 +70,7 @@ namespace LIBRARY
             }
             try
             {
-                BookPictureBox.Image = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
+                BookPictureBox.Image = Image.FromFile(ClassBackEnd.Currentbook.Bookimage);       
             }
             catch
             {
@@ -108,6 +108,19 @@ namespace LIBRARY
             bookInfoChangeForm.ShowDialog();
             bookInfoChangeForm.Dispose();
             BookDetailLoad();
+        }
+
+        private void BookImageButton_Click(object sender, EventArgs e)
+        {
+
+            ChangeBookImageForm changeBookImageForm = new ChangeBookImageForm();
+            changeBookImageForm.ShowDialog();
+            changeBookImageForm.Dispose();
+            BookPictureBox.Image.Dispose();
+            if (Guest.DeletePath != "") System.IO.File.Delete(Guest.DeletePath);
+            BookDetailLoad();
+           
+            Guest.DeletePath = "";
         }
     }
 }

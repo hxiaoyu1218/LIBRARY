@@ -14,17 +14,20 @@ namespace LIBRARY
 {
     public partial class AddBookForm : DMSkin.Main
     {
+        string SavePath;
         public AddBookForm()
         {
             InitializeComponent();
         }
-        private void ReturnForm_Load(object sender, EventArgs e)
+        private void AddBookForm_Load(object sender, EventArgs e)
         {
 
             AddImageButton.BackColor = Color.Transparent;
             AddImageButton.Parent = BookImagePictureBox;
             AddImageButton.Location = new Point(40, 77);
             AddImageButton.BringToFront();
+
+            IDTextBox.Text = ClassTime.getNextIsbn();//max 99 books
 
 
         }
@@ -180,9 +183,17 @@ namespace LIBRARY
             {
                 string path = OpenImage.FileName;
                 System.IO.File.Copy(path, @"data\book\pic\" + OpenImage.SafeFileName, true);
+                SavePath = @"data\book\pic\" + OpenImage.SafeFileName;
                 BookImagePictureBox.Image = Image.FromFile(path);
                 OpenImage.InitialDirectory = path.Substring(0, path.Length - OpenImage.SafeFileName.Length);
             }
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            //to do check true
+            ClassBackEnd.AddBook(IDTextBox.Text, BookNameTextBox.Text, PublisherTextBox.Text, AuthorTextBox.Text, Convert.ToInt32(BookAmountTextBox.Text), SavePath, BookInfoTextBox.Text);
+            Close();
         }
     }
 }

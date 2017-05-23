@@ -32,7 +32,6 @@
             this.TitleLabel = new System.Windows.Forms.Label();
             this.ShutDownButton = new System.Windows.Forms.Button();
             this.BgImage = new System.Windows.Forms.PictureBox();
-            this.IDCueText = new System.Windows.Forms.Label();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.IDBg = new System.Windows.Forms.PictureBox();
             this.BookNameCueText = new System.Windows.Forms.Label();
@@ -101,18 +100,6 @@
             this.BgImage.TabIndex = 0;
             this.BgImage.TabStop = false;
             // 
-            // IDCueText
-            // 
-            this.IDCueText.AutoSize = true;
-            this.IDCueText.BackColor = System.Drawing.Color.White;
-            this.IDCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.IDCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.IDCueText.Location = new System.Drawing.Point(87, 110);
-            this.IDCueText.Name = "IDCueText";
-            this.IDCueText.Size = new System.Drawing.Size(71, 15);
-            this.IDCueText.TabIndex = 36;
-            this.IDCueText.Text = "书籍编号";
-            // 
             // IDTextBox
             // 
             this.IDTextBox.BackColor = System.Drawing.Color.White;
@@ -121,6 +108,7 @@
             this.IDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.IDTextBox.Location = new System.Drawing.Point(92, 107);
             this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.ReadOnly = true;
             this.IDTextBox.Size = new System.Drawing.Size(254, 22);
             this.IDTextBox.TabIndex = 34;
             // 
@@ -341,6 +329,7 @@
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.OKButton.TabIndex = 53;
             this.OKButton.TabStop = false;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
             this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);
             // 
@@ -391,7 +380,6 @@
             this.Controls.Add(this.BookNameCueText);
             this.Controls.Add(this.BookNameTextBox);
             this.Controls.Add(this.BookNameBg);
-            this.Controls.Add(this.IDCueText);
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.IDBg);
             this.Controls.Add(this.ShutDownButton);
@@ -404,7 +392,7 @@
             this.Name = "AddBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReturnForm";
-            this.Load += new System.EventHandler(this.ReturnForm_Load);
+            this.Load += new System.EventHandler(this.AddBookForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDBg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookNameBg)).EndInit();
@@ -423,7 +411,6 @@
         private System.Windows.Forms.PictureBox BgImage;
         public System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button ShutDownButton;
-        private System.Windows.Forms.Label IDCueText;
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.PictureBox IDBg;
         private System.Windows.Forms.Label BookNameCueText;

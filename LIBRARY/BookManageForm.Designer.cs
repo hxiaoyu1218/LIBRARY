@@ -451,6 +451,7 @@
             this.AddBookButton.Size = new System.Drawing.Size(172, 172);
             this.AddBookButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.AddBookButton.TabIndex = 37;
+            this.AddBookButton.Click += new System.EventHandler(this.AddBookButton_Click);
             this.AddBookButton.MouseLeave += new System.EventHandler(this.AddBookButton_MouseLeave);
             this.AddBookButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddBookButton_MouseMove);
             // 
