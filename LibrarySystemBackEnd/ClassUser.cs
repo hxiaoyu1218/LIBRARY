@@ -52,6 +52,10 @@ namespace LibrarySystemBackEnd
 		/// </summary>
 		private bool delayed;
 		/// <summary>
+		/// 书籍是否已删除
+		/// </summary>
+		private bool deleted;
+		/// <summary>
 		/// 书号
 		/// </summary>
 		public string Bookisbn
@@ -126,6 +130,21 @@ namespace LibrarySystemBackEnd
 				delayed = value;
 			}
 		}
+		/// <summary>
+		/// 指示书籍是否已被删除
+		/// </summary>
+		public bool Deleted
+		{
+			get
+			{
+				return deleted;
+			}
+
+			internal set
+			{
+				deleted = value;
+			}
+		}
 
 
 
@@ -137,7 +156,7 @@ namespace LibrarySystemBackEnd
 		/// <param name="_bsdate">借/预约日期</param>
 		/// <param name="_rgdate">应还日期</param>
 		/// <param name="_delayed">是否已续借</param>
-		internal ClassBookAndDate(string _bookisbn, string _bookname, DateTime _bsdate, DateTime _rgdate, bool _delayed = false)
+		internal ClassBookAndDate(string _bookisbn, string _bookname, DateTime _bsdate, DateTime _rgdate, bool _delayed = false,bool _deleted=false)
 		{
 			Bookisbn = _bookisbn;
 			Bookname = _bookname;
@@ -862,7 +881,7 @@ namespace LibrarySystemBackEnd
 				}
 			}
 		}
-
+		internal void 
 		#endregion
 
 	}

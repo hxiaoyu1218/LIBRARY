@@ -862,6 +862,20 @@ namespace LibrarySystemBackEnd
 				state.Add(tmp.Bookstate);
 			}
 		}
+		internal bool DelBook()
+		{
+			foreach(ABook tmp in book)
+			{
+				if(tmp.Bookstate!=BOOKSTATE.Invailable)
+				{
+					return false;
+				}
+			}
+			foreach (string person in schedulequeue)
+			{
+				
+			}
+		}
 		#endregion
 	}
 }
