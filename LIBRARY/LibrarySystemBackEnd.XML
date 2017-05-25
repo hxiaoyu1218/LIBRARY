@@ -180,7 +180,7 @@
             </summary>
             <returns>成功返回1，出现异常返回0</returns>
         </member>
-        <member name="M:LibrarySystemBackEnd.ClassBackEnd.AddBook(System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.AddBook(System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             向图书系统添加图书，参数为书籍基本信息
             </summary>
@@ -191,13 +191,16 @@
             <param name="bookimage">封面路径，默认null</param>
             <param name="introduction">简介，默认null</param>
             <param name="n">添加书籍的数量</param>
+            <param name="lable1">标签1</param>
+            <param name="lable2">标签2</param>
+            <param name="lable3">标签3</param>
             <returns>成功/失败</returns>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBackEnd.SearchBook(System.Int32,System.String,System.ComponentModel.BackgroundWorker)">
             <summary>
             书籍条件检索方法,将符合条件的书籍载入到book list中
             </summary>
-            <param name="type">检索条件种类，1 全部条件，2 isbn，3 书名，4 作者，5 出版社</param>
+            <param name="type">检索条件种类，1 全部条件，2 isbn，3 书名，4 作者，5 出版社，6标签</param>
             <param name="searchInfo">检索关键词</param>
             <param name="bg">控件</param>
             <returns></returns>
@@ -370,6 +373,11 @@
             </summary>
             <param name="state">状态数组，会被清空</param>
             <returns>成功/失败</returns>
+        </member>
+        <member name="M:LibrarySystemBackEnd.ClassBackEnd.ClearBookList">
+            <summary>
+            清空搜索结果数组
+            </summary>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBackEnd.GetUserCreditFile(System.Collections.Generic.List{System.String}@)">
             <summary>
@@ -554,6 +562,21 @@
             每一本书
             </summary>
         </member>
+        <member name="P:LibrarySystemBackEnd.ClassBook.Booklable1">
+            <summary>
+            书籍标签第一个
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassBook.Booklable2">
+            <summary>
+            书籍标签第二个
+            </summary>
+        </member>
+        <member name="P:LibrarySystemBackEnd.ClassBook.Booklable3">
+            <summary>
+            书籍标签第三个
+            </summary>
+        </member>
         <member name="M:LibrarySystemBackEnd.ClassBook.UpdateHistory(System.String,System.DateTime,System.String,System.Int32)">
             <summary>
             写入历史文件
@@ -564,7 +587,7 @@
             <param name="cat">操作种类，0表示购入，1表示借阅，2表示归还，3表示预约，4表示取消预约，5表示管理员取走维护，6表示维护结束</param>
             <returns>成功/失败</returns>
         </member>
-        <member name="M:LibrarySystemBackEnd.ClassBook.#ctor(System.String,System.String,System.Int32,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:LibrarySystemBackEnd.ClassBook.#ctor(System.String,System.String,System.Int32,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             构造函数 构造时 名字 isbn 数量 购入时间 不能为空 其余可以
             生成历史文件
@@ -578,6 +601,9 @@
             <param name="_introduction">简介</param>
             <param name="_bookimage">书籍封面地址</param>
             <param name="_adminid">管理员id</param>
+            <param name="_lable1">标签1</param>
+            <param name="_lable2">标签2</param>
+            <param name="_lable3">标签3</param>
         </member>
         <member name="M:LibrarySystemBackEnd.ClassBook.#ctor(System.IO.StreamReader)">
             <summary>

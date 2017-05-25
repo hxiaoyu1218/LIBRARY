@@ -14,7 +14,7 @@ namespace LIBRARY
 {
     public partial class AddBookForm : DMSkin.Main
     {
-        string SavePath;
+        string SavePath = "";
         public AddBookForm()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace LIBRARY
             AddImageButton.Location = new Point(40, 77);
             AddImageButton.BringToFront();
 
-            IDTextBox.Text = ClassTime.getNextIsbn();//max 99 books
+            IDTextBox.Text = ClassTime.getNextIsbn();//max 99 books per day
 
 
         }
@@ -72,6 +72,82 @@ namespace LIBRARY
                 BookInfoCueText.Hide();
                 BookInfoTextBox.Focus();
             }
+        }
+
+        private void Label1CueText_Click(object sender, EventArgs e)
+        {
+            if(Label1TextBox.Text=="")
+            {
+                Label1CueText.Hide();
+                Label1TextBox.Focus();
+            }
+        }
+
+        private void Label2CueText_Click(object sender, EventArgs e)
+        {
+            if (Label2TextBox.Text == "")
+            {
+                Label2CueText.Hide();
+                Label2TextBox.Focus();
+            }
+        }
+
+        private void Label3CueText_Click(object sender, EventArgs e)
+        {
+            if (Label3TextBox.Text == "")
+            {
+                Label3CueText.Hide();
+                Label3TextBox.Focus();
+            }
+        }
+
+        private void Label1TextBox_Enter(object sender, EventArgs e)
+        {
+            if (Label1TextBox.Text == "")
+            {
+                Label1CueText.Hide();
+            }
+        }
+
+        private void Label1TextBox_Leave(object sender, EventArgs e)
+        {
+            if (Label1TextBox.Text == "")
+            {
+                Label1CueText.Show();
+            }
+        }
+
+        private void Label2TextBox_Enter(object sender, EventArgs e)
+        {
+            if (Label2TextBox.Text == "")
+            {
+                Label2CueText.Hide();
+            }
+        }
+
+        private void Label2TextBox_Leave(object sender, EventArgs e)
+        {
+            if (Label2TextBox.Text == "")
+            {
+                Label2CueText.Show();
+            }
+        }
+
+        private void Label3TextBox_Enter(object sender, EventArgs e)
+        {
+            if (Label3TextBox.Text == "")
+            {
+                Label3CueText.Hide();
+            }
+        }
+
+        private void Label3TextBox_Leave(object sender, EventArgs e)
+        {
+            if (Label3TextBox.Text == "")
+            {
+                Label3CueText.Show();
+            }
+
         }
 
         private void BookNameTextBox_Enter(object sender, EventArgs e)
@@ -188,12 +264,30 @@ namespace LIBRARY
                 OpenImage.InitialDirectory = path.Substring(0, path.Length - OpenImage.SafeFileName.Length);
             }
         }
-
+        private bool CheckInput()
+        {
+            try
+            {
+                var amount = Convert.ToInt32(BookAmountTextBox.Text);
+            }
+            catch
+            {
+                InfoBox infoBox = new InfoBox(13);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                BookAmountTextBox.Focus();
+                return false;
+            }
+            return true;
+        }
         private void OKButton_Click(object sender, EventArgs e)
         {
             //to do check true
-            ClassBackEnd.AddBook(IDTextBox.Text, BookNameTextBox.Text, PublisherTextBox.Text, AuthorTextBox.Text, Convert.ToInt32(BookAmountTextBox.Text), SavePath, BookInfoTextBox.Text);
+            if (CheckInput())
+                ClassBackEnd.AddBook(IDTextBox.Text, BookNameTextBox.Text, PublisherTextBox.Text, AuthorTextBox.Text, Convert.ToInt32(BookAmountTextBox.Text),Label1TextBox.Text,Label2TextBox.Text,Label3TextBox.Text, SavePath, BookInfoTextBox.Text);
             Close();
         }
+
+       
     }
 }

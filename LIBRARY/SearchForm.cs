@@ -47,6 +47,7 @@ namespace LIBRARY
             NameBackground.Hide();
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
+            LabelBackground.Hide();
             ButtonState = 1;
             #endregion
 
@@ -64,6 +65,14 @@ namespace LIBRARY
             if ((int)e.KeyCode == 13)
             {
                 SearchButton.PerformClick();
+            }
+        }
+
+        private void SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(13))
+            {
+                e.Handled = true;
             }
         }
 
@@ -92,10 +101,12 @@ namespace LIBRARY
                 SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
             }
         }
+
         private void SearchName_MouseMove(object sender, MouseEventArgs e)
         {
             SearchName.ForeColor = Color.White;
         }
+
         private void SearchName_MouseLeave(object sender, EventArgs e)
         {
             if (ButtonState != 3)
@@ -130,6 +141,19 @@ namespace LIBRARY
             }
         }
 
+        private void LabelButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            LabelButton.ForeColor = Color.White;
+        }
+
+        private void LabelButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (ButtonState != 6)
+            {
+                LabelButton.ForeColor = Color.FromArgb(26, 148, 129);
+            }
+        }
+
         private void SearchAll_Click(object sender, EventArgs e)
         {
             ButtonState = 1;
@@ -138,6 +162,7 @@ namespace LIBRARY
             NameBackground.Hide();
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
+            LabelBackground.Hide();
             SearchAll.ForeColor = Color.White;
             SearchAll.BackColor = Color.FromArgb(26, 148, 129);
             SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
@@ -148,6 +173,8 @@ namespace LIBRARY
             SearchAuthor.BackColor = Color.Transparent;
             SearchPublisher.ForeColor = Color.FromArgb(26, 148, 129);
             SearchPublisher.BackColor = Color.Transparent;
+            LabelButton.ForeColor = Color.FromArgb(26, 148, 129);
+            LabelButton.BackColor = Color.Transparent;
         }
 
         private void SearchISBN_Click(object sender, EventArgs e)
@@ -158,6 +185,7 @@ namespace LIBRARY
             NameBackground.Hide();
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
+            LabelBackground.Hide();
             SearchAll.ForeColor = Color.FromArgb(26, 148, 129);
             SearchAll.BackColor = Color.Transparent;
             SearchISBN.ForeColor = Color.White;
@@ -168,6 +196,8 @@ namespace LIBRARY
             SearchAuthor.BackColor = Color.Transparent;
             SearchPublisher.ForeColor = Color.FromArgb(26, 148, 129);
             SearchPublisher.BackColor = Color.Transparent;
+            LabelButton.ForeColor = Color.FromArgb(26, 148, 129);
+            LabelButton.BackColor = Color.Transparent;
         }
 
         private void SearchName_Click(object sender, EventArgs e)
@@ -178,6 +208,7 @@ namespace LIBRARY
             NameBackground.Show();
             AuthorBackground.Hide();
             PublisherBackgound.Hide();
+            LabelBackground.Hide();
             SearchAll.ForeColor = Color.FromArgb(26, 148, 129);
             SearchAll.BackColor = Color.Transparent;
             SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
@@ -188,6 +219,8 @@ namespace LIBRARY
             SearchAuthor.BackColor = Color.Transparent;
             SearchPublisher.ForeColor = Color.FromArgb(26, 148, 129);
             SearchPublisher.BackColor = Color.Transparent;
+            LabelButton.ForeColor = Color.FromArgb(26, 148, 129);
+            LabelButton.BackColor = Color.Transparent;
         }
 
         private void SearchAuthor_Click(object sender, EventArgs e)
@@ -198,6 +231,7 @@ namespace LIBRARY
             NameBackground.Hide();
             AuthorBackground.Show();
             PublisherBackgound.Hide();
+            LabelBackground.Hide();
             SearchAll.ForeColor = Color.FromArgb(26, 148, 129);
             SearchAll.BackColor = Color.Transparent;
             SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
@@ -208,6 +242,8 @@ namespace LIBRARY
             SearchAuthor.BackColor = Color.FromArgb(26, 148, 129);
             SearchPublisher.ForeColor = Color.FromArgb(26, 148, 129);
             SearchPublisher.BackColor = Color.Transparent;
+            LabelButton.ForeColor = Color.FromArgb(26, 148, 129);
+            LabelButton.BackColor = Color.Transparent;
         }
 
         private void SearchPublisher_Click(object sender, EventArgs e)
@@ -218,6 +254,7 @@ namespace LIBRARY
             NameBackground.Hide();
             AuthorBackground.Hide();
             PublisherBackgound.Show();
+            LabelBackground.Hide();
             SearchAll.ForeColor = Color.FromArgb(26, 148, 129);
             SearchAll.BackColor = Color.Transparent;
             SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
@@ -228,6 +265,31 @@ namespace LIBRARY
             SearchAuthor.BackColor = Color.Transparent;
             SearchPublisher.ForeColor = Color.White;
             SearchPublisher.BackColor = Color.FromArgb(26, 148, 129);
+            LabelButton.ForeColor = Color.FromArgb(26, 148, 129);
+            LabelButton.BackColor = Color.Transparent;
+        }
+
+        private void LabelButton_Click(object sender, EventArgs e)
+        {
+            ButtonState = 6;
+            AllBackground.Hide();
+            ISBNBackground.Hide();
+            NameBackground.Hide();
+            AuthorBackground.Hide();
+            PublisherBackgound.Hide();
+            LabelBackground.Show();
+            SearchAll.ForeColor = Color.FromArgb(26, 148, 129);
+            SearchAll.BackColor = Color.Transparent;
+            SearchISBN.ForeColor = Color.FromArgb(26, 148, 129);
+            SearchISBN.BackColor = Color.Transparent;
+            SearchName.ForeColor = Color.FromArgb(26, 148, 129);
+            SearchName.BackColor = Color.Transparent;
+            SearchAuthor.ForeColor = Color.FromArgb(26, 148, 129);
+            SearchAuthor.BackColor = Color.Transparent;
+            SearchPublisher.ForeColor = Color.FromArgb(26, 148, 129);
+            SearchPublisher.BackColor = Color.Transparent;
+            LabelButton.ForeColor = Color.White;
+            LabelButton.BackColor = Color.FromArgb(26, 148, 129);
         }
 
         private void UserInfoButton_MouseMove(object sender, MouseEventArgs e)

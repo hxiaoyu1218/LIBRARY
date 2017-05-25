@@ -79,8 +79,6 @@ namespace LIBRARY
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            //to do check true
-            // System.IO.File.Delete(ClassBackEnd.Currentbook.Bookimage);
             Guest.DeletePath = ClassBackEnd.Currentbook.Bookimage;
             if (OpenPath != "" && SavePath != "")
                 System.IO.File.Copy(OpenPath, SavePath, true);

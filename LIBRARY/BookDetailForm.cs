@@ -66,9 +66,13 @@ namespace LIBRARY
             BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
             PublisherText.Text = ClassBackEnd.Currentbook.Publisher;
             BookInfoTextbox.Text = ClassBackEnd.Currentbook.Introduction;
+            AmountText.Text = ClassBackEnd.Currentbook.Bookamount.ToString();
+            Label1Text.Text = ClassBackEnd.Currentbook.Booklable1;
+            Label2Text.Text = ClassBackEnd.Currentbook.Booklable2;
+            Label3Text.Text = ClassBackEnd.Currentbook.Booklable3;
             try
             {
-                BookPictureBox.Image = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
+                BookPictureBox.Image = Image.FromFile(ClassBackEnd.Currentbook.Bookimage);
             }
             catch
             {
@@ -225,6 +229,26 @@ namespace LIBRARY
             infoBox.Location = p;
             infoBox.Show();
             #endregion
+        }
+
+        private void PubCountText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PageNumLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PageNumText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PubCountLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

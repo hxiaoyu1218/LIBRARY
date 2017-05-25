@@ -152,10 +152,14 @@ namespace LIBRARY
 
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    e.Handled = true;
+            //    SearchButton_Click(sender, e);
+            //}
+            if ((int)e.KeyCode == 13)
             {
-                e.Handled = true;
-                SearchButton_Click(sender, e);
+                SearchButton.PerformClick();
             }
         }
 

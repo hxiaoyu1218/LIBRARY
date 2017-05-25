@@ -49,6 +49,7 @@
             this.SearchBox.BackColor = System.Drawing.Color.White;
             this.SearchBox.Font = new System.Drawing.Font("微软雅黑", 21.75F);
             this.SearchBox.Location = new System.Drawing.Point(194, 31);
+            this.SearchBox.Multiline = true;
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(530, 46);
             this.SearchBox.TabIndex = 1;

@@ -343,6 +343,9 @@
         6Nft3+C64uvD8EPyp/dC+fPd9b6CAAA7
 </value>
   </data>
+  <metadata name="AddBookButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="AddBookButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKwAAACsCAYAAADmMUfYAAAABGdBTUEAALGPC/xhBQAAJEJJREFUeF7t
@@ -1062,4 +1065,13 @@
         6UnGgjOTn3oa53M5Lm8dzgHTYXpMl+mXReTMFOxvlqgR/w+5JxM8Xws9pwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="LabelButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="LabelBackground.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

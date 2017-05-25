@@ -60,6 +60,11 @@ namespace LIBRARY
             AuthorText.Text = ClassBackEnd.Currentbook.Author;
             BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
             PublisherText.Text = ClassBackEnd.Currentbook.Publisher;
+            AmountText.Text = ClassBackEnd.Currentbook.Bookamount.ToString();
+            Label1Text.Text = ClassBackEnd.Currentbook.Booklable1;
+            Label2Text.Text = ClassBackEnd.Currentbook.Booklable2;
+            Label3Text.Text = ClassBackEnd.Currentbook.Booklable3;
+
             if (ClassBackEnd.Currentbook.Introduction == "")
             {
                 BookInfoTextbox.Text = "该书暂无相关简介。";
@@ -121,6 +126,15 @@ namespace LIBRARY
             BookDetailLoad();
            
             Guest.DeletePath = "";
+        }
+
+        private void BookPreserveButton_Click(object sender, EventArgs e)
+        {
+     
+            BookMaintainForm bookMaintainForm = new BookMaintainForm();
+            bookMaintainForm.ShowDialog();
+            bookMaintainForm.Dispose();
+            BookListRefresh();
         }
     }
 }
