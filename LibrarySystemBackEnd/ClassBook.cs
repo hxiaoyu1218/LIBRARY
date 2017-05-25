@@ -512,7 +512,16 @@ namespace LibrarySystemBackEnd
 				Booklable2 = sr.ReadLine();
 				Booklable3 = sr.ReadLine();
 				Bookimage = sr.ReadLine();
-				Introduction = sr.ReadLine();
+
+				var a = Convert.ToInt32(sr.ReadLine());
+
+				Introduction = "";
+				while(a-- > 0)
+				{
+					introduction += sr.ReadLine();
+					if(a != 0) introduction += "\r\n";
+				}
+
 				Bookamount = Convert.ToInt32(sr.ReadLine());
 
 				var count = Convert.ToInt32(sr.ReadLine());//each list amount

@@ -378,8 +378,7 @@ namespace LibrarySystemBackEnd
 
 			internal set
 			{
-				if(value < 0) credit = 0;
-				else if(value > 100) credit = 100;
+				if(value > 100) credit = 100;
 				else credit = value;
 			}
 		}
@@ -678,7 +677,7 @@ namespace LibrarySystemBackEnd
 					var b = borrowedbook[i].rgdate;
 
 					//处理日期问题，信用按天计算就改成TotalDays
-					var c = Convert.ToInt32(Math.Floor((a - b).TotalMinutes));
+					var c = Convert.ToInt32(Math.Floor((a - b).TotalDays));
 
 					var d = borrowedbook[i].bsdate;
 					if(c > 0)
@@ -760,6 +759,7 @@ namespace LibrarySystemBackEnd
 		/// <returns>返回最终信用</returns>
 		internal int Charge(int money)
 		{
+			if(money < 0) return Credit;
 			if(Credit + money > 100)
 			{
 				Credit = 100;

@@ -585,6 +585,14 @@ namespace LibrarySystemBackEnd
 
 					admin.Add(new ClassAdministrator(a, b, c));
 				}
+				if(!admin.Any())
+				{
+					admin.Add(new ClassAdministrator("0000000000", "admin", "admin"));
+					zip = new GZipStream(fs, CompressionMode.Compress);
+					StreamWriter sw = new StreamWriter(zip);
+					admin[0].SaveToFile(sw);
+					sw.Close();
+				}
 			}
 			catch(Exception)
 			{
