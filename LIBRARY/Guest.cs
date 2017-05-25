@@ -10,6 +10,7 @@ namespace LIBRARY
     {
         public static int GuestFlag = 0;
         public static string DeletePath = "";
+		public static string Delpic = "";
         public static Image LoadHeadImage(string name)
         {
             switch (name[0])

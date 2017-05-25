@@ -340,10 +340,10 @@ namespace LibrarySystemBackEnd
 					bk.SaveBasicInformation(swn);
 					bk.SaveDetailInformation(BookDirectory);
 				}
-				else
-				{
-					File.Delete(BookDirectory + tmp.Bookisbn + ".lbs");
-				}
+				//else
+				//{
+				//	File.Delete(BookDirectory + tmp.Bookisbn + ".lbs");
+				//}
 			}
 			catch(Exception e) { return false; }
 			finally
@@ -364,7 +364,7 @@ namespace LibrarySystemBackEnd
 		private static void RefreshSystemInformation(int n, int cat)
 		{
 			int a = 0, b = 0, c = 0, d = 0;
-			FileStream fso = null; StreamReader sr = null; 
+			FileStream fso = null; StreamReader sr = null;
 			try
 			{
 				fso = new FileStream(SystemInformation, FileMode.OpenOrCreate);
@@ -390,7 +390,7 @@ namespace LibrarySystemBackEnd
 				a += n;
 				d += n;
 			}
-				
+
 			else if(cat == 2)
 				b += n;
 			else if(cat == 3)
@@ -922,8 +922,8 @@ namespace LibrarySystemBackEnd
 		/// 点击借阅历史中第i本书
 		/// </summary>
 		/// <param name="i">书的序号</param>
-		/// <returns>成功/失败</returns>
-		public static bool BorrowHistoryIDown(int i)
+		/// <returns>成功1/失败0/文件已被删除/2</returns>
+		public static int BorrowHistoryIDown(int i)
 		{
 			if(Book.Any()) Book.Clear();
 			string bookisbn = Borrowhis[i].Bookisbn;
@@ -935,14 +935,15 @@ namespace LibrarySystemBackEnd
 				Book.Add(new ClassBook(sr));
 				Book[0].LoadDetailInformation();
 			}
-			catch(Exception e) { return false; }
+			catch(FileNotFoundException) { return 2; }
+			catch(Exception e) { return 0; }
 			finally
 			{
 				if(sr != null) sr.Close();
 				if(zip != null) zip.Close();
 				if(fs != null) fs.Close();
 			}
-			return true;
+			return 1;
 		}
 
 		/// <summary>
@@ -1311,6 +1312,44 @@ namespace LibrarySystemBackEnd
 			}
 			return true;
 
+		}
+		/// <summary>
+		/// 删除书籍，调用类内方法，删除图片，删除历史文件，删除书籍文件
+		/// </summary>
+		/// <returns>成功/失败</returns>
+		public static bool DeleteBook(ref string pic)
+		{
+			if(Currentbook == null) return false;
+			else
+			{
+				var n = Currentbook.Bookamount;
+				List<string> isbns = new List<string>();
+				string picpath = Currentbook.Bookimage;
+				foreach(ABook tmp in Currentbook.Book)
+				{
+					isbns.Add(tmp.Extisbn);
+				}
+				if(Currentbook.DelBook() == false)
+				{
+					return false;
+				}
+				else
+				{
+					RefreshBookListFile(Currentbook, false);
+					if(picpath != "")
+					{
+						pic = picpath;
+					}
+					else pic = null;
+					File.Delete(BookDirectory + currentbook.Bookisbn + ".lbs");
+					foreach(string s in isbns)
+					{
+						File.Delete(BookHisDirectory + s + ".his");
+					}
+					return true;
+				}
+
+			}
 		}
 
 	}

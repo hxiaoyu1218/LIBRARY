@@ -120,14 +120,24 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 2)
             {
-                frmMain.MainPanel.Controls.Clear();
-                ClassBackEnd.BorrowHistoryIDown(e.RowIndex);
-                BookDetailAdminForm bookDetailAdminForm = new BookDetailAdminForm(frmMain, 0);
-                bookDetailAdminForm.TopLevel = false;
-                bookDetailAdminForm.Dock = DockStyle.Fill;
-                frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
-                bookDetailAdminForm.Show();
-                frmMain.ReturnButton.Tag = 4;
+				if(ClassBackEnd.BorrowHistoryIDown(e.RowIndex) == 2)
+				{
+					InfoBox infobox = new InfoBox(25);
+					infobox.ShowDialog();
+					infobox.Dispose();
+				}
+				else
+				{
+					frmMain.MainPanel.Controls.Clear();
+
+					BookDetailAdminForm bookDetailAdminForm = new BookDetailAdminForm(frmMain, 0);
+					bookDetailAdminForm.TopLevel = false;
+					bookDetailAdminForm.Dock = DockStyle.Fill;
+					frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
+					bookDetailAdminForm.Show();
+					frmMain.ReturnButton.Tag = 4;
+				}
+				
             }
         }
 

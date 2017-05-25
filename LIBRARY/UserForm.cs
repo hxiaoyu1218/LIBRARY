@@ -52,14 +52,16 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = ClassBackEnd.Userbsbook[i].Bookname;
-                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate + " " + ClassBackEnd.Userbsbook[i].Rgdate;
+                
                 if (ClassBackEnd.Userbsbook[i].Isborrowed)
                 {
-                    BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
+					BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate + " " + ClassBackEnd.Userbsbook[i].Rgdate;
+					BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
                 }
                 else
                 {
-                    BorrowInfoSheet.Rows[index].Cells[2].Value = "取消预约";
+					BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate ;
+					BorrowInfoSheet.Rows[index].Cells[2].Value = "取消预约";
                 }
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
@@ -270,14 +272,24 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 2)
             {
-                frmMain.MainPanel.Controls.Clear();
-                ClassBackEnd.BorrowHistoryIDown(e.RowIndex);
-                BookDetailForm bookDetailForm = new BookDetailForm(frmMain, 0);
-                bookDetailForm.TopLevel = false;
-                bookDetailForm.Dock = DockStyle.Fill;
-                frmMain.MainPanel.Controls.Add(bookDetailForm);
-                bookDetailForm.Show();
-                frmMain.ReturnButton.Tag = 3;
+                
+                if(ClassBackEnd.BorrowHistoryIDown(e.RowIndex)==2)
+				{
+					InfoBox infobox = new InfoBox(25);
+					infobox.ShowDialog();
+					infobox.Dispose();
+				}
+				else
+				{
+					frmMain.MainPanel.Controls.Clear();
+					BookDetailForm bookDetailForm = new BookDetailForm(frmMain, 0);
+					bookDetailForm.TopLevel = false;
+					bookDetailForm.Dock = DockStyle.Fill;
+					frmMain.MainPanel.Controls.Add(bookDetailForm);
+					bookDetailForm.Show();
+					frmMain.ReturnButton.Tag = 3;
+				}
+                
             }
         }
 

@@ -835,19 +835,35 @@ namespace LibrarySystemBackEnd
 			if(state.Count != Book.Count) return false;
 			for(int i = 0;i < Book.Count;i++)
 			{
+				if(state[i] == BOOKSTATE.Invailable)
+				{
+					if(book[i].Bookstate != BOOKSTATE.Borrowed)
+					{
+						if(book[i].Bookstate == BOOKSTATE.Scheduled)
+						{
+							schedulequeue.AddFirst(book[i].Borrowuserid);
+							ClassUser tmp = new ClassUser(book[i].Borrowuserid);
+							tmp.ReadDetailInformation(ClassBackEnd.UserDetailDictory);
+							tmp.MaintainSheduleBook(book[i].Extisbn);
+							tmp.SaveDetailInformation(ClassBackEnd.UserDetailDictory);
+						}
+						book[i].Bookstate = BOOKSTATE.Invailable;
+					}
+				}
+			}
+			for(int i = 0;i < Book.Count;i++)
+			{
 				if(book[i].Bookstate == BOOKSTATE.Invailable && state[i] == BOOKSTATE.Available)
 				{
 					book[i].Bookstate = BOOKSTATE.Available;
 					InformToScheduler(i);
 				}
-				else if(state[i] == BOOKSTATE.Invailable)
+				if(book[i].Bookstate==BOOKSTATE.Available)
 				{
-					if(book[i].Bookstate == BOOKSTATE.Available)
-					{
-						book[i].Bookstate = BOOKSTATE.Invailable;
-					}
+					InformToScheduler(i);
 				}
 			}
+
 			return SaveDetailInformation(ClassBackEnd.BookDirectory);
 		}
 		/// <summary>
@@ -861,6 +877,23 @@ namespace LibrarySystemBackEnd
 			{
 				state.Add(tmp.Bookstate);
 			}
+		}
+		internal bool DelBook()
+		{
+			foreach(ABook tmp in book)
+			{
+				if(tmp.Bookstate != BOOKSTATE.Invailable)
+				{
+					return false;
+				}
+			}
+			foreach(string person in schedulequeue)
+			{
+				ClassUser tmp = new ClassUser(person);
+				tmp.deletebook(this.Bookisbn);
+				tmp.SaveDetailInformation(ClassBackEnd.UserDetailDictory);
+			}
+			return true;
 		}
 		#endregion
 	}

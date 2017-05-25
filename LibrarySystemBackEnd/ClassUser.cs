@@ -52,6 +52,10 @@ namespace LibrarySystemBackEnd
 		/// </summary>
 		private bool delayed;
 		/// <summary>
+		/// 书籍是否已删除
+		/// </summary>
+		private bool deleted;
+		/// <summary>
 		/// 书号
 		/// </summary>
 		public string Bookisbn
@@ -94,7 +98,7 @@ namespace LibrarySystemBackEnd
 				return a + "-" + b + "-" + c;
 			}
 
-			
+
 		}
 		/// <summary>
 		/// 应还/最晚取书日期
@@ -109,7 +113,7 @@ namespace LibrarySystemBackEnd
 				return a + "-" + b + "-" + c;
 			}
 
-			
+
 		}
 		/// <summary>
 		/// 是否已续借
@@ -126,6 +130,21 @@ namespace LibrarySystemBackEnd
 				delayed = value;
 			}
 		}
+		/// <summary>
+		/// 指示书籍是否已被删除
+		/// </summary>
+		public bool Deleted
+		{
+			get
+			{
+				return deleted;
+			}
+
+			internal set
+			{
+				deleted = value;
+			}
+		}
 
 
 
@@ -137,13 +156,15 @@ namespace LibrarySystemBackEnd
 		/// <param name="_bsdate">借/预约日期</param>
 		/// <param name="_rgdate">应还日期</param>
 		/// <param name="_delayed">是否已续借</param>
-		internal ClassBookAndDate(string _bookisbn, string _bookname, DateTime _bsdate, DateTime _rgdate, bool _delayed = false)
+		/// <param name="_deleted">是否已删除</param>
+		internal ClassBookAndDate(string _bookisbn, string _bookname, DateTime _bsdate, DateTime _rgdate, bool _delayed = false, bool _deleted = false)
 		{
 			Bookisbn = _bookisbn;
 			Bookname = _bookname;
 			bsdate = _bsdate;
 			rgdate = _rgdate;
 			Delayed = _delayed;
+			deleted = _deleted;
 		}
 		/// <summary>
 		/// 从文件读入
@@ -151,22 +172,12 @@ namespace LibrarySystemBackEnd
 		/// <param name="sr">读入文件流</param>
 		internal ClassBookAndDate(StreamReader sr)
 		{
-			try
-			{
-				Bookisbn = sr.ReadLine();
-				Bookname = sr.ReadLine();
-				bsdate = DateTime.Parse(sr.ReadLine());
-				rgdate = DateTime.Parse(sr.ReadLine());
-				Delayed = Convert.ToBoolean(sr.ReadLine());
-			}
-			catch(Exception)
-			{
-				return;
-			}
-			finally
-			{
-
-			}
+			Bookisbn = sr.ReadLine();
+			Bookname = sr.ReadLine();
+			bsdate = DateTime.Parse(sr.ReadLine());
+			rgdate = DateTime.Parse(sr.ReadLine());
+			Delayed = Convert.ToBoolean(sr.ReadLine());
+			Deleted = Convert.ToBoolean(sr.ReadLine());
 
 		}
 		/// <summary>
@@ -180,6 +191,7 @@ namespace LibrarySystemBackEnd
 			sw.WriteLine(bsdate.ToString());
 			sw.WriteLine(rgdate.ToString());
 			sw.WriteLine(Delayed);
+			sw.WriteLine(Deleted);
 		}
 	}
 	/// <summary>
@@ -392,7 +404,7 @@ namespace LibrarySystemBackEnd
 				var a = registerDate.Year.ToString("D4");
 				var b = registerDate.Month.ToString("D2");
 				var c = registerDate.Day.ToString("D2");
-				return a + "-" + b + "-" + c + "-";
+				return a + "-" + b + "-" + c;
 			}
 
 		}
@@ -548,6 +560,14 @@ namespace LibrarySystemBackEnd
 				while(t1-- > 0)
 				{
 					schedulebook.Add(new ClassBookAndDate(sr));
+					if(schedulebook.Last().Deleted == true)
+					{
+						var tmp = ClassTime.systemTime;
+						if(schedulebook.Last().rgdate + TimeSpan.FromDays(5.0) < tmp)
+						{
+							schedulebook.Remove(schedulebook.Last());
+						}
+					}
 				}
 				return true;
 			}
@@ -601,6 +621,60 @@ namespace LibrarySystemBackEnd
 			finally
 			{
 				if(sw != null) sw.Close();
+				if(zip != null) zip.Close();
+				if(fs != null) fs.Close();
+			}
+		}
+		internal ClassUser(string id)
+		{
+			userid = id;
+
+			string path = ClassBackEnd.UserDetailDictory + id + ".lbs";
+			FileStream fs = null; GZipStream zip = null; StreamReader sr = null;
+			try
+			{
+				fs = new FileStream(path, FileMode.Open);
+				zip = new GZipStream(fs, CompressionMode.Decompress);
+				sr = new StreamReader(zip);
+				Currentscheduleamount = Convert.ToInt32(sr.ReadLine());
+				Maxborrowableamount = Convert.ToInt32(sr.ReadLine());
+				Currentborrowedamount = Convert.ToInt32(sr.ReadLine());
+				Currentmaxborrowableamount = Convert.ToInt32(sr.ReadLine());
+				Credit = Convert.ToInt32(sr.ReadLine());
+
+				int a, b, c;
+				a = Convert.ToInt32(sr.ReadLine());
+				b = Convert.ToInt32(sr.ReadLine());
+				c = Convert.ToInt32(sr.ReadLine());
+				registerDate = new DateTime(a, b, c);
+
+				int t1; t1 = Convert.ToInt32(sr.ReadLine());
+				while(t1-- > 0)
+				{
+					borrowedbook.Add(new ClassBookAndDate(sr));
+				}
+
+				t1 = Convert.ToInt32(sr.ReadLine());
+				while(t1-- > 0)
+				{
+					schedulebook.Add(new ClassBookAndDate(sr));
+					//if(schedulebook.Last().Deleted == true)
+					//{
+					//	var tmp = ClassTime.systemTime;
+					//	if(schedulebook.Last().rgdate + TimeSpan.FromDays(5.0) < tmp)
+					//	{
+					//		schedulebook.Remove(schedulebook.Last());
+					//	}
+					//}
+				}
+			}
+			catch(Exception)
+			{
+
+			}
+			finally
+			{
+				if(sr != null) sr.Close();
 				if(zip != null) zip.Close();
 				if(fs != null) fs.Close();
 			}
@@ -809,7 +883,7 @@ namespace LibrarySystemBackEnd
 			foreach(ClassBookAndDate bk in borrowedbook)
 			{
 				TimeSpan ts = bk.rgdate - ClassTime.systemTime;
-				if(ts < TimeSpan.FromMinutes(3.0)/*TimeSpan.FromDays(5.0)*/&& ts > TimeSpan.Zero)
+				if(ts < TimeSpan.FromDays(5.0) && ts > TimeSpan.Zero)
 				{
 					mes.Add("您借的书籍《" + bk.Bookname + "》将于" + bk.Rgdate + "到期，请尽快归还！");
 				}
@@ -823,6 +897,10 @@ namespace LibrarySystemBackEnd
 				if(bk.Delayed == true)
 				{
 					mes.Add("您预约的书籍《" + bk.Bookname + "》已经到馆，请尽快借阅！");
+				}
+				if(bk.Deleted == true)
+				{
+					mes.Add("您预约的书籍《" + bk.Bookname + "》已被管理员删除！");
 				}
 			}
 		}
@@ -843,14 +921,15 @@ namespace LibrarySystemBackEnd
 			{
 				foreach(ClassBookAndDate cba in schedulebook)
 				{
-					bk.Add(new ClassBorrowedBook(cba, false));
+					if(cba.Deleted == false)
+						bk.Add(new ClassBorrowedBook(cba, false));
 				}
 			}
 		}
 		/// <summary>
 		/// 预约书籍到馆，更改状态为待取书
 		/// </summary>
-		/// <param name="bookisbn"></param>
+		/// <param name="bookisbn">书籍编号，带扩展</param>
 		internal void bookget(string bookisbn)
 		{
 			foreach(ClassBookAndDate bad in schedulebook)
@@ -862,7 +941,25 @@ namespace LibrarySystemBackEnd
 				}
 			}
 		}
-
+		internal void deletebook(string bookisbn)
+		{
+			foreach(ClassBookAndDate bad in schedulebook)
+			{
+				if(bad.Bookisbn == bookisbn)
+				{
+					bad.Deleted = true;
+					return;
+				}
+			}
+		}
+		internal void MaintainSheduleBook(string bookisbn)
+		{
+			foreach(ClassBookAndDate cbad in schedulebook)
+			{
+				if(bookisbn.Contains(cbad.Bookisbn))
+					cbad.Delayed = false;
+			}
+		}
 		#endregion
 
 	}

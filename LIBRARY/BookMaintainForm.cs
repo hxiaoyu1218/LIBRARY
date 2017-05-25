@@ -88,6 +88,7 @@ namespace LIBRARY
         }
         private void BookMaintainForm_Load(object sender, EventArgs e)
         {
+			list.Clear();
             ClassBackEnd.GetBookState(ref list);
 
             CheckBox_Load();
@@ -121,14 +122,45 @@ namespace LIBRARY
 
         private void OKButton_Click(object sender, EventArgs e)
         {
+			foreach(Control ctr in CheckBoxPanel.Controls)
+			{
+				CheckBox cbo = ctr as CheckBox;
+				if(cbo.Checked)
+				{
+					list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Invailable;
+				}
+				else if(list[Convert.ToInt32(cbo.Name)]==BOOKSTATE.Invailable)
+				{
+					list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Available;
+				}
+			}
             ClassBackEnd.MaintainBook(list);
             Close();
         }
 
 
-        private void DelButton_Click(object sender, EventArgs e)
+		private void DelButton_Click(object sender, EventArgs e)
         {
-
+			string pic = null;
+			if(ClassBackEnd.DeleteBook(ref pic))
+			{
+				if(pic!=null)
+				{
+					Guest.Delpic = pic;
+				}
+				InfoBox infobox = new InfoBox(23);
+				infobox.ShowDialog();
+				infobox.Dispose();
+				Close();
+			}
+			else
+			{
+				InfoBox infobox = new InfoBox(24);
+				infobox.ShowDialog();
+				infobox.Dispose();
+			}
         }
-    }
+
+		
+	}
 }
