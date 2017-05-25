@@ -37,10 +37,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\DMSkin.dll</HintPath>
     </Reference>
-    <Reference Include="LibrarySystemBackEnd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\LibrarySystemBackEnd.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -384,6 +380,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\删除图书disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibrarySystemBackEnd\LibrarySystemBackEnd.csproj">
+      <Project>{c6368479-15b7-4803-b229-5b6281c0c56a}</Project>
+      <Name>LibrarySystemBackEnd</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
