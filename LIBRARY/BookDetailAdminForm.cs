@@ -47,13 +47,14 @@ namespace LIBRARY
 				{
 					ResultDataSheet.Rows[index].Cells[1].Value = "仅预约";
 				}
-
-				ResultDataSheet.Rows[index].Height = 40;
+                ResultDataSheet.Rows[index].Cells[2].Value = "历史";
+                ResultDataSheet.Rows[index].Height = 40;
 			}
 			ResultDataSheet.ClearSelection();
 			ResultDataSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 			ResultDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-		}
+            ResultDataSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
 		private void BookDetailLoad()
 		{
 			ClassBackEnd.LoadSearchResult(bookIndex);
@@ -85,7 +86,18 @@ namespace LIBRARY
 
 		}
 
-		private void BookDetailForm_Load(object sender, EventArgs e)
+
+        private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                BookHistoryInfoForm bookHistoryInfoForm = new BookHistoryInfoForm(e.RowIndex);
+                bookHistoryInfoForm.ShowDialog();
+                bookHistoryInfoForm.Dispose();
+            }
+        }
+
+        private void BookDetailForm_Load(object sender, EventArgs e)
 		{
 
 

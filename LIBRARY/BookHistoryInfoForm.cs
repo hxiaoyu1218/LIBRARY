@@ -12,22 +12,23 @@ using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
-    public partial class CreditRecordForm : DMSkin.Main
+    public partial class BookHistoryInfoForm : DMSkin.Main
     {
-        List<string> list = new List<string>();
-        public CreditRecordForm()
+        private int index;
+        public BookHistoryInfoForm(int i)
         {
             InitializeComponent();
+            index = i;
         }
         private void SheetLoad()
         {
             int i = 0;
-            for (i = 0; i < list.Count; i++)
+            for (i = 0; i < ClassBackEnd.Bookhis.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = CreditRecordSheet.Rows.Add(row);
                 CreditRecordSheet.Rows[i].Cells[0].Value = (i + 1).ToString();
-                CreditRecordSheet.Rows[i].Cells[1].Value = list[i];
+               // CreditRecordSheet.Rows[i].Cells[1].Value = ;
                 CreditRecordSheet.Rows[index].Height = 48;
             }
             while (i < 11)
@@ -42,9 +43,9 @@ namespace LIBRARY
             CreditRecordSheet.ClearSelection();
             CreditRecordSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
-        private void CreditRecordForm_Load(object sender, EventArgs e)
+        private void BookHistoryInfoForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.GetUserCreditFile(ref list);
+            ClassBackEnd.GetBookHistory(index);
             SheetLoad();
 
         }
