@@ -76,6 +76,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 6;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -124,6 +125,7 @@
             this.MoneyTextBox.Name = "MoneyTextBox";
             this.MoneyTextBox.Size = new System.Drawing.Size(259, 22);
             this.MoneyTextBox.TabIndex = 22;
+            this.MoneyTextBox.TabStop = false;
             this.MoneyTextBox.Enter += new System.EventHandler(this.MoneyTextBox_Enter);
             this.MoneyTextBox.Leave += new System.EventHandler(this.MoneyTextBox_Leave);
             // 
@@ -151,6 +153,7 @@
             this.OKButton.Size = new System.Drawing.Size(80, 80);
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.OKButton.TabIndex = 25;
+            this.OKButton.TabStop = false;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
             this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);

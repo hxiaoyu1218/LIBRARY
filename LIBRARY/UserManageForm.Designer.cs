@@ -79,6 +79,7 @@
             this.PageTextBox.ReadOnly = true;
             this.PageTextBox.Size = new System.Drawing.Size(68, 27);
             this.PageTextBox.TabIndex = 52;
+            this.PageTextBox.TabStop = false;
             this.PageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // JumpPTextBox
@@ -88,6 +89,7 @@
             this.JumpPTextBox.Name = "JumpPTextBox";
             this.JumpPTextBox.Size = new System.Drawing.Size(68, 27);
             this.JumpPTextBox.TabIndex = 51;
+            this.JumpPTextBox.TabStop = false;
             this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.JumpPTextBox.TextChanged += new System.EventHandler(this.JumpPTextBox_TextChanged);
             // 

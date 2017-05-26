@@ -155,7 +155,7 @@
             this.GuestLink.Location = new System.Drawing.Point(320, 303);
             this.GuestLink.Name = "GuestLink";
             this.GuestLink.Size = new System.Drawing.Size(63, 14);
-            this.GuestLink.TabIndex = 16;
+            this.GuestLink.TabIndex = 4;
             this.GuestLink.TabStop = true;
             this.GuestLink.Text = "访客进入";
             this.GuestLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GuestLink_LinkClicked);
@@ -173,7 +173,7 @@
             this.PasswordForgetLink.Location = new System.Drawing.Point(297, 382);
             this.PasswordForgetLink.Name = "PasswordForgetLink";
             this.PasswordForgetLink.Size = new System.Drawing.Size(91, 14);
-            this.PasswordForgetLink.TabIndex = 0;
+            this.PasswordForgetLink.TabIndex = 5;
             this.PasswordForgetLink.TabStop = true;
             this.PasswordForgetLink.Text = "忘记密码了？";
             // 
@@ -187,7 +187,8 @@
             this.RememberCheckBox.Location = new System.Drawing.Point(72, 382);
             this.RememberCheckBox.Name = "RememberCheckBox";
             this.RememberCheckBox.Size = new System.Drawing.Size(86, 19);
-            this.RememberCheckBox.TabIndex = 18;
+            this.RememberCheckBox.TabIndex = 3;
+            this.RememberCheckBox.TabStop = true;
             this.RememberCheckBox.Text = "记住我";
             // 
             // UserTextBox

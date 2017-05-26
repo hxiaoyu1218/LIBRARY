@@ -62,6 +62,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 8;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -83,6 +84,7 @@
             this.BookInfoText.Name = "BookInfoText";
             this.BookInfoText.Size = new System.Drawing.Size(333, 279);
             this.BookInfoText.TabIndex = 9;
+            this.BookInfoText.TabStop = false;
             this.BookInfoText.Text = "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈" +
     "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈";
             // 
@@ -100,6 +102,7 @@
             this.OKButton.Size = new System.Drawing.Size(80, 80);
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.OKButton.TabIndex = 26;
+            this.OKButton.TabStop = false;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // BookInfoChangeForm

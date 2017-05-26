@@ -32,6 +32,8 @@
             this.UserInfoButton = new DMSkin.Controls.DM.DMButtonImage();
             this.BookReturnButton = new DMSkin.Controls.DM.DMButtonImage();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.LabelButton = new System.Windows.Forms.Button();
+            this.LabelBackground = new System.Windows.Forms.PictureBox();
             this.SearchName = new System.Windows.Forms.Button();
             this.SearchISBN = new System.Windows.Forms.Button();
             this.SearchAuthor = new System.Windows.Forms.Button();
@@ -45,16 +47,14 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.BigTitlePictureBox = new System.Windows.Forms.PictureBox();
-            this.LabelButton = new System.Windows.Forms.Button();
-            this.LabelBackground = new System.Windows.Forms.PictureBox();
             this.SearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LabelBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AuthorBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PublisherBackgound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AllBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigTitlePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LabelBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // UserInfoButton
@@ -71,6 +71,7 @@
             this.UserInfoButton.Size = new System.Drawing.Size(172, 172);
             this.UserInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.UserInfoButton.TabIndex = 13;
+            this.UserInfoButton.TabStop = false;
             this.UserInfoButton.Click += new System.EventHandler(this.UserInfoButton_Click);
             this.UserInfoButton.MouseLeave += new System.EventHandler(this.UserInfoButton_MouseLeave);
             this.UserInfoButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UserInfoButton_MouseMove);
@@ -89,6 +90,7 @@
             this.BookReturnButton.Size = new System.Drawing.Size(172, 172);
             this.BookReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookReturnButton.TabIndex = 14;
+            this.BookReturnButton.TabStop = false;
             this.BookReturnButton.Click += new System.EventHandler(this.BookReturnButton_Click);
             this.BookReturnButton.MouseLeave += new System.EventHandler(this.BookReturnButton_MouseLeave);
             this.BookReturnButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookReturnButton_MouseMove);
@@ -116,6 +118,36 @@
             this.SearchPanel.Size = new System.Drawing.Size(1000, 364);
             this.SearchPanel.TabIndex = 16;
             // 
+            // LabelButton
+            // 
+            this.LabelButton.BackColor = System.Drawing.Color.Transparent;
+            this.LabelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LabelButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LabelButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LabelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelButton.Font = new System.Drawing.Font("黑体", 12F);
+            this.LabelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LabelButton.Location = new System.Drawing.Point(638, 294);
+            this.LabelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.LabelButton.Name = "LabelButton";
+            this.LabelButton.Size = new System.Drawing.Size(70, 30);
+            this.LabelButton.TabIndex = 38;
+            this.LabelButton.TabStop = false;
+            this.LabelButton.Text = "标签";
+            this.LabelButton.UseVisualStyleBackColor = false;
+            this.LabelButton.Click += new System.EventHandler(this.LabelButton_Click);
+            this.LabelButton.MouseLeave += new System.EventHandler(this.LabelButton_MouseLeave);
+            this.LabelButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LabelButton_MouseMove);
+            // 
+            // LabelBackground
+            // 
+            this.LabelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LabelBackground.Location = new System.Drawing.Point(638, 290);
+            this.LabelBackground.Name = "LabelBackground";
+            this.LabelBackground.Size = new System.Drawing.Size(70, 38);
+            this.LabelBackground.TabIndex = 39;
+            this.LabelBackground.TabStop = false;
+            // 
             // SearchName
             // 
             this.SearchName.BackColor = System.Drawing.Color.Transparent;
@@ -129,6 +161,7 @@
             this.SearchName.Name = "SearchName";
             this.SearchName.Size = new System.Drawing.Size(70, 30);
             this.SearchName.TabIndex = 23;
+            this.SearchName.TabStop = false;
             this.SearchName.Text = "书名";
             this.SearchName.UseVisualStyleBackColor = false;
             this.SearchName.Click += new System.EventHandler(this.SearchName_Click);
@@ -148,6 +181,7 @@
             this.SearchISBN.Name = "SearchISBN";
             this.SearchISBN.Size = new System.Drawing.Size(70, 30);
             this.SearchISBN.TabIndex = 22;
+            this.SearchISBN.TabStop = false;
             this.SearchISBN.Text = "编号";
             this.SearchISBN.UseVisualStyleBackColor = false;
             this.SearchISBN.Click += new System.EventHandler(this.SearchISBN_Click);
@@ -167,6 +201,7 @@
             this.SearchAuthor.Name = "SearchAuthor";
             this.SearchAuthor.Size = new System.Drawing.Size(70, 30);
             this.SearchAuthor.TabIndex = 21;
+            this.SearchAuthor.TabStop = false;
             this.SearchAuthor.Text = "作家";
             this.SearchAuthor.UseVisualStyleBackColor = false;
             this.SearchAuthor.Click += new System.EventHandler(this.SearchAuthor_Click);
@@ -187,6 +222,7 @@
             this.SearchPublisher.Name = "SearchPublisher";
             this.SearchPublisher.Size = new System.Drawing.Size(70, 30);
             this.SearchPublisher.TabIndex = 20;
+            this.SearchPublisher.TabStop = false;
             this.SearchPublisher.Text = "出版社";
             this.SearchPublisher.UseVisualStyleBackColor = false;
             this.SearchPublisher.Click += new System.EventHandler(this.SearchPublisher_Click);
@@ -206,6 +242,7 @@
             this.SearchAll.Name = "SearchAll";
             this.SearchAll.Size = new System.Drawing.Size(70, 30);
             this.SearchAll.TabIndex = 19;
+            this.SearchAll.TabStop = false;
             this.SearchAll.Text = "全部";
             this.SearchAll.UseVisualStyleBackColor = false;
             this.SearchAll.Click += new System.EventHandler(this.SearchAll_Click);
@@ -267,7 +304,7 @@
             this.SearchButton.Location = new System.Drawing.Point(792, 217);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(82, 47);
-            this.SearchButton.TabIndex = 18;
+            this.SearchButton.TabIndex = 2;
             this.SearchButton.Text = "搜索";
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
@@ -280,7 +317,7 @@
             this.SearchBox.Multiline = true;
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(665, 47);
-            this.SearchBox.TabIndex = 17;
+            this.SearchBox.TabIndex = 1;
             this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
             this.SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBox_KeyPress);
             // 
@@ -292,35 +329,6 @@
             this.BigTitlePictureBox.Size = new System.Drawing.Size(428, 148);
             this.BigTitlePictureBox.TabIndex = 16;
             this.BigTitlePictureBox.TabStop = false;
-            // 
-            // LabelButton
-            // 
-            this.LabelButton.BackColor = System.Drawing.Color.Transparent;
-            this.LabelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LabelButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LabelButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LabelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelButton.Font = new System.Drawing.Font("黑体", 12F);
-            this.LabelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LabelButton.Location = new System.Drawing.Point(638, 294);
-            this.LabelButton.Margin = new System.Windows.Forms.Padding(0);
-            this.LabelButton.Name = "LabelButton";
-            this.LabelButton.Size = new System.Drawing.Size(70, 30);
-            this.LabelButton.TabIndex = 38;
-            this.LabelButton.Text = "标签";
-            this.LabelButton.UseVisualStyleBackColor = false;
-            this.LabelButton.Click += new System.EventHandler(this.LabelButton_Click);
-            this.LabelButton.MouseLeave += new System.EventHandler(this.LabelButton_MouseLeave);
-            this.LabelButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LabelButton_MouseMove);
-            // 
-            // LabelBackground
-            // 
-            this.LabelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LabelBackground.Location = new System.Drawing.Point(638, 290);
-            this.LabelBackground.Name = "LabelBackground";
-            this.LabelBackground.Size = new System.Drawing.Size(70, 38);
-            this.LabelBackground.TabIndex = 39;
-            this.LabelBackground.TabStop = false;
             // 
             // SearchForm
             // 
@@ -343,13 +351,13 @@
             this.Load += new System.EventHandler(this.SearchForm_Load);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LabelBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AuthorBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PublisherBackgound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AllBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigTitlePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LabelBackground)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -189,7 +189,6 @@
             this.UserChangeButton.Name = "UserChangeButton";
             this.UserChangeButton.Size = new System.Drawing.Size(98, 22);
             this.UserChangeButton.TabIndex = 21;
-            this.UserChangeButton.TabStop = true;
             this.UserChangeButton.Text = "切换用户";
             this.UserChangeButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UserChangeButton_LinkClicked);
             // 
@@ -204,7 +203,6 @@
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(88, 25);
             this.linkLabel1.TabIndex = 22;
-            this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "修改密码";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -219,7 +217,6 @@
             this.ChargeButton.Name = "ChargeButton";
             this.ChargeButton.Size = new System.Drawing.Size(42, 21);
             this.ChargeButton.TabIndex = 23;
-            this.ChargeButton.TabStop = true;
             this.ChargeButton.Text = "充值";
             this.ChargeButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChargeButton_LinkClicked);
             // 
@@ -234,7 +231,6 @@
             this.BookInfoButton.Name = "BookInfoButton";
             this.BookInfoButton.Size = new System.Drawing.Size(88, 25);
             this.BookInfoButton.TabIndex = 24;
-            this.BookInfoButton.TabStop = true;
             this.BookInfoButton.Text = "借阅记录";
             this.BookInfoButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BookInfoButton_LinkClicked);
             // 
@@ -301,6 +297,7 @@
             this.MessageSheet.Size = new System.Drawing.Size(405, 245);
             this.MessageSheet.StandardTab = true;
             this.MessageSheet.TabIndex = 25;
+            this.MessageSheet.TabStop = false;
             // 
             // MessageID
             // 
@@ -380,6 +377,7 @@
             this.BorrowInfoSheet.Size = new System.Drawing.Size(408, 428);
             this.BorrowInfoSheet.StandardTab = true;
             this.BorrowInfoSheet.TabIndex = 26;
+            this.BorrowInfoSheet.TabStop = false;
             this.BorrowInfoSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BorrowInfoSheet_CellContentClick);
             // 
             // BookName
@@ -472,6 +470,7 @@
             this.BookRecordSheet.Size = new System.Drawing.Size(408, 428);
             this.BookRecordSheet.StandardTab = true;
             this.BookRecordSheet.TabIndex = 27;
+            this.BookRecordSheet.TabStop = false;
             this.BookRecordSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BookRecordSheet_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1

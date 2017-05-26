@@ -147,5 +147,15 @@ namespace LIBRARY
             creditRecordForm.ShowDialog();
             creditRecordForm.Dispose();
         }
+
+        private void PwdChangedLinkButton_Enter(object sender, EventArgs e)
+        {
+            TitleLabel.Focus();
+        }
+
+        private void CreditRecordButton_Enter(object sender, EventArgs e)
+        {
+            TitleLabel.Focus();
+        }
     }
 }

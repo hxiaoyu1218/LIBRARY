@@ -93,6 +93,7 @@
             this.MinButton.Name = "MinButton";
             this.MinButton.Size = new System.Drawing.Size(35, 35);
             this.MinButton.TabIndex = 11;
+            this.MinButton.TabStop = false;
             this.MinButton.UseVisualStyleBackColor = false;
             this.MinButton.Click += new System.EventHandler(this.MinButton_Click);
             // 
@@ -109,6 +110,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 10;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -125,6 +127,7 @@
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(35, 35);
             this.ReturnButton.TabIndex = 9;
+            this.ReturnButton.TabStop = false;
             this.ReturnButton.UseVisualStyleBackColor = false;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
@@ -141,6 +144,7 @@
             this.UserChangeButton.Name = "UserChangeButton";
             this.UserChangeButton.Size = new System.Drawing.Size(35, 35);
             this.UserChangeButton.TabIndex = 18;
+            this.UserChangeButton.TabStop = false;
             this.UserChangeButton.UseVisualStyleBackColor = false;
             this.UserChangeButton.Click += new System.EventHandler(this.UserChangeButton_Click);
             this.UserChangeButton.MouseLeave += new System.EventHandler(this.UserChangeButton_MouseLeave);

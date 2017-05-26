@@ -217,6 +217,7 @@
             this.StudentCheckBox.Name = "StudentCheckBox";
             this.StudentCheckBox.Size = new System.Drawing.Size(86, 19);
             this.StudentCheckBox.TabIndex = 6;
+            this.StudentCheckBox.TabStop = true;
             this.StudentCheckBox.Text = "我是学生";
             this.StudentCheckBox.Click += new System.EventHandler(this.StudentCheckBox_Click);
             // 
@@ -231,6 +232,7 @@
             this.TeacherCheckBox.Name = "TeacherCheckBox";
             this.TeacherCheckBox.Size = new System.Drawing.Size(86, 19);
             this.TeacherCheckBox.TabIndex = 7;
+            this.TeacherCheckBox.TabStop = true;
             this.TeacherCheckBox.Text = "我是教师";
             this.TeacherCheckBox.Click += new System.EventHandler(this.TeacherCheckBox_Click);
             // 

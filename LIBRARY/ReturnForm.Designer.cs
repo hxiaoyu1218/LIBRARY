@@ -86,6 +86,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 8;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -106,7 +107,7 @@
             this.PublisherText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.PublisherText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PublisherText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PublisherText.Location = new System.Drawing.Point(437, 230);
+            this.PublisherText.Location = new System.Drawing.Point(437, 234);
             this.PublisherText.Name = "PublisherText";
             this.PublisherText.Size = new System.Drawing.Size(112, 27);
             this.PublisherText.TabIndex = 26;
@@ -118,7 +119,7 @@
             this.BookIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BookIDText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BookIDText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookIDText.Location = new System.Drawing.Point(437, 199);
+            this.BookIDText.Location = new System.Drawing.Point(437, 201);
             this.BookIDText.Name = "BookIDText";
             this.BookIDText.Size = new System.Drawing.Size(108, 27);
             this.BookIDText.TabIndex = 25;
@@ -142,7 +143,7 @@
             this.BookIDLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BookIDLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BookIDLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookIDLabel.Location = new System.Drawing.Point(324, 199);
+            this.BookIDLabel.Location = new System.Drawing.Point(324, 201);
             this.BookIDLabel.Name = "BookIDLabel";
             this.BookIDLabel.Size = new System.Drawing.Size(112, 27);
             this.BookIDLabel.TabIndex = 23;
@@ -166,7 +167,7 @@
             this.BorrowDateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BorrowDateLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BorrowDateLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BorrowDateLabel.Location = new System.Drawing.Point(324, 266);
+            this.BorrowDateLabel.Location = new System.Drawing.Point(324, 267);
             this.BorrowDateLabel.Name = "BorrowDateLabel";
             this.BorrowDateLabel.Size = new System.Drawing.Size(112, 27);
             this.BorrowDateLabel.TabIndex = 27;
@@ -178,7 +179,7 @@
             this.BorrowDateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BorrowDateText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BorrowDateText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BorrowDateText.Location = new System.Drawing.Point(437, 266);
+            this.BorrowDateText.Location = new System.Drawing.Point(437, 267);
             this.BorrowDateText.Name = "BorrowDateText";
             this.BorrowDateText.Size = new System.Drawing.Size(60, 27);
             this.BorrowDateText.TabIndex = 28;
@@ -190,7 +191,7 @@
             this.ReturnDateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ReturnDateLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReturnDateLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ReturnDateLabel.Location = new System.Drawing.Point(324, 303);
+            this.ReturnDateLabel.Location = new System.Drawing.Point(324, 300);
             this.ReturnDateLabel.Name = "ReturnDateLabel";
             this.ReturnDateLabel.Size = new System.Drawing.Size(112, 27);
             this.ReturnDateLabel.TabIndex = 29;
@@ -202,7 +203,7 @@
             this.ReturnDateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ReturnDateText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReturnDateText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ReturnDateText.Location = new System.Drawing.Point(437, 303);
+            this.ReturnDateText.Location = new System.Drawing.Point(437, 300);
             this.ReturnDateText.Name = "ReturnDateText";
             this.ReturnDateText.Size = new System.Drawing.Size(60, 27);
             this.ReturnDateText.TabIndex = 30;
@@ -213,7 +214,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(330, 235);
+            this.pictureBox1.Location = new System.Drawing.Point(330, 238);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(107, 34);
             this.pictureBox1.TabIndex = 31;
@@ -233,6 +234,7 @@
             this.ReturnButton.Size = new System.Drawing.Size(102, 102);
             this.ReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.ReturnButton.TabIndex = 34;
+            this.ReturnButton.TabStop = false;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             this.ReturnButton.MouseLeave += new System.EventHandler(this.ReturnButton_MouseLeave);
             this.ReturnButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReturnButton_MouseMove);
@@ -251,6 +253,7 @@
             this.ReBorrowButton.Size = new System.Drawing.Size(102, 102);
             this.ReBorrowButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.ReBorrowButton.TabIndex = 35;
+            this.ReBorrowButton.TabStop = false;
             this.ReBorrowButton.Click += new System.EventHandler(this.ReBorrowButton_Click);
             this.ReBorrowButton.MouseLeave += new System.EventHandler(this.ReBorrowButton_MouseLeave);
             this.ReBorrowButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReBorrowButton_MouseMove);

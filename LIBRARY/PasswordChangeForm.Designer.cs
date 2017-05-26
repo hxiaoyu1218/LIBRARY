@@ -82,6 +82,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 7;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -107,7 +108,7 @@
             this.OPasswordTextBox.Name = "OPasswordTextBox";
             this.OPasswordTextBox.PasswordChar = '*';
             this.OPasswordTextBox.Size = new System.Drawing.Size(259, 22);
-            this.OPasswordTextBox.TabIndex = 23;
+            this.OPasswordTextBox.TabIndex = 1;
             this.OPasswordTextBox.Enter += new System.EventHandler(this.OPasswordTextBox_Enter);
             this.OPasswordTextBox.Leave += new System.EventHandler(this.OPasswordTextBox_Leave);
             // 
@@ -143,7 +144,7 @@
             this.NPasswordTextBox1.Name = "NPasswordTextBox1";
             this.NPasswordTextBox1.PasswordChar = '*';
             this.NPasswordTextBox1.Size = new System.Drawing.Size(259, 22);
-            this.NPasswordTextBox1.TabIndex = 27;
+            this.NPasswordTextBox1.TabIndex = 2;
             this.NPasswordTextBox1.Enter += new System.EventHandler(this.NPasswordTextBox1_Enter);
             this.NPasswordTextBox1.Leave += new System.EventHandler(this.NPasswordTextBox1_Leave);
             // 
@@ -179,7 +180,7 @@
             this.NPasswordTextBox2.Name = "NPasswordTextBox2";
             this.NPasswordTextBox2.PasswordChar = '*';
             this.NPasswordTextBox2.Size = new System.Drawing.Size(259, 22);
-            this.NPasswordTextBox2.TabIndex = 30;
+            this.NPasswordTextBox2.TabIndex = 3;
             this.NPasswordTextBox2.Enter += new System.EventHandler(this.NPasswordTextBox2_Enter);
             this.NPasswordTextBox2.Leave += new System.EventHandler(this.NPasswordTextBox2_Leave);
             // 
@@ -207,6 +208,7 @@
             this.OKButton.Size = new System.Drawing.Size(80, 80);
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.OKButton.TabIndex = 33;
+            this.OKButton.TabStop = false;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
             this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);

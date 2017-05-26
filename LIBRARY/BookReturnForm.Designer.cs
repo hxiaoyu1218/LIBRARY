@@ -89,6 +89,7 @@ namespace LIBRARY
             this.PageTextBox.ReadOnly = true;
             this.PageTextBox.Size = new System.Drawing.Size(40, 27);
             this.PageTextBox.TabIndex = 42;
+            this.PageTextBox.TabStop = false;
             this.PageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DividePicture
@@ -110,6 +111,7 @@ namespace LIBRARY
             this.JumpPTextBox.ReadOnly = true;
             this.JumpPTextBox.Size = new System.Drawing.Size(40, 27);
             this.JumpPTextBox.TabIndex = 40;
+            this.JumpPTextBox.TabStop = false;
             this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Panel

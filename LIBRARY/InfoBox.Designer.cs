@@ -66,6 +66,7 @@
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(73, 23);
             this.ConfirmButton.TabIndex = 6;
+            this.ConfirmButton.TabStop = false;
             this.ConfirmButton.Text = "确定";
             this.ConfirmButton.UseVisualStyleBackColor = false;
             this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);

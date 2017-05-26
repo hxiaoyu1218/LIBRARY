@@ -44,6 +44,9 @@
             this.BookInfoTextbox = new System.Windows.Forms.TextBox();
             this.BookImageButton = new DMSkin.Controls.DM.DMButtonImage();
             this.ResultDataSheet = new System.Windows.Forms.DataGridView();
+            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.history = new System.Windows.Forms.DataGridViewLinkColumn();
             this.AuthorText = new System.Windows.Forms.Label();
             this.BookIDText = new System.Windows.Forms.Label();
             this.PublisherText = new System.Windows.Forms.Label();
@@ -53,9 +56,6 @@
             this.BookInfoButton = new DMSkin.Controls.DM.DMButtonImage();
             this.Label2Text = new System.Windows.Forms.Label();
             this.Label3Text = new System.Windows.Forms.Label();
-            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.history = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.SuspendLayout();
@@ -178,6 +178,7 @@
             this.BookImageButton.Size = new System.Drawing.Size(96, 96);
             this.BookImageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookImageButton.TabIndex = 16;
+            this.BookImageButton.TabStop = false;
             this.BookImageButton.Click += new System.EventHandler(this.BookImageButton_Click);
             // 
             // ResultDataSheet
@@ -243,7 +244,31 @@
             this.ResultDataSheet.Size = new System.Drawing.Size(425, 204);
             this.ResultDataSheet.StandardTab = true;
             this.ResultDataSheet.TabIndex = 17;
+            this.ResultDataSheet.TabStop = false;
             this.ResultDataSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataSheet_CellContentClick);
+            // 
+            // BookID
+            // 
+            this.BookID.HeaderText = "BookID";
+            this.BookID.Name = "BookID";
+            this.BookID.ReadOnly = true;
+            this.BookID.Width = 215;
+            // 
+            // BookState
+            // 
+            this.BookState.HeaderText = "BookState";
+            this.BookState.Name = "BookState";
+            this.BookState.ReadOnly = true;
+            this.BookState.Width = 95;
+            // 
+            // history
+            // 
+            this.history.HeaderText = "history";
+            this.history.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.history.Name = "history";
+            this.history.ReadOnly = true;
+            this.history.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.history.Width = 95;
             // 
             // AuthorText
             // 
@@ -319,6 +344,7 @@
             this.BookPreserveButton.Size = new System.Drawing.Size(96, 96);
             this.BookPreserveButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookPreserveButton.TabIndex = 23;
+            this.BookPreserveButton.TabStop = false;
             this.BookPreserveButton.Click += new System.EventHandler(this.BookPreserveButton_Click);
             // 
             // BookInfoButton
@@ -335,6 +361,7 @@
             this.BookInfoButton.Size = new System.Drawing.Size(96, 96);
             this.BookInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookInfoButton.TabIndex = 24;
+            this.BookInfoButton.TabStop = false;
             this.BookInfoButton.Click += new System.EventHandler(this.BookInfoButton_Click);
             // 
             // Label2Text
@@ -360,29 +387,6 @@
             this.Label3Text.Size = new System.Drawing.Size(132, 27);
             this.Label3Text.TabIndex = 26;
             this.Label3Text.Text = "中国古典文学";
-            // 
-            // BookID
-            // 
-            this.BookID.HeaderText = "BookID";
-            this.BookID.Name = "BookID";
-            this.BookID.ReadOnly = true;
-            this.BookID.Width = 215;
-            // 
-            // BookState
-            // 
-            this.BookState.HeaderText = "BookState";
-            this.BookState.Name = "BookState";
-            this.BookState.ReadOnly = true;
-            this.BookState.Width = 95;
-            // 
-            // history
-            // 
-            this.history.HeaderText = "history";
-            this.history.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.history.Name = "history";
-            this.history.ReadOnly = true;
-            this.history.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.history.Width = 95;
             // 
             // BookDetailAdminForm
             // 

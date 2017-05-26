@@ -50,6 +50,9 @@
             this.PwdChangedLinkButton = new System.Windows.Forms.LinkLabel();
             this.CreditRecordButton = new System.Windows.Forms.LinkLabel();
             this.BorrowInfoSheet = new System.Windows.Forms.DataGridView();
+            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookRecordSheet = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,9 +64,6 @@
             this.RegistTimeText = new System.Windows.Forms.Label();
             this.UserCategoryText = new System.Windows.Forms.Label();
             this.UserCategoryLabel = new System.Windows.Forms.Label();
-            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).BeginInit();
             this.SuspendLayout();
@@ -174,10 +174,11 @@
             this.PwdChangedLinkButton.Location = new System.Drawing.Point(269, 83);
             this.PwdChangedLinkButton.Name = "PwdChangedLinkButton";
             this.PwdChangedLinkButton.Size = new System.Drawing.Size(88, 25);
-            this.PwdChangedLinkButton.TabIndex = 22;
+            this.PwdChangedLinkButton.TabIndex = 0;
             this.PwdChangedLinkButton.TabStop = true;
             this.PwdChangedLinkButton.Text = "重置密码";
             this.PwdChangedLinkButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.PwdChangedLinkButton_LinkClicked);
+            this.PwdChangedLinkButton.Enter += new System.EventHandler(this.PwdChangedLinkButton_Enter);
             // 
             // CreditRecordButton
             // 
@@ -189,10 +190,11 @@
             this.CreditRecordButton.Location = new System.Drawing.Point(263, 209);
             this.CreditRecordButton.Name = "CreditRecordButton";
             this.CreditRecordButton.Size = new System.Drawing.Size(74, 21);
-            this.CreditRecordButton.TabIndex = 23;
+            this.CreditRecordButton.TabIndex = 0;
             this.CreditRecordButton.TabStop = true;
             this.CreditRecordButton.Text = "不良记录";
             this.CreditRecordButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreditRecordButton_LinkClicked);
+            this.CreditRecordButton.Enter += new System.EventHandler(this.CreditRecordButton_Enter);
             // 
             // BorrowInfoSheet
             // 
@@ -258,6 +260,28 @@
             this.BorrowInfoSheet.Size = new System.Drawing.Size(405, 245);
             this.BorrowInfoSheet.StandardTab = true;
             this.BorrowInfoSheet.TabIndex = 26;
+            this.BorrowInfoSheet.TabStop = false;
+            // 
+            // BookName
+            // 
+            this.BookName.HeaderText = "BookName";
+            this.BookName.Name = "BookName";
+            this.BookName.ReadOnly = true;
+            this.BookName.Width = 190;
+            // 
+            // Time
+            // 
+            this.Time.HeaderText = "Time";
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
+            this.Time.Width = 130;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 65;
             // 
             // BookRecordSheet
             // 
@@ -323,6 +347,7 @@
             this.BookRecordSheet.Size = new System.Drawing.Size(408, 428);
             this.BookRecordSheet.StandardTab = true;
             this.BookRecordSheet.TabIndex = 27;
+            this.BookRecordSheet.TabStop = false;
             this.BookRecordSheet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BookRecordSheet_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
@@ -427,27 +452,6 @@
             this.UserCategoryLabel.Size = new System.Drawing.Size(154, 24);
             this.UserCategoryLabel.TabIndex = 33;
             this.UserCategoryLabel.Text = "用　户　类　别：";
-            // 
-            // BookName
-            // 
-            this.BookName.HeaderText = "BookName";
-            this.BookName.Name = "BookName";
-            this.BookName.ReadOnly = true;
-            this.BookName.Width = 190;
-            // 
-            // Time
-            // 
-            this.Time.HeaderText = "Time";
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            this.Time.Width = 130;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 65;
             // 
             // UserDetailAdminForm
             // 

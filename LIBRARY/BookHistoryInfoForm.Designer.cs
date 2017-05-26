@@ -69,6 +69,7 @@
             this.ShutDownButton.Name = "ShutDownButton";
             this.ShutDownButton.Size = new System.Drawing.Size(35, 35);
             this.ShutDownButton.TabIndex = 8;
+            this.ShutDownButton.TabStop = false;
             this.ShutDownButton.UseVisualStyleBackColor = false;
             this.ShutDownButton.Click += new System.EventHandler(this.ShutDownButton_Click);
             // 
@@ -144,6 +145,7 @@
             this.CreditRecordSheet.Size = new System.Drawing.Size(468, 549);
             this.CreditRecordSheet.StandardTab = true;
             this.CreditRecordSheet.TabIndex = 28;
+            this.CreditRecordSheet.TabStop = false;
             // 
             // ID
             // 
