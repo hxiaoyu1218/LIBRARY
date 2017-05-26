@@ -133,19 +133,23 @@ namespace LIBRARY
             {
                 TextBox.Text = "当前预约人数过多!";
             }
-			else if(textType == 23)
-			{
-				TextBox.Text = "删除成功！";
-			}
-			else if(textType == 24)
-			{
-				TextBox.Text = "删除失败！";
-			}
-			else if(textType == 25)
-			{
-				TextBox.Text = "书籍已被删除！";
-			}
-		}
+            else if (textType == 23)
+            {
+                TextBox.Text = "删除成功！";
+            }
+            else if (textType == 24)
+            {
+                TextBox.Text = "删除失败！";
+            }
+            else if (textType == 25)
+            {
+                TextBox.Text = "书籍已被删除！";
+            }
+            else if (textType == 26)
+            {
+                TextBox.Text = "添加成功！";
+            }
+        }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {

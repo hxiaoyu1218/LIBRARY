@@ -95,5 +95,15 @@ namespace LIBRARY
             frmMain.MainPanel.Controls.Add(userManageForm);
             userManageForm.Show();
         }
+
+        private void SystemLogButton_Click(object sender, EventArgs e)
+        {
+            frmMain.MainPanel.Controls.Clear();
+            AdminSystemLogForm adminSystemLogForm = new AdminSystemLogForm(frmMain);
+            adminSystemLogForm.TopLevel = false;
+            adminSystemLogForm.Dock = DockStyle.Fill;
+            frmMain.MainPanel.Controls.Add(adminSystemLogForm);
+            adminSystemLogForm.Show();
+        }
     }
 }

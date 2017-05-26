@@ -134,6 +134,7 @@
             this.SystemLogButton.Size = new System.Drawing.Size(172, 172);
             this.SystemLogButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.SystemLogButton.TabIndex = 26;
+            this.SystemLogButton.Click += new System.EventHandler(this.SystemLogButton_Click);
             this.SystemLogButton.MouseLeave += new System.EventHandler(this.SystemLogButton_MouseLeave);
             this.SystemLogButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SystemLogButton_MouseMove);
             // 

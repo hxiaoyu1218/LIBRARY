@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookDetailAdminForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.authorLabel = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.BookInfoButton = new DMSkin.Controls.DM.DMButtonImage();
             this.Label2Text = new System.Windows.Forms.Label();
             this.Label3Text = new System.Windows.Forms.Label();
+            this.AmountButton = new DMSkin.Controls.DM.DMButtonImage();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.SuspendLayout();
@@ -173,13 +174,15 @@
             this.BookImageButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_HoverImage")));
             this.BookImageButton.DM_Mode = false;
             this.BookImageButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_NolImage")));
-            this.BookImageButton.Location = new System.Drawing.Point(543, 454);
+            this.BookImageButton.Location = new System.Drawing.Point(609, 393);
             this.BookImageButton.Name = "BookImageButton";
             this.BookImageButton.Size = new System.Drawing.Size(96, 96);
             this.BookImageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookImageButton.TabIndex = 16;
             this.BookImageButton.TabStop = false;
             this.BookImageButton.Click += new System.EventHandler(this.BookImageButton_Click);
+            this.BookImageButton.MouseLeave += new System.EventHandler(this.BookImageButton_MouseLeave);
+            this.BookImageButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookImageButton_MouseMove);
             // 
             // ResultDataSheet
             // 
@@ -187,55 +190,55 @@
             this.ResultDataSheet.AllowUserToDeleteRows = false;
             this.ResultDataSheet.AllowUserToResizeColumns = false;
             this.ResultDataSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.ResultDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ResultDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ResultDataSheet.CausesValidation = false;
             this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.ResultDataSheet.ColumnHeadersHeight = 40;
             this.ResultDataSheet.ColumnHeadersVisible = false;
             this.ResultDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookID,
             this.BookState,
             this.history});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle8;
             this.ResultDataSheet.Location = new System.Drawing.Point(525, 141);
             this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
             this.ResultDataSheet.ReadOnly = true;
             this.ResultDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.ResultDataSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.ResultDataSheet.RowTemplate.Height = 40;
             this.ResultDataSheet.RowTemplate.ReadOnly = true;
             this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -339,13 +342,15 @@
             this.BookPreserveButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_HoverImage")));
             this.BookPreserveButton.DM_Mode = false;
             this.BookPreserveButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_NolImage")));
-            this.BookPreserveButton.Location = new System.Drawing.Point(817, 454);
+            this.BookPreserveButton.Location = new System.Drawing.Point(769, 516);
             this.BookPreserveButton.Name = "BookPreserveButton";
             this.BookPreserveButton.Size = new System.Drawing.Size(96, 96);
             this.BookPreserveButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookPreserveButton.TabIndex = 23;
             this.BookPreserveButton.TabStop = false;
             this.BookPreserveButton.Click += new System.EventHandler(this.BookPreserveButton_Click);
+            this.BookPreserveButton.MouseLeave += new System.EventHandler(this.BookPreserveButton_MouseLeave);
+            this.BookPreserveButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookPreserveButton_MouseMove);
             // 
             // BookInfoButton
             // 
@@ -356,13 +361,15 @@
             this.BookInfoButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_HoverImage")));
             this.BookInfoButton.DM_Mode = false;
             this.BookInfoButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_NolImage")));
-            this.BookInfoButton.Location = new System.Drawing.Point(680, 454);
+            this.BookInfoButton.Location = new System.Drawing.Point(769, 393);
             this.BookInfoButton.Name = "BookInfoButton";
             this.BookInfoButton.Size = new System.Drawing.Size(96, 96);
             this.BookInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.BookInfoButton.TabIndex = 24;
             this.BookInfoButton.TabStop = false;
             this.BookInfoButton.Click += new System.EventHandler(this.BookInfoButton_Click);
+            this.BookInfoButton.MouseLeave += new System.EventHandler(this.BookInfoButton_MouseLeave);
+            this.BookInfoButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookInfoButton_MouseMove);
             // 
             // Label2Text
             // 
@@ -388,6 +395,25 @@
             this.Label3Text.TabIndex = 26;
             this.Label3Text.Text = "中国古典文学";
             // 
+            // AmountButton
+            // 
+            this.AmountButton.BackColor = System.Drawing.Color.Transparent;
+            this.AmountButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.BackgroundImage")));
+            this.AmountButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AmountButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_DownImage")));
+            this.AmountButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_HoverImage")));
+            this.AmountButton.DM_Mode = false;
+            this.AmountButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_NolImage")));
+            this.AmountButton.Location = new System.Drawing.Point(609, 516);
+            this.AmountButton.Name = "AmountButton";
+            this.AmountButton.Size = new System.Drawing.Size(96, 96);
+            this.AmountButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.AmountButton.TabIndex = 27;
+            this.AmountButton.TabStop = false;
+            this.AmountButton.Click += new System.EventHandler(this.AmountButton_Click);
+            this.AmountButton.MouseLeave += new System.EventHandler(this.AmountButton_MouseLeave);
+            this.AmountButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AmountButton_MouseMove);
+            // 
             // BookDetailAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -395,6 +421,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1000, 705);
+            this.Controls.Add(this.AmountButton);
             this.Controls.Add(this.Label3Text);
             this.Controls.Add(this.Label2Text);
             this.Controls.Add(this.BookInfoButton);
@@ -456,5 +483,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BookID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookState;
         private System.Windows.Forms.DataGridViewLinkColumn history;
+        private DMSkin.Controls.DM.DMButtonImage AmountButton;
     }
 }

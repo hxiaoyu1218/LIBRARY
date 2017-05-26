@@ -324,5 +324,12 @@ namespace LIBRARY
 
             }
         }
+
+        private void CreditRecordButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreditRecordForm creditRecordForm = new CreditRecordForm();
+            creditRecordForm.ShowDialog();
+            creditRecordForm.Dispose();
+        }
     }
 }

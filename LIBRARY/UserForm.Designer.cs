@@ -56,7 +56,6 @@
             this.BookInfoLabel = new System.Windows.Forms.Label();
             this.UserChangeButton = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.ChargeButton = new System.Windows.Forms.LinkLabel();
             this.BookInfoButton = new System.Windows.Forms.LinkLabel();
             this.MessageSheet = new System.Windows.Forms.DataGridView();
             this.MessageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +75,7 @@
             this.NowOrderText = new System.Windows.Forms.Label();
             this.UserPicBox = new System.Windows.Forms.PictureBox();
             this.WelTextBox = new System.Windows.Forms.Label();
+            this.CreditRecordButton = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.MessageSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowInfoSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookRecordSheet)).BeginInit();
@@ -205,20 +205,6 @@
             this.linkLabel1.TabIndex = 22;
             this.linkLabel1.Text = "修改密码";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // ChargeButton
-            // 
-            this.ChargeButton.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.ChargeButton.AutoSize = true;
-            this.ChargeButton.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.ChargeButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.ChargeButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.ChargeButton.Location = new System.Drawing.Point(263, 167);
-            this.ChargeButton.Name = "ChargeButton";
-            this.ChargeButton.Size = new System.Drawing.Size(42, 21);
-            this.ChargeButton.TabIndex = 23;
-            this.ChargeButton.Text = "充值";
-            this.ChargeButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChargeButton_LinkClicked);
             // 
             // BookInfoButton
             // 
@@ -575,6 +561,20 @@
             this.WelTextBox.Text = "欢迎，xzx！";
             this.WelTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // CreditRecordButton
+            // 
+            this.CreditRecordButton.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.CreditRecordButton.AutoSize = true;
+            this.CreditRecordButton.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.CreditRecordButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.CreditRecordButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.CreditRecordButton.Location = new System.Drawing.Point(256, 196);
+            this.CreditRecordButton.Name = "CreditRecordButton";
+            this.CreditRecordButton.Size = new System.Drawing.Size(74, 21);
+            this.CreditRecordButton.TabIndex = 36;
+            this.CreditRecordButton.Text = "不良记录";
+            this.CreditRecordButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreditRecordButton_LinkClicked);
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -583,6 +583,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.ControlBox = false;
+            this.Controls.Add(this.CreditRecordButton);
             this.Controls.Add(this.UserPicBox);
             this.Controls.Add(this.NowOrderText);
             this.Controls.Add(this.NowBorrowText);
@@ -593,7 +594,6 @@
             this.Controls.Add(this.BorrowInfoSheet);
             this.Controls.Add(this.MessageSheet);
             this.Controls.Add(this.BookInfoButton);
-            this.Controls.Add(this.ChargeButton);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.UserChangeButton);
             this.Controls.Add(this.BookInfoLabel);
@@ -634,7 +634,6 @@
         private System.Windows.Forms.Label BookInfoLabel;
         private System.Windows.Forms.LinkLabel UserChangeButton;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel ChargeButton;
         private System.Windows.Forms.LinkLabel BookInfoButton;
         public System.Windows.Forms.DataGridView MessageSheet;
         private System.Windows.Forms.DataGridViewTextBoxColumn MessageID;
@@ -654,5 +653,6 @@
         private System.Windows.Forms.Label NowOrderText;
         private System.Windows.Forms.PictureBox UserPicBox;
         private System.Windows.Forms.Label WelTextBox;
+        private System.Windows.Forms.LinkLabel CreditRecordButton;
     }
 }

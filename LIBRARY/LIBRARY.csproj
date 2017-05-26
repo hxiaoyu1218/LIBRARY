@@ -99,11 +99,23 @@
     <Compile Include="BookHistoryInfoForm.Designer.cs">
       <DependentUpon>BookHistoryInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookAmountAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookAmountAddForm.Designer.cs">
+      <DependentUpon>BookAmountAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreditRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreditRecordForm.Designer.cs">
       <DependentUpon>CreditRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSystemLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSystemLogForm.Designer.cs">
+      <DependentUpon>AdminSystemLogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManageForm.cs">
       <SubType>Form</SubType>
@@ -226,8 +238,14 @@
     <EmbeddedResource Include="BookHistoryInfoForm.resx">
       <DependentUpon>BookHistoryInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BookAmountAddForm.resx">
+      <DependentUpon>BookAmountAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreditRecordForm.resx">
       <DependentUpon>CreditRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSystemLogForm.resx">
+      <DependentUpon>AdminSystemLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManageForm.resx">
       <DependentUpon>UserManageForm.cs</DependentUpon>

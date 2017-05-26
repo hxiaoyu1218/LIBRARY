@@ -84,7 +84,7 @@ namespace LIBRARY
         private void UserInfoLoad()
         {
             AcedemicText.Text = ClassBackEnd.Currentuser.School;
-            CreditText.Text = ClassBackEnd.Currentuser.Credit.ToString();
+            CreditLinkText.Text = ClassBackEnd.Currentuser.Credit.ToString();
             IDText.Text = ClassBackEnd.Currentuser.Userid;
             NameText.Text = ClassBackEnd.Currentuser.Username;
             UserCategoryText.Text = ClassBackEnd.Currentuser.Usertype == USERTYPE.Student ? "学生" : "老师";
@@ -156,6 +156,14 @@ namespace LIBRARY
         private void CreditRecordButton_Enter(object sender, EventArgs e)
         {
             TitleLabel.Focus();
+        }
+
+        private void CreditLinkText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChargeForm chargeForm = new ChargeForm();
+            chargeForm.ShowDialog();
+            chargeForm.Dispose();
+            UserInfoLoad();
         }
     }
 }

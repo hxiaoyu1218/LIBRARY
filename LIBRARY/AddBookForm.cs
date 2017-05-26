@@ -76,7 +76,7 @@ namespace LIBRARY
 
         private void Label1CueText_Click(object sender, EventArgs e)
         {
-            if(Label1TextBox.Text=="")
+            if (Label1TextBox.Text == "")
             {
                 Label1CueText.Hide();
                 Label1TextBox.Focus();
@@ -282,12 +282,24 @@ namespace LIBRARY
         }
         private void OKButton_Click(object sender, EventArgs e)
         {
-            //to do check true
+            
             if (CheckInput())
-                ClassBackEnd.AddBook(IDTextBox.Text, BookNameTextBox.Text, PublisherTextBox.Text, AuthorTextBox.Text, Convert.ToInt32(BookAmountTextBox.Text),Label1TextBox.Text,Label2TextBox.Text,Label3TextBox.Text, SavePath, BookInfoTextBox.Text);
-            Close();
+                if (ClassBackEnd.AddBook(IDTextBox.Text, BookNameTextBox.Text, PublisherTextBox.Text, AuthorTextBox.Text, Convert.ToInt32(BookAmountTextBox.Text), Label1TextBox.Text, Label2TextBox.Text, Label3TextBox.Text, SavePath, BookInfoTextBox.Text))
+                {
+                    InfoBox infoBox = new InfoBox(26);
+                    infoBox.ShowDialog();
+                    infoBox.Dispose();
+                    Close();
+                }
+                else
+                {
+                    InfoBox infoBox = new InfoBox(9);
+                    infoBox.ShowDialog();
+                    infoBox.Dispose();
+                }
+
         }
 
-       
+
     }
 }

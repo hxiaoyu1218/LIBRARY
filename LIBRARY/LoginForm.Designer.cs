@@ -117,8 +117,7 @@
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(96, 96);
             this.RegisterButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.RegisterButton.TabIndex = 14;
-            this.RegisterButton.TabStop = false;
+            this.RegisterButton.TabIndex = 0;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             this.RegisterButton.MouseLeave += new System.EventHandler(this.RegisterButton_MouseLeave);
             this.RegisterButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegisterButton_MouseMove);
@@ -227,7 +226,7 @@
             this.UserCueText.Location = new System.Drawing.Point(112, 266);
             this.UserCueText.Name = "UserCueText";
             this.UserCueText.Size = new System.Drawing.Size(55, 15);
-            this.UserCueText.TabIndex = 21;
+            this.UserCueText.TabIndex = 0;
             this.UserCueText.Text = "用户名";
             this.UserCueText.Click += new System.EventHandler(this.UserCueText_Click);
             // 
