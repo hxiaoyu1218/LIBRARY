@@ -1385,7 +1385,8 @@ namespace LibrarySystemBackEnd
 			{
 				fs = new FileStream(BookHisDirectory + bookisbn + ".his", FileMode.Open);
 				sr = new StreamReader(fs);
-				Bookhis.Add(new ClassBookHis(sr));
+				while(!sr.EndOfStream)
+					Bookhis.Add(new ClassBookHis(sr));
 			}
 			catch(Exception) { Bookhis.Clear(); return false; }
 			finally
@@ -1393,6 +1394,7 @@ namespace LibrarySystemBackEnd
 				if(sr != null) sr.Close();
 				if(fs != null) fs.Close();
 			}
+			Bookhis.Reverse();
 			return true;
 		}
 		/// <summary>
