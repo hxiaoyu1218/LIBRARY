@@ -53,8 +53,13 @@ namespace LIBRARY
         }
         private void DelButton_Check()
         {
-            int flag = 0;
-            foreach (Control c in CheckBoxPanel.Controls)
+            int flag=0;
+			foreach(BOOKSTATE c in list)
+			{
+				if(c != BOOKSTATE.Invailable)
+					flag = 1;
+			}
+			foreach (Control c in CheckBoxPanel.Controls)
             {
                 CheckBox ct = c as CheckBox;
                 if (!ct.Checked)

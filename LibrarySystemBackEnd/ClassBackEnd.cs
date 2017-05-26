@@ -374,7 +374,7 @@ namespace LibrarySystemBackEnd
 		/// 更新系统文件信息
 		/// </summary>
 		/// <param name="n"></param>
-		/// <param name="cat">种类，0表示不更新读取后直接返回，1表示书籍数量，2表示用户数量，3表示借阅率的借阅数量，4表示借阅率的总数量</param>
+		/// <param name="cat">种类，0表示不更新读取后直接返回，1表示书籍数量，2表示用户数量，3表示借阅率的借阅数量</param>
 		/// <returns>成功/失败</returns>
 		private static void RefreshSystemInformation(int n, int cat)
 		{
@@ -1352,6 +1352,7 @@ namespace LibrarySystemBackEnd
 				else
 				{
 					RefreshBookListFile(Currentbook, false);
+					RefreshSystemInformation(-n, 1);
 					if(picpath != "")
 					{
 						pic = picpath;
@@ -1394,6 +1395,18 @@ namespace LibrarySystemBackEnd
 			}
 			return true;
 		}
-
+		/// <summary>
+		/// 管理员添加某一本书籍的数量
+		/// </summary>
+		/// <param name="n">数量</param>
+		/// <returns>成功/失败</returns>
+		public static bool AddBookAmount(int n)
+		{
+			if(Currentbook == null) return false;
+			Currentbook.AddBook(n, ClassTime.systemTime, Currentadmin.Id);
+			Currentbook.SaveDetailInformation(BookDirectory);
+			RefreshSystemInformation(n, 1);
+			return true;
+		}
 	}
 }
