@@ -835,20 +835,26 @@ namespace LibrarySystemBackEnd
 			if(state.Count != Book.Count) return false;
 			for(int i = 0;i < Book.Count;i++)
 			{
-				if(state[i] == BOOKSTATE.Invailable)
+				if(state[i] == BOOKSTATE.Invailable && book[i].Bookstate != BOOKSTATE.Borrowed)
 				{
-					if(book[i].Bookstate != BOOKSTATE.Borrowed)
+
+					if(book[i].Bookstate == BOOKSTATE.Scheduled)
 					{
-						if(book[i].Bookstate == BOOKSTATE.Scheduled)
-						{
-							schedulequeue.AddFirst(book[i].Borrowuserid);
-							ClassUser tmp = new ClassUser(book[i].Borrowuserid);
-							tmp.ReadDetailInformation(ClassBackEnd.UserDetailDictory);
-							tmp.MaintainSheduleBook(book[i].Extisbn);
-							tmp.SaveDetailInformation(ClassBackEnd.UserDetailDictory);
-						}
-						book[i].Bookstate = BOOKSTATE.Invailable;
+						schedulequeue.AddFirst(book[i].Borrowuserid);
+						UpdateHistory(book[i].Extisbn, ClassTime.systemTime, book[i].Borrowuserid, 4);
+						ClassUser tmp = new ClassUser(book[i].Borrowuserid);
+						tmp.ReadDetailInformation(ClassBackEnd.UserDetailDictory);
+						tmp.MaintainSheduleBook(book[i].Extisbn);
+						tmp.SaveDetailInformation(ClassBackEnd.UserDetailDictory);
+
 					}
+					if(book[i].Bookstate != BOOKSTATE.Invailable)
+					{
+						book[i].Bookstate = BOOKSTATE.Invailable;
+						UpdateHistory(book[i].Extisbn, ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 5);
+					}
+
+
 				}
 			}
 			for(int i = 0;i < Book.Count;i++)
@@ -856,9 +862,10 @@ namespace LibrarySystemBackEnd
 				if(book[i].Bookstate == BOOKSTATE.Invailable && state[i] == BOOKSTATE.Available)
 				{
 					book[i].Bookstate = BOOKSTATE.Available;
+					UpdateHistory(book[i].Extisbn, ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 6);
 					InformToScheduler(i);
 				}
-				if(book[i].Bookstate==BOOKSTATE.Available)
+				if(book[i].Bookstate == BOOKSTATE.Available)
 				{
 					InformToScheduler(i);
 				}
