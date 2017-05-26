@@ -136,16 +136,16 @@ namespace LIBRARY
 			bookMaintainForm.ShowDialog();
 			bookMaintainForm.Dispose();
 			BookListRefresh();
-			BookPictureBox.Image.Dispose();
-			if(Guest.Delpic != null && Guest.Delpic != "")
-			{
-				File.Delete(Guest.Delpic);
-				Guest.Delpic = null;
-				frmMain.ReturnButton.Tag = 2;
-				ClassBackEnd.ClearBookList();
-				frmMain.ReturnButton.PerformClick();
-				//Close();
-			}
-		}
+			
+            if (Guest.Delpic != null && Guest.Delpic != "")
+            {
+                BookPictureBox.Image.Dispose();
+                File.Delete(Guest.Delpic);
+                Guest.Delpic = null;
+                frmMain.ReturnButton.Tag = 2;
+                ClassBackEnd.ClearBookList();
+                frmMain.ReturnButton.PerformClick();
+            }
+        }
 	}
 }
