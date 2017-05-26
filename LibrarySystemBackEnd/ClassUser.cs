@@ -511,6 +511,24 @@ namespace LibrarySystemBackEnd
 			Credit = 100;
 			Currentborrowedamount = 0;
 			Currentscheduleamount = 0;
+
+			FileStream fs = null; StreamReader sr = null;
+			try
+			{
+				fs = new FileStream(@"data\time.lbs", FileMode.OpenOrCreate);
+				sr = new StreamReader(fs);
+				ClassTime.ReadFromFile(sr);
+			}
+			catch(Exception)
+			{
+				return;
+			}
+			finally
+			{
+				if(sr != null) sr.Close();
+				if(fs != null) fs.Close();
+			}
+
 			registerDate = ClassTime.systemTime;
 			if(usertype == USERTYPE.Guest) Currentmaxborrowableamount = Maxborrowableamount = 0;
 			else if(usertype == USERTYPE.Student) Currentmaxborrowableamount = Maxborrowableamount = 10;

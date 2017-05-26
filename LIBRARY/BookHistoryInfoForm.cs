@@ -25,11 +25,14 @@ namespace LIBRARY
             int i = 0;
             for (i = 0; i < ClassBackEnd.Bookhis.Count; i++)
             {
-                DataGridViewRow row = new DataGridViewRow();
+				var tmp = ClassBackEnd.Bookhis.Count - i;
+				DataGridViewRow row = new DataGridViewRow();
                 int index = CreditRecordSheet.Rows.Add(row);
-                CreditRecordSheet.Rows[i].Cells[0].Value = (i + 1).ToString();
-               // CreditRecordSheet.Rows[i].Cells[1].Value = ;
-                CreditRecordSheet.Rows[index].Height = 48;
+                CreditRecordSheet.Rows[i].Cells[0].Value = tmp.ToString();
+				CreditRecordSheet.Rows[i].Cells[1].Value = ClassBackEnd.Bookhis[i].Time;
+				CreditRecordSheet.Rows[i].Cells[2].Value = ClassBackEnd.Bookhis[i].Cat;
+				CreditRecordSheet.Rows[i].Cells[3].Value = ClassBackEnd.Bookhis[i].Userid;
+				CreditRecordSheet.Rows[index].Height = 48;
             }
             while (i < 11)
             {
@@ -37,12 +40,17 @@ namespace LIBRARY
                 int index = CreditRecordSheet.Rows.Add(row);
                 CreditRecordSheet.Rows[i].Cells[0].Value = "";
                 CreditRecordSheet.Rows[i].Cells[1].Value = "";
-                CreditRecordSheet.Rows[index].Height = 48;
+				CreditRecordSheet.Rows[i].Cells[2].Value = "";
+				CreditRecordSheet.Rows[i].Cells[3].Value = "";
+				CreditRecordSheet.Rows[index].Height = 48;
                 i++;
             }
             CreditRecordSheet.ClearSelection();
             CreditRecordSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        }
+			CreditRecordSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			CreditRecordSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			CreditRecordSheet.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+		}
         private void BookHistoryInfoForm_Load(object sender, EventArgs e)
         {
             ClassBackEnd.GetBookHistory(index);

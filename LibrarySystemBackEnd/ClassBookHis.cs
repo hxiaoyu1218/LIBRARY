@@ -19,7 +19,7 @@ namespace LibrarySystemBackEnd
 		//			2表示归还，3表示预约，4表示取消预约，
 		//			5表示管理员取走维护，6表示维护结束
 		private int cat;
-						
+
 		/// <summary>
 		/// 书籍ID，扩展ISBN
 		/// </summary>
@@ -38,16 +38,14 @@ namespace LibrarySystemBackEnd
 		/// <summary>
 		/// 操作发生时间
 		/// </summary>
-		public DateTime Time
+		public string Time
 		{
 			get
 			{
-				return time;
-			}
-
-			internal set
-			{
-				time = value;
+				var a = time.Year.ToString("D4");
+				var b = time.Month.ToString("D2");
+				var c = time.Day.ToString("D2");
+				return a + "-" + b + "-" + c;
 			}
 		}
 		/// <summary>
@@ -57,6 +55,7 @@ namespace LibrarySystemBackEnd
 		{
 			get
 			{
+				if(userid == "0000000000") return "管理员";
 				return userid;
 			}
 
@@ -65,22 +64,26 @@ namespace LibrarySystemBackEnd
 				userid = value;
 			}
 		}
+
 		/// <summary>
 		/// 操作种类号
 		/// 操作种类：0表示购入，1表示借阅，2表示归还，3表示预约，4表示取消预约，
 		/// 5表示管理员取走维护，6表示维护结束
 		/// </summary>
-		public int Cat
+		public string Cat
 		{
 			get
 			{
-				return cat;
+				if(cat == 0) return "购入";
+				else if(cat == 1) return "借阅";
+				else if(cat == 2) return "归还";
+				else if(cat == 3) return "预约";
+				else if(cat == 4) return "取消预约";
+				else if(cat == 5) return "维护";
+				else if(cat == 6) return "结束维护";
+				else return "其他";
 			}
 
-			internal set
-			{
-				cat = value;
-			}
 		}
 
 
@@ -90,10 +93,10 @@ namespace LibrarySystemBackEnd
 		/// <param name="_time">操作发生时间</param>
 		/// <param name="_userid">与操作相关的用户ID</param>
 		/// <param name="_cat">操作种类：0表示购入，1表示借阅，2表示归还，3表示预约，4表示取消预约，5表示管理员取走维护，6表示维护结束</param>
-		internal ClassBookHis(DateTime _time,string _userid,int _cat)
+		internal ClassBookHis(DateTime _time, string _userid, int _cat)
 		{
-			Time = _time;
-			Userid = _userid;
+			time = _time;
+			userid = _userid;
 			cat = _cat;
 		}
 		/// <summary>
@@ -102,9 +105,9 @@ namespace LibrarySystemBackEnd
 		/// <param name="sr">StreamReader</param>
 		internal ClassBookHis(StreamReader sr)
 		{
-			Cat = Convert.ToInt32(sr.ReadLine());
-			Time = Convert.ToDateTime(sr.ReadLine());
-			Userid = sr.ReadLine();
+			cat = Convert.ToInt32(sr.ReadLine());
+			time = Convert.ToDateTime(sr.ReadLine());
+			userid = sr.ReadLine();
 		}
 		/// <summary>
 		/// 写入文件
