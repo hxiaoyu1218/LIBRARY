@@ -365,11 +365,9 @@ namespace LibrarySystemBackEnd
 		/// 写入历史文件
 		/// </summary>
 		/// <param name="bookid">书籍编号，带扩展编号</param>
-		/// <param name="time">操作发生时间</param>
-		/// <param name="userid">用户id</param>
-		/// <param name="cat">操作种类，0表示购入，1表示借阅，2表示归还，3表示预约，4表示取消预约，5表示管理员取走维护，6表示维护结束</param>
+		/// <param name="bh"></param>
 		/// <returns>成功/失败</returns>
-		private bool UpdateHistory(string bookid, DateTime time, string userid, int cat)
+		private bool UpdateHistory(string bookid, ClassBookHis bh)
 		{
 			FileStream fs = null; StreamWriter sw = null;
 			string bookhisfile = ClassBackEnd.BookHisDirectory + bookid + ".his";
@@ -385,9 +383,7 @@ namespace LibrarySystemBackEnd
 					fs = new FileStream(bookhisfile, FileMode.Append);
 					sw = new StreamWriter(fs);
 				}
-				sw.WriteLine(cat);
-				sw.WriteLine(time.ToString());
-				sw.WriteLine(userid);
+				bh.SaveToFile(sw);
 				return true;
 
 			}
@@ -425,7 +421,7 @@ namespace LibrarySystemBackEnd
 			for(int i = 0;i < Bookamount;i++)
 			{
 				Book.Add(new ABook(BOOKSTATE.Available, "", _broughttime, _isbn + i.ToString("D4")));
-				UpdateHistory(Book.Last().Extisbn.ToString(), _broughttime, _adminid, 0);
+				UpdateHistory(Book.Last().Extisbn.ToString(), new ClassBookHis(_broughttime, _adminid, 0));
 			}
 		}
 		/// <summary>
@@ -624,7 +620,7 @@ namespace LibrarySystemBackEnd
 			{
 				lastisbn++;
 				Book.Add(new ABook(BOOKSTATE.Available, "", time, Bookisbn + lastisbn.ToString("D4")));
-				UpdateHistory(Book.Last().Extisbn, time, _adminid, 0);
+				UpdateHistory(Book.Last().Extisbn, new ClassBookHis(time, _adminid, 0));
 			}
 
 			//通知预约者
@@ -709,7 +705,7 @@ namespace LibrarySystemBackEnd
 			{
 				Book[n].Bookstate = BOOKSTATE.Borrowed;
 				Book[n].Borrowuserid = userid;
-				UpdateHistory(Book[n].Extisbn, ClassTime.systemTime, userid, 1);
+				UpdateHistory(Book[n].Extisbn, new ClassBookHis(ClassTime.systemTime, userid, 1));
 				return true;
 			}
 			return false;
@@ -742,7 +738,7 @@ namespace LibrarySystemBackEnd
 			Book[id].Bookstate = BOOKSTATE.Available;
 			Book[id].Borrowuserid = "";
 
-			UpdateHistory(Book[id].Extisbn, ClassTime.systemTime, userid, 2);
+			UpdateHistory(Book[id].Extisbn, new ClassBookHis(ClassTime.systemTime, userid, 2));
 
 			InformToScheduler(id);
 			return true;
@@ -761,7 +757,7 @@ namespace LibrarySystemBackEnd
 				schedulequeue.RemoveFirst();
 				Book[bookid].Borrowuserid = ss;
 
-				UpdateHistory(Book[bookid].Extisbn, ClassTime.systemTime, ss, 3);
+				UpdateHistory(Book[bookid].Extisbn, new ClassBookHis(ClassTime.systemTime, ss, 3));
 
 				//通知预约者，写入文件
 				ClassUser us = new ClassUser("", ss, "", "", USERTYPE.Guest);
@@ -785,7 +781,7 @@ namespace LibrarySystemBackEnd
 				if(Book[i].Borrowuserid == userid && Book[i].Bookstate == BOOKSTATE.Scheduled)
 				{
 					Book[i].Bookstate = BOOKSTATE.Borrowed;
-					UpdateHistory(Book[i].Extisbn, ClassTime.systemTime, userid, 1);
+					UpdateHistory(Book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, userid, 1));
 					return true;
 				}
 			}
@@ -805,7 +801,7 @@ namespace LibrarySystemBackEnd
 					{
 						Book[i].Borrowuserid = "";
 						schedulequeue.Remove(userid);
-						UpdateHistory(Book[i].Extisbn, ClassTime.systemTime, userid, 4);
+						UpdateHistory(Book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, userid, 4));
 
 						if(!InformToScheduler(i))
 						{
@@ -841,7 +837,7 @@ namespace LibrarySystemBackEnd
 					if(book[i].Bookstate == BOOKSTATE.Scheduled)
 					{
 						schedulequeue.AddFirst(book[i].Borrowuserid);
-						UpdateHistory(book[i].Extisbn, ClassTime.systemTime, book[i].Borrowuserid, 4);
+						UpdateHistory(book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, book[i].Borrowuserid, 4));
 						ClassUser tmp = new ClassUser(book[i].Borrowuserid);
 						tmp.ReadDetailInformation(ClassBackEnd.UserDetailDictory);
 						tmp.MaintainSheduleBook(book[i].Extisbn);
@@ -851,7 +847,7 @@ namespace LibrarySystemBackEnd
 					if(book[i].Bookstate != BOOKSTATE.Invailable)
 					{
 						book[i].Bookstate = BOOKSTATE.Invailable;
-						UpdateHistory(book[i].Extisbn, ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 5);
+						UpdateHistory(book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 5));
 					}
 
 
@@ -862,7 +858,7 @@ namespace LibrarySystemBackEnd
 				if(book[i].Bookstate == BOOKSTATE.Invailable && state[i] == BOOKSTATE.Available)
 				{
 					book[i].Bookstate = BOOKSTATE.Available;
-					UpdateHistory(book[i].Extisbn, ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 6);
+					UpdateHistory(book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 6));
 					InformToScheduler(i);
 				}
 				if(book[i].Bookstate == BOOKSTATE.Available)

@@ -60,6 +60,11 @@ namespace LibrarySystemBackEnd
 		/// 用户已借阅图书
 		/// </summary>
 		private static List<ClassBorrowedBook> userbsbook = new List<ClassBorrowedBook>();
+		private static List<ClassBookHis> bookhis = new List<ClassBookHis>();
+
+		#endregion
+
+		#region 外部访问器
 
 		/// <summary>
 		/// 当前登录用户
@@ -231,6 +236,16 @@ namespace LibrarySystemBackEnd
 			internal set
 			{
 				usersearch = value;
+			}
+		}
+		/// <summary>
+		/// 书籍历史数组
+		/// </summary>
+		public static List<ClassBookHis> Bookhis
+		{
+			get
+			{
+				return bookhis;
 			}
 		}
 
@@ -886,7 +901,7 @@ namespace LibrarySystemBackEnd
 		/// 取得借阅历史记录，到borrowhis数组
 		/// </summary>
 		/// <returns>成功/失败</returns>
-		public static bool GetBorrowHistory()
+		public static bool GetUserBorrowHistory()
 		{
 			string id = Currentuser.Userid;
 			if(Borrowhis.Any()) Borrowhis.Clear();
@@ -915,6 +930,7 @@ namespace LibrarySystemBackEnd
 				if(zip != null) zip.Close();
 				if(fs != null) fs.Close();
 			}
+			borrowhis.Reverse();
 			return true;
 		}
 
@@ -955,7 +971,7 @@ namespace LibrarySystemBackEnd
 
 			Currentuser.LoadBSBooks(ref userbsbook);
 
-			GetBorrowHistory();
+			GetUserBorrowHistory();
 		}
 
 		/// <summary>
@@ -1350,6 +1366,33 @@ namespace LibrarySystemBackEnd
 				}
 
 			}
+		}
+		/// <summary>
+		/// 访问书籍的历史
+		/// </summary>
+		/// <param name="i">某一个书的第i本</param>
+		/// <returns>成功/失败</returns>
+		public static bool GetBookHistory(int i)
+		{
+			if(Currentbook == null) return false;
+			if(Currentbook.Bookamount <= i || i < 0) return false;
+			if(Bookhis.Any()) Bookhis.Clear();
+
+			string bookisbn = Currentbook.Book[i].Extisbn;
+			FileStream fs = null; StreamReader sr = null;
+			try
+			{
+				fs = new FileStream(BookHisDirectory + bookisbn + ".his", FileMode.Open);
+				sr = new StreamReader(fs);
+				Bookhis.Add(new ClassBookHis(sr));
+			}
+			catch(Exception) { Bookhis.Clear(); return false; }
+			finally
+			{
+				if(sr != null) sr.Close();
+				if(fs != null) fs.Close();
+			}
+			return true;
 		}
 
 	}

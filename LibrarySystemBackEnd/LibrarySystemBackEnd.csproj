@@ -45,6 +45,7 @@
     <Compile Include="ClassAdministrator.cs" />
     <Compile Include="ClassBackEnd.cs" />
     <Compile Include="ClassBook.cs" />
+    <Compile Include="ClassBookHis.cs" />
     <Compile Include="ClassBorrowedBook.cs" />
     <Compile Include="ClassBorrowHistory.cs" />
     <Compile Include="ClassMessage.cs" />
