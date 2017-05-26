@@ -18,7 +18,6 @@ namespace LIBRARY
             InitializeComponent();         
         }
 
-
         private void AdminSystemLogForm_Load(object sender, EventArgs e)
         {
             #region 返回按钮处理

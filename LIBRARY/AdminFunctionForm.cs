@@ -15,6 +15,7 @@ namespace LIBRARY
     public partial class AdminFunctionForm : DMSkin.Main
     {
         private AdminMainForm frmMain;
+
         public AdminFunctionForm(AdminMainForm frm)
         {
             InitializeComponent();

@@ -208,6 +208,7 @@ namespace LIBRARY
             bookAmountAddForm.ShowDialog();
             bookAmountAddForm.Dispose();
             BookDetailLoad();
+            BookListRefresh();
         }
     }
 }

@@ -15,7 +15,9 @@ namespace LIBRARY
     public partial class BookDetailForm : DMSkin.Main
     {
         private UserMainForm frmMain;
+
         private int bookIndex;//booklist索引
+
         public BookDetailForm(UserMainForm frm, int bookindex)
         {
             bookIndex = bookindex;
@@ -27,6 +29,7 @@ namespace LIBRARY
                 BookOrderButton.Hide();
             }
         }
+
         public void BookListRefresh()
         {
             ResultDataSheet.Rows.Clear();//清空上一次搜索表
@@ -58,6 +61,7 @@ namespace LIBRARY
             ResultDataSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ResultDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
         private void BookDetailLoad()
         {
             ClassBackEnd.LoadSearchResult(bookIndex);
@@ -80,6 +84,7 @@ namespace LIBRARY
             }
 
         }
+
         private void OrderOrBorrow()
         {
             if (ClassBackEnd.HasBorrowed(bookIndex))
@@ -113,6 +118,7 @@ namespace LIBRARY
                 }
             }
         }
+
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
 
@@ -231,24 +237,24 @@ namespace LIBRARY
             #endregion
         }
 
-        private void PubCountText_Click(object sender, EventArgs e)
+        private void BookOrderButton_MouseMove(object sender, MouseEventArgs e)
         {
-
+            BookOrderButton.BackgroundImage = BookOrderButton.DM_HoverImage;
         }
 
-        private void PageNumLabel_Click(object sender, EventArgs e)
+        private void BookOrderButton_MouseLeave(object sender, EventArgs e)
         {
-
+            BookOrderButton.BackgroundImage = BookOrderButton.DM_NolImage;
         }
 
-        private void PageNumText_Click(object sender, EventArgs e)
+        private void BookBorrowButton_MouseMove(object sender, MouseEventArgs e)
         {
-
+            BookBorrowButton.BackgroundImage = BookBorrowButton.DM_HoverImage;
         }
 
-        private void PubCountLabel_Click(object sender, EventArgs e)
+        private void BookBorrowButton_MouseLeave(object sender, EventArgs e)
         {
-
+            BookBorrowButton.BackgroundImage = BookBorrowButton.DM_NolImage;
         }
     }
 }

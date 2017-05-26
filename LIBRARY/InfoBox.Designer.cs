@@ -31,7 +31,7 @@
             this.InfoBg = new System.Windows.Forms.PictureBox();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.ConfirmButton = new System.Windows.Forms.Button();
-            this.TextBox = new System.Windows.Forms.TextBox();
+            this.TextBox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.InfoBg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,15 +73,14 @@
             // 
             // TextBox
             // 
-            this.TextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.TextBox.Font = new System.Drawing.Font("微软雅黑", 13F);
-            this.TextBox.Location = new System.Drawing.Point(7, 57);
+            this.TextBox.Location = new System.Drawing.Point(0, 58);
             this.TextBox.Name = "TextBox";
-            this.TextBox.Size = new System.Drawing.Size(236, 23);
+            this.TextBox.Size = new System.Drawing.Size(250, 23);
             this.TextBox.TabIndex = 7;
-            this.TextBox.Text = "测试文字";
-            this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextBox.Text = "label1";
+            this.TextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InfoBox
             // 
@@ -109,6 +108,6 @@
         private System.Windows.Forms.PictureBox InfoBg;
         public System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button ConfirmButton;
-        private System.Windows.Forms.TextBox TextBox;
+        private System.Windows.Forms.Label TextBox;
     }
 }

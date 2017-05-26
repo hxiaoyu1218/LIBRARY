@@ -15,6 +15,7 @@ namespace LIBRARY
     public partial class AdminMainForm : DMSkin.Main
     {
         private Point offset;
+
         public AdminMainForm()
         {
             ClassBackEnd.StartTime();
@@ -36,6 +37,7 @@ namespace LIBRARY
         {
             Application.Exit();
         }
+
         private void MinButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
