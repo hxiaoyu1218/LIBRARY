@@ -73,6 +73,26 @@ namespace LIBRARY.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap AlreadyBorrow {
+            get {
+                object obj = ResourceManager.GetObject("AlreadyBorrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap AlreadyOrder {
+            get {
+                object obj = ResourceManager.GetObject("AlreadyOrder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap B {
             get {
                 object obj = ResourceManager.GetObject("B", resourceCulture);

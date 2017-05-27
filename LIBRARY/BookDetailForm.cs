@@ -149,45 +149,30 @@ namespace LIBRARY
             if (b == 1)
             {
                 #region Infobox Show
-                InfoBox infoBox = new InfoBox(1, this);
-                infoBox.StartPosition = FormStartPosition.Manual;
-                Point p = frmMain.Location;
-                p.X += 375;
-                p.Y += 300;
-                infoBox.Location = p;
-                infoBox.Show();
+                InfoBox infoBox = new InfoBox(1);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
                 #endregion
-                this.Enabled = false;
-                BookBorrowButton.DM_NolImage = BookBorrowButton.DM_HoverImage;
+                BookBorrowButton.DM_NolImage = Properties.Resources.AlreadyBorrow;
                 BookBorrowButton.Enabled = false;
             }
             else if (b == 2)
             {
                 #region Infobox Show
-                InfoBox infoBox = new InfoBox(11, this);
-                infoBox.StartPosition = FormStartPosition.Manual;
-                Point p = frmMain.Location;
-                p.X += 375;
-                p.Y += 300;
-                infoBox.Location = p;
-                infoBox.Show();
+                InfoBox infoBox = new InfoBox(11);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
                 #endregion
-                this.Enabled = false;
-                BookBorrowButton.DM_NolImage = BookBorrowButton.DM_HoverImage;
+                BookBorrowButton.DM_NolImage = Properties.Resources.AlreadyBorrow;
                 BookBorrowButton.Enabled = false;
             }
             else if (b == 0)
             {
                 #region Infobox Show
-                InfoBox infoBox = new InfoBox(9, this);
-                infoBox.StartPosition = FormStartPosition.Manual;
-                Point p = frmMain.Location;
-                p.X += 375;
-                p.Y += 300;
-                infoBox.Location = p;
-                infoBox.Show();
+                InfoBox infoBox = new InfoBox(9);   
+                infoBox.ShowDialog();
+                infoBox.Dispose();
                 #endregion
-                this.Enabled = false;
             }
 
         }
@@ -198,42 +183,29 @@ namespace LIBRARY
             if (v)
             {
                 #region Infobox Show
-                InfoBox infoBox = new InfoBox(2, this);
-                infoBox.StartPosition = FormStartPosition.Manual;
-                Point p = frmMain.Location;
-                p.X += 375;
-                p.Y += 300;
-                infoBox.Location = p;
-                infoBox.Show();
+                InfoBox infoBox = new InfoBox(2);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
                 #endregion
             }
             else
             {
                 #region Infobox Show
-                InfoBox ib = new InfoBox(12, this);
-                ib.StartPosition = FormStartPosition.Manual;
-                Point p1 = frmMain.Location;
-                p1.X += 375;
-                p1.Y += 300;
-                ib.Location = p1;
-                ib.Show();
+                InfoBox infoBox = new InfoBox(12);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
                 #endregion
             }
-            this.Enabled = false;
-            BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
+            BookOrderButton.DM_NolImage = Properties.Resources.AlreadyOrder;
             BookOrderButton.Enabled = false;
         }
 
         private void NoUseButton_Click(object sender, EventArgs e)
         {
             #region Infobox Show
-            InfoBox infoBox = new InfoBox(22, this);
-            infoBox.StartPosition = FormStartPosition.Manual;
-            Point p = frmMain.Location;
-            p.X += 375;
-            p.Y += 300;
-            infoBox.Location = p;
-            infoBox.Show();
+            InfoBox infoBox = new InfoBox(22);
+            infoBox.ShowDialog();
+            infoBox.Dispose();
             #endregion
         }
 

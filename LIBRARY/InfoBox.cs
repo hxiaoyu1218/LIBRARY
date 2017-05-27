@@ -29,15 +29,13 @@ namespace LIBRARY
         private const int AW_BLEND = 0x80000;//使用淡入淡出效果
 
         private int textType;
-        private BookDetailForm bdf;
         /// <summary>
         /// 1 借阅 2 预订 3 修改 4 注册
         /// </summary>
         /// <param name="tT"></param>
-        public InfoBox(int tT, BookDetailForm b = null)
+        public InfoBox(int tT)
         {
             textType = tT;
-            bdf = b;
             InitializeComponent();
 
         }
@@ -153,11 +151,7 @@ namespace LIBRARY
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            if (textType == 1 || textType == 2)
-            {
-                bdf.Enabled = true;
-                bdf.BookListRefresh();
-            }
+            
             Close();
         }
     }

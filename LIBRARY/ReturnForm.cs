@@ -62,7 +62,7 @@ namespace LIBRARY
             ReturnDateText.Text = ClassBackEnd.BorrowedBookI.Rgdate;
             try
             {
-                BookPictureBox.Image = Image.FromFile(@"data/book/" + BookIDText.Text + ".jpg");
+                BookPictureBox.Image = Image.FromFile(ClassBackEnd.Currentbook.Bookimage);
             }
             catch
             {

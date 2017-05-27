@@ -68,7 +68,7 @@ namespace LIBRARY
                 pic.Size = new Size(140, 200);
                 try
                 {
-                    pic.Image = Image.FromFile(@"data/book/" + ClassBackEnd.Userbsbook[i - 1].Bookisbn.Substring(0, 10) + ".jpg");
+                    //pic.Image = Image.FromFile();
                 }
                 catch
                 {
