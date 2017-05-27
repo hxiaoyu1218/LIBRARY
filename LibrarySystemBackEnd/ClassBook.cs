@@ -491,7 +491,7 @@ namespace LibrarySystemBackEnd
 		/// </summary>
 		/// <param name="bookisbn">书籍编号</param>
 		/// <returns></returns>
-		internal ClassBook(string bookisbn)
+		public ClassBook(string bookisbn)
 		{
 			FileStream fs = null; GZipStream zip = null; StreamReader sr = null;
 			try
