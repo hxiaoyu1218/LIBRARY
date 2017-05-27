@@ -27,6 +27,41 @@ namespace LIBRARY
             frmMain.TitleLabel.Location = t;
             #endregion
         }
-    }
+
+		private void UserComingRateButton_MouseMove(object sender, MouseEventArgs e)
+		{
+			UserComingRateButton.BackgroundImage = UserComingRateButton.DM_HoverImage;
+		}
+
+		private void UserComingRateButton_MouseLeave(object sender, EventArgs e)
+		{
+			UserComingRateButton.BackgroundImage = UserComingRateButton.DM_NolImage;
+		}
+
+		private void BookLendingRateButton_MouseMove(object sender, MouseEventArgs e)
+		{
+			BookLendingRateButton.BackgroundImage = BookLendingRateButton.DM_HoverImage;
+		}
+
+		private void BookLendingRateButton_MouseLeave(object sender, EventArgs e)
+		{
+			BookLendingRateButton.BackgroundImage = BookLendingRateButton.DM_NolImage;
+		}
+
+		private void SystemLogTextButton_MouseMove(object sender, MouseEventArgs e)
+		{
+			SystemLogTextButton.BackgroundImage = SystemLogTextButton.DM_HoverImage;
+		}
+
+		private void SystemLogTextButton_MouseLeave(object sender, EventArgs e)
+		{
+			SystemLogTextButton.BackgroundImage = SystemLogTextButton.DM_NolImage;
+		}
+
+		private void UserComingRateButton_MouseHover(object sender, EventArgs e)
+		{
+
+		}
+	}
 
 }

@@ -28,6 +28,7 @@ namespace LibrarySystemBackEnd
 		private static int bookamount = 0;
 		private static double lendingrate = 0.0;
 		internal static string DataDictory = @"data\";
+		internal static string UserComingRate = @"data\usercomingrate.lbs";
 		internal static string BookDirectory = @"data\book\";
 		internal static string BookListFileName = @"data\booklist.lbs";
 		internal static string UserListFileName = @"data\UserList.lbs";
@@ -459,6 +460,7 @@ namespace LibrarySystemBackEnd
 				{
 					Currentuser = user[i];
 					Usercategory = 1;//用户
+					ClassTime.IncNum();
 					if(!LoadUserInformation()) return 0;
 					else return 1;
 				}
@@ -557,6 +559,10 @@ namespace LibrarySystemBackEnd
 				if(!File.Exists(SystemInformation))
 				{
 					(File.Create(SystemInformation)).Close();
+				}
+				if(!File.Exists(UserComingRate))
+				{
+					(File.Create(UserComingRate)).Close();
 				}
 				fs = new FileStream(UserListFileName, FileMode.OpenOrCreate);
 				zip = new GZipStream(fs, CompressionMode.Decompress);

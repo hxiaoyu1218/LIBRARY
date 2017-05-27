@@ -119,15 +119,8 @@ namespace LIBRARY
             }
         }
 
-        private void UserChangeButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            RemindLabel.Show();
-        }
-
-        private void UserChangeButton_MouseLeave(object sender, EventArgs e)
-        {
-            RemindLabel.Hide();
-        }
+        
+		
 
         private void UserChangeButton_Click(object sender, EventArgs e)
         {

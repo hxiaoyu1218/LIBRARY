@@ -14,7 +14,11 @@ namespace LibrarySystemBackEnd
 	public static class ClassTime
 	{
 		internal static DateTime systemTime;
-		internal static int num = 0;
+		internal static int booknum = 0;
+		/// <summary>
+		/// 用户到馆数量
+		/// </summary>
+		internal static int usercome = 0;
 		private static TimeSpan ts = new TimeSpan(1, 0, 0, 0);
 
 		/// <summary>
@@ -36,8 +40,27 @@ namespace LibrarySystemBackEnd
 		/// </summary>
 		public static void inc()
 		{
+			FileStream fs = null;StreamWriter sw = null;
+			try
+			{
+				fs = new FileStream(ClassBackEnd.UserComingRate, FileMode.Append);
+				sw = new StreamWriter(fs);
+				sw.WriteLine(systemTime);
+				sw.WriteLine(usercome);
+				usercome = 0;
+			}
+			catch
+			{
+				return;
+			}
+			finally
+			{
+				if(sw != null) sw.Close();
+				if(fs != null) fs.Close();
+			}
+			
 			systemTime = systemTime + ts;
-			num = 0;
+			booknum = 0;
 		}
 		internal static void ReadFromFile(StreamReader sr)
 		{
@@ -45,14 +68,16 @@ namespace LibrarySystemBackEnd
 			var b = Convert.ToInt32(sr.ReadLine());
 			var c = Convert.ToInt32(sr.ReadLine());
 			systemTime = new DateTime(a, b, c);
-			num = Convert.ToInt32(sr.ReadLine());
+			booknum = Convert.ToInt32(sr.ReadLine());
+			usercome += Convert.ToInt32(sr.ReadLine());
 		}
 		internal static void SaveToFile(StreamWriter sw)
 		{
 			sw.WriteLine(systemTime.Year);
 			sw.WriteLine(systemTime.Month);
 			sw.WriteLine(systemTime.Day);
-			sw.WriteLine(num);
+			sw.WriteLine(booknum);
+			sw.WriteLine(usercome);
 		}
 		/// <summary>
 		/// 获取下一本书的ISBN
@@ -63,12 +88,16 @@ namespace LibrarySystemBackEnd
 			var a = systemTime.Year.ToString("D4");
 			var b = systemTime.Month.ToString("D2");
 			var c = systemTime.Day.ToString("D2");
-			if(num > 99) return null;
-			return a + b + c + num.ToString("D2");
+			if(booknum > 99) return null;
+			return a + b + c + booknum.ToString("D2");
 		}
 		internal static void IncNum()
 		{
-			num++;
+			booknum++;
+		}
+		internal static void IncUserVis()
+		{
+			usercome++;
 		}
 	}
 }
