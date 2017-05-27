@@ -89,7 +89,7 @@ namespace LIBRARY
         {
             if (ClassBackEnd.HasBorrowed(bookIndex))
             {
-                BookBorrowButton.DM_NolImage = BookBorrowButton.DM_HoverImage;
+                BookBorrowButton.DM_NolImage = Properties.Resources.AlreadyBorrow;
                 BookBorrowButton.Enabled = false;
                 BookOrderButton.Hide();
             }
@@ -101,7 +101,7 @@ namespace LIBRARY
             {
                 if (ClassBackEnd.HasScheduled(bookIndex))
                 {
-                    BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
+                    BookOrderButton.DM_NolImage = Properties.Resources.AlreadyOrder;
                     BookOrderButton.Enabled = false;
                     BookBorrowButton.Hide();
                 }
@@ -174,7 +174,7 @@ namespace LIBRARY
                 infoBox.Dispose();
                 #endregion
             }
-
+            BookListRefresh();
         }
 
         private void BookOrderButton_Click(object sender, EventArgs e)
@@ -198,6 +198,7 @@ namespace LIBRARY
             }
             BookOrderButton.DM_NolImage = Properties.Resources.AlreadyOrder;
             BookOrderButton.Enabled = false;
+            BookListRefresh();
         }
 
         private void NoUseButton_Click(object sender, EventArgs e)
