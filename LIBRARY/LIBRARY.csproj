@@ -120,6 +120,12 @@
     <Compile Include="AdminSystemLogForm.Designer.cs">
       <DependentUpon>AdminSystemLogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     <EmbeddedResource Include="AdminSystemLogForm.resx">
       <DependentUpon>AdminSystemLogForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManageForm.resx">
       <DependentUpon>UserManageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +314,7 @@
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

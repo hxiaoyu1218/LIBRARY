@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
 
@@ -7,7 +14,9 @@ namespace LIBRARY
 {
     public partial class UserMainForm : DMSkin.Main
     {
-        public UserMainForm()
+		private Point offset;
+
+		public UserMainForm()
         {
             ClassBackEnd.StartTime();
             InitializeComponent();
@@ -87,5 +96,33 @@ namespace LIBRARY
         {
             TimeTextBox.Text = e.UserState.ToString();
         }
-    }
+
+		private void UserChangeButton_Click(object sender, EventArgs e)
+		{
+			Application.Restart();
+		}
+
+		private void TimeTextBox_MouseDown(object sender, MouseEventArgs e)
+		{
+			if(e.Button == MouseButtons.Left)
+			{
+				offset = new Point(e.X, e.Y);
+			}
+		}
+
+		private void TimeTextBox_MouseMove(object sender, MouseEventArgs e)
+		{
+			if(e.Button == MouseButtons.Left)
+			{
+				Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
+			}
+		}
+
+		private void TitleLabel_DoubleClick(object sender, EventArgs e)
+		{
+			AboutBox abb = new AboutBox();
+			abb.ShowDialog();
+			abb.Dispose();
+		}
+	}
 }

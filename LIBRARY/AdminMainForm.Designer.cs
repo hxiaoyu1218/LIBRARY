@@ -52,6 +52,7 @@
 			this.TitleLabel.Size = new System.Drawing.Size(142, 22);
 			this.TitleLabel.TabIndex = 8;
 			this.TitleLabel.Text = "图书管理系统";
+			this.TitleLabel.DoubleClick += new System.EventHandler(this.TitleLabel_DoubleClick);
 			// 
 			// MainPanel
 			// 

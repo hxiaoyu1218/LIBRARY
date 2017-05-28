@@ -126,5 +126,12 @@ namespace LIBRARY
         {
             Application.Restart();
         }
-    }
+
+		private void TitleLabel_DoubleClick(object sender, EventArgs e)
+		{
+			AboutBox abb = new AboutBox();
+			abb.ShowDialog();
+			abb.Dispose();
+		}
+	}
 }

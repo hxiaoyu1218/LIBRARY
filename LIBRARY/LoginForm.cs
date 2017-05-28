@@ -232,5 +232,12 @@ namespace LIBRARY
                 if (fs != null) fs.Close();
             }
         }
-    }
+
+		private void PasswordForgetLink_Click(object sender, EventArgs e)
+		{
+			InfoBox infoBox = new InfoBox(27);
+			infoBox.ShowDialog();
+			infoBox.Dispose();
+		}
+	}
 }
