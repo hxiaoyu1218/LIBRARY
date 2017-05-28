@@ -25,6 +25,12 @@ namespace LIBRARY
 			UserComingRateChart.Hide();
 			BookLendingRateComboBox.Hide();
 			BookLendingRateChart.Hide();
+			LogDataSheet.Hide();
+			LastPButton.Hide();
+			JumpPTextBox.Hide();
+			DividePicture.Hide();
+			PageTextBox.Hide();
+			NextPbutton.Hide();
 		}
 
 		private void AdminSystemLogForm_Load(object sender, EventArgs e)
@@ -294,8 +300,6 @@ namespace LIBRARY
 			JumpPTextBox.Text = (++nPage).ToString();
 			DataSheetLoad(nPage);
 		}
-
-		
 	}
 
 }

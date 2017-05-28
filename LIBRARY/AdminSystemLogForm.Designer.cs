@@ -71,7 +71,7 @@
 			// SystemInformationButton
 			// 
 			this.SystemInformationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SystemInformationButton.BackgroundImage")));
-			this.SystemInformationButton.Location = new System.Drawing.Point(303, 20);
+			this.SystemInformationButton.Location = new System.Drawing.Point(303, 38);
 			this.SystemInformationButton.Name = "SystemInformationButton";
 			this.SystemInformationButton.Size = new System.Drawing.Size(75, 75);
 			this.SystemInformationButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -85,7 +85,7 @@
 			// BookLendingRateButton
 			// 
 			this.BookLendingRateButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookLendingRateButton.BackgroundImage")));
-			this.BookLendingRateButton.Location = new System.Drawing.Point(187, 20);
+			this.BookLendingRateButton.Location = new System.Drawing.Point(187, 38);
 			this.BookLendingRateButton.Name = "BookLendingRateButton";
 			this.BookLendingRateButton.Size = new System.Drawing.Size(75, 75);
 			this.BookLendingRateButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -99,7 +99,7 @@
 			// UserComingRateButton
 			// 
 			this.UserComingRateButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UserComingRateButton.BackgroundImage")));
-			this.UserComingRateButton.Location = new System.Drawing.Point(69, 20);
+			this.UserComingRateButton.Location = new System.Drawing.Point(69, 38);
 			this.UserComingRateButton.Name = "UserComingRateButton";
 			this.UserComingRateButton.Size = new System.Drawing.Size(75, 75);
 			this.UserComingRateButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -318,6 +318,7 @@
 			this.JumpPTextBox.TabIndex = 37;
 			this.JumpPTextBox.TabStop = false;
 			this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.JumpPTextBox.TextChanged += new System.EventHandler(this.JumpPTextBox_TextChanged);
 			// 
 			// DividePicture
 			// 

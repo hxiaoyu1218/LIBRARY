@@ -331,9 +331,6 @@
     <None Include="Resources\B.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\C.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\D.png" />
   </ItemGroup>
   <ItemGroup>
@@ -435,6 +432,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\书籍借阅率.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\C.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
