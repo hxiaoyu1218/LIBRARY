@@ -13,8 +13,8 @@ namespace LIBRARY
 		private static int state = 0;//用户到馆率1，书籍借阅率2，系统日志3
 		private List<ClassGraph> lig = new List<ClassGraph>();
 		private List<ClassLog> lil = new List<ClassLog>();
-		private static int maxPage;
-		private static int nPage;
+		private static int maxPage = 1;
+		private static int nPage = 1;
 
 		public AdminSystemLogForm(AdminMainForm frm)
 		{
@@ -97,7 +97,11 @@ namespace LIBRARY
 				dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint((lig[i].Date - o + oo).TotalDays, lig[i].LendingRate);
 				series1.Points.Add(dataPoint1);
 			}
-			if(last - am < 15) series1.IsValueShownAsLabel = true;
+			if(last - am < 15)
+			{
+				series1.IsValueShownAsLabel = true;
+				series1.LabelFormat = "0.0000 %";
+			}
 			else series1.IsValueShownAsLabel = false;
 
 			this.BookLendingRateChart.Series.Add(series1);
@@ -119,6 +123,8 @@ namespace LIBRARY
 				DividePicture.Hide();
 				PageTextBox.Hide();
 				NextPbutton.Hide();
+
+				LoadUserComingRateGraph(UserComingRateComboBox.SelectedIndex);
 			}
 			else if(state == 2)
 			{
@@ -134,6 +140,8 @@ namespace LIBRARY
 				DividePicture.Hide();
 				PageTextBox.Hide();
 				NextPbutton.Hide();
+
+				LoadBookLendingRateGraph(BookLendingRateComboBox.SelectedIndex);
 			}
 			else if(state == 3)
 			{
@@ -149,6 +157,8 @@ namespace LIBRARY
 				DividePicture.Show();
 				PageTextBox.Show();
 				NextPbutton.Show();
+
+				DataSheetLoad(nPage);
 			}
 		}
 

@@ -48,15 +48,15 @@
 			this.BookLendingRateComboBox = new System.Windows.Forms.ComboBox();
 			this.BookLendingRateChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.LogDataSheet = new System.Windows.Forms.DataGridView();
+			this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NextPbutton = new System.Windows.Forms.PictureBox();
 			this.LastPButton = new System.Windows.Forms.PictureBox();
 			this.PageTextBox = new System.Windows.Forms.TextBox();
 			this.JumpPTextBox = new System.Windows.Forms.TextBox();
 			this.DividePicture = new System.Windows.Forms.PictureBox();
-			this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.SystemInformationButton)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BookLendingRateButton)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.UserComingRateButton)).BeginInit();
@@ -276,6 +276,32 @@
 			this.LogDataSheet.TabIndex = 7;
 			this.LogDataSheet.TabStop = false;
 			// 
+			// Num
+			// 
+			this.Num.HeaderText = "Num";
+			this.Num.Name = "Num";
+			this.Num.ReadOnly = true;
+			this.Num.Width = 50;
+			// 
+			// Data
+			// 
+			this.Data.HeaderText = "日期";
+			this.Data.Name = "Data";
+			this.Data.ReadOnly = true;
+			// 
+			// user
+			// 
+			this.user.HeaderText = "用户";
+			this.user.Name = "user";
+			this.user.ReadOnly = true;
+			// 
+			// Detail
+			// 
+			this.Detail.HeaderText = "详情";
+			this.Detail.Name = "Detail";
+			this.Detail.ReadOnly = true;
+			this.Detail.Width = 616;
+			// 
 			// NextPbutton
 			// 
 			this.NextPbutton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -330,32 +356,6 @@
 			this.DividePicture.TabIndex = 36;
 			this.DividePicture.TabStop = false;
 			// 
-			// Num
-			// 
-			this.Num.HeaderText = "Num";
-			this.Num.Name = "Num";
-			this.Num.ReadOnly = true;
-			this.Num.Width = 50;
-			// 
-			// Data
-			// 
-			this.Data.HeaderText = "日期";
-			this.Data.Name = "Data";
-			this.Data.ReadOnly = true;
-			// 
-			// user
-			// 
-			this.user.HeaderText = "用户";
-			this.user.Name = "user";
-			this.user.ReadOnly = true;
-			// 
-			// Detail
-			// 
-			this.Detail.HeaderText = "详情";
-			this.Detail.Name = "Detail";
-			this.Detail.ReadOnly = true;
-			this.Detail.Width = 616;
-			// 
 			// AdminSystemLogForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -367,14 +367,14 @@
 			this.Controls.Add(this.PageTextBox);
 			this.Controls.Add(this.JumpPTextBox);
 			this.Controls.Add(this.DividePicture);
-			this.Controls.Add(this.LogDataSheet);
 			this.Controls.Add(this.SystemInformationButton);
 			this.Controls.Add(this.BookLendingRateButton);
 			this.Controls.Add(this.UserComingRateButton);
-			this.Controls.Add(this.UserComingRateComboBox);
-			this.Controls.Add(this.UserComingRateChart);
 			this.Controls.Add(this.BookLendingRateComboBox);
 			this.Controls.Add(this.BookLendingRateChart);
+			this.Controls.Add(this.LogDataSheet);
+			this.Controls.Add(this.UserComingRateChart);
+			this.Controls.Add(this.UserComingRateComboBox);
 			this.DM_CanMove = false;
 			this.DM_CanResize = false;
 			this.DM_howBorder = false;

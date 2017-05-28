@@ -61,6 +61,8 @@
 			this.TitleLabel.TabIndex = 1;
 			this.TitleLabel.Text = "图书管理系统";
 			this.TitleLabel.DoubleClick += new System.EventHandler(this.TitleLabel_DoubleClick);
+			this.TitleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
+			this.TitleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseMove);
 			// 
 			// ReturnButton
 			// 

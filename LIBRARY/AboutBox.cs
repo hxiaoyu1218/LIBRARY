@@ -14,7 +14,7 @@ namespace LIBRARY
 	public partial class AboutBox : DMSkin.Main
 	{
 
-
+		private Point offset;
 
 		[DllImport("user32")]
 		private static extern bool AnimateWindow(IntPtr hwnd, int dwTime, int dwFlags);
@@ -45,6 +45,22 @@ namespace LIBRARY
 		private void ConfirmButton_Click(object sender, EventArgs e)
 		{
 			Close();
+		}
+
+		private void TitleLabel_MouseDown(object sender, MouseEventArgs e)
+		{
+			if(e.Button == MouseButtons.Left)
+			{
+				offset = new Point(e.X, e.Y);
+			}
+		}
+
+		private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
+		{
+			if(e.Button == MouseButtons.Left)
+			{
+				Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
+			}
 		}
 	}
 }

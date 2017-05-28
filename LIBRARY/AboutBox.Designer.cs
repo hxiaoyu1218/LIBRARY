@@ -55,6 +55,8 @@
 			this.TitleLabel.Size = new System.Drawing.Size(142, 22);
 			this.TitleLabel.TabIndex = 2;
 			this.TitleLabel.Text = "图书管理系统";
+			this.TitleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
+			this.TitleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseMove);
 			// 
 			// ConfirmButton
 			// 

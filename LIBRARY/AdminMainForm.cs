@@ -133,5 +133,21 @@ namespace LIBRARY
 			abb.ShowDialog();
 			abb.Dispose();
 		}
+
+		private void TitleLabel_MouseDown(object sender, MouseEventArgs e)
+		{
+			if(e.Button == MouseButtons.Left)
+			{
+				offset = new Point(e.X, e.Y);
+			}
+		}
+
+		private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
+		{
+			if(e.Button == MouseButtons.Left)
+			{
+				Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
+			}
+		}
 	}
 }
