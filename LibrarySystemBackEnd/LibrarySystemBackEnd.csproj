@@ -48,6 +48,8 @@
     <Compile Include="ClassBookHis.cs" />
     <Compile Include="ClassBorrowedBook.cs" />
     <Compile Include="ClassBorrowHistory.cs" />
+    <Compile Include="ClassGraph.cs" />
+    <Compile Include="ClassLog.cs" />
     <Compile Include="ClassMessage.cs" />
     <Compile Include="ClassTime.cs" />
     <Compile Include="ClassUser.cs" />

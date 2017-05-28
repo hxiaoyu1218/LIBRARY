@@ -17,7 +17,7 @@ namespace LIBRARY
 {
     public partial class LoginForm : DMSkin.Main
     {
-        private static string RememberMeFileName = "remember.lbs";
+        private static string RememberMeFileName = @"data\remember.lbs";
 
         public LoginForm()
         {

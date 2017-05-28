@@ -20,6 +20,7 @@ namespace LibrarySystemBackEnd
 		/// </summary>
 		internal static int usercome = 0;
 		private static TimeSpan ts = new TimeSpan(1, 0, 0, 0);
+		private static double lendingrate;
 
 		/// <summary>
 		/// get属性，set属性
@@ -41,26 +42,37 @@ namespace LibrarySystemBackEnd
 		public static void inc()
 		{
 			FileStream fs = null;StreamWriter sw = null;
-			try
+			int i = 0; bool flag = false;
+			while(i++ < 3 && flag == false) 
 			{
-				fs = new FileStream(ClassBackEnd.UserComingRate, FileMode.Append);
-				sw = new StreamWriter(fs);
-				sw.WriteLine(systemTime);
-				sw.WriteLine(usercome);
-				usercome = 0;
-			}
-			catch
-			{
-				return;
-			}
-			finally
-			{
-				if(sw != null) sw.Close();
-				if(fs != null) fs.Close();
+				try
+				{
+					fs = new FileStream(ClassBackEnd.UserComingRate, FileMode.Append);
+					sw = new StreamWriter(fs);
+					sw.WriteLine(systemTime);
+					sw.WriteLine(usercome);
+					sw.WriteLine(lendingrate);
+					usercome = 0;
+
+					flag = true;
+				}
+				catch
+				{
+					System.Threading.Thread.Sleep(200);
+					continue;
+				}
+				finally
+				{
+					if(sw != null) sw.Close();
+					if(fs != null) fs.Close();
+				}
 			}
 			
-			systemTime = systemTime + ts;
-			booknum = 0;
+			if(flag)
+			{
+				systemTime = systemTime + ts;
+				booknum = 0;
+			}
 		}
 		internal static void ReadFromFile(StreamReader sr)
 		{
@@ -69,7 +81,7 @@ namespace LibrarySystemBackEnd
 			var c = Convert.ToInt32(sr.ReadLine());
 			systemTime = new DateTime(a, b, c);
 			booknum = Convert.ToInt32(sr.ReadLine());
-			usercome += Convert.ToInt32(sr.ReadLine());
+			usercome = Convert.ToInt32(sr.ReadLine());
 		}
 		internal static void SaveToFile(StreamWriter sw)
 		{
@@ -98,6 +110,10 @@ namespace LibrarySystemBackEnd
 		internal static void IncUserVis()
 		{
 			usercome++;
+		}
+		internal static void ChangeLendingRate(double tmp)
+		{
+			lendingrate = tmp;
 		}
 	}
 }

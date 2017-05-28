@@ -28,6 +28,7 @@ namespace LibrarySystemBackEnd
 		private static int bookamount = 0;
 		private static double lendingrate = 0.0;
 		internal static string DataDictory = @"data\";
+		internal static string LogFile = @"data\log.log";
 		internal static string UserComingRate = @"data\usercomingrate.lbs";
 		internal static string BookDirectory = @"data\book\";
 		internal static string BookListFileName = @"data\booklist.lbs";
@@ -393,6 +394,8 @@ namespace LibrarySystemBackEnd
 				Bookamount = a;
 				Useramount = b;
 				Lendingrate = Convert.ToDouble(c) / Convert.ToDouble(d);
+
+				ClassTime.ChangeLendingRate(lendingrate);
 			}
 			catch(Exception e) { return; }
 			finally
@@ -437,6 +440,28 @@ namespace LibrarySystemBackEnd
 
 			return;
 		}
+		private static void WriteToLog(string s)
+		{
+			if(!File.Exists(LogFile))
+				File.Create(LogFile).Close();
+
+			FileStream fs = null; StreamWriter sw = null;
+			try
+			{
+				fs = new FileStream(LogFile, FileMode.Append);
+				sw = new StreamWriter(fs);
+				sw.WriteLine(ClassTime.systemTime);
+				if(currentadmin != null) sw.WriteLine(currentadmin.Id);
+				else sw.WriteLine(currentuser.Userid);
+				sw.WriteLine(s);
+			}
+			catch { return; }
+			finally
+			{
+				if(sw != null) sw.Close();
+				if(fs != null) fs.Close();
+			}
+		}
 		#endregion
 
 		#region 用户方法
@@ -460,7 +485,8 @@ namespace LibrarySystemBackEnd
 				{
 					Currentuser = user[i];
 					Usercategory = 1;//用户
-					ClassTime.IncNum();
+					ClassTime.IncUserVis();
+					WriteToLog("用户登录成功！");
 					if(!LoadUserInformation()) return 0;
 					else return 1;
 				}
@@ -472,6 +498,7 @@ namespace LibrarySystemBackEnd
 					Currentadmin = admin[i];
 					Usercategory = 2;//尊贵的管理员
 
+					WriteToLog("管理员登录成功！");
 					RefreshSystemInformation(0, 0);
 
 					return 2;
@@ -510,6 +537,9 @@ namespace LibrarySystemBackEnd
 			}
 
 			RefreshSystemInformation(1, 2);
+			currentuser = user.Last();
+			WriteToLog("用户注册成功！");
+			currentuser = null;
 			return 1;
 		}
 
@@ -519,9 +549,26 @@ namespace LibrarySystemBackEnd
 		/// <returns>成功返回1，出现异常返回0</returns>
 		public static bool StartUp()
 		{
+			FileStream fs = null; GZipStream zip = null; StreamReader sr = null;
+			try
+			{
+				fs = new FileStream(@"data\time.lbs", FileMode.OpenOrCreate);
+				sr = new StreamReader(fs);
+				ClassTime.ReadFromFile(sr);
+			}
+			catch(Exception)
+			{
+				
+			}
+			finally
+			{
+				if(sr != null) sr.Close();
+				if(fs != null) fs.Close();
+			}
+
 			if(user.Any()) user.Clear();
 			if(admin.Any()) admin.Clear();
-			FileStream fs = null; GZipStream zip = null; StreamReader sr = null;
+
 			try
 			{
 				if(!(Directory.Exists(DataDictory)))
@@ -691,6 +738,9 @@ namespace LibrarySystemBackEnd
 			RefreshBookListFile(nbook, true);
 			RefreshSystemInformation(n, 1);
 			ClassTime.IncNum();//增加当天的书籍编号
+
+			WriteToLog("管理员添加书籍" + bookisbn + "成功！");
+
 			return nbook.SaveDetailInformation(BookDirectory);
 		}
 
@@ -821,6 +871,7 @@ namespace LibrarySystemBackEnd
 					Currentuser.SaveDetailInformation(UserDetailDictory);
 					Currentbook.SaveDetailInformation(BookDirectory);
 					RefreshSystemInformation(1, 3);
+					WriteToLog("用户借阅书籍" + Currentbook.Bookisbn + "成功！");
 					return 1;//成功
 				}
 			}
@@ -849,6 +900,8 @@ namespace LibrarySystemBackEnd
 
 			if(RefreshUserListFile() == true)
 			{
+				if(currentadmin != null) WriteToLog("管理员重置用户" + currentuser.Userid + "密码成功！");
+				else WriteToLog("用户修改密码成功！");
 				return 1;
 			}
 			else
@@ -874,6 +927,7 @@ namespace LibrarySystemBackEnd
 				Currentuser.SaveDetailInformation(UserDetailDictory);
 				Currentbook.SaveDetailInformation(BookDirectory);
 
+				WriteToLog("用户预约书籍" + Currentbook.Bookisbn + "成功！");
 				return true;
 			}
 			else { return false; }
@@ -989,6 +1043,7 @@ namespace LibrarySystemBackEnd
 		{
 			Currentuser.Charge(money);
 			var t = Currentuser.SaveDetailInformation(ClassBackEnd.UserDetailDictory);
+			WriteToLog("用户充值信用成功！");
 			return t;
 		}
 
@@ -1037,7 +1092,7 @@ namespace LibrarySystemBackEnd
 					Currentbook.SaveDetailInformation(BookDirectory);
 
 					RefreshSystemInformation(-1, 3);
-
+					WriteToLog("用户还书" + currentbook.Bookisbn + "成功！");
 					return true;//成功
 				}
 			}
@@ -1056,6 +1111,7 @@ namespace LibrarySystemBackEnd
 			int k = Currentuser.RenewBook(Currentbook.Bookisbn, Currentbook.Bookname);
 			if(k == 1)
 			{
+				WriteToLog("用户续借书"+Currentbook.Bookisbn+"成功！");
 				Currentuser.SaveDetailInformation(UserDetailDictory);
 			}
 			return k;
@@ -1143,7 +1199,7 @@ namespace LibrarySystemBackEnd
 			{
 				fs = new FileStream(@"data\time.lbs", FileMode.OpenOrCreate);
 				sr = new StreamReader(fs);
-				ClassTime.ReadFromFile(sr);
+				//ClassTime.ReadFromFile(sr,true);
 				return ClassTime.SystemTime;
 			}
 			catch(Exception)
@@ -1415,6 +1471,74 @@ namespace LibrarySystemBackEnd
 			Currentbook.SaveDetailInformation(BookDirectory);
 			RefreshSystemInformation(n, 1);
 			return true;
+		}
+		/// <summary>
+		/// 获取生成图表需要的信息
+		/// </summary>
+		/// <param name="graph">图表数据数组</param>
+		/// <returns>成功/失败(尝试3次且文件均被占用)</returns>
+		public static bool GetGraphImformation(ref List<ClassGraph> graph)
+		{
+			int i = 0; FileStream fs = null; StreamReader sr = null;
+			bool flag = false;
+			while(i++ < 3 && flag == false)
+			{
+				if(graph.Any()) graph.Clear();
+				try
+				{
+					fs = new FileStream(UserComingRate, FileMode.Open);
+					sr = new StreamReader(fs);
+					while(!sr.EndOfStream)
+						graph.Add(new ClassGraph(sr));
+
+					flag = true;
+				}
+				catch
+				{
+					System.Threading.Thread.Sleep(200);
+					continue;
+				}
+				finally
+				{
+					if(sr != null) sr.Close();
+					if(fs != null) fs.Close();
+				}
+			}
+			return flag;
+		}
+		/// <summary>
+		/// 读取日志文件
+		/// </summary>
+		/// <param name="log"></param>
+		/// <returns>成功/失败(尝试3次且文件均被占用)</returns>
+		public static bool GetLogImformation(ref List<ClassLog> log)
+		{
+			int i = 0; FileStream fs = null; StreamReader sr = null;
+			bool flag = false;
+			while(i++ < 3 && flag == false)
+			{
+				if(log.Any()) log.Clear();
+				try
+				{
+					fs = new FileStream(LogFile, FileMode.Open);
+					sr = new StreamReader(fs);
+					while(!sr.EndOfStream)
+						log.Add(new ClassLog(sr));
+
+					flag = true;
+				}
+				catch
+				{
+					System.Threading.Thread.Sleep(200);
+					continue;
+				}
+				finally
+				{
+					if(sr != null) sr.Close();
+					if(fs != null) fs.Close();
+				}
+			}
+			return flag;
 		}
 	}
 }
