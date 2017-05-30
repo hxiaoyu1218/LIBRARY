@@ -175,6 +175,7 @@
 			this.PasswordForgetLink.TabIndex = 5;
 			this.PasswordForgetLink.TabStop = true;
 			this.PasswordForgetLink.Text = "忘记密码了？";
+			this.PasswordForgetLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.PasswordForgetLink_Click);
 			this.PasswordForgetLink.Click += new System.EventHandler(this.PasswordForgetLink_Click);
 			// 
 			// RememberCheckBox

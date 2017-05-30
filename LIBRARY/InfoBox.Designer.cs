@@ -95,6 +95,7 @@
 			this.Controls.Add(this.TitleLabel);
 			this.Controls.Add(this.InfoBg);
 			this.DM_howBorder = false;
+			this.DM_ShadowWidth = 6;
 			this.Name = "InfoBox";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "InfoBox";

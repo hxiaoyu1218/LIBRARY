@@ -147,7 +147,11 @@ namespace LIBRARY
             {
                 TextBox.Text = "添加成功！";
             }
-        }
+			else if(textType == 27)
+			{
+				TextBox.Text = "请联系管理员！";
+			}
+		}
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
