@@ -28,10 +28,11 @@ namespace LibrarySystemBackEnd
 		private static int bookamount = 0;
 		private static double lendingrate = 0.0;
 		internal static string DataDictory = @"data\";
-		internal static string LogFile = @"data\log.log";
-		internal static string UserComingRate = @"data\usercomingrate.lbs";
+		internal static string LogFile = @"data\Log.log";
+		internal static string TimeFile = @"data\Time.lbs";
+		internal static string UserComingRate = @"data\UserComingRate.lbs";
 		internal static string BookDirectory = @"data\book\";
-		internal static string BookListFileName = @"data\booklist.lbs";
+		internal static string BookListFileName = @"data\BookList.lbs";
 		internal static string UserListFileName = @"data\UserList.lbs";
 		internal static string AdminListFileName = @"data\AdminList.lbs";
 		internal static string UserDetailDictory = @"data\usersdetail\";
@@ -43,7 +44,7 @@ namespace LibrarySystemBackEnd
 		/// <summary>
 		/// SystemInformation保存书籍数量，用户数量，借阅率
 		/// </summary>
-		internal static string SystemInformation = @"data\systeminformation.lbs";
+		internal static string SystemInformation = @"data\SystemInformation.lbs";
 		/// <summary>
 		/// 书籍数组
 		/// </summary>
@@ -552,13 +553,13 @@ namespace LibrarySystemBackEnd
 			FileStream fs = null; GZipStream zip = null; StreamReader sr = null;
 			try
 			{
-				fs = new FileStream(@"data\time.lbs", FileMode.OpenOrCreate);
+				fs = new FileStream(TimeFile, FileMode.OpenOrCreate);
 				sr = new StreamReader(fs);
 				ClassTime.ReadFromFile(sr);
 			}
 			catch(Exception)
 			{
-				
+
 			}
 			finally
 			{
@@ -1111,7 +1112,7 @@ namespace LibrarySystemBackEnd
 			int k = Currentuser.RenewBook(Currentbook.Bookisbn, Currentbook.Bookname);
 			if(k == 1)
 			{
-				WriteToLog("用户续借书"+Currentbook.Bookisbn+"成功！");
+				WriteToLog("用户续借书" + Currentbook.Bookisbn + "成功！");
 				Currentuser.SaveDetailInformation(UserDetailDictory);
 			}
 			return k;
@@ -1222,7 +1223,7 @@ namespace LibrarySystemBackEnd
 			FileStream fs = null; StreamWriter sw = null;
 			try
 			{
-				fs = new FileStream(@"data\time.lbs", FileMode.OpenOrCreate);
+				fs = new FileStream(TimeFile, FileMode.OpenOrCreate);
 				sw = new StreamWriter(fs);
 				ClassTime.SaveToFile(sw);
 			}
