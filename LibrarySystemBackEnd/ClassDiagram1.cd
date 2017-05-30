@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LibrarySystemBackEnd.ClassBookAndDate" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAABgEAAAQAAAAAAAIAAEACAABAAAAAUAAAAAAAAAIA=</HashCode>
+      <FileName>ClassUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassUser">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAKAEJiCwQDRJBBQwAATEIBAkgACACwBBAgkABAIE=</HashCode>
+      <FileName>ClassUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ABook" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAgBQAAAAQAAAAAAAAAAAAAAAgAACAIAAAgAAA=</HashCode>
+      <FileName>ClassBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassAdministrator" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAAAAAAAAQAAAAEAAACAAAAAgAAAgA=</HashCode>
+      <FileName>ClassAdministrator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassBackEnd" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AlCAIEACIAgy9xBYCnhAwYloLlGBsDAjAiIEJxAroVE=</HashCode>
+      <FileName>ClassBackEnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassBook" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QhQAAEBCAAAQBRRAiOACQIiABAABAAAAACQMAkJsQAA=</HashCode>
+      <FileName>ClassBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassBookHis" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABJCAgACQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ClassBookHis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassBorrowedBook" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAABAEAAAQAAAAAAgIAAAICAABAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>ClassBorrowedBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassBorrowHistory" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAEAgABBAAAAQAIAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClassBorrowHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassGraph" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAEAABABAAAQAQAAA=</HashCode>
+      <FileName>ClassGraph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassLog" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABIAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAASA=</HashCode>
+      <FileName>ClassLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystemBackEnd.ClassTime" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAgAAEIEQAACAAAAAQAIAAAAAAAAgEAAAAAAAA=</HashCode>
+      <FileName>ClassTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="LibrarySystemBackEnd.USERTYPE">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>ClassUser.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LibrarySystemBackEnd.BOOKSTATE">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAABCAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClassBook.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

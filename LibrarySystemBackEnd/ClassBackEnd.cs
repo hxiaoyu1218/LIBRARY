@@ -1297,7 +1297,7 @@ namespace LibrarySystemBackEnd
 		public static bool MaintainBook(List<BOOKSTATE> state)
 		{
 			if(Currentbook == null) return false;
-			return Currentbook.ChangeBookState(state);
+			return Currentbook.ChangeBookState(state, ClassBackEnd.Currentadmin.Id);
 		}
 		/// <summary>
 		/// 管理员进入用户详情页前调用

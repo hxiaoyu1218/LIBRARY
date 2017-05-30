@@ -38,7 +38,7 @@ namespace LIBRARY
                 cb.UseVisualStyleBackColor = true;
                 cb.Visible = true;
                 cb.Enabled = (list[i - 1] != BOOKSTATE.Borrowed);
-                cb.Checked = (list[i - 1] == BOOKSTATE.Invailable);
+                cb.Checked = (list[i - 1] == BOOKSTATE.Unavailable);
                 cb.Click += new EventHandler(CheckBox_Click);
 
                 x += 211;
@@ -56,7 +56,7 @@ namespace LIBRARY
             int flag=0;
 			foreach(BOOKSTATE c in list)
 			{
-				if(c != BOOKSTATE.Invailable)
+				if(c != BOOKSTATE.Unavailable)
 					flag = 1;
 			}
 			foreach (Control c in CheckBoxPanel.Controls)
@@ -132,9 +132,9 @@ namespace LIBRARY
 				CheckBox cbo = ctr as CheckBox;
 				if(cbo.Checked)
 				{
-					list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Invailable;
+					list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Unavailable;
 				}
-				else if(list[Convert.ToInt32(cbo.Name)]==BOOKSTATE.Invailable)
+				else if(list[Convert.ToInt32(cbo.Name)]==BOOKSTATE.Unavailable)
 				{
 					list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Available;
 				}

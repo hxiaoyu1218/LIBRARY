@@ -30,7 +30,7 @@ namespace LibrarySystemBackEnd
 		/// <summary>
 		/// 不可用
 		/// </summary>
-		Invailable
+		Unavailable
 	};
 	/// <summary>
 	/// 单一的一本书
@@ -683,7 +683,7 @@ namespace LibrarySystemBackEnd
 			int k = 0;
 			for(int i = 0;i < book.Count;i++)
 			{
-				if(book[i].Bookstate != BOOKSTATE.Invailable)
+				if(book[i].Bookstate != BOOKSTATE.Unavailable)
 					k++;
 			}
 			int sch = schedulequeue.Count;
@@ -825,13 +825,14 @@ namespace LibrarySystemBackEnd
 		/// 修改书籍状态
 		/// </summary>
 		/// <param name="state">状态数组，保证长度为书籍数量</param>
+		/// <param name="Id">管理员Id</param>
 		/// <returns>成功/失败</returns>
-		internal bool ChangeBookState(List<BOOKSTATE> state)
+		internal bool ChangeBookState(List<BOOKSTATE> state,string Id)
 		{
 			if(state.Count != Book.Count) return false;
 			for(int i = 0;i < Book.Count;i++)
 			{
-				if(state[i] == BOOKSTATE.Invailable && book[i].Bookstate != BOOKSTATE.Borrowed)
+				if(state[i] == BOOKSTATE.Unavailable && book[i].Bookstate != BOOKSTATE.Borrowed)
 				{
 
 					if(book[i].Bookstate == BOOKSTATE.Scheduled)
@@ -844,10 +845,10 @@ namespace LibrarySystemBackEnd
 						tmp.SaveDetailInformation(ClassBackEnd.UserDetailDictory);
 
 					}
-					if(book[i].Bookstate != BOOKSTATE.Invailable)
+					if(book[i].Bookstate != BOOKSTATE.Unavailable)
 					{
-						book[i].Bookstate = BOOKSTATE.Invailable;
-						UpdateHistory(book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 5));
+						book[i].Bookstate = BOOKSTATE.Unavailable;
+						UpdateHistory(book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, Id, 5));
 					}
 
 
@@ -855,10 +856,10 @@ namespace LibrarySystemBackEnd
 			}
 			for(int i = 0;i < Book.Count;i++)
 			{
-				if(book[i].Bookstate == BOOKSTATE.Invailable && state[i] == BOOKSTATE.Available)
+				if(book[i].Bookstate == BOOKSTATE.Unavailable && state[i] == BOOKSTATE.Available)
 				{
 					book[i].Bookstate = BOOKSTATE.Available;
-					UpdateHistory(book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, ClassBackEnd.Currentadmin.Id, 6));
+					UpdateHistory(book[i].Extisbn, new ClassBookHis(ClassTime.systemTime, Id, 6));
 					InformToScheduler(i);
 				}
 				if(book[i].Bookstate == BOOKSTATE.Available)
@@ -885,7 +886,7 @@ namespace LibrarySystemBackEnd
 		{
 			foreach(ABook tmp in book)
 			{
-				if(tmp.Bookstate != BOOKSTATE.Invailable)
+				if(tmp.Bookstate != BOOKSTATE.Unavailable)
 				{
 					return false;
 				}

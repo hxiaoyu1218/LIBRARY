@@ -46,7 +46,7 @@ namespace LIBRARY
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "已借";
                 }
-                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Invailable)
+                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Unavailable)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "不可用";
                 }
