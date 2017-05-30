@@ -13,6 +13,7 @@ namespace LIBRARY
         private static int nPage=1;
         private int lastState;
         private string lastString;
+        private int flag = 1;
         private int ButtonState;// 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER 6 LABEL
 
         public BookMangeForm(AdminMainForm frm)
@@ -371,13 +372,14 @@ namespace LIBRARY
             {
                 SearchWorker.CancelAsync();
             }
+
             SearchWorker.RunWorkerAsync();
         }
 
         private void SearchWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             ClassBackEnd.SearchBook(lastState, lastString, SearchWorker);
-            System.Threading.Thread.Sleep(800);
+            //System.Threading.Thread.Sleep(800);
         }
 
         private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

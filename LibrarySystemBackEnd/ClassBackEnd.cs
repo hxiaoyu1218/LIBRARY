@@ -769,8 +769,8 @@ namespace LibrarySystemBackEnd
 
 				while(!sr.EndOfStream)
 				{
-					//if(bg.CancellationPending)
-					//	break;
+					if(bg.CancellationPending)
+						break;
 					tmp = new ClassBook(sr);
 					if(type == 1)
 					{
