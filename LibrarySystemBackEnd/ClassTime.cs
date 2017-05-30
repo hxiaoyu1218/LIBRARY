@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 namespace LibrarySystemBackEnd
 {
 	/// <summary>
-	/// 系统时间
+	/// 系统间时
 	/// </summary>
 	public static class ClassTime
 	{
 		internal static DateTime systemTime;
-		internal static int booknum = 0;
+		internal static int bookNum = 0;
 		/// <summary>
 		/// 用户到馆数量
 		/// </summary>
-		internal static int usercome = 0;
-		private static TimeSpan ts = new TimeSpan(1, 0, 0, 0);
-		private static double lendingrate;
+		internal static int userCome = 0;
+		private readonly static TimeSpan ts = new TimeSpan(1, 0, 0, 0);
+		private static double lendingRate;
 
 		/// <summary>
-		/// get属性，set属性
+		/// 系统时间
 		/// </summary>
 		public static string SystemTime
 		{
@@ -50,9 +50,9 @@ namespace LibrarySystemBackEnd
 					fs = new FileStream(ClassBackEnd.UserComingRate, FileMode.Append);
 					sw = new StreamWriter(fs);
 					sw.WriteLine(systemTime);
-					sw.WriteLine(usercome);
-					sw.WriteLine(lendingrate);
-					usercome = 0;
+					sw.WriteLine(userCome);
+					sw.WriteLine(lendingRate);
+					userCome = 0;
 
 					flag = true;
 				}
@@ -71,7 +71,7 @@ namespace LibrarySystemBackEnd
 			if(flag)
 			{
 				systemTime = systemTime + ts;
-				booknum = 0;
+				bookNum = 0;
 			}
 		}
 		internal static void ReadFromFile(StreamReader sr)
@@ -80,16 +80,16 @@ namespace LibrarySystemBackEnd
 			var b = Convert.ToInt32(sr.ReadLine());
 			var c = Convert.ToInt32(sr.ReadLine());
 			systemTime = new DateTime(a, b, c);
-			booknum = Convert.ToInt32(sr.ReadLine());
-			usercome = Convert.ToInt32(sr.ReadLine());
+			bookNum = Convert.ToInt32(sr.ReadLine());
+			userCome = Convert.ToInt32(sr.ReadLine());
 		}
 		internal static void SaveToFile(StreamWriter sw)
 		{
 			sw.WriteLine(systemTime.Year);
 			sw.WriteLine(systemTime.Month);
 			sw.WriteLine(systemTime.Day);
-			sw.WriteLine(booknum);
-			sw.WriteLine(usercome);
+			sw.WriteLine(bookNum);
+			sw.WriteLine(userCome);
 		}
 		/// <summary>
 		/// 获取下一本书的ISBN
@@ -100,20 +100,20 @@ namespace LibrarySystemBackEnd
 			var a = systemTime.Year.ToString("D4");
 			var b = systemTime.Month.ToString("D2");
 			var c = systemTime.Day.ToString("D2");
-			if(booknum > 99) return null;
-			return a + b + c + booknum.ToString("D2");
+			if(bookNum > 99) return null;
+			return a + b + c + bookNum.ToString("D2");
 		}
 		internal static void IncNum()
 		{
-			booknum++;
+			bookNum++;
 		}
 		internal static void IncUserVis()
 		{
-			usercome++;
+			userCome++;
 		}
 		internal static void ChangeLendingRate(double tmp)
 		{
-			lendingrate = tmp;
+			lendingRate = tmp;
 		}
 	}
 }

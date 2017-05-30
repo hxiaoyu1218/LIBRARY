@@ -44,7 +44,7 @@ namespace LibrarySystemBackEnd
 		/// </summary>
 		internal DateTime bsdate;
 		/// <summary>
-		/// 应还/最晚取书日期
+		/// 应还/预约日期
 		/// </summary>
 		internal DateTime rgdate;
 		/// <summary>
