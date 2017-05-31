@@ -107,7 +107,7 @@
             // 
             // MoneyBg
             // 
-            this.MoneyBg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.MoneyBg.BackColor = System.Drawing.Color.White;
             this.MoneyBg.Image = ((System.Drawing.Image)(resources.GetObject("MoneyBg.Image")));
             this.MoneyBg.Location = new System.Drawing.Point(17, 85);
             this.MoneyBg.Name = "MoneyBg";
@@ -134,7 +134,7 @@
             this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
             this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);
             // 
-            // BookAmountAddForm
+            // AdminBookAmountAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -151,7 +151,7 @@
             this.DM_howBorder = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BookAmountAddForm";
+            this.Name = "AdminBookAmountAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ChargeForm";
             this.Load += new System.EventHandler(this.ChargeForm_Load);
