@@ -48,6 +48,7 @@ namespace LIBRARY
             int v = (int)ReturnButton.Tag;
             if (v == 1)
             {
+                ClassBackEnd.ClearBookList();
                 MainPanel.Controls.Clear();
                 AdminFunctionForm adminFunctionForm = new AdminFunctionForm(this);
                 adminFunctionForm.TopLevel = false;
