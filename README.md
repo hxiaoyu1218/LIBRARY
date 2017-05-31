@@ -1,10 +1,10 @@
-## Book Management System 图书管理系统
+# Book Management System 图书管理系统
 
 本项目为北京邮电大学数据结构课程设计中图书管理系统项目
 
 项目均已实现课程设计要求的全部功能，并通过测试
 
-## Function 功能需求说明
+# Function 功能需求说明
 
 - 每种图书包括图书编号、书名、作者、出版社、简介、购入时间、数量等信息
 - 图书馆在购书时可根据图书的信息自动生成编码
@@ -20,7 +20,7 @@
 - 建立日志文件，对图书借阅情况进行记录
 - 不得使用数据库
 
-## Getting Started.使用手册
+# Getting Started.使用手册
 
 - 项目运行平台：`windows 7/8/8.1/10` （`xp`及以下版本未测试）
 - 项目开发平台：`Visual Studio 2015`
@@ -34,15 +34,15 @@
 
 
 
-## Tests 运行实例
+# Tests 运行实例
 
-![1](1.png)
+![1](https://github.com/Kou-Akira/LIBRARY/blob/master/LIBRARY/DescribeImage/1.png)
 
-![2](2.png)
+![2](https://github.com/Kou-Akira/LIBRARY/blob/master/LIBRARY/DescribeImage/2.png)
 
-![3](3.png)
+![3](https://github.com/Kou-Akira/LIBRARY/blob/master/LIBRARY/DescribeImage/3.png)
 
-## Contributors 参与者
+# Contributors 参与者
 
 - **Xiaoyu Huang**  **黄晓宇** - *Front-end Build* - [Kou-Akira](https://github.com/Kou-Akira)
 
