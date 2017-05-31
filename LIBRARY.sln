@@ -7,13 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIBRARY", "LIBRARY\LIBRARY.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySystemBackEnd", "LibrarySystemBackEnd\LibrarySystemBackEnd.csproj", "{C6368479-15B7-4803-B229-5B6281C0C56A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestImage", "TestImage", "{BBDFEC72-0811-4544-BE24-96139D664EC1}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\Misaki\Desktop\1.png = C:\Users\Misaki\Desktop\1.png
-		C:\Users\Misaki\Desktop\2.png = C:\Users\Misaki\Desktop\2.png
-		C:\Users\Misaki\Desktop\3.png = C:\Users\Misaki\Desktop\3.png
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
