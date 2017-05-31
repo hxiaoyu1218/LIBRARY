@@ -207,7 +207,7 @@ namespace LIBRARY
         {
             if (PasswordTextBox1.Text != PasswordTextBox2.Text)
             {
-                InfoBox ib = new InfoBox(10);
+                MessageBox ib = new MessageBox(10);
                 ib.ShowDialog();
                 ib.Dispose();
                 return;
@@ -218,7 +218,7 @@ namespace LIBRARY
 
             if (type == USERTYPE.Guest) 
             {
-                InfoBox ib = new InfoBox(6);
+                MessageBox ib = new MessageBox(6);
                 ib.ShowDialog();
                 ib.Dispose();
                 return;
@@ -226,26 +226,26 @@ namespace LIBRARY
             var v = ClassBackEnd.Register(IDTextBox.Text, UserTextBox.Text, PasswordTextBox1.Text, type, AcademicTextBox.Text);
             if (v == 1)//success
             {
-                InfoBox ib = new InfoBox(4);
+                MessageBox ib = new MessageBox(4);
                 ib.ShowDialog();
                 ib.Dispose();
                 Close();
             }
             else if (v == 2)//id error
             {
-                InfoBox ib = new InfoBox(7);
+                MessageBox ib = new MessageBox(7);
                 ib.ShowDialog();
                 ib.Dispose();
             }
             else if (v == 3)//username error
             {
-                InfoBox ib = new InfoBox(8);
+                MessageBox ib = new MessageBox(8);
                 ib.ShowDialog();
                 ib.Dispose();
             }
             else if (v == 4)//unknown error
             {
-                InfoBox ib = new InfoBox(9);
+                MessageBox ib = new MessageBox(9);
                 ib.ShowDialog();
                 ib.Dispose();
             }

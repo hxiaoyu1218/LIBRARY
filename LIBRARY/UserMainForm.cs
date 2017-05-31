@@ -26,7 +26,7 @@ namespace LIBRARY
         {
             TimeWorker.RunWorkerAsync();
             MainPanel.Controls.Clear();
-            SearchForm searchForm = new SearchForm(this);
+            UserSearchForm searchForm = new UserSearchForm(this);
             searchForm.TopLevel = false;
             searchForm.Dock = DockStyle.Fill;
             MainPanel.Controls.Add(searchForm);
@@ -48,7 +48,7 @@ namespace LIBRARY
                 if ((int)ReturnButton.Tag == 1)
                 {
                     MainPanel.Controls.Clear();
-                    SearchForm searchForm = new SearchForm(this);
+                    UserSearchForm searchForm = new UserSearchForm(this);
                     searchForm.TopLevel = false;
                     searchForm.Dock = DockStyle.Fill;
                     MainPanel.Controls.Add(searchForm);
@@ -58,7 +58,7 @@ namespace LIBRARY
                 else if ((int)ReturnButton.Tag == 2)
                 {
                     MainPanel.Controls.Clear();
-                    SearchResultForm searchResultForm = new SearchResultForm(this, 0, "");
+                    UserSearchResultForm searchResultForm = new UserSearchResultForm(this, 0, "");
                     searchResultForm.TopLevel = false;
                     searchResultForm.Dock = DockStyle.Fill;
                     MainPanel.Controls.Add(searchResultForm);
@@ -120,7 +120,7 @@ namespace LIBRARY
 
 		private void TitleLabel_DoubleClick(object sender, EventArgs e)
 		{
-			AboutBox abb = new AboutBox();
+			ProgramAboutBox abb = new ProgramAboutBox();
 			abb.ShowDialog();
 			abb.Dispose();
 		}

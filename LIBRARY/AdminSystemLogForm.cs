@@ -290,7 +290,7 @@ namespace LIBRARY
 			catch
 			{
 				if(JumpPTextBox.Text == "") return;
-				InfoBox infoBox = new InfoBox(13);
+				MessageBox infoBox = new MessageBox(13);
 				infoBox.ShowDialog();
 				infoBox.Dispose();
 				JumpPTextBox.Focus();

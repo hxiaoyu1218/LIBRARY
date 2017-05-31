@@ -85,7 +85,7 @@ namespace LIBRARY
                 pic.Click += new EventHandler(Pic_Click);
                 pic.MouseMove += new MouseEventHandler(Pic_MouseMove);
                 pic.MouseLeave += new EventHandler(Pic_MouseLeave);
-                pic.Image = Guest.LoadHeadImage(ClassBackEnd.UsersearchList[i - 1].Username);//image load
+                pic.Image = PublicVar.LoadHeadImage(ClassBackEnd.UsersearchList[i - 1].Username);//image load
 
                 Label lab = new Label();
                 lab.AutoSize = true;
@@ -301,7 +301,7 @@ namespace LIBRARY
             catch
             {
                 if (JumpPTextBox.Text == "") return;
-                InfoBox infoBox = new InfoBox(13);
+                MessageBox infoBox = new MessageBox(13);
                 infoBox.ShowDialog();
                 infoBox.Dispose();
                 JumpPTextBox.Focus();

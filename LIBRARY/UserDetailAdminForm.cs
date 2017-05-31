@@ -111,7 +111,7 @@ namespace LIBRARY
 
         private void PwdChangedLinkButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PasswordChangeForm passwordChangeForm = new PasswordChangeForm();
+            PasswordResetForm passwordChangeForm = new PasswordResetForm();
             passwordChangeForm.ShowDialog();
             passwordChangeForm.Dispose();
         }
@@ -122,7 +122,7 @@ namespace LIBRARY
             {
 				if(ClassBackEnd.BorrowHistoryIDown(e.RowIndex) == 2)
 				{
-					InfoBox infobox = new InfoBox(25);
+					MessageBox infobox = new MessageBox(25);
 					infobox.ShowDialog();
 					infobox.Dispose();
 				}
@@ -130,7 +130,7 @@ namespace LIBRARY
 				{
 					frmMain.MainPanel.Controls.Clear();
 
-					BookDetailAdminForm bookDetailAdminForm = new BookDetailAdminForm(frmMain, 0);
+					AdminBookDetailForm bookDetailAdminForm = new AdminBookDetailForm(frmMain, 0);
 					bookDetailAdminForm.TopLevel = false;
 					bookDetailAdminForm.Dock = DockStyle.Fill;
 					frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
@@ -160,7 +160,7 @@ namespace LIBRARY
 
         private void CreditLinkText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ChargeForm chargeForm = new ChargeForm();
+            CreditChargeForm chargeForm = new CreditChargeForm();
             chargeForm.ShowDialog();
             chargeForm.Dispose();
             UserInfoLoad();

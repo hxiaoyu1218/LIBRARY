@@ -254,7 +254,7 @@ namespace LIBRARY
 
         private void ChargeButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ChargeForm chargeForm = new ChargeForm();
+            CreditChargeForm chargeForm = new CreditChargeForm();
             chargeForm.ShowDialog();
             chargeForm.Dispose();
             UserInfoLoad();
@@ -263,7 +263,7 @@ namespace LIBRARY
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PasswordChangeForm passwordChangeForm = new PasswordChangeForm();
+            PasswordResetForm passwordChangeForm = new PasswordResetForm();
             passwordChangeForm.ShowDialog();
             passwordChangeForm.Dispose();
         }
@@ -275,14 +275,14 @@ namespace LIBRARY
                 
                 if(ClassBackEnd.BorrowHistoryIDown(e.RowIndex)==2)
 				{
-					InfoBox infobox = new InfoBox(25);
+					MessageBox infobox = new MessageBox(25);
 					infobox.ShowDialog();
 					infobox.Dispose();
 				}
 				else
 				{
 					frmMain.MainPanel.Controls.Clear();
-					BookDetailForm bookDetailForm = new BookDetailForm(frmMain, 0);
+					UserBookDetailForm bookDetailForm = new UserBookDetailForm(frmMain, 0);
 					bookDetailForm.TopLevel = false;
 					bookDetailForm.Dock = DockStyle.Fill;
 					frmMain.MainPanel.Controls.Add(bookDetailForm);
@@ -302,7 +302,7 @@ namespace LIBRARY
 
                     ClassBackEnd.BorrowedBookIDown(e.RowIndex);
 
-                    ReturnForm returnForm = new ReturnForm(e.RowIndex);
+                    UserReturnForm returnForm = new UserReturnForm(e.RowIndex);
                     returnForm.ShowDialog();
                     returnForm.Dispose();
 
@@ -313,7 +313,7 @@ namespace LIBRARY
                 else
                 {
                     ClassBackEnd.CancelScheduleBook(e.RowIndex);
-                    InfoBox ib = new InfoBox(21);
+                    MessageBox ib = new MessageBox(21);
                     ib.ShowDialog();
                     ib.Dispose();
 

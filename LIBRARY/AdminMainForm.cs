@@ -130,7 +130,7 @@ namespace LIBRARY
 
 		private void TitleLabel_DoubleClick(object sender, EventArgs e)
 		{
-			AboutBox abb = new AboutBox();
+			ProgramAboutBox abb = new ProgramAboutBox();
 			abb.ShowDialog();
 			abb.Dispose();
 		}

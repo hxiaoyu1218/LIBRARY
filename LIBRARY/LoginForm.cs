@@ -156,7 +156,7 @@ namespace LIBRARY
             }
             else if (v == 0)
             {
-                InfoBox ib = new InfoBox(5);
+                MessageBox ib = new MessageBox(5);
                 ib.ShowDialog();
                 ib.Dispose();
             }
@@ -173,7 +173,7 @@ namespace LIBRARY
         private void GuestLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Tag = 1;
-            Guest.GuestFlag = 1;
+            PublicVar.GuestFlag = 1;
             Close();
         }
         private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -235,7 +235,7 @@ namespace LIBRARY
 
 		private void PasswordForgetLink_Click(object sender, EventArgs e)
 		{
-			InfoBox infoBox = new InfoBox(27);
+			MessageBox infoBox = new MessageBox(27);
 			infoBox.ShowDialog();
 			infoBox.Dispose();
 		}
