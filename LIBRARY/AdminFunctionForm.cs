@@ -80,7 +80,7 @@ namespace LIBRARY
         private void BookManageButton_Click(object sender, EventArgs e)
         {
             frmMain.MainPanel.Controls.Clear();
-            BookMangeForm bookManageForm = new BookMangeForm(frmMain);
+            AdminBookManageForm bookManageForm = new AdminBookManageForm(frmMain);
             bookManageForm.TopLevel = false;
             bookManageForm.Dock = DockStyle.Fill;
             frmMain. MainPanel.Controls.Add(bookManageForm);
