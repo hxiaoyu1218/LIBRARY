@@ -173,6 +173,7 @@
             this.Controls.Add(this.BgImage);
             this.DM_CanResize = false;
             this.DM_howBorder = false;
+            this.DM_ShadowWidth = 6;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CreditRecordForm";

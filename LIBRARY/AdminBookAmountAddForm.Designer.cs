@@ -149,6 +149,7 @@
             this.Controls.Add(this.TitleLabel);
             this.DM_CanResize = false;
             this.DM_howBorder = false;
+            this.DM_ShadowWidth = 6;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminBookAmountAddForm";

@@ -498,7 +498,7 @@
             this.LabelBackground.TabIndex = 41;
             this.LabelBackground.TabStop = false;
             // 
-            // BookMangeForm
+            // AdminBookManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -533,7 +533,8 @@
             this.DM_howBorder = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
-            this.Name = "BookMangeForm";
+            this.DM_ShadowWidth = 6;
+            this.Name = "AdminBookManageForm";
             this.Text = "SearchResultForm";
             this.Load += new System.EventHandler(this.BookManageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DividerLine)).EndInit();

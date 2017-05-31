@@ -376,7 +376,7 @@
             this.Controls.Add(this.ShutDownButton);
             this.Controls.Add(this.WhiteBg);
             this.DM_howBorder = false;
-            this.DM_ShadowWidth = 5;
+            this.DM_ShadowWidth = 6;
             this.Name = "RegistForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

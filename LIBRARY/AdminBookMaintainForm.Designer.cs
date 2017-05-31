@@ -35,6 +35,7 @@
             this.OKButton = new DMSkin.Controls.DM.DMButtonImage();
             this.DelButton = new DMSkin.Controls.DM.DMButtonImage();
             this.BgImage = new System.Windows.Forms.PictureBox();
+            this.AllCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,12 +124,27 @@
             this.BgImage.TabIndex = 0;
             this.BgImage.TabStop = false;
             // 
-            // BookMaintainForm
+            // AllCheckBox
+            // 
+            this.AllCheckBox.AutoSize = true;
+            this.AllCheckBox.BackColor = System.Drawing.Color.White;
+            this.AllCheckBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AllCheckBox.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AllCheckBox.Location = new System.Drawing.Point(370, 376);
+            this.AllCheckBox.Name = "AllCheckBox";
+            this.AllCheckBox.Size = new System.Drawing.Size(61, 25);
+            this.AllCheckBox.TabIndex = 56;
+            this.AllCheckBox.Text = "全选";
+            this.AllCheckBox.UseVisualStyleBackColor = false;
+            this.AllCheckBox.Click += new System.EventHandler(this.AllCheckBox_Click);
+            // 
+            // AdminBookMaintainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(450, 500);
+            this.Controls.Add(this.AllCheckBox);
             this.Controls.Add(this.DelButton);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.CheckBoxPanel);
@@ -139,7 +155,7 @@
             this.DM_howBorder = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BookMaintainForm";
+            this.Name = "AdminBookMaintainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReturnForm";
             this.Load += new System.EventHandler(this.BookMaintainForm_Load);
@@ -156,5 +172,6 @@
         private DMSkin.Controls.DM.DMButtonImage OKButton;
         private DMSkin.Controls.DM.DMButtonImage DelButton;
         private System.Windows.Forms.PictureBox BgImage;
+        private System.Windows.Forms.CheckBox AllCheckBox;
     }
 }

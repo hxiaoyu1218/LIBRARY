@@ -141,7 +141,7 @@
             this.UserPanel.Size = new System.Drawing.Size(1000, 541);
             this.UserPanel.TabIndex = 76;
             // 
-            // UserManageForm
+            // AdminUserManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,8 @@
             this.DM_howBorder = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
-            this.Name = "UserManageForm";
+            this.DM_ShadowWidth = 6;
+            this.Name = "AdminUserManageForm";
             this.Text = "SearchResultForm";
             this.Load += new System.EventHandler(this.UserManageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).EndInit();

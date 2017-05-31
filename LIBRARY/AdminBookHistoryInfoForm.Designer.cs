@@ -176,7 +176,7 @@
             this.OperatorId.ReadOnly = true;
             this.OperatorId.Width = 150;
             // 
-            // BookHistoryInfoForm
+            // AdminBookHistoryInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,9 +188,10 @@
             this.Controls.Add(this.BgImage);
             this.DM_CanResize = false;
             this.DM_howBorder = false;
+            this.DM_ShadowWidth = 6;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BookHistoryInfoForm";
+            this.Name = "AdminBookHistoryInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReturnForm";
             this.Load += new System.EventHandler(this.BookHistoryInfoForm_Load);

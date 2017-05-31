@@ -53,13 +53,13 @@ namespace LIBRARY
         }
         private void DelButton_Check()
         {
-            int flag=0;
-			foreach(BOOKSTATE c in list)
-			{
-				if(c != BOOKSTATE.Unavailable)
-					flag = 1;
-			}
-			foreach (Control c in CheckBoxPanel.Controls)
+            int flag = 0;
+            foreach (BOOKSTATE c in list)
+            {
+                if (c != BOOKSTATE.Unavailable)
+                    flag = 1;
+            }
+            foreach (Control c in CheckBoxPanel.Controls)
             {
                 CheckBox ct = c as CheckBox;
                 if (!ct.Checked)
@@ -93,8 +93,12 @@ namespace LIBRARY
         }
         private void BookMaintainForm_Load(object sender, EventArgs e)
         {
-			list.Clear();
+            list.Clear();
             ClassBackEnd.GetBookState(ref list);
+            if (list.Count == 0)
+            {
+                AllCheckBox.Hide();
+            }
 
             CheckBox_Load();
             DelButton_Check();
@@ -127,45 +131,64 @@ namespace LIBRARY
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-			foreach(Control ctr in CheckBoxPanel.Controls)
-			{
-				CheckBox cbo = ctr as CheckBox;
-				if(cbo.Checked)
-				{
-					list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Unavailable;
-				}
-				else if(list[Convert.ToInt32(cbo.Name)]==BOOKSTATE.Unavailable)
-				{
-					list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Available;
-				}
-			}
+            foreach (Control ctr in CheckBoxPanel.Controls)
+            {
+                CheckBox cbo = ctr as CheckBox;
+                if (cbo.Checked)
+                {
+                    list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Unavailable;
+                }
+                else if (list[Convert.ToInt32(cbo.Name)] == BOOKSTATE.Unavailable)
+                {
+                    list[Convert.ToInt32(cbo.Name)] = BOOKSTATE.Available;
+                }
+            }
             ClassBackEnd.MaintainBook(list);
             Close();
         }
 
 
-		private void DelButton_Click(object sender, EventArgs e)
+        private void DelButton_Click(object sender, EventArgs e)
         {
-			string pic = null;
-			if(ClassBackEnd.DeleteBook(ref pic))
-			{
-				if(pic!=null)
-				{
-					PublicVar.Delpic = pic;
-				}
-				MessageBox infobox = new MessageBox(23);
-				infobox.ShowDialog();
-				infobox.Dispose();
-				Close();
-			}
-			else
-			{
-				MessageBox infobox = new MessageBox(24);
-				infobox.ShowDialog();
-				infobox.Dispose();
-			}
+            string pic = null;
+            if (ClassBackEnd.DeleteBook(ref pic))
+            {
+                if (pic != null)
+                {
+                    PublicVar.Delpic = pic;
+                }
+                MessageBox infobox = new MessageBox(23);
+                infobox.ShowDialog();
+                infobox.Dispose();
+                Close();
+            }
+            else
+            {
+                MessageBox infobox = new MessageBox(24);
+                infobox.ShowDialog();
+                infobox.Dispose();
+            }
         }
 
-		
-	}
+        private void AllCheckBox_Click(object sender, EventArgs e)
+        {
+            if (AllCheckBox.Checked == false)
+            {
+                foreach (Control ctr in CheckBoxPanel.Controls)
+                {
+                    CheckBox cbo = ctr as CheckBox;
+                    cbo.Checked = false;
+                }
+            }
+            else
+            {
+                foreach (Control ctr in CheckBoxPanel.Controls)
+                {
+                    CheckBox cbo = ctr as CheckBox;
+                    cbo.Checked = true;
+                }
+            }
+            DelButton_Check();
+        }
+    }
 }
