@@ -68,7 +68,7 @@ namespace LIBRARY
             else if (v == 3)
             {
                 MainPanel.Controls.Clear();
-                UserManageForm userManageForm = new UserManageForm(this);
+                AdminUserManageForm userManageForm = new AdminUserManageForm(this);
                 userManageForm.TopLevel = false;
                 userManageForm.Dock = DockStyle.Fill;
                 MainPanel.Controls.Add(userManageForm);

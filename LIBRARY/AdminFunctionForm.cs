@@ -90,7 +90,7 @@ namespace LIBRARY
         private void UserManageButton_Click(object sender, EventArgs e)
         {
             frmMain.MainPanel.Controls.Clear();
-            UserManageForm userManageForm = new UserManageForm(frmMain);
+            AdminUserManageForm userManageForm = new AdminUserManageForm(frmMain);
             userManageForm.TopLevel = false;
             userManageForm.Dock = DockStyle.Fill;
             frmMain.MainPanel.Controls.Add(userManageForm);

@@ -6,13 +6,13 @@ using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
-    public partial class UserManageForm : DMSkin.Main
+    public partial class AdminUserManageForm : DMSkin.Main
     {
         private AdminMainForm frmMain;
         private static int maxPage;
         private static int nPage = 1;
 
-        public UserManageForm(AdminMainForm frm)
+        public AdminUserManageForm(AdminMainForm frm)
         {
             frmMain = frm;
             InitializeComponent();
