@@ -184,7 +184,7 @@ namespace LIBRARY
             string LabName = c.Name.Substring(1);
             int LabID = Convert.ToInt32(LabName);
             frmMain.MainPanel.Controls.Clear();
-            UserDetailAdminForm userDetailAdminForm = new UserDetailAdminForm(frmMain, LabID);
+            AdminUserDetailForm userDetailAdminForm = new AdminUserDetailForm(frmMain, LabID);
             userDetailAdminForm.TopLevel = false;
             userDetailAdminForm.Dock = DockStyle.Fill;
             frmMain.MainPanel.Controls.Add(userDetailAdminForm);
@@ -196,7 +196,7 @@ namespace LIBRARY
             int PicID = Convert.ToInt32(p.Name);
             //to do
             frmMain.MainPanel.Controls.Clear();
-            UserDetailAdminForm userDetailAdminForm = new UserDetailAdminForm(frmMain, PicID);
+            AdminUserDetailForm userDetailAdminForm = new AdminUserDetailForm(frmMain, PicID);
             userDetailAdminForm.TopLevel = false;
             userDetailAdminForm.Dock = DockStyle.Fill;
             frmMain.MainPanel.Controls.Add(userDetailAdminForm);

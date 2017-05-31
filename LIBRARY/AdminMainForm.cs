@@ -77,7 +77,7 @@ namespace LIBRARY
             else if (v == 4)
             {
                 MainPanel.Controls.Clear();
-                UserDetailAdminForm userDetailAdminForm = new UserDetailAdminForm(this, UserDetailAdminForm.UserIndex);
+                AdminUserDetailForm userDetailAdminForm = new AdminUserDetailForm(this, AdminUserDetailForm.UserIndex);
                 userDetailAdminForm.TopLevel = false;
                 userDetailAdminForm.Dock = DockStyle.Fill;
                 MainPanel.Controls.Add(userDetailAdminForm);

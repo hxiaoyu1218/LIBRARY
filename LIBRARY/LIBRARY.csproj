@@ -170,11 +170,11 @@
       <DependentUpon>AdminBookManageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TimeWork.cs" />
-    <Compile Include="UserDetailAdminForm.cs">
+    <Compile Include="AdminUserDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserDetailAdminForm.Designer.cs">
-      <DependentUpon>UserDetailAdminForm.cs</DependentUpon>
+    <Compile Include="AdminUserDetailForm.Designer.cs">
+      <DependentUpon>AdminUserDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserMainForm.cs">
       <SubType>Form</SubType>
@@ -280,8 +280,8 @@
     <EmbeddedResource Include="AdminBookManageForm.resx">
       <DependentUpon>AdminBookManageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserDetailAdminForm.resx">
-      <DependentUpon>UserDetailAdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminUserDetailForm.resx">
+      <DependentUpon>AdminUserDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>

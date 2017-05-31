@@ -1,6 +1,6 @@
 ﻿namespace LIBRARY
 {
-    partial class UserDetailAdminForm
+    partial class AdminUserDetailForm
     {
         /// <summary>
         /// Required designer variable.

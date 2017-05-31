@@ -12,11 +12,11 @@ using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
-    public partial class UserDetailAdminForm : DMSkin.Main
+    public partial class AdminUserDetailForm : DMSkin.Main
     {
         private AdminMainForm frmMain;
         public static int UserIndex;
-        public UserDetailAdminForm(AdminMainForm frm, int index)
+        public AdminUserDetailForm(AdminMainForm frm, int index)
         {
             frmMain = frm;
             UserIndex = index;
