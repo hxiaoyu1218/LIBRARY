@@ -95,7 +95,7 @@ namespace LIBRARY
                     TimeWork.GetLastInputTime();
                     myworker.ReportProgress(1, ClassTime.SystemTime);
                 }
-                System.Threading.Thread.Sleep(5000);
+               System.Threading.Thread.Sleep(1000);
             }
         }
 
