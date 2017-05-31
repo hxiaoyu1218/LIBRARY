@@ -95,11 +95,6 @@ namespace LIBRARY
         {
             list.Clear();
             ClassBackEnd.GetBookState(ref list);
-            if (list.Count == 0)
-            {
-                AllCheckBox.Hide();
-            }
-
             CheckBox_Load();
             DelButton_Check();
         }
