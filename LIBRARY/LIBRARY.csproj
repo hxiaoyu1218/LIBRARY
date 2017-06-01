@@ -51,6 +51,9 @@
   <PropertyGroup>
     <ApplicationIcon>icons.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>未命名-2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DMSkin, Version=0.3.1.6, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -465,6 +468,7 @@
     <Content Include="DescribeImage\3.png" />
     <Content Include="icons.ico" />
     <Content Include="Resources\C.png" />
+    <Content Include="未命名-2.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -20,7 +20,7 @@
 - 建立日志文件，对图书借阅情况进行记录
 - 不得使用数据库
 
-# Getting Started.使用手册
+# Getting Started 使用手册
 
 - 项目运行平台：`windows 7/8/8.1/10` （`xp`及以下版本未测试）
 - 项目开发平台：`Visual Studio 2015`
