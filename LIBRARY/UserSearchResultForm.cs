@@ -54,7 +54,7 @@ namespace LIBRARY
 
             if ((bool)Tag == true)
             {
-                SearchWorker.RunWorkerAsync();
+                //SearchWorker.RunWorkerAsync();
             }
             else
             {
@@ -339,23 +339,30 @@ namespace LIBRARY
             while (SearchWorker.IsBusy)
             {
                 SearchWorker.CancelAsync();
+				System.Threading.Thread.Sleep(1000);
+				break;
             }
-            SearchWorker.RunWorkerAsync();
+			SearchWorker.RunWorkerAsync();
         }
 
         private void SearchWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker);
+			ClassBackEnd.SearchBook(lastState, lastString, SearchWorker, e);
+		
         }
 
         private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (ClassBackEnd.Book.Count <= 10) maxPage = 1;
-            else maxPage = ClassBackEnd.Book.Count / 10 + 1;
-            PageTextBox.Text = maxPage.ToString();
-            JumpPTextBox.Text = "1";
-            nPage = 1;
-            DataSheetLoad(1);
+			if(e.Cancelled==false)
+			{
+				if(ClassBackEnd.Book.Count <= 10) maxPage = 1;
+				else maxPage = ClassBackEnd.Book.Count / 10 + 1;
+				PageTextBox.Text = maxPage.ToString();
+				JumpPTextBox.Text = "1";
+				nPage = 1;
+				DataSheetLoad(1);
+			}
+            
         }
 
         private void LastPButton_Click(object sender, EventArgs e)
