@@ -752,7 +752,7 @@ namespace LibrarySystemBackEnd
         /// <param name="searchInfo">检索关键词</param>
         /// <param name="bg">控件</param>
         /// <returns></returns>
-        public static bool SearchBook(int type, string searchInfo, BackgroundWorker bg)
+        public static bool SearchBook(int type, string searchInfo, BackgroundWorker bg,DoWorkEventArgs e)
         {
             Currentbook = null;
             Book.Clear();
@@ -770,7 +770,11 @@ namespace LibrarySystemBackEnd
                 while (!sr.EndOfStream)
                 {
                     if (bg.CancellationPending)
-                        break;
+					{
+						e.Cancel = true;
+						break;
+					}
+                        
                     tmp = new ClassBook(sr);
                     if (type == 1)
                     {
@@ -805,7 +809,7 @@ namespace LibrarySystemBackEnd
                     tmp = null;
                 }
             }
-            catch (Exception e) { return false; }
+            catch  { return false; }
             finally
             {
                 if (sr != null) sr.Close();

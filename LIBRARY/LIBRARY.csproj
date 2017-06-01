@@ -46,6 +46,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>未命名-2.ico</ApplicationIcon>
@@ -462,6 +466,7 @@
     <Content Include="DescribeImage\1.png" />
     <Content Include="DescribeImage\2.png" />
     <Content Include="DescribeImage\3.png" />
+    <Content Include="icons.ico" />
     <Content Include="Resources\C.png" />
     <Content Include="未命名-2.ico" />
   </ItemGroup>

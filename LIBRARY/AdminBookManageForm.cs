@@ -378,7 +378,7 @@ namespace LIBRARY
 
         private void SearchWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker);
+            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker,e);
             //System.Threading.Thread.Sleep(800);
         }
 
