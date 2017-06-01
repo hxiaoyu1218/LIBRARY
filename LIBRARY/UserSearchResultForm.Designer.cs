@@ -466,7 +466,7 @@
             this.LabelBackground.TabIndex = 37;
             this.LabelBackground.TabStop = false;
             // 
-            // SearchResultForm
+            // UserSearchResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -499,7 +499,8 @@
             this.DM_howBorder = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
-            this.Name = "SearchResultForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "UserSearchResultForm";
             this.Text = "SearchResultForm";
             this.Load += new System.EventHandler(this.SearchResultForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AllBackground)).EndInit();

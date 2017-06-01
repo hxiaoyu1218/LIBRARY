@@ -136,7 +136,7 @@ namespace LIBRARY
             this.RemindLabel.TabIndex = 0;
             this.RemindLabel.Text = "这里空空的。。。快去借点书吧";
             // 
-            // BookReturnForm
+            // UserBookReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,9 +153,10 @@ namespace LIBRARY
             this.DM_CanResize = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BookReturnForm";
+            this.Name = "UserBookReturnForm";
             this.Text = "BookReturnForm";
             this.Load += new System.EventHandler(this.BookReturnForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).EndInit();

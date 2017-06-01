@@ -330,7 +330,7 @@
             this.BigTitlePictureBox.TabIndex = 16;
             this.BigTitlePictureBox.TabStop = false;
             // 
-            // SearchForm
+            // UserSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -344,9 +344,10 @@
             this.DM_CanResize = false;
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SearchForm";
+            this.Name = "UserSearchForm";
             this.Text = "SearchForm";
             this.Load += new System.EventHandler(this.SearchForm_Load);
             this.SearchPanel.ResumeLayout(false);

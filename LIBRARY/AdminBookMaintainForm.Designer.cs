@@ -153,6 +153,7 @@
             this.Controls.Add(this.BgImage);
             this.DM_CanResize = false;
             this.DM_howBorder = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminBookMaintainForm";

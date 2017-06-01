@@ -189,6 +189,7 @@
             this.UserChangeButton.Name = "UserChangeButton";
             this.UserChangeButton.Size = new System.Drawing.Size(98, 22);
             this.UserChangeButton.TabIndex = 21;
+            this.UserChangeButton.TabStop = true;
             this.UserChangeButton.Text = "切换用户";
             this.UserChangeButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UserChangeButton_LinkClicked);
             // 
@@ -203,6 +204,7 @@
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(88, 25);
             this.linkLabel1.TabIndex = 22;
+            this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "修改密码";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -217,6 +219,7 @@
             this.BookInfoButton.Name = "BookInfoButton";
             this.BookInfoButton.Size = new System.Drawing.Size(88, 25);
             this.BookInfoButton.TabIndex = 24;
+            this.BookInfoButton.TabStop = true;
             this.BookInfoButton.Text = "借阅记录";
             this.BookInfoButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BookInfoButton_LinkClicked);
             // 
@@ -572,6 +575,7 @@
             this.CreditRecordButton.Name = "CreditRecordButton";
             this.CreditRecordButton.Size = new System.Drawing.Size(74, 21);
             this.CreditRecordButton.TabIndex = 36;
+            this.CreditRecordButton.TabStop = true;
             this.CreditRecordButton.Text = "不良记录";
             this.CreditRecordButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreditRecordButton_LinkClicked);
             // 
@@ -610,6 +614,7 @@
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UserForm";

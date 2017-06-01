@@ -534,6 +534,7 @@
             this.DM_Mobile = DMSkin.MobileStyle.None;
             this.DM_Shadow = false;
             this.DM_ShadowWidth = 6;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminBookManageForm";
             this.Text = "SearchResultForm";
             this.Load += new System.EventHandler(this.BookManageForm_Load);

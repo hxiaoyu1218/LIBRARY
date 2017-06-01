@@ -176,6 +176,7 @@
             this.DM_CanResize = false;
             this.DM_howBorder = false;
             this.DM_ShadowWidth = 6;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CreditChargeForm";

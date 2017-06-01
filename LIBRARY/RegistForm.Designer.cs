@@ -377,6 +377,7 @@
             this.Controls.Add(this.WhiteBg);
             this.DM_howBorder = false;
             this.DM_ShadowWidth = 6;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

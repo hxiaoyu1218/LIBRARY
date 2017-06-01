@@ -280,7 +280,7 @@
             this.RemindLabel.Text = "还书逾期1天扣1点信用\r\n距应还日期5日以内可以续借\r\n1次延长15天，1本书只能续借1次";
             this.RemindLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // ReturnForm
+            // UserReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -306,9 +306,10 @@
             this.Controls.Add(this.BgImage);
             this.DM_CanResize = false;
             this.DM_howBorder = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ReturnForm";
+            this.Name = "UserReturnForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReturnForm";
             this.Load += new System.EventHandler(this.ReturnForm_Load);
