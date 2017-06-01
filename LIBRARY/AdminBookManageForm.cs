@@ -10,7 +10,7 @@ namespace LIBRARY
     {
         private AdminMainForm frmMain;
         private static int maxPage;
-        private static int nPage=1;
+        private static int nPage = 1;
         private int lastState;
         private string lastString;
         private int flag = 1;
@@ -355,6 +355,7 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            int runFlag = 1;
             if (SearchBox.Text == "")
             {
                 ClassBackEnd.Book.Clear();
@@ -368,28 +369,35 @@ namespace LIBRARY
             lastState = ButtonState;
             lastString = SearchBox.Text;
             LoadGIFBox.Show();
-            while (SearchWorker.IsBusy)
+            if (SearchWorker.IsBusy)
             {
+                runFlag = 0;
                 SearchWorker.CancelAsync();
             }
-
-            SearchWorker.RunWorkerAsync();
+            if (runFlag != 0)
+                SearchWorker.RunWorkerAsync();
         }
 
         private void SearchWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker,e);
-            //System.Threading.Thread.Sleep(800);
+            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker, e);
         }
 
         private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (ClassBackEnd.Book.Count <= 10) maxPage = 1;
-            else maxPage = ClassBackEnd.Book.Count / 10 + 1;
-            PageTextBox.Text = maxPage.ToString();
-            JumpPTextBox.Text = "1";
-            nPage = 1;
-            DataSheetLoad(1);
+            if (e.Cancelled == false)
+            {
+                if (ClassBackEnd.Book.Count <= 10) maxPage = 1;
+                else maxPage = ClassBackEnd.Book.Count / 10 + 1;
+                PageTextBox.Text = maxPage.ToString();
+                JumpPTextBox.Text = "1";
+                nPage = 1;
+                DataSheetLoad(1);
+            }
+            else
+            {
+                SearchWorker.RunWorkerAsync();
+            }
         }
 
         private void LastPButton_Click(object sender, EventArgs e)
