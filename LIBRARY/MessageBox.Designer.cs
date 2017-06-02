@@ -100,7 +100,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "InfoBox";
+            this.Text = "提示";
             this.Load += new System.EventHandler(this.InfoBox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.InfoBg)).EndInit();
             this.ResumeLayout(false);

@@ -154,8 +154,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminBookAmountAddForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ChargeForm";
             this.Load += new System.EventHandler(this.ChargeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MoneyBg)).EndInit();

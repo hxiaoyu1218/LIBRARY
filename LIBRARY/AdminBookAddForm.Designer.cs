@@ -523,6 +523,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminBookAddForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReturnForm";
             this.Load += new System.EventHandler(this.AddBookForm_Load);

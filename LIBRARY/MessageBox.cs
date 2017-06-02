@@ -81,7 +81,7 @@ namespace LIBRARY
             }
             else if (textType == 10)
             {
-                TextBox.Text = "两次输入的密码不同，请重试!";
+                TextBox.Text = "请更正注册信息!";
             }
             else if (textType == 11)
             {

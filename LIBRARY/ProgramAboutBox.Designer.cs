@@ -102,7 +102,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProgramAboutBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "InfoBox";
+            this.Text = "About Author";
             this.Load += new System.EventHandler(this.InfoBox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AboutBg)).EndInit();
             this.ResumeLayout(false);

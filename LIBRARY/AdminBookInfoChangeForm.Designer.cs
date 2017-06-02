@@ -123,8 +123,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminBookInfoChangeForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ReturnForm";
             this.Load += new System.EventHandler(this.BookInfoChangeForm_Loaf);
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).EndInit();
             this.ResumeLayout(false);

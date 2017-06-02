@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
+using System.Text.RegularExpressions;
 
 namespace LIBRARY
 {
@@ -23,6 +24,18 @@ namespace LIBRARY
         private void RegistForm_Load(object sender, EventArgs e)
         {
             loginfrm.Hide();
+        }
+
+        private bool IsSchoolID(string input)
+        {
+            Regex regex = new Regex("^\\d{10}$");
+            return regex.IsMatch(input);
+        }
+        private bool IsNumAndEnCh(string input)
+        {
+            string pattern = @"^[A-Za-z0-9]{6,12}$";
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(input);
         }
 
         private void ShutDownButton_Click(object sender, EventArgs e)
@@ -78,7 +91,19 @@ namespace LIBRARY
             if (PasswordTextBox1.Text.Trim() == "")
                 PasswordCueText1.Show();
             else
-                PasswordCueText1.Hide();
+            {
+                if (IsNumAndEnCh(PasswordTextBox1.Text) == false)
+                {
+                    PWD1AlertLabel.Show();
+                }
+                else
+                {
+                    PWD1AlertLabel.Hide();
+                    PasswordCueText1.Hide();
+
+                }
+            }
+
         }
 
         private void PasswordTextBox2_Enter(object sender, EventArgs e)
@@ -94,7 +119,18 @@ namespace LIBRARY
             if (PasswordTextBox2.Text.Trim() == "")
                 PasswordCueText2.Show();
             else
-                PasswordCueText2.Hide();
+            {
+                if (PasswordTextBox1.Text != PasswordTextBox2.Text)
+                {
+                    PWD2AlertLabel.Show();
+                }
+                else
+                {
+                    PasswordCueText2.Hide();
+                    PWD2AlertLabel.Hide();
+                }
+            }
+
         }
 
         private void PasswordCueText1_Click(object sender, EventArgs e)
@@ -146,7 +182,19 @@ namespace LIBRARY
             if (IDTextBox.Text.Trim() == "")
                 IDCueText.Show();
             else
-                IDCueText.Hide();
+            {
+                if (IsSchoolID(IDTextBox.Text) == false)
+                {
+                    IDAlertLabel.Show();
+                }
+                else
+                {
+                    IDAlertLabel.Hide();
+                    IDCueText.Hide();
+                }
+
+            }
+
         }
 
         private void AcademicCueText_Click(object sender, EventArgs e)
@@ -205,7 +253,7 @@ namespace LIBRARY
 
         private void RegistButton_Click(object sender, EventArgs e)
         {
-            if (PasswordTextBox1.Text != PasswordTextBox2.Text)
+            if (IDAlertLabel.Visible == true || PWD1AlertLabel.Visible == true || PWD2AlertLabel.Visible == true)
             {
                 MessageBox ib = new MessageBox(10);
                 ib.ShowDialog();
@@ -216,7 +264,7 @@ namespace LIBRARY
             if (StudentCheckBox.Checked == true) type = USERTYPE.Student;
             else if (TeacherCheckBox.Checked == true) type = USERTYPE.Lecturer;
 
-            if (type == USERTYPE.Guest) 
+            if (type == USERTYPE.Guest)
             {
                 MessageBox ib = new MessageBox(6);
                 ib.ShowDialog();

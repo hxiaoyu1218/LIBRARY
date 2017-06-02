@@ -239,8 +239,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PasswordResetForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PasswordChangeForm";
             this.Load += new System.EventHandler(this.PasswordChangeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OPasswordBg)).EndInit();

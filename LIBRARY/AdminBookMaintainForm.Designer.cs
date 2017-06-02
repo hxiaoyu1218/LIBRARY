@@ -157,8 +157,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminBookMaintainForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ReturnForm";
             this.Load += new System.EventHandler(this.BookMaintainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).EndInit();
             this.ResumeLayout(false);
