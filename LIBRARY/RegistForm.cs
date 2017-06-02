@@ -95,9 +95,21 @@ namespace LIBRARY
                 if (IsNumAndEnCh(PasswordTextBox1.Text) == false)
                 {
                     PWD1AlertLabel.Show();
+                    if (PasswordTextBox1.Text != PasswordTextBox2.Text && PasswordTextBox2.Text != "" && PWD2AlertLabel.Visible == false)
+                    {
+                        PWD2AlertLabel.Show();
+                    }
                 }
                 else
                 {
+                    if (PasswordTextBox1.Text == PasswordTextBox2.Text && PWD2AlertLabel.Visible == true)
+                    {
+                        PWD2AlertLabel.Hide();
+                    }
+                    else if (PasswordTextBox1.Text != PasswordTextBox2.Text && PasswordTextBox2.Text != "" && PWD2AlertLabel.Visible == false)
+                    {
+                        PWD2AlertLabel.Show();
+                    }
                     PWD1AlertLabel.Hide();
                     PasswordCueText1.Hide();
 
