@@ -174,7 +174,7 @@
             this.MinimizeBox = false;
             this.Name = "AdminMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminMainForm";
+            this.Text = "BMS 图书管理系统";
             this.Load += new System.EventHandler(this.AdminMainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
