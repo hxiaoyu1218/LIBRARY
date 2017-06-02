@@ -28,15 +28,15 @@ namespace LIBRARY
                 int index = CreditRecordSheet.Rows.Add(row);
                 CreditRecordSheet.Rows[i].Cells[0].Value = (i + 1).ToString();
                 CreditRecordSheet.Rows[i].Cells[1].Value = list[i];
-                CreditRecordSheet.Rows[index].Height = 48;
+                CreditRecordSheet.Rows[index].Height = 68;
             }
-            while (i < 11)
+            while (i < 8)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = CreditRecordSheet.Rows.Add(row);
                 CreditRecordSheet.Rows[i].Cells[0].Value = "";
                 CreditRecordSheet.Rows[i].Cells[1].Value = "";
-                CreditRecordSheet.Rows[index].Height = 48;
+                CreditRecordSheet.Rows[index].Height = 68;
                 i++;
             }
             CreditRecordSheet.ClearSelection();
