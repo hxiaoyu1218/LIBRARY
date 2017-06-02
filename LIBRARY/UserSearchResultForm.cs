@@ -341,7 +341,6 @@ namespace LIBRARY
             {
                 runFlag = 0;
                 SearchWorker.CancelAsync();
-                System.Threading.Thread.Sleep(1000);
             }
             if (runFlag != 0)
                 SearchWorker.RunWorkerAsync();
