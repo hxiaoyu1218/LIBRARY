@@ -35,11 +35,24 @@ namespace LibrarySystemBackEnd
                 return a + "年" + b + "月" + c + "日";
             }
         }
+		/// <summary>
+		/// 系统时间-表示
+		/// </summary>
+		internal static string SystemTimeEng
+		{
+			get
+			{
+				var a = systemTime.Year.ToString("D4");
+				var b = systemTime.Month.ToString("D2");
+				var c = systemTime.Day.ToString("D2");
+				return a + "-" + b + "-" + c;
+			}
+		}
 
-        /// <summary>
-        /// 增长时间
-        /// </summary>
-        public static void inc()
+		/// <summary>
+		/// 增长时间
+		/// </summary>
+		public static void inc()
         {
             FileStream fs = null; StreamWriter sw = null;
             int i = 0; bool flag = false;
