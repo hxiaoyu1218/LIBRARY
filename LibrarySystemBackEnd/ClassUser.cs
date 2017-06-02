@@ -885,7 +885,7 @@ namespace LibrarySystemBackEnd
 			foreach(ClassBookAndDate bk in borrowedbook)
 			{
 				TimeSpan ts = bk.rgdate - ClassTime.systemTime;
-				if(ts < TimeSpan.FromDays(5.0) && ts > TimeSpan.Zero)
+				if(ts < TimeSpan.FromDays(5.0) && ts >= TimeSpan.Zero)
 				{
 					mes.Add("您借的书籍《" + bk.Bookname + "》将于" + bk.Rgdate + "到期，请尽快归还！");
 				}
