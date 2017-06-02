@@ -1346,26 +1346,25 @@ namespace LibrarySystemBackEnd
 
             string id = Currentuser.Userid;
 
-            FileStream fs = null; GZipStream zip = null; StreamReader sr = null;
+            FileStream fs = null; StreamReader sr = null;
             try
             {
                 fs = new FileStream(UserCerditDictory + id + ".cre", FileMode.OpenOrCreate);
-                zip = new GZipStream(fs, CompressionMode.Decompress);
-                sr = new StreamReader(zip);
+                
+                sr = new StreamReader(fs);
 
                 while (!sr.EndOfStream)
                 {
                     credit.Add(sr.ReadLine());
                 }
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }
             finally
             {
                 if (sr != null) sr.Close();
-                if (zip != null) zip.Close();
                 if (fs != null) fs.Close();
             }
             return true;
