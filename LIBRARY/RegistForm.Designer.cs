@@ -454,7 +454,6 @@
             this.DM_ShadowWidth = 6;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "注册";
             this.Load += new System.EventHandler(this.RegistForm_Load);

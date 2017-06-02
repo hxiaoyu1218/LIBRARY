@@ -136,8 +136,7 @@ namespace LIBRARY
 					frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
 					bookDetailAdminForm.Show();
 					frmMain.ReturnButton.Tag = 4;
-				}
-				
+				}			
             }
         }
 

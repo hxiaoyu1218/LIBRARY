@@ -571,7 +571,7 @@
             this.CreditRecordButton.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.CreditRecordButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.CreditRecordButton.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.CreditRecordButton.Location = new System.Drawing.Point(256, 196);
+            this.CreditRecordButton.Location = new System.Drawing.Point(265, 166);
             this.CreditRecordButton.Name = "CreditRecordButton";
             this.CreditRecordButton.Size = new System.Drawing.Size(74, 21);
             this.CreditRecordButton.TabIndex = 36;
