@@ -760,7 +760,7 @@ namespace LibrarySystemBackEnd
 					{
 						Credit = Credit - c;
 						UpdateCurrentMaxBorrowableAmount();
-						RefreshCreditFile("用户于" + borrowedbook[i].Bsdate + "借阅了书籍《" + borrowedbook[i].Bookname + "》(" + borrowedbook[i].Bookisbn + ")，于" + a.ToShortDateString() + "归还了书籍。扣除信用" + c + "。");
+						RefreshCreditFile("用户于" + borrowedbook[i].Bsdate + "借阅了书籍《" + borrowedbook[i].Bookname + "》(" + borrowedbook[i].Bookisbn + ")，于" + ClassTime.SystemTime + "归还了书籍。扣除信用" + c + "。");
 					}
 
 					Currentborrowedamount--;
