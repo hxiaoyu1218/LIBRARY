@@ -229,5 +229,5 @@ namespace LIBRARY
         {
             BookBorrowButton.BackgroundImage = BookBorrowButton.DM_NolImage;
         }
-    }
+	}
 }

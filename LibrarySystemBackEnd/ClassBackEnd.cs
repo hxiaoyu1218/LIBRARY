@@ -695,9 +695,9 @@ namespace LibrarySystemBackEnd
             if (Currentadmin == null) return false;
 
             string intro;
-            if (introduction.Length > 140)
+            if (introduction.Length > 300)
             {
-                intro = introduction.Remove(137, introduction.Length - 137);
+                intro = introduction.Remove(297, introduction.Length - 297);
                 intro = intro + "...";
             }
             else intro = introduction;
@@ -1279,9 +1279,9 @@ namespace LibrarySystemBackEnd
         public static bool ChangeBookIntroduction(string s)
         {
             string intro;
-            if (s.Length > 140)
+            if (s.Length > 300)
             {
-                intro = s.Remove(137, s.Length - 137);
+                intro = s.Remove(297, s.Length - 297);
                 intro = intro + "...";
             }
             else intro = s;
