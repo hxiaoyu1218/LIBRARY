@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIBRARY", "LIBRARY\LIBRARY.csproj", "{E67D3008-B7C7-4C27-900E-E36B052268F1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C6368479-15B7-4803-B229-5B6281C0C56A} = {C6368479-15B7-4803-B229-5B6281C0C56A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySystemBackEnd", "LibrarySystemBackEnd\LibrarySystemBackEnd.csproj", "{C6368479-15B7-4803-B229-5B6281C0C56A}"
 EndProject
@@ -36,5 +39,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
