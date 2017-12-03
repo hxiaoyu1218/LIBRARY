@@ -442,12 +442,6 @@
     <None Include="Resources\删除图书disable.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibrarySystemBackEnd\LibrarySystemBackEnd.csproj">
-      <Project>{c6368479-15b7-4803-b229-5b6281c0c56a}</Project>
-      <Name>LibrarySystemBackEnd</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\详情页已借阅按钮.png" />
   </ItemGroup>
   <ItemGroup>
