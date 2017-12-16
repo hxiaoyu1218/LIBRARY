@@ -121,7 +121,8 @@ namespace LIBRARY
 
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
-
+            //test
+            userControl11.setText("test commenttest commenttest commenttest commenttest commenttest commenttest commenttest commenttest commenttest comment\ntest comment\ntest comment\n");
 
             BookDetailLoad();
             if (PublicVar.GuestFlag != 1) OrderOrBorrow();
