@@ -480,6 +480,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibrarySystemBackEnd\LibrarySystemBackEnd.csproj">
+      <Project>{c6368479-15b7-4803-b229-5b6281c0c56a}</Project>
+      <Name>LibrarySystemBackEnd</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
