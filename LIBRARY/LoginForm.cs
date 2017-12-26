@@ -26,7 +26,7 @@ namespace LIBRARY
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.StartUp();
+          
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 96, 96);
             RegisterButton.Region = new Region(myPath);
@@ -127,39 +127,43 @@ namespace LIBRARY
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            var v = ClassBackEnd.LogIn(UserTextBox.Text, PasswordTextBox.Text);
-            if (v == 1)//用户登录
-            {
-                if (RememberCheckBox.Checked == true)
-                {
-                    RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
-                }
-                else
-                {
-                    RememberMeWrite(false);
-                }
-                Tag = 1;
-                Close();
-            }
-            else if (v == 2)//管理员登录
-            {
-                if (RememberCheckBox.Checked == true)
-                {
-                    RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
-                }
-                else
-                {
-                    RememberMeWrite(false);
-                }
-                Tag = 2;
-                Close();
-            }
-            else if (v == 0)
-            {
-                MessageBox ib = new MessageBox(5);
-                ib.ShowDialog();
-                ib.Dispose();
-            }
+
+            NetClient.FileProtocol fileProtocol = new NetClient.FileProtocol(NetClient.RequestMode.UserLogin, 6000, UserTextBox.Text, PasswordTextBox.Text);
+            NetClient.ServerClient severClient = new NetClient.ServerClient();
+            severClient.SendMessage(fileProtocol.ToString());
+            //var v = ClassBackEnd.LogIn(UserTextBox.Text, PasswordTextBox.Text);
+            //if (v == 1)//用户登录
+            //{
+            //    if (RememberCheckBox.Checked == true)
+            //    {
+            //        RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
+            //    }
+            //    else
+            //    {
+            //        RememberMeWrite(false);
+            //    }
+            //    Tag = 1;
+            //    Close();
+            //}
+            //else if (v == 2)//管理员登录
+            //{
+            //    if (RememberCheckBox.Checked == true)
+            //    {
+            //        RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
+            //    }
+            //    else
+            //    {
+            //        RememberMeWrite(false);
+            //    }
+            //    Tag = 2;
+            //    Close();
+            //}
+            //else if (v == 0)
+            //{
+            //    MessageBox ib = new MessageBox(5);
+            //    ib.ShowDialog();
+            //    ib.Dispose();
+            //}
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)

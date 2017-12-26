@@ -102,6 +102,11 @@
     <Compile Include="AdminBookDetailForm.Designer.cs">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileProtocol.cs" />
+    <Compile Include="ProtocolHandler.cs" />
+    <Compile Include="ProtocolHelper.cs" />
+    <Compile Include="SendStatus.cs" />
+    <Compile Include="ServerClient.cs" />
     <Compile Include="UserBookDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
