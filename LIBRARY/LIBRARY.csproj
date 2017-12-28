@@ -106,6 +106,12 @@
     <Compile Include="ClassBook.cs" />
     <Compile Include="ClassUserBasic.cs" />
     <Compile Include="FileProtocol.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadingBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminBookDetailForm.resx">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingBox.resx">
       <DependentUpon>LoadingBox.cs</DependentUpon>

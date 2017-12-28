@@ -210,5 +210,10 @@ namespace LIBRARY
             BookDetailLoad();
             BookListRefresh();
         }
-	}
+
+        private void BookNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
