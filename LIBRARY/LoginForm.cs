@@ -12,6 +12,7 @@ using System.Drawing.Drawing2D;
 using LibrarySystemBackEnd;
 using System.IO;
 using System.IO.Compression;
+using System.Threading;
 
 namespace LIBRARY
 {
@@ -26,7 +27,7 @@ namespace LIBRARY
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-          
+
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 96, 96);
             RegisterButton.Region = new Region(myPath);
@@ -127,43 +128,54 @@ namespace LIBRARY
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(UserTextBox.Text, "", PasswordTextBox.Text, "", Usertype.Student);
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserLogin, 6000);
+            fileProtocol.Userinfo = classUserBasicInfo; 
 
-            NetClient.FileProtocol fileProtocol = new NetClient.FileProtocol(NetClient.RequestMode.UserLogin, 6000, UserTextBox.Text, PasswordTextBox.Text);
-            NetClient.ServerClient severClient = new NetClient.ServerClient();
-            severClient.SendMessage(fileProtocol.ToString());
-            //var v = ClassBackEnd.LogIn(UserTextBox.Text, PasswordTextBox.Text);
-            //if (v == 1)//用户登录
-            //{
-            //    if (RememberCheckBox.Checked == true)
-            //    {
-            //        RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
-            //    }
-            //    else
-            //    {
-            //        RememberMeWrite(false);
-            //    }
-            //    Tag = 1;
-            //    Close();
-            //}
-            //else if (v == 2)//管理员登录
-            //{
-            //    if (RememberCheckBox.Checked == true)
-            //    {
-            //        RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
-            //    }
-            //    else
-            //    {
-            //        RememberMeWrite(false);
-            //    }
-            //    Tag = 2;
-            //    Close();
-            //}
-            //else if (v == 0)
-            //{
-            //    MessageBox ib = new MessageBox(5);
-            //    ib.ShowDialog();
-            //    ib.Dispose();
-            //}
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserLogin, "正在登录", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+
+
+            var v = PublicVar.ReturnValue;
+            if (v == 1)//用户登录
+            {
+                
+                PublicVar.ReturnValue = -233;
+
+
+
+                if (RememberCheckBox.Checked == true)
+                {
+                    RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
+                }
+                else
+                {
+                    RememberMeWrite(false);
+                }
+                Tag = 1;
+                Close();
+            }
+            else if (v == 2)//管理员登录
+            {
+                if (RememberCheckBox.Checked == true)
+                {
+                    RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);
+                }
+                else
+                {
+                    RememberMeWrite(false);
+                }
+                Tag = 2;
+                Close();
+            }
+            else if (v == 0)
+            {
+                MessageBox ib = new MessageBox(5);
+                ib.ShowDialog();
+                ib.Dispose();
+            }
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -237,11 +249,16 @@ namespace LIBRARY
             }
         }
 
-		private void PasswordForgetLink_Click(object sender, EventArgs e)
-		{
-			MessageBox infoBox = new MessageBox(27);
-			infoBox.ShowDialog();
-			infoBox.Dispose();
-		}
-	}
+        private void PasswordForgetLink_Click(object sender, EventArgs e)
+        {
+            MessageBox infoBox = new MessageBox(27);
+            infoBox.ShowDialog();
+            infoBox.Dispose();
+        }
+
+        private void PasswordForgetLink_Click(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+    }
 }

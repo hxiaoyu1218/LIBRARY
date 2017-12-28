@@ -11,6 +11,9 @@ namespace LIBRARY
         public static int GuestFlag = 0;
         public static string DeletePath = "";
 		public static string Delpic = "";
+        public static int ReturnValue = -233;
+        public static ClassBook[] currentBookList;
+        public static int bookTotalAmount;
         public static Image LoadHeadImage(string name)
         {
             switch (name[0])

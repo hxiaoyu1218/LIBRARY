@@ -3,12 +3,15 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
+using System.Threading;
 
 namespace LIBRARY
 {
     public partial class UserSearchResultForm : DMSkin.Main
     {
         private UserMainForm frmMain;
+        private ServerClient serverClient;
+        private FileProtocol fileProtocol;
         private static int maxPage;
         private static int nPage;
         private int lastState;
@@ -21,32 +24,50 @@ namespace LIBRARY
             lastString = searchS;
             frmMain = frm;
             InitializeComponent();
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.  
+            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲  
         }
+        private void searchBook()
+        {
+            fileProtocol = new FileProtocol(RequestMode.UserSearchBook, 6000);
+            fileProtocol.Curnum = (nPage - 1) * 10 + 1;
+            fileProtocol.Searchwords = lastString;
+            fileProtocol.Searchcat = lastState;
 
-        private void DataSheetLoad(int page)
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserLogin, "正在查询", fileProtocol);
+            loadingBox.ShowDialog();
+            
+          
+            loadingBox.Dispose();
+            PublicVar.ReturnValue = -233;
+            DataSheetLoad();
+        }
+        private void DataSheetLoad()
         {
             ResultDataSheet.Rows.Clear();
             ResultDataSheet.Hide();
-            int start = (nPage - 1) * 10;
-            int end = nPage * 10;
-            if (nPage == maxPage) end = ClassBackEnd.Book.Count;
-
-            for (int i = start; i < end; i++)
+            if (PublicVar.currentBookList == null) return;
+            for (int i = 0; i < PublicVar.currentBookList.Length; i++)
             {
-                var c = ClassBackEnd.Book[i];
+                var c = PublicVar.currentBookList[i];
                 DataGridViewRow row = (DataGridViewRow)ResultDataSheet.RowTemplate.Clone();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = c.Bookisbn;
-                ResultDataSheet.Rows[index].Cells[1].Value = c.Bookname;
-                ResultDataSheet.Rows[index].Cells[2].Value = c.Author;
-                ResultDataSheet.Rows[index].Cells[3].Value = c.Publisher;
+                ResultDataSheet.Rows[index].Cells[0].Value = c.BookIsbn;
+                ResultDataSheet.Rows[index].Cells[1].Value = c.BookName;
+                ResultDataSheet.Rows[index].Cells[2].Value = c.BookAuthor;
+                ResultDataSheet.Rows[index].Cells[3].Value = c.BookPublisher;
                 ResultDataSheet.Rows[index].Cells[4].Value = "详情";
             }
-            LoadGIFBox.Hide();
+
+
             ResultDataSheet.Show();
             ResultDataSheet.ClearSelection();
             ResultDataSheet.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            JumpPTextBox.Text = nPage.ToString();
+            maxPage = PublicVar.bookTotalAmount / 10 + (PublicVar.bookTotalAmount % 10 == 0 ? 0 : 1);
+            PageTextBox.Text = maxPage.ToString();
         }
 
         private void SearchResultForm_Load(object sender, EventArgs e)
@@ -54,13 +75,15 @@ namespace LIBRARY
 
             if ((bool)Tag == true)
             {
-                SearchWorker.RunWorkerAsync();
+                nPage = 1;
+                SearchBox.Text = lastString;
+                searchBook();
             }
             else
             {
-                JumpPTextBox.Text = nPage.ToString();
-                PageTextBox.Text = maxPage.ToString();
-                DataSheetLoad(nPage);
+                //JumpPTextBox.Text = nPage.ToString();
+                //PageTextBox.Text = maxPage.ToString();
+                //DataSheetLoad();
             }
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
@@ -332,77 +355,57 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            int runFlag = 1;
-            ResultDataSheet.Rows.Clear();
+            nPage = 1;
             lastState = ButtonState;
             lastString = SearchBox.Text;
-            LoadGIFBox.Show();
-            if (SearchWorker.IsBusy)
-            {
-                runFlag = 0;
-                SearchWorker.CancelAsync();
-            }
-            if (runFlag != 0)
-                SearchWorker.RunWorkerAsync();
+            searchBook();
         }
 
-        private void SearchWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker, e);
-        }
 
-        private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Cancelled == false)
-            {
-                if (ClassBackEnd.Book.Count <= 10) maxPage = 1;
-                else maxPage = ClassBackEnd.Book.Count / 10 + 1;
-                PageTextBox.Text = maxPage.ToString();
-                JumpPTextBox.Text = "1";
-                nPage = 1;
-                DataSheetLoad(1);
-            }
-            else
-            {
-                SearchWorker.RunWorkerAsync();
-            }
-        }
 
         private void LastPButton_Click(object sender, EventArgs e)
         {
             if (nPage == 1) return;
             JumpPTextBox.Text = (--nPage).ToString();
-            DataSheetLoad(nPage);
+            searchBook();
         }
 
         private void NextPButton_Click(object sender, EventArgs e)
         {
             if (nPage == maxPage) return;
             JumpPTextBox.Text = (++nPage).ToString();
-            DataSheetLoad(nPage);
+            searchBook();
         }
 
-        private void JumpPTextBox_TextChanged(object sender, EventArgs e)
+        private void JumpPTextBox_Leave(object sender, EventArgs e)
         {
-            try
+            if (nPage != Convert.ToInt32(JumpPTextBox.Text))
             {
-                var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
-                if (JumpPage > maxPage)
+                try
                 {
-                    nPage = maxPage;
-                    JumpPTextBox.Text = nPage.ToString();
+                    var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
+                    if (JumpPage > maxPage)
+                    {
+                        nPage = maxPage;
+                        JumpPTextBox.Text = nPage.ToString();
+                    }
+                    else nPage = Convert.ToInt32(JumpPTextBox.Text);
+                    searchBook();
                 }
-                else nPage = Convert.ToInt32(JumpPTextBox.Text);
-                DataSheetLoad(nPage);
+                catch
+                {
+                    if (JumpPTextBox.Text == "") return;
+                    MessageBox infoBox = new MessageBox(13);
+                    infoBox.ShowDialog();
+                    infoBox.Dispose();
+                    JumpPTextBox.Focus();
+                }
             }
-            catch
-            {
-                if (JumpPTextBox.Text == "") return;
-                MessageBox infoBox = new MessageBox(13);
-                infoBox.ShowDialog();
-                infoBox.Dispose();
-                JumpPTextBox.Focus();
-            }
+        }
+
+        private void JumpPTextBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 

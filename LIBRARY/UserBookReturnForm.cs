@@ -69,7 +69,7 @@ namespace LIBRARY
                 try
                 {
 					string isbn = ClassBackEnd.Userbsbook[i - 1].Bookisbn.Substring(0, 10);
-					ClassBook tmp = new ClassBook(isbn);
+                    LibrarySystemBackEnd.ClassBook tmp = new LibrarySystemBackEnd.ClassBook(isbn);
 					pic.Image = Image.FromFile(tmp.Bookimage);
                 }
                 catch

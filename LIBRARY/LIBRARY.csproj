@@ -102,10 +102,20 @@
     <Compile Include="AdminBookDetailForm.Designer.cs">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassABook.cs" />
+    <Compile Include="ClassBook.cs" />
+    <Compile Include="ClassUserBasic.cs" />
     <Compile Include="FileProtocol.cs" />
+    <Compile Include="LoadingBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingBox.Designer.cs">
+      <DependentUpon>LoadingBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProtocolHandler.cs" />
     <Compile Include="ProtocolHelper.cs" />
     <Compile Include="SendStatus.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="ServerClient.cs" />
     <Compile Include="UserBookDetailForm.cs">
       <SubType>Form</SubType>
@@ -263,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminBookDetailForm.resx">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingBox.resx">
+      <DependentUpon>LoadingBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserBookDetailForm.resx">
       <DependentUpon>UserBookDetailForm.cs</DependentUpon>
@@ -472,6 +485,7 @@
     <Content Include="icons.ico" />
     <Content Include="Resources\C.png" />
     <Content Include="ProgramICON.ico" />
+    <None Include="Resources\LoadGIFBox.Image.gif" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

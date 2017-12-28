@@ -65,10 +65,18 @@
             this.Label1Text = new System.Windows.Forms.Label();
             this.Label2Text = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.userControl11 = new WindowsFormsControlLibrary1.UserControl1();
-            this.userControl12 = new WindowsFormsControlLibrary1.UserControl1();
+            this.comment0 = new WindowsFormsControlLibrary1.UserControl1();
+            this.comment4 = new WindowsFormsControlLibrary1.UserControl1();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.comment3 = new WindowsFormsControlLibrary1.UserControl1();
+            this.comment1 = new WindowsFormsControlLibrary1.UserControl1();
+            this.comment2 = new WindowsFormsControlLibrary1.UserControl1();
+            this.commentTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LastPageButton = new System.Windows.Forms.Button();
+            this.NextPageButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -80,6 +88,7 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // BookNameLabel
@@ -261,8 +270,11 @@
             this.flowLayoutPanel1.Controls.Add(this.BookNameLabel);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.userControl11);
-            this.flowLayoutPanel1.Controls.Add(this.userControl12);
+            this.flowLayoutPanel1.Controls.Add(this.comment0);
+            this.flowLayoutPanel1.Controls.Add(this.comment1);
+            this.flowLayoutPanel1.Controls.Add(this.comment2);
+            this.flowLayoutPanel1.Controls.Add(this.comment3);
+            this.flowLayoutPanel1.Controls.Add(this.comment4);
             this.flowLayoutPanel1.Controls.Add(this.panel7);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -540,37 +552,43 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 22F);
-            this.label2.Location = new System.Drawing.Point(66, 502);
-            this.label2.Margin = new System.Windows.Forms.Padding(64, 16, 3, 0);
+            this.label2.Location = new System.Drawing.Point(50, 518);
+            this.label2.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "评论：";
             // 
-            // userControl11
+            // comment0
             // 
-            this.userControl11.AutoSize = true;
-            this.userControl11.Location = new System.Drawing.Point(66, 557);
-            this.userControl11.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(844, 86);
-            this.userControl11.TabIndex = 37;
+            this.comment0.AutoSize = true;
+            this.comment0.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comment0.Location = new System.Drawing.Point(66, 589);
+            this.comment0.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment0.Name = "comment0";
+            this.comment0.Size = new System.Drawing.Size(844, 86);
+            this.comment0.TabIndex = 37;
             // 
-            // userControl12
+            // comment4
             // 
-            this.userControl12.AutoSize = true;
-            this.userControl12.Location = new System.Drawing.Point(66, 662);
-            this.userControl12.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.userControl12.Name = "userControl12";
-            this.userControl12.Size = new System.Drawing.Size(844, 86);
-            this.userControl12.TabIndex = 38;
+            this.comment4.AutoSize = true;
+            this.comment4.Location = new System.Drawing.Point(66, 1009);
+            this.comment4.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment4.Name = "comment4";
+            this.comment4.Size = new System.Drawing.Size(844, 86);
+            this.comment4.TabIndex = 38;
             // 
             // panel7
             // 
-            this.panel7.Location = new System.Drawing.Point(2, 751);
+            this.panel7.Controls.Add(this.button1);
+            this.panel7.Controls.Add(this.NextPageButton);
+            this.panel7.Controls.Add(this.LastPageButton);
+            this.panel7.Controls.Add(this.commentTextBox);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Location = new System.Drawing.Point(2, 1098);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(969, 100);
+            this.panel7.Size = new System.Drawing.Size(969, 306);
             this.panel7.TabIndex = 39;
             // 
             // label1
@@ -582,6 +600,101 @@
             this.label1.Size = new System.Drawing.Size(90, 26);
             this.label1.TabIndex = 36;
             this.label1.Text = "label1";
+            // 
+            // comment3
+            // 
+            this.comment3.AutoSize = true;
+            this.comment3.Location = new System.Drawing.Point(66, 904);
+            this.comment3.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment3.Name = "comment3";
+            this.comment3.Size = new System.Drawing.Size(844, 86);
+            this.comment3.TabIndex = 39;
+            // 
+            // comment1
+            // 
+            this.comment1.AutoSize = true;
+            this.comment1.Location = new System.Drawing.Point(66, 694);
+            this.comment1.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment1.Name = "comment1";
+            this.comment1.Size = new System.Drawing.Size(844, 86);
+            this.comment1.TabIndex = 40;
+            // 
+            // comment2
+            // 
+            this.comment2.AutoSize = true;
+            this.comment2.Location = new System.Drawing.Point(66, 799);
+            this.comment2.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment2.Name = "comment2";
+            this.comment2.Size = new System.Drawing.Size(844, 86);
+            this.comment2.TabIndex = 41;
+            // 
+            // commentTextBox
+            // 
+            this.commentTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.commentTextBox.Location = new System.Drawing.Point(68, 98);
+            this.commentTextBox.MaxLength = 200;
+            this.commentTextBox.Multiline = true;
+            this.commentTextBox.Name = "commentTextBox";
+            this.commentTextBox.Size = new System.Drawing.Size(840, 137);
+            this.commentTextBox.TabIndex = 39;
+            this.commentTextBox.Text = "我是评论输入区域\r\n有啥想说的么\r\n没有\r\n再见\r\n";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label3.Location = new System.Drawing.Point(63, 58);
+            this.label3.Margin = new System.Windows.Forms.Padding(64, 16, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 30);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "添加评论：";
+            // 
+            // LastPageButton
+            // 
+            this.LastPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LastPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LastPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.LastPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LastPageButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.LastPageButton.Location = new System.Drawing.Point(789, 15);
+            this.LastPageButton.Name = "LastPageButton";
+            this.LastPageButton.Size = new System.Drawing.Size(50, 30);
+            this.LastPageButton.TabIndex = 44;
+            this.LastPageButton.TabStop = false;
+            this.LastPageButton.Text = "上页";
+            this.LastPageButton.UseVisualStyleBackColor = false;
+            // 
+            // NextPageButton
+            // 
+            this.NextPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.NextPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.NextPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.NextPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextPageButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.NextPageButton.Location = new System.Drawing.Point(858, 15);
+            this.NextPageButton.Name = "NextPageButton";
+            this.NextPageButton.Size = new System.Drawing.Size(50, 30);
+            this.NextPageButton.TabIndex = 45;
+            this.NextPageButton.TabStop = false;
+            this.NextPageButton.Text = "下页";
+            this.NextPageButton.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("黑体", 10F);
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(812, 247);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 30);
+            this.button1.TabIndex = 46;
+            this.button1.TabStop = false;
+            this.button1.Text = "发表评论";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // UserBookDetailForm
             // 
@@ -622,6 +735,8 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,9 +775,17 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
-        private WindowsFormsControlLibrary1.UserControl1 userControl11;
-        private WindowsFormsControlLibrary1.UserControl1 userControl12;
+        private WindowsFormsControlLibrary1.UserControl1 comment0;
+        private WindowsFormsControlLibrary1.UserControl1 comment4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel7;
+        private WindowsFormsControlLibrary1.UserControl1 comment1;
+        private WindowsFormsControlLibrary1.UserControl1 comment2;
+        private WindowsFormsControlLibrary1.UserControl1 comment3;
+        private System.Windows.Forms.TextBox commentTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button NextPageButton;
+        private System.Windows.Forms.Button LastPageButton;
     }
 }

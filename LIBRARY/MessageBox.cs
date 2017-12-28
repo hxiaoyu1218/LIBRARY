@@ -14,9 +14,9 @@ namespace LIBRARY
     public partial class MessageBox : DMSkin.Main
     {
 
-		private Point offset;
+        private Point offset;
 
-		[DllImport("user32")]
+        [DllImport("user32")]
         private static extern bool AnimateWindow(IntPtr hwnd, int dwTime, int dwFlags);
         private const int AW_HOR_POSITIVE = 0x0001;//自左向右显示窗口，该标志可以在滚动动画和滑动动画中使用。使用AW_CENTER标志时忽略该标志
         private const int AW_HOR_NEGATIVE = 0x0002;//自右向左显示窗口，该标志可以在滚动动画和滑动动画中使用。使用AW_CENTER标志时忽略该标志
@@ -147,32 +147,36 @@ namespace LIBRARY
             {
                 TextBox.Text = "添加成功！";
             }
-			else if(textType == 27)
-			{
-				TextBox.Text = "请联系管理员！";
-			}
-		}
+            else if (textType == 27)
+            {
+                TextBox.Text = "请联系管理员！";
+            }
+            else if (textType == 28)
+            {
+                TextBox.Text = "请求超时！";
+            }
+        }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            
+
             Close();
         }
 
-		private void TitleLabel_MouseDown(object sender, MouseEventArgs e)
-		{
-			if(e.Button == MouseButtons.Left)
-			{
-				offset = new Point(e.X, e.Y);
-			}
-		}
+        private void TitleLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                offset = new Point(e.X, e.Y);
+            }
+        }
 
-		private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
-		{
-			if(e.Button == MouseButtons.Left)
-			{
-				Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
-			}
-		}
-	}
+        private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
+            }
+        }
+    }
 }

@@ -8,131 +8,127 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NetWorkApp
+namespace LIBRARY
 {
-	class RemoteClient
-	{
-		private TcpClient client;
-		private NetworkStream streamToClient;
-		private const int BufferSize = 8192;
-		private byte[] buffer;
-		private ProtocolHandler handler;
+    class RemoteClient
+    {
+        private TcpClient client;
+        private NetworkStream streamToClient;
+        private const int BufferSize = 8192;
+        private byte[] buffer;
+        private ProtocolHandler handler;
 
-		public RemoteClient(TcpClient client)
-		{
-			this.client = client;
+        public RemoteClient(TcpClient client)
+        {
+            this.client = client;
 
-			Console.WriteLine("\nClient Connected ! {0} <-- {1}",
-				client.Client.LocalEndPoint, client.Client.RemoteEndPoint);
+            Console.WriteLine("\nClient Connected ! {0} <-- {1}",
+                client.Client.LocalEndPoint, client.Client.RemoteEndPoint);
 
-			streamToClient = client.GetStream();
-			buffer = new byte[BufferSize];
+            streamToClient = client.GetStream();
+            buffer = new byte[BufferSize];
 
-			handler = new ProtocolHandler();
-		}
+            handler = new ProtocolHandler();
+        }
 
-		public void BeginRead()
-		{
-			AsyncCallback callBack = new AsyncCallback(OnReadComplete);
-			streamToClient.BeginRead(buffer, 0, BufferSize, callBack, null);
-		}
+        public void BeginRead()
+        {
+            AsyncCallback callBack = new AsyncCallback(OnReadComplete);
+            streamToClient.BeginRead(buffer, 0, BufferSize, callBack, null);
+        }
 
-		private void OnReadComplete(IAsyncResult ar)
-		{
-			int bytesRead = 0;
-			try
-			{
-				lock (streamToClient)
-				{
-					bytesRead = streamToClient.EndRead(ar);
-					Console.WriteLine("Reading Data, {0} bytes", bytesRead);
-				}
-				
-				string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
-				Array.Clear(buffer, 0, buffer.Length);
+        private void OnReadComplete(IAsyncResult ar)
+        {
+            int bytesRead = 0;
+            try
+            {
+                lock (streamToClient)
+                {
+                    bytesRead = streamToClient.EndRead(ar);
+                    Console.WriteLine("Reading Data, {0} bytes", bytesRead);
+                }
 
-				string[] protocolArray = handler.GetProtocol(msg);
+                string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
+                Array.Clear(buffer, 0, buffer.Length);
 
-				foreach (string pro in protocolArray)
-				{
-					Thread thr = new Thread(handleProtocol);
-					thr.Start(pro);
-				}
+                string[] protocolArray = handler.GetProtocol(msg);
 
-				lock (streamToClient)
-				{
-					AsyncCallback callback = new AsyncCallback(OnReadComplete);
-					streamToClient.BeginRead(buffer, 0, BufferSize, callback, null);
-				}
-			}
-			catch (Exception e)
-			{
-				//Console.WriteLine(e.Message);
-				if (streamToClient != null) streamToClient.Dispose();
-				client.Close();
-			}
-		}
+                foreach (string pro in protocolArray)
+                {
+                    Thread thr = new Thread(handleProtocol);
+                    thr.Start(pro);
+                }
 
-		private void handleProtocol(object obj)
-		{
-			string pro = obj as string;
-			ProtocolHelper helper = new ProtocolHelper(pro);
-			FileProtocol protocol = helper.GetProtocol();
+                lock (streamToClient)
+                {
+                    AsyncCallback callback = new AsyncCallback(OnReadComplete);
+                    streamToClient.BeginRead(buffer, 0, BufferSize, callback, null);
+                }
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e.Message);
+                if (streamToClient != null) streamToClient.Dispose();
+                client.Close();
+            }
+        }
 
-			if(protocol.Mode==RequestMode.Send)
-			{
-				receiveFile(protocol);
-			}
-			else if(protocol.Mode==RequestMode.Receive)
-			{
-				//sendFile(protocol);
-			}
-		}
+        private void handleProtocol(object obj)
+        {
+            string pro = obj as string;
+            ProtocolHelper helper = new ProtocolHelper(pro);
+            FileProtocol protocol = helper.GetProtocol();
 
-		private void receiveFile(FileProtocol protocol)
-		{
-			IPEndPoint endpoint = client.Client.RemoteEndPoint as IPEndPoint;
-			IPAddress ip = endpoint.Address;
+            if (protocol.Mode == RequestMode.UserLogin)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+        }
 
-			endpoint = new IPEndPoint(ip, protocol.Port);
+        private void receiveFile(FileProtocol protocol)
+        {
+            IPEndPoint endpoint = client.Client.RemoteEndPoint as IPEndPoint;
+            IPAddress ip = endpoint.Address;
 
-			TcpClient localClient;
-			try
-			{
-				localClient = new TcpClient();
-				localClient.Connect(endpoint);
-			}
-			catch
-			{
-				Console.WriteLine("无法连接到客户端 --> {0}", endpoint);
-				return;
-			}
-			NetworkStream streamToClient = localClient.GetStream();
-			string path = Environment.CurrentDirectory + "/" + generateFileName(protocol.FileName);
-			byte[] fileBuffer = new byte[1024];
-			FileStream fs = new FileStream(path, FileMode.CreateNew, FileAccess.Write);
+            endpoint = new IPEndPoint(ip, protocol.Port);
 
-			int bytesRead;
-			int totalBytes = 0;
-			do
-			{
-				bytesRead = streamToClient.Read(buffer, 0, BufferSize);
-				fs.Write(buffer, 0, bytesRead);
-				totalBytes += bytesRead;
-				Console.WriteLine("Reveiving {0} bytes ...", totalBytes);
-			} while (bytesRead > 0);
+            TcpClient localClient;
+            try
+            {
+                localClient = new TcpClient();
+                localClient.Connect(endpoint);
+            }
+            catch
+            {
+                Console.WriteLine("无法连接到客户端 --> {0}", endpoint);
+                return;
+            }
+            NetworkStream streamToClient = localClient.GetStream();
+            string path = "";// Environment.CurrentDirectory + "/" + generateFileName(protocol.UserName);
+            byte[] fileBuffer = new byte[1024];
+            FileStream fs = new FileStream(path, FileMode.CreateNew, FileAccess.Write);
 
-			Console.WriteLine("Total {0} bytes received, Done!", totalBytes);
+            int bytesRead;
+            int totalBytes = 0;
+            do
+            {
+                bytesRead = streamToClient.Read(buffer, 0, BufferSize);
+                fs.Write(buffer, 0, bytesRead);
+                totalBytes += bytesRead;
+                Console.WriteLine("Reveiving {0} bytes ...", totalBytes);
+            } while (bytesRead > 0);
 
-			this.streamToClient.Dispose();
-			fs.Dispose();
-			localClient.Close();
-		}
+            Console.WriteLine("Total {0} bytes received, Done!", totalBytes);
 
-		private string generateFileName(string fileName)
-		{
-			DateTime now = DateTime.Now;
-			return String.Format("{0}_{1}_{2}_{3}", now.Minute, now.Second, now.Millisecond, fileName);
-		}
-	}
+            this.streamToClient.Dispose();
+            fs.Dispose();
+            localClient.Close();
+        }
+
+        private string generateFileName(string fileName)
+        {
+            DateTime now = DateTime.Now;
+            return String.Format("{0}_{1}_{2}_{3}", now.Minute, now.Second, now.Millisecond, fileName);
+        }
+    }
 }

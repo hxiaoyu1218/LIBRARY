@@ -69,9 +69,9 @@ namespace LIBRARY
 		private void DelButton_Check()
 		{
 			int flag = 0;
-			foreach(BOOKSTATE c in list)
+			foreach(Bookstate c in list)
 			{
-				if(c != BOOKSTATE.Unavailable)
+				if(c != Bookstate.Unavailable)
 					flag = 1;
 			}
 			foreach(Control c in CheckBoxPanel.Controls)

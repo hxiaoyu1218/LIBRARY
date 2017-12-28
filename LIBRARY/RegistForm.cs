@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace LIBRARY
 {
@@ -24,6 +25,7 @@ namespace LIBRARY
         private void RegistForm_Load(object sender, EventArgs e)
         {
             loginfrm.Hide();
+            
         }
 
         private bool IsSchoolID(string input)
@@ -265,6 +267,8 @@ namespace LIBRARY
 
         private void RegistButton_Click(object sender, EventArgs e)
         {
+
+
             if (IDAlertLabel.Visible == true || PWD1AlertLabel.Visible == true || PWD2AlertLabel.Visible == true)
             {
                 MessageBox ib = new MessageBox(10);
@@ -272,40 +276,45 @@ namespace LIBRARY
                 ib.Dispose();
                 return;
             }
-            USERTYPE type = USERTYPE.Guest;
-            if (StudentCheckBox.Checked == true) type = USERTYPE.Student;
-            else if (TeacherCheckBox.Checked == true) type = USERTYPE.Lecturer;
+            Usertype type = Usertype.Guest;
+            if (StudentCheckBox.Checked == true) type = Usertype.Student;
+            else if (TeacherCheckBox.Checked == true) type = Usertype.Lecturer;
 
-            if (type == USERTYPE.Guest)
+            if (type == Usertype.Guest)
             {
                 MessageBox ib = new MessageBox(6);
                 ib.ShowDialog();
                 ib.Dispose();
                 return;
             }
-            var v = ClassBackEnd.Register(IDTextBox.Text, UserTextBox.Text, PasswordTextBox1.Text, type, AcademicTextBox.Text);
+
+            ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(IDTextBox.Text, UserTextBox.Text, PasswordTextBox1.Text, AcademicTextBox.Text, type);
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserRegist, 6000);
+            fileProtocol.Userinfo = classUserBasicInfo;
+          
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserRegist, "正在注册", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+            var v = PublicVar.ReturnValue;
+            //暂时无取消功能
+            if(v==-2333)//cancel
+            {
+                v = -233;
+                return;
+            }
             if (v == 1)//success
             {
+                PublicVar.ReturnValue = -233;
                 MessageBox ib = new MessageBox(4);
                 ib.ShowDialog();
                 ib.Dispose();
                 Close();
             }
-            else if (v == 2)//id error
+            else//id error
             {
+                PublicVar.ReturnValue = -233;
                 MessageBox ib = new MessageBox(7);
-                ib.ShowDialog();
-                ib.Dispose();
-            }
-            else if (v == 3)//username error
-            {
-                MessageBox ib = new MessageBox(8);
-                ib.ShowDialog();
-                ib.Dispose();
-            }
-            else if (v == 4)//unknown error
-            {
-                MessageBox ib = new MessageBox(9);
                 ib.ShowDialog();
                 ib.Dispose();
             }
