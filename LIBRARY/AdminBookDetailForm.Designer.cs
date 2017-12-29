@@ -78,6 +78,7 @@
             this.BookInfoButton = new DMSkin.Controls.DM.DMButtonImage();
             this.BookPreserveButton = new DMSkin.Controls.DM.DMButtonImage();
             this.BookImageButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
@@ -547,6 +548,7 @@
             this.flowLayoutPanel1.Controls.Add(this.comment3);
             this.flowLayoutPanel1.Controls.Add(this.comment4);
             this.flowLayoutPanel1.Controls.Add(this.panel7);
+            this.flowLayoutPanel1.Controls.Add(this.hScrollBar1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
@@ -709,6 +711,13 @@
             this.BookImageButton.TabIndex = 33;
             this.BookImageButton.TabStop = false;
             // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.Location = new System.Drawing.Point(2, 1570);
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(80, 17);
+            this.hScrollBar1.TabIndex = 42;
+            // 
             // AdminBookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -800,5 +809,6 @@
         private DMSkin.Controls.DM.DMButtonImage BookInfoButton;
         private DMSkin.Controls.DM.DMButtonImage BookPreserveButton;
         private DMSkin.Controls.DM.DMButtonImage BookImageButton;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
     }
 }

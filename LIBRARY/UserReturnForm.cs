@@ -123,5 +123,89 @@ namespace LIBRARY
             Close();
         }
 
+        private void BookNameText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PublisherText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookIDText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AuthorText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookIDLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void authorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BorrowDateLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BorrowDateText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReturnDateLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReturnDateText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TitleLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RemindLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BgImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReturnButton_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReBorrowButton_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
