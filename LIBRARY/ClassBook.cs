@@ -21,12 +21,14 @@ namespace LIBRARY
 		private string bookIsbn;//书籍号，不带扩展
 		private string bookPublisher;
 		private string bookAuthor;
-		private byte[] bookImage;
+		private string bookImage;
 		private string bookIntroduction;
 		private DateTime bookPublishTime;
 		private int bookAmount;
-		private string[] bookLable;
-		private List<ClassABook> books;
+		private string bookLable1;
+        private string bookLable2;
+        private string bookLable3;
+        private List<ClassABook> books;
 		private LinkedList<string> scheduleQueue;
 		#endregion
 
@@ -99,7 +101,7 @@ namespace LIBRARY
 		/// <summary>
 		/// 书籍封面文件地址
 		/// </summary>
-		public byte[] BookImage
+		public string BookImage
 		{
 			get
 			{
@@ -111,8 +113,7 @@ namespace LIBRARY
 				bookImage = value;
 			}
 		}
-
-
+        
 		/// <summary>
 		/// 简介
 		/// </summary>
@@ -155,55 +156,7 @@ namespace LIBRARY
 				return books;
 			}
 		}
-
-		/// <summary>
-		/// 书籍标签第一个
-		/// </summary>
-		public string BookLable1
-		{
-			get
-			{
-				return bookLable[0];
-			}
-
-			set
-			{
-				bookLable[0] = value;
-			}
-		}
-
-		/// <summary>
-		/// 书籍标签第二个
-		/// </summary>
-		public string BookLable2
-		{
-			get
-			{
-				return bookLable[1];
-			}
-
-			set
-			{
-				bookLable[1] = value;
-			}
-		}
-
-		/// <summary>
-		/// 书籍标签第三个
-		/// </summary>
-		public string BookLable3
-		{
-			get
-			{
-				return bookLable[2];
-			}
-
-			set
-			{
-				bookLable[2] = value;
-			}
-		}
-
+        
 		public DateTime BookPublishTime
 		{
 			get
@@ -217,85 +170,103 @@ namespace LIBRARY
 			}
 		}
 
-		#endregion
+        public string BookLable1
+        {
+            get
+            {
+                return bookLable1;
+            }
 
-		#region PrivateMethod
+            set
+            {
+                bookLable1 = value;
+            }
+        }
 
-		/// <summary>
-		/// 写入历史文件
-		/// </summary>
-		/// <param name="bookid">书籍编号，带扩展编号</param>
-		/// <param name="bh"></param>
-		/// <returns>成功/失败</returns>
-		//private bool UpdateHistory(string bookid, ClassBookHis bh)
-		//{
-		//	FileStream fs = null; StreamWriter sw = null;
-		//	string bookhisfile = ClassBackEnd.BookHisDirectory + bookid + ".his";
-		//	try
-		//	{
-		//		if (!File.Exists(bookhisfile))
-		//		{
-		//			fs = File.Create(bookhisfile);
-		//			sw = new StreamWriter(fs);
-		//		}
-		//		else
-		//		{
-		//			fs = new FileStream(bookhisfile, FileMode.Append);
-		//			sw = new StreamWriter(fs);
-		//		}
-		//		bh.SaveToFile(sw);
-		//		return true;
+        public string BookLable2
+        {
+            get
+            {
+                return bookLable2;
+            }
 
-		//	}
-		//	catch (Exception e) { return false; }
-		//	finally
-		//	{
-		//		if (sw != null) sw.Close();
-		//		if (fs != null) fs.Close();
-		//	}
-		//}
+            set
+            {
+                bookLable2 = value;
+            }
+        }
 
-		#endregion
+        public string BookLable3
+        {
+            get
+            {
+                return bookLable3;
+            }
 
-		#region PublicMethod
-		/// <summary>
-		/// 构造函数 构造时 名字 isbn 数量 购入时间 不能为空 其余可以
-		/// 生成历史文件
-		/// </summary>
-		/// <param name="bookName">书名</param>
-		/// <param name="bookIsbn">书号</param>
-		/// <param name="bookAmount">书的数量</param>
-		/// <param name="broughtTime">购入时间</param>
-		/// <param name="bookPublisher">出版社</param>
-		/// <param name="bookAuthor">作者</param>
-		/// <param name="bookIntroduction">简介</param>
-		/// <param name="bookImage">书籍封面地址</param>
-		/// <param name="adminId">管理员id</param>
-		/// <param name="bookLable1">标签1</param>
-		/// <param name="bookLable2">标签2</param>
-		/// <param name="bookLable3">标签3</param>
-		internal ClassBook(string bookName, string bookIsbn, int bookAmount, DateTime broughtTime, DateTime publishTime, string adminId, string bookLable1, string bookLable2, string bookLable3, string bookPublisher, string bookAuthor, byte[] bookImage, string bookIntroduction)
-		{
-			this.bookName = bookName;
-			this.bookIsbn = bookIsbn;
-			this.bookPublisher = bookPublisher;
-			this.bookAuthor = bookAuthor;
-			this.bookImage = bookImage;
-			this.bookIntroduction = bookIntroduction;
-			this.bookAmount = bookAmount;
-			this.bookPublishTime = publishTime;
-			this.bookLable = new string[3] { bookLable1, bookLable2, bookLable3 };
+            set
+            {
+                bookLable3 = value;
+            }
+        }
 
-			this.books = new List<ClassABook>();
-			this.scheduleQueue = new LinkedList<string>();
+        #endregion
 
+        #region PrivateMethod
 
-			for (int i = 0; i < BookAmount; i++)
-			{
-				Book.Add(new ClassABook(bookName, bookIsbn + i.ToString("D4"), bookPublisher, bookAuthor, bookImage, publishTime, broughtTime));
-				//UpdateHistory(Book.Last().BookIsbn, new ClassBookHis(broughtTime, adminId, 0));
-			}
-		}
+        /// <summary>
+        /// 写入历史文件
+        /// </summary>
+        /// <param name="bookid">书籍编号，带扩展编号</param>
+        /// <param name="bh"></param>
+        /// <returns>成功/失败</returns>
+        //private bool UpdateHistory(string bookid, ClassBookHis bh)
+        //{
+        //	FileStream fs = null; StreamWriter sw = null;
+        //	string bookhisfile = ClassBackEnd.BookHisDirectory + bookid + ".his";
+        //	try
+        //	{
+        //		if (!File.Exists(bookhisfile))
+        //		{
+        //			fs = File.Create(bookhisfile);
+        //			sw = new StreamWriter(fs);
+        //		}
+        //		else
+        //		{
+        //			fs = new FileStream(bookhisfile, FileMode.Append);
+        //			sw = new StreamWriter(fs);
+        //		}
+        //		bh.SaveToFile(sw);
+        //		return true;
+
+        //	}
+        //	catch (Exception e) { return false; }
+        //	finally
+        //	{
+        //		if (sw != null) sw.Close();
+        //		if (fs != null) fs.Close();
+        //	}
+        //}
+
+        #endregion
+
+        #region PublicMethod
+        /// <summary>
+        /// 构造函数 构造时 名字 isbn 数量 购入时间 不能为空 其余可以
+        /// 生成历史文件
+        /// </summary>
+        /// <param name="bookName">书名</param>
+        /// <param name="bookIsbn">书号</param>
+        /// <param name="bookAmount">书的数量</param>
+        /// <param name="broughtTime">购入时间</param>
+        /// <param name="bookPublisher">出版社</param>
+        /// <param name="bookAuthor">作者</param>
+        /// <param name="bookIntroduction">简介</param>
+        /// <param name="bookImage">书籍封面地址</param>
+        /// <param name="adminId">管理员id</param>
+        /// <param name="bookLable1">标签1</param>
+        /// <param name="bookLable2">标签2</param>
+        /// <param name="bookLable3">标签3</param>
+       
         public ClassBook(string bookName,string bookIsbn,string bookAuthor,string bookPublisher)
         {
             this.bookName = bookName;
@@ -303,21 +274,10 @@ namespace LIBRARY
             this.bookAuthor = bookAuthor;
             this.bookPublisher = bookPublisher;
         }
-		public ClassBook(DbDataReader dr)
-		{
-			this.bookName = dr["bookName"].ToString();
-			this.bookIsbn = dr["bookIsbn"].ToString();
-			this.bookPublisher = dr["bookPublisher"].ToString();
-			this.bookAuthor = dr["bookAuthor"].ToString();
-			this.bookImage = (byte[])dr["bookImage"];
-			this.bookIntroduction = dr["bookIntroduction"].ToString();
-			this.BookPublishTime = (DateTime)dr["bookPublishTime"];
-			this.bookAmount = Convert.ToInt32(dr["bookAmount"]);
-			this.bookLable = new string[3];
-			this.BookLable1 = dr["bookLable1"].ToString();
-			this.BookLable2 = dr["bookLable2"].ToString();
-			this.BookLable3 = dr["bookLable3"].ToString();
-		}
+        public ClassBook(string isbn)
+        {
+            this.bookIsbn = isbn;
+        }
 		#endregion
 
 

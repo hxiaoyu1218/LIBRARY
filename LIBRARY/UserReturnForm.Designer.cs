@@ -33,22 +33,22 @@
             this.TitleLabel = new System.Windows.Forms.Label();
             this.ShutDownButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BookNameText = new System.Windows.Forms.Label();
-            this.BookPictureBox = new System.Windows.Forms.PictureBox();
-            this.authorLabel = new System.Windows.Forms.Label();
-            this.AuthorText = new System.Windows.Forms.Label();
-            this.BookIDLabel = new System.Windows.Forms.Label();
-            this.BookIDText = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.PublisherText = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ReBorrowButton = new DMSkin.Controls.DM.DMButtonImage();
             this.BorrowDateLabel = new System.Windows.Forms.Label();
+            this.PublisherText = new System.Windows.Forms.Label();
+            this.BookIDText = new System.Windows.Forms.Label();
+            this.BookIDLabel = new System.Windows.Forms.Label();
+            this.BookPictureBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BorrowDateText = new System.Windows.Forms.Label();
             this.ReturnDateText = new System.Windows.Forms.Label();
             this.ReturnDateLabel = new System.Windows.Forms.Label();
             this.RemindLabel = new System.Windows.Forms.Label();
-            this.ReBorrowButton = new DMSkin.Controls.DM.DMButtonImage();
             this.ReturnButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.authorLabel = new System.Windows.Forms.Label();
+            this.AuthorText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -96,217 +96,66 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel1.Controls.Add(this.BookNameText);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 41);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 35);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(571, 602);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 615);
             this.flowLayoutPanel1.TabIndex = 9;
+            // 
+            // BookNameText
+            // 
+            this.BookNameText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BookNameText.AutoSize = true;
+            this.BookNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookNameText.Font = new System.Drawing.Font("微软雅黑", 33F);
+            this.BookNameText.Location = new System.Drawing.Point(25, 16);
+            this.BookNameText.Margin = new System.Windows.Forms.Padding(25, 16, 3, 0);
+            this.BookNameText.Name = "BookNameText";
+            this.BookNameText.Size = new System.Drawing.Size(350, 57);
+            this.BookNameText.TabIndex = 57;
+            this.BookNameText.Text = "I\'m B00K Name";
+            this.BookNameText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.6747F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.3253F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
-            this.tableLayoutPanel1.Controls.Add(this.ReBorrowButton, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.BorrowDateLabel, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.PublisherText, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BookIDText, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.BookIDLabel, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.AuthorText, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.authorLabel, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.BookNameText, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.BookPictureBox, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BorrowDateText, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.ReturnDateText, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.ReturnDateLabel, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.RemindLabel, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.ReturnButton, 1, 7);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.91793F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.08207F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 231F));
+            this.tableLayoutPanel1.Controls.Add(this.ReBorrowButton, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.BorrowDateLabel, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.PublisherText, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.BookIDText, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.BookIDLabel, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.BookPictureBox, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.BorrowDateText, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.ReturnDateText, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.ReturnDateLabel, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.RemindLabel, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.ReturnButton, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.authorLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.AuthorText, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 99);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(22, 26, 3, 3);
+            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(555, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 8;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.75F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 121F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 119F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(568, 586);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // BookNameText
-            // 
-            this.BookNameText.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BookNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.BookNameText, 3);
-            this.BookNameText.Font = new System.Drawing.Font("微软雅黑", 33F);
-            this.BookNameText.Location = new System.Drawing.Point(3, 6);
-            this.BookNameText.Name = "BookNameText";
-            this.BookNameText.Size = new System.Drawing.Size(562, 58);
-            this.BookNameText.TabIndex = 56;
-            this.BookNameText.Text = "I\'m B00K Name";
-            this.BookNameText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BookPictureBox
-            // 
-            this.BookPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookPictureBox.Location = new System.Drawing.Point(57, 92);
-            this.BookPictureBox.Name = "BookPictureBox";
-            this.tableLayoutPanel1.SetRowSpan(this.BookPictureBox, 5);
-            this.BookPictureBox.Size = new System.Drawing.Size(170, 231);
-            this.BookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BookPictureBox.TabIndex = 57;
-            this.BookPictureBox.TabStop = false;
-            // 
-            // authorLabel
-            // 
-            this.authorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.authorLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.authorLabel.Location = new System.Drawing.Point(288, 144);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(112, 27);
-            this.authorLabel.TabIndex = 58;
-            this.authorLabel.Text = "作　　者：";
-            // 
-            // AuthorText
-            // 
-            this.AuthorText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AuthorText.AutoSize = true;
-            this.AuthorText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.AuthorText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AuthorText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.AuthorText.Location = new System.Drawing.Point(418, 144);
-            this.AuthorText.Name = "AuthorText";
-            this.AuthorText.Size = new System.Drawing.Size(92, 27);
-            this.AuthorText.TabIndex = 59;
-            this.AuthorText.Text = "测试作者";
-            // 
-            // BookIDLabel
-            // 
-            this.BookIDLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BookIDLabel.AutoSize = true;
-            this.BookIDLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookIDLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BookIDLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookIDLabel.Location = new System.Drawing.Point(288, 174);
-            this.BookIDLabel.Name = "BookIDLabel";
-            this.BookIDLabel.Size = new System.Drawing.Size(112, 27);
-            this.BookIDLabel.TabIndex = 60;
-            this.BookIDLabel.Text = "书　　号：";
-            // 
-            // BookIDText
-            // 
-            this.BookIDText.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BookIDText.AutoSize = true;
-            this.BookIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookIDText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BookIDText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookIDText.Location = new System.Drawing.Point(418, 174);
-            this.BookIDText.Name = "BookIDText";
-            this.BookIDText.Size = new System.Drawing.Size(108, 27);
-            this.BookIDText.TabIndex = 61;
-            this.BookIDText.Text = "12345678";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(296, 207);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 22);
-            this.pictureBox1.TabIndex = 62;
-            this.pictureBox1.TabStop = false;
-            // 
-            // PublisherText
-            // 
-            this.PublisherText.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.PublisherText.AutoSize = true;
-            this.PublisherText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.PublisherText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PublisherText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PublisherText.Location = new System.Drawing.Point(418, 204);
-            this.PublisherText.Name = "PublisherText";
-            this.PublisherText.Size = new System.Drawing.Size(112, 27);
-            this.PublisherText.TabIndex = 63;
-            this.PublisherText.Text = "测试出版社";
-            // 
-            // BorrowDateLabel
-            // 
-            this.BorrowDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BorrowDateLabel.AutoSize = true;
-            this.BorrowDateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BorrowDateLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BorrowDateLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BorrowDateLabel.Location = new System.Drawing.Point(288, 236);
-            this.BorrowDateLabel.Name = "BorrowDateLabel";
-            this.BorrowDateLabel.Size = new System.Drawing.Size(112, 27);
-            this.BorrowDateLabel.TabIndex = 64;
-            this.BorrowDateLabel.Text = "借阅日期：";
-            // 
-            // BorrowDateText
-            // 
-            this.BorrowDateText.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BorrowDateText.AutoSize = true;
-            this.BorrowDateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BorrowDateText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BorrowDateText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BorrowDateText.Location = new System.Drawing.Point(418, 236);
-            this.BorrowDateText.Name = "BorrowDateText";
-            this.BorrowDateText.Size = new System.Drawing.Size(60, 27);
-            this.BorrowDateText.TabIndex = 65;
-            this.BorrowDateText.Text = "2015";
-            // 
-            // ReturnDateText
-            // 
-            this.ReturnDateText.AutoSize = true;
-            this.ReturnDateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ReturnDateText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReturnDateText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ReturnDateText.Location = new System.Drawing.Point(418, 268);
-            this.ReturnDateText.Name = "ReturnDateText";
-            this.ReturnDateText.Size = new System.Drawing.Size(60, 27);
-            this.ReturnDateText.TabIndex = 67;
-            this.ReturnDateText.Text = "2017";
-            // 
-            // ReturnDateLabel
-            // 
-            this.ReturnDateLabel.AutoSize = true;
-            this.ReturnDateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ReturnDateLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReturnDateLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ReturnDateLabel.Location = new System.Drawing.Point(288, 268);
-            this.ReturnDateLabel.Name = "ReturnDateLabel";
-            this.ReturnDateLabel.Size = new System.Drawing.Size(112, 27);
-            this.ReturnDateLabel.TabIndex = 66;
-            this.ReturnDateLabel.Text = "应还日期：";
-            // 
-            // RemindLabel
-            // 
-            this.RemindLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RemindLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.RemindLabel, 3);
-            this.RemindLabel.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.RemindLabel.Location = new System.Drawing.Point(104, 359);
-            this.RemindLabel.Name = "RemindLabel";
-            this.RemindLabel.Size = new System.Drawing.Size(360, 93);
-            this.RemindLabel.TabIndex = 68;
-            this.RemindLabel.Text = "还书逾期1天扣1点信用\r\n距应还日期5日以内可以续借\r\n1次延长15天，1本书只能续借1次";
-            this.RemindLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(555, 615);
+            this.tableLayoutPanel1.TabIndex = 58;
             // 
             // ReBorrowButton
             // 
@@ -318,12 +167,143 @@
             this.ReBorrowButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("ReBorrowButton.DM_HoverImage")));
             this.ReBorrowButton.DM_Mode = false;
             this.ReBorrowButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("ReBorrowButton.DM_NolImage")));
-            this.ReBorrowButton.Location = new System.Drawing.Point(91, 475);
+            this.ReBorrowButton.Location = new System.Drawing.Point(50, 481);
+            this.ReBorrowButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 32);
             this.ReBorrowButton.Name = "ReBorrowButton";
             this.ReBorrowButton.Size = new System.Drawing.Size(102, 102);
             this.ReBorrowButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.ReBorrowButton.TabIndex = 70;
             this.ReBorrowButton.TabStop = false;
+            // 
+            // BorrowDateLabel
+            // 
+            this.BorrowDateLabel.AutoSize = true;
+            this.BorrowDateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BorrowDateLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BorrowDateLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BorrowDateLabel.Location = new System.Drawing.Point(211, 275);
+            this.BorrowDateLabel.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.BorrowDateLabel.Name = "BorrowDateLabel";
+            this.BorrowDateLabel.Size = new System.Drawing.Size(112, 27);
+            this.BorrowDateLabel.TabIndex = 64;
+            this.BorrowDateLabel.Text = "借阅日期：";
+            // 
+            // PublisherText
+            // 
+            this.PublisherText.AutoSize = true;
+            this.PublisherText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.PublisherText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PublisherText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PublisherText.Location = new System.Drawing.Point(331, 105);
+            this.PublisherText.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.PublisherText.Name = "PublisherText";
+            this.PublisherText.Size = new System.Drawing.Size(212, 162);
+            this.PublisherText.TabIndex = 63;
+            this.PublisherText.Text = "测试测试出测试出版社测试出版社版社出版社测试出版社测试出版社测试测试出测试出版社测试出版社版社出版社测试出版社测试出版社";
+            // 
+            // BookIDText
+            // 
+            this.BookIDText.AutoSize = true;
+            this.BookIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookIDText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BookIDText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookIDText.Location = new System.Drawing.Point(331, 70);
+            this.BookIDText.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.BookIDText.Name = "BookIDText";
+            this.BookIDText.Size = new System.Drawing.Size(108, 27);
+            this.BookIDText.TabIndex = 61;
+            this.BookIDText.Text = "12345678";
+            // 
+            // BookIDLabel
+            // 
+            this.BookIDLabel.AutoSize = true;
+            this.BookIDLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookIDLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BookIDLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookIDLabel.Location = new System.Drawing.Point(211, 70);
+            this.BookIDLabel.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.BookIDLabel.Name = "BookIDLabel";
+            this.BookIDLabel.Size = new System.Drawing.Size(112, 27);
+            this.BookIDLabel.TabIndex = 60;
+            this.BookIDLabel.Text = "书　　号：";
+            // 
+            // BookPictureBox
+            // 
+            this.BookPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BookPictureBox.Location = new System.Drawing.Point(16, 53);
+            this.BookPictureBox.Name = "BookPictureBox";
+            this.tableLayoutPanel1.SetRowSpan(this.BookPictureBox, 5);
+            this.BookPictureBox.Size = new System.Drawing.Size(170, 231);
+            this.BookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BookPictureBox.TabIndex = 57;
+            this.BookPictureBox.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Location = new System.Drawing.Point(217, 105);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(14, 8, 0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(105, 22);
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BorrowDateText
+            // 
+            this.BorrowDateText.AutoSize = true;
+            this.BorrowDateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BorrowDateText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BorrowDateText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BorrowDateText.Location = new System.Drawing.Point(331, 275);
+            this.BorrowDateText.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.BorrowDateText.Name = "BorrowDateText";
+            this.BorrowDateText.Size = new System.Drawing.Size(60, 27);
+            this.BorrowDateText.TabIndex = 65;
+            this.BorrowDateText.Text = "2015";
+            // 
+            // ReturnDateText
+            // 
+            this.ReturnDateText.AutoSize = true;
+            this.ReturnDateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.ReturnDateText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReturnDateText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ReturnDateText.Location = new System.Drawing.Point(331, 310);
+            this.ReturnDateText.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.ReturnDateText.Name = "ReturnDateText";
+            this.ReturnDateText.Size = new System.Drawing.Size(60, 27);
+            this.ReturnDateText.TabIndex = 67;
+            this.ReturnDateText.Text = "2017";
+            // 
+            // ReturnDateLabel
+            // 
+            this.ReturnDateLabel.AutoSize = true;
+            this.ReturnDateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.ReturnDateLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReturnDateLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ReturnDateLabel.Location = new System.Drawing.Point(211, 310);
+            this.ReturnDateLabel.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.ReturnDateLabel.Name = "ReturnDateLabel";
+            this.ReturnDateLabel.Size = new System.Drawing.Size(112, 27);
+            this.ReturnDateLabel.TabIndex = 66;
+            this.ReturnDateLabel.Text = "应还日期：";
+            // 
+            // RemindLabel
+            // 
+            this.RemindLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RemindLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.RemindLabel, 3);
+            this.RemindLabel.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.RemindLabel.Location = new System.Drawing.Point(97, 369);
+            this.RemindLabel.Margin = new System.Windows.Forms.Padding(3, 32, 3, 16);
+            this.RemindLabel.Name = "RemindLabel";
+            this.RemindLabel.Size = new System.Drawing.Size(360, 93);
+            this.RemindLabel.TabIndex = 68;
+            this.RemindLabel.Text = "还书逾期1天扣1点信用\r\n距应还日期5日以内可以续借\r\n1次延长15天，1本书只能续借1次";
+            this.RemindLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ReturnButton
             // 
@@ -336,12 +316,39 @@
             this.ReturnButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.DM_HoverImage")));
             this.ReturnButton.DM_Mode = false;
             this.ReturnButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.DM_NolImage")));
-            this.ReturnButton.Location = new System.Drawing.Point(375, 475);
+            this.ReturnButton.Location = new System.Drawing.Point(390, 481);
+            this.ReturnButton.Margin = new System.Windows.Forms.Padding(128, 3, 3, 32);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(102, 102);
             this.ReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.ReturnButton.TabIndex = 69;
             this.ReturnButton.TabStop = false;
+            // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.authorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.authorLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.authorLabel.Location = new System.Drawing.Point(211, 8);
+            this.authorLabel.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(112, 27);
+            this.authorLabel.TabIndex = 58;
+            this.authorLabel.Text = "作　　者：";
+            // 
+            // AuthorText
+            // 
+            this.AuthorText.AutoSize = true;
+            this.AuthorText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.AuthorText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AuthorText.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AuthorText.Location = new System.Drawing.Point(331, 8);
+            this.AuthorText.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.AuthorText.Name = "AuthorText";
+            this.AuthorText.Size = new System.Drawing.Size(212, 54);
+            this.AuthorText.TabIndex = 59;
+            this.AuthorText.Text = "测试作者测试作者测试作者测试作者";
             // 
             // UserReturnForm
             // 
@@ -365,6 +372,7 @@
             this.Load += new System.EventHandler(this.ReturnForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).EndInit();
@@ -380,21 +388,21 @@
         public System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button ShutDownButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label BookNameText;
-        private System.Windows.Forms.PictureBox BookPictureBox;
-        private System.Windows.Forms.Label authorLabel;
-        private System.Windows.Forms.Label AuthorText;
-        private System.Windows.Forms.Label BookIDLabel;
-        private System.Windows.Forms.Label BookIDText;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label PublisherText;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private DMSkin.Controls.DM.DMButtonImage ReBorrowButton;
         private System.Windows.Forms.Label BorrowDateLabel;
+        private System.Windows.Forms.Label PublisherText;
+        private System.Windows.Forms.Label BookIDText;
+        private System.Windows.Forms.Label BookIDLabel;
+        private System.Windows.Forms.PictureBox BookPictureBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label BorrowDateText;
         private System.Windows.Forms.Label ReturnDateText;
         private System.Windows.Forms.Label ReturnDateLabel;
         private System.Windows.Forms.Label RemindLabel;
-        private DMSkin.Controls.DM.DMButtonImage ReBorrowButton;
         private DMSkin.Controls.DM.DMButtonImage ReturnButton;
+        private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.Label AuthorText;
     }
 }

@@ -16,7 +16,7 @@ namespace LIBRARY
         UserRegist,
         UserSearchBook,
 
-        UserBookLoad,
+        UserBookDetailLoad,
         UserBookStateLoad,
         UserBookCommentLoad,
         UserBorrowBook,
@@ -34,11 +34,17 @@ namespace LIBRARY
         UserAbookLoad,
         UserReturnBook,
         UserDelayBook,
+
+
+        UserBookLoad,
+        PicReceive,
+        PicSend,
     }
     public class FileProtocol
     {
         private RequestMode mode;
         private int port;
+        private string filename;
         private ClassUserBasicInfo userinfo;
         private int retval;
         private string searchwords;
@@ -47,6 +53,9 @@ namespace LIBRARY
         private int endnum;
         private int amo;
         private ClassBook[] resbook;
+        private ClassBook nowBook;
+        private ClassABook[] eachBookState;
+
 
         public FileProtocol(RequestMode mode, int port)
         {
@@ -168,6 +177,45 @@ namespace LIBRARY
             }
         }
 
+        public ClassBook NowBook
+        {
+            get
+            {
+                return nowBook;
+            }
+
+            set
+            {
+                nowBook = value;
+            }
+        }
+
+        public ClassABook[] EachBookState
+        {
+            get
+            {
+                return eachBookState;
+            }
+
+            set
+            {
+                eachBookState = value;
+            }
+        }
+
+        public string Filename
+        {
+            get
+            {
+                return filename;
+            }
+
+            set
+            {
+                filename = value;
+            }
+        }
+
         public override string ToString()
         {
             switch (mode)
@@ -184,13 +232,26 @@ namespace LIBRARY
                 case RequestMode.UserSearchBook:
                     {
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><usersearchbook searchwords=\"{2}\" searchcat=\"{3}\" curnum=\"{4}\" endnum=\"{5}\" /></protocol>", mode, port, searchwords, searchcat, curnum, endnum);
+
                     }
                 case RequestMode.UserBookLoad:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userBasic userid=\"{2}\" /><book bookisbn=\"{3}\" /></protocol>", mode, port, Userinfo.UserId, NowBook.BookIsbn);
+                    }
                 case RequestMode.UserBookStateLoad:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userBasic userid=\"{2}\" /><book bookisbn=\"{3}\" /></protocol>", mode, port, Userinfo.UserId,NowBook.BookIsbn);
+                    }
                 case RequestMode.UserBookCommentLoad:
                     break;
+                case RequestMode.UserBookDetailLoad:
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /></protocol>", mode, port,NowBook.BookIsbn);
+                    }
+                case RequestMode.PicSend:
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /></protocol>", mode, port, NowBook.BookIsbn);
+                    }
                 case RequestMode.UserBorrowBook:
                     break;
                 case RequestMode.UserCommentBook:

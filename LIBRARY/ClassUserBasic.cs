@@ -245,7 +245,10 @@ namespace LIBRARY
 
 
 		#endregion
-
+        public ClassUserBasicInfo(string id)
+        {
+            this.userId = id;
+        }
 		internal ClassUserBasicInfo(string id, string name, string password, string school, Usertype type)
 		{
 			UserId = id;

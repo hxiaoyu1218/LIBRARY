@@ -130,7 +130,9 @@ namespace LIBRARY
         {
             ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(UserTextBox.Text, "", PasswordTextBox.Text, "", Usertype.Student);
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserLogin, 6000);
-            fileProtocol.Userinfo = classUserBasicInfo; 
+            fileProtocol.Userinfo = classUserBasicInfo;
+
+           
 
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserLogin, "正在登录", fileProtocol);
             loadingBox.ShowDialog();
@@ -143,7 +145,7 @@ namespace LIBRARY
             {
                 
                 PublicVar.ReturnValue = -233;
-
+                PublicVar.logUser = new ClassUserBasicInfo(UserTextBox.Text);
 
 
                 if (RememberCheckBox.Checked == true)

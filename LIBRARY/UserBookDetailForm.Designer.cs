@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserBookDetailForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.BookBorrowButton = new DMSkin.Controls.DM.DMButtonImage();
@@ -66,17 +66,18 @@
             this.Label2Text = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comment0 = new WindowsFormsControlLibrary1.UserControl1();
-            this.comment4 = new WindowsFormsControlLibrary1.UserControl1();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comment3 = new WindowsFormsControlLibrary1.UserControl1();
             this.comment1 = new WindowsFormsControlLibrary1.UserControl1();
             this.comment2 = new WindowsFormsControlLibrary1.UserControl1();
+            this.comment3 = new WindowsFormsControlLibrary1.UserControl1();
+            this.comment4 = new WindowsFormsControlLibrary1.UserControl1();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.NextPageButton = new System.Windows.Forms.Button();
+            this.LastPageButton = new System.Windows.Forms.Button();
             this.commentTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.LastPageButton = new System.Windows.Forms.Button();
-            this.NextPageButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -162,55 +163,55 @@
             this.ResultDataSheet.AllowUserToDeleteRows = false;
             this.ResultDataSheet.AllowUserToResizeColumns = false;
             this.ResultDataSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.ResultDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ResultDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ResultDataSheet.CausesValidation = false;
             this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.ResultDataSheet.ColumnHeadersHeight = 40;
             this.ResultDataSheet.ColumnHeadersVisible = false;
             this.ResultDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookID,
             this.BookState});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle23;
             this.ResultDataSheet.Location = new System.Drawing.Point(523, 11);
             this.ResultDataSheet.Margin = new System.Windows.Forms.Padding(37, 11, 0, 0);
             this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
             this.ResultDataSheet.ReadOnly = true;
             this.ResultDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.ResultDataSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle25;
             this.ResultDataSheet.RowTemplate.Height = 40;
             this.ResultDataSheet.RowTemplate.ReadOnly = true;
             this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -257,7 +258,7 @@
             this.BookInfoTextbox.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.BookInfoTextbox, 2);
             this.BookInfoTextbox.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.BookInfoTextbox.Location = new System.Drawing.Point(64, 270);
+            this.BookInfoTextbox.Location = new System.Drawing.Point(64, 282);
             this.BookInfoTextbox.Margin = new System.Windows.Forms.Padding(64, 16, 0, 0);
             this.BookInfoTextbox.Name = "BookInfoTextbox";
             this.BookInfoTextbox.Size = new System.Drawing.Size(50, 20);
@@ -303,7 +304,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(972, 360);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(972, 372);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -313,7 +314,7 @@
             this.panel2.Controls.Add(this.BookOrderButton);
             this.panel2.Controls.Add(this.BookBorrowButton);
             this.panel2.Controls.Add(this.NoUseButton);
-            this.panel2.Location = new System.Drawing.Point(489, 257);
+            this.panel2.Location = new System.Drawing.Point(489, 269);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(480, 100);
             this.panel2.TabIndex = 18;
@@ -329,7 +330,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(246, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(208, 220);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(211, 260);
             this.flowLayoutPanel2.TabIndex = 34;
             this.flowLayoutPanel2.WrapContents = false;
             // 
@@ -342,7 +343,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(220, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(133, 20);
+            this.panel1.Size = new System.Drawing.Size(203, 60);
             this.panel1.TabIndex = 45;
             // 
             // authorLabel
@@ -366,16 +367,16 @@
             this.AuthorText.Location = new System.Drawing.Point(65, 0);
             this.AuthorText.MaximumSize = new System.Drawing.Size(140, 0);
             this.AuthorText.Name = "AuthorText";
-            this.AuthorText.Size = new System.Drawing.Size(65, 20);
+            this.AuthorText.Size = new System.Drawing.Size(135, 60);
             this.AuthorText.TabIndex = 36;
-            this.AuthorText.Text = "测试作者";
+            this.AuthorText.Text = "测试作者测试作者测试作者测试作者测试作者测试作者";
             // 
             // panel3
             // 
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.PublisherLabel);
             this.panel3.Controls.Add(this.PublisherText);
-            this.panel3.Location = new System.Drawing.Point(8, 36);
+            this.panel3.Location = new System.Drawing.Point(8, 76);
             this.panel3.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel3.MaximumSize = new System.Drawing.Size(220, 0);
             this.panel3.Name = "panel3";
@@ -412,7 +413,7 @@
             this.panel4.AutoSize = true;
             this.panel4.Controls.Add(this.BookIDLabel);
             this.panel4.Controls.Add(this.BookIDText);
-            this.panel4.Location = new System.Drawing.Point(8, 64);
+            this.panel4.Location = new System.Drawing.Point(8, 104);
             this.panel4.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel4.MaximumSize = new System.Drawing.Size(220, 0);
             this.panel4.Name = "panel4";
@@ -450,7 +451,7 @@
             this.panel5.AutoSize = true;
             this.panel5.Controls.Add(this.AmountLabel);
             this.panel5.Controls.Add(this.AmountText);
-            this.panel5.Location = new System.Drawing.Point(8, 92);
+            this.panel5.Location = new System.Drawing.Point(8, 132);
             this.panel5.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel5.MaximumSize = new System.Drawing.Size(220, 0);
             this.panel5.Name = "panel5";
@@ -489,7 +490,7 @@
             this.panel6.Controls.Add(this.Label3Text);
             this.panel6.Controls.Add(this.Label1Text);
             this.panel6.Controls.Add(this.Label2Text);
-            this.panel6.Location = new System.Drawing.Point(8, 120);
+            this.panel6.Location = new System.Drawing.Point(8, 160);
             this.panel6.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(200, 100);
@@ -552,7 +553,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 22F);
-            this.label2.Location = new System.Drawing.Point(50, 518);
+            this.label2.Location = new System.Drawing.Point(50, 530);
             this.label2.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 39);
@@ -563,16 +564,43 @@
             // 
             this.comment0.AutoSize = true;
             this.comment0.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comment0.Location = new System.Drawing.Point(66, 589);
+            this.comment0.Location = new System.Drawing.Point(66, 601);
             this.comment0.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
             this.comment0.Name = "comment0";
             this.comment0.Size = new System.Drawing.Size(844, 86);
             this.comment0.TabIndex = 37;
             // 
+            // comment1
+            // 
+            this.comment1.AutoSize = true;
+            this.comment1.Location = new System.Drawing.Point(66, 706);
+            this.comment1.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment1.Name = "comment1";
+            this.comment1.Size = new System.Drawing.Size(844, 86);
+            this.comment1.TabIndex = 40;
+            // 
+            // comment2
+            // 
+            this.comment2.AutoSize = true;
+            this.comment2.Location = new System.Drawing.Point(66, 811);
+            this.comment2.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment2.Name = "comment2";
+            this.comment2.Size = new System.Drawing.Size(844, 86);
+            this.comment2.TabIndex = 41;
+            // 
+            // comment3
+            // 
+            this.comment3.AutoSize = true;
+            this.comment3.Location = new System.Drawing.Point(66, 916);
+            this.comment3.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
+            this.comment3.Name = "comment3";
+            this.comment3.Size = new System.Drawing.Size(844, 86);
+            this.comment3.TabIndex = 39;
+            // 
             // comment4
             // 
             this.comment4.AutoSize = true;
-            this.comment4.Location = new System.Drawing.Point(66, 1009);
+            this.comment4.Location = new System.Drawing.Point(66, 1021);
             this.comment4.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
             this.comment4.Name = "comment4";
             this.comment4.Size = new System.Drawing.Size(844, 86);
@@ -585,48 +613,57 @@
             this.panel7.Controls.Add(this.LastPageButton);
             this.panel7.Controls.Add(this.commentTextBox);
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(2, 1098);
+            this.panel7.Location = new System.Drawing.Point(2, 1110);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 306);
             this.panel7.TabIndex = 39;
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("黑体", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(7, 704);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 26);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "label1";
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("黑体", 10F);
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(812, 247);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 30);
+            this.button1.TabIndex = 46;
+            this.button1.TabStop = false;
+            this.button1.Text = "发表评论";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // comment3
+            // NextPageButton
             // 
-            this.comment3.AutoSize = true;
-            this.comment3.Location = new System.Drawing.Point(66, 904);
-            this.comment3.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment3.Name = "comment3";
-            this.comment3.Size = new System.Drawing.Size(844, 86);
-            this.comment3.TabIndex = 39;
+            this.NextPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.NextPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.NextPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.NextPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextPageButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.NextPageButton.Location = new System.Drawing.Point(858, 15);
+            this.NextPageButton.Name = "NextPageButton";
+            this.NextPageButton.Size = new System.Drawing.Size(50, 30);
+            this.NextPageButton.TabIndex = 45;
+            this.NextPageButton.TabStop = false;
+            this.NextPageButton.Text = "下页";
+            this.NextPageButton.UseVisualStyleBackColor = false;
             // 
-            // comment1
+            // LastPageButton
             // 
-            this.comment1.AutoSize = true;
-            this.comment1.Location = new System.Drawing.Point(66, 694);
-            this.comment1.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment1.Name = "comment1";
-            this.comment1.Size = new System.Drawing.Size(844, 86);
-            this.comment1.TabIndex = 40;
-            // 
-            // comment2
-            // 
-            this.comment2.AutoSize = true;
-            this.comment2.Location = new System.Drawing.Point(66, 799);
-            this.comment2.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment2.Name = "comment2";
-            this.comment2.Size = new System.Drawing.Size(844, 86);
-            this.comment2.TabIndex = 41;
+            this.LastPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LastPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LastPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.LastPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LastPageButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.LastPageButton.Location = new System.Drawing.Point(789, 15);
+            this.LastPageButton.Name = "LastPageButton";
+            this.LastPageButton.Size = new System.Drawing.Size(50, 30);
+            this.LastPageButton.TabIndex = 44;
+            this.LastPageButton.TabStop = false;
+            this.LastPageButton.Text = "上页";
+            this.LastPageButton.UseVisualStyleBackColor = false;
             // 
             // commentTextBox
             // 
@@ -650,51 +687,20 @@
             this.label3.TabIndex = 42;
             this.label3.Text = "添加评论：";
             // 
-            // LastPageButton
+            // label1
             // 
-            this.LastPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LastPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LastPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.LastPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LastPageButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.LastPageButton.Location = new System.Drawing.Point(789, 15);
-            this.LastPageButton.Name = "LastPageButton";
-            this.LastPageButton.Size = new System.Drawing.Size(50, 30);
-            this.LastPageButton.TabIndex = 44;
-            this.LastPageButton.TabStop = false;
-            this.LastPageButton.Text = "上页";
-            this.LastPageButton.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("黑体", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(7, 704);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 26);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "label1";
             // 
-            // NextPageButton
+            // BookImageRequest
             // 
-            this.NextPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.NextPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.NextPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.NextPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextPageButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.NextPageButton.Location = new System.Drawing.Point(858, 15);
-            this.NextPageButton.Name = "NextPageButton";
-            this.NextPageButton.Size = new System.Drawing.Size(50, 30);
-            this.NextPageButton.TabIndex = 45;
-            this.NextPageButton.TabStop = false;
-            this.NextPageButton.Text = "下页";
-            this.NextPageButton.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("黑体", 10F);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(812, 247);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 30);
-            this.button1.TabIndex = 46;
-            this.button1.TabStop = false;
-            this.button1.Text = "发表评论";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BookImageRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookImageRequest_DoWork);
+            this.BookImageRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookImageRequest_RunWorkerCompleted);
             // 
             // UserBookDetailForm
             // 
@@ -787,5 +793,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button NextPageButton;
         private System.Windows.Forms.Button LastPageButton;
+        private System.ComponentModel.BackgroundWorker BookImageRequest;
     }
 }

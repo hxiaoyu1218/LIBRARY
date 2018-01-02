@@ -37,8 +37,8 @@ namespace LIBRARY
 
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserLogin, "正在查询", fileProtocol);
             loadingBox.ShowDialog();
-            
-          
+
+
             loadingBox.Dispose();
             PublicVar.ReturnValue = -233;
             DataSheetLoad();
@@ -344,8 +344,29 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 4)
             {
+                FileProtocol[] fileProtocolList = new FileProtocol[3];
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookLoad, 6000);
+                fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
+                //fileProtocolList[0] = fileProtocol;
+                //fileProtocol = new FileProtocol(RequestMode.UserBookStateLoad, 6000);
+                //fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
+                fileProtocol.Userinfo = PublicVar.logUser;
+                //fileProtocolList[1] = fileProtocol;
+                //fileProtocol = new FileProtocol(RequestMode.UserBookCommentLoad, 6000);
+                //fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
+                //fileProtocolList[2] = fileProtocol;
+
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.UserBookLoad, "正在加载", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
+                }
                 frmMain.MainPanel.Controls.Clear();
-                UserBookDetailForm bookDetailForm = new UserBookDetailForm(frmMain, e.RowIndex + (nPage - 1) * 10);
+                UserBookDetailForm bookDetailForm = new UserBookDetailForm(frmMain, e.RowIndex);
                 bookDetailForm.TopLevel = false;
                 bookDetailForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(bookDetailForm);

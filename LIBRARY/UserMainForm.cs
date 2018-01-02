@@ -41,7 +41,7 @@ namespace LIBRARY
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void ReturnButton_Click(object sender, EventArgs e)
+        public void ReturnButton_Click(object sender, EventArgs e)
         {
             if (ReturnButton.Tag != null)
             {

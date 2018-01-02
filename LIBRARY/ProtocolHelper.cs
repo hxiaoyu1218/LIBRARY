@@ -59,10 +59,71 @@ namespace LIBRARY
                         pro.Resbook = bk.ToArray();
                         break;
                     }
-                case RequestMode.UserBookLoad:
-                    break;
+                case RequestMode.UserBookDetailLoad:
+                    {
+                        XmlNode bookNode = root.SelectSingleNode("book");
+                        pro.NowBook = new ClassBook(bookNode.Attributes["bookisbn"].Value);
+                        pro.NowBook.BookName = bookNode.Attributes["bookname"].Value;
+                        pro.NowBook.BookPublisher = bookNode.Attributes["bookpublisher"].Value;
+                        pro.NowBook.BookPublishTime = DateTime.Parse(bookNode.Attributes["bookpublishtime"].Value);
+                        pro.NowBook.BookAuthor = bookNode.Attributes["bookauthor"].Value;
+                        pro.NowBook.BookIntroduction = bookNode.Attributes["bookintroduction"].Value;
+                        pro.NowBook.BookImage = bookNode.Attributes["bookpic"].Value;
+                        pro.NowBook.BookLable1 = bookNode.Attributes["booklable1"].Value;
+                        pro.NowBook.BookLable2 = bookNode.Attributes["booklable2"].Value;
+                        pro.NowBook.BookLable3 = bookNode.Attributes["booklable3"].Value;
+                        pro.NowBook.BookAmount = Convert.ToInt32(bookNode.Attributes["bookamo"].Value);
+
+                        break;
+                    }
                 case RequestMode.UserBookStateLoad:
-                    break;
+                    {
+                        XmlNode bookNode = root.SelectSingleNode("book");
+                        int k = Convert.ToInt32(bookNode.Attributes["bookamount"].Value);
+                        XmlNodeList li = root.SelectNodes("bookstate");
+                        List<ClassABook> bk = new List<ClassABook>();
+                        foreach (XmlNode no in li)
+                        {
+                            ClassABook abk = new ClassABook(no.Attributes["bookextisbn"].Value);
+                            abk.BookState = (Bookstate)Enum.ToObject(typeof(Bookstate), no.Attributes["bookstate"].Value);
+
+                            bk.Add(abk);
+                        }
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        pro.EachBookState = bk.ToArray();
+                        break;
+                    }
+                case RequestMode.UserBookLoad:
+                    {
+                        XmlNode bookNode = root.SelectSingleNode("book");
+                        pro.NowBook = new ClassBook(bookNode.Attributes["bookisbn"].Value);
+                        pro.NowBook.BookName = bookNode.Attributes["bookname"].Value;
+                        pro.NowBook.BookPublisher = bookNode.Attributes["bookpublisher"].Value;
+                        pro.NowBook.BookPublishTime = DateTime.Parse(bookNode.Attributes["bookpublishtime"].Value);
+                        pro.NowBook.BookAuthor = bookNode.Attributes["bookauthor"].Value;
+                        pro.NowBook.BookIntroduction = bookNode.Attributes["bookintroduction"].Value;
+                        pro.NowBook.BookImage = bookNode.Attributes["bookpic"].Value;
+                        pro.NowBook.BookLable1 = bookNode.Attributes["booklable1"].Value;
+                        pro.NowBook.BookLable2 = bookNode.Attributes["booklable2"].Value;
+                        pro.NowBook.BookLable3 = bookNode.Attributes["booklable3"].Value;
+                        pro.NowBook.BookAmount = Convert.ToInt32(bookNode.Attributes["bookamo"].Value);
+                        
+                        int k = Convert.ToInt32(bookNode.Attributes["bookamo"].Value);
+                        XmlNodeList li = root.SelectNodes("bookstate");
+                        List<ClassABook> bk = new List<ClassABook>();
+                        foreach (XmlNode no in li)
+                        {
+                            ClassABook abk = new ClassABook(no.Attributes["bookextisbn"].Value);
+                            abk.BookState = (Bookstate)Enum.Parse(typeof(Bookstate), no.Attributes["bookstate"].Value, false); 
+
+                            bk.Add(abk);
+                        }
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        pro.EachBookState = bk.ToArray();
+                        break;
+                    }
                 case RequestMode.UserBookCommentLoad:
                     break;
                 case RequestMode.UserBorrowBook:

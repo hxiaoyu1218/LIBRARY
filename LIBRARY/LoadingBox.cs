@@ -97,6 +97,18 @@ namespace LIBRARY
                     }
                     break;
                 case RequestMode.UserBookLoad:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
+                    break;
+                case RequestMode.UserBookDetailLoad:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserBookStateLoad:
                     break;
@@ -133,8 +145,7 @@ namespace LIBRARY
             }
             if (timer >= 10000)
             {
-                e.Cancel = true;
-                
+                e.Cancel = true;           
             }
         }
 
@@ -169,7 +180,9 @@ namespace LIBRARY
                 TextBox.Text = "请求超时";
                 return;
             }
+           
             serverClient.SendMessage(fileProtocol.ToString());
+                 
             WaitingThread.RunWorkerAsync();
         }
     }

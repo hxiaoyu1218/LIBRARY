@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using System.IO;
 namespace LIBRARY
 {
 	class ProtocolHandler
@@ -27,10 +27,15 @@ namespace LIBRARY
 			if (!String.IsNullOrEmpty(partialProtocal))
 				input = partialProtocal + input;
 			string pattern= "(^<protocol>.*?</protocol>)";
+            FileStream fs = new FileStream("t.txt", FileMode.Create);
+            byte[] bt = Encoding.Unicode.GetBytes(input);
+            fs.Write(bt,0,bt.Length);
+            fs.Close();
 
-			if (Regex.IsMatch(input,pattern))
+			if (Regex.IsMatch(input,pattern,RegexOptions.Singleline))
 			{
-				string match = Regex.Match(input, pattern).Groups[0].Value;
+                
+				string match = Regex.Match(input, pattern, RegexOptions.Singleline).Groups[0].Value;
 				outputList.Add(match);
 				partialProtocal = "";
 

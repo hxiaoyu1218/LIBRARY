@@ -363,7 +363,10 @@ namespace LIBRARY
 			this.Delayed = (bool)dr["delayed"];
 			this.Deleted = (bool)dr["deleted"];
 		}
-
+        public ClassABook(string isbn)
+        {
+            this.bookIsbn = isbn;
+        }
 		//public override string ToString()
 		//{
   //          //return String.Format()

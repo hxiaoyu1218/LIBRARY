@@ -291,7 +291,8 @@ namespace LIBRARY
             ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(IDTextBox.Text, UserTextBox.Text, PasswordTextBox1.Text, AcademicTextBox.Text, type);
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserRegist, 6000);
             fileProtocol.Userinfo = classUserBasicInfo;
-          
+            
+
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserRegist, "正在注册", fileProtocol);
             loadingBox.ShowDialog();
             loadingBox.Dispose();

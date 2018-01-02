@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
+using System.Net.Sockets;
 
 namespace LIBRARY
 {
@@ -22,6 +23,7 @@ namespace LIBRARY
         {
             bookIndex = bookindex;
             frmMain = frm;
+
             InitializeComponent();
             if (PublicVar.GuestFlag == 1)
             {
@@ -33,24 +35,24 @@ namespace LIBRARY
         public void BookListRefresh()
         {
             ResultDataSheet.Rows.Clear();//清空上一次搜索表
-            for (int i = 0; i < ClassBackEnd.Currentbook.Bookamount; i++)
+            for (int i = 0; i < PublicVar.eachBookState.Length; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = ClassBackEnd.Currentbook.Book[i].Extisbn;
-                if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Available)
+                ResultDataSheet.Rows[index].Cells[0].Value = PublicVar.eachBookState[i].BookIsbn;
+                if (PublicVar.eachBookState[i].BookState == Bookstate.Available)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "可借";
                 }
-                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Borrowed)
+                else if (PublicVar.eachBookState[i].BookState == Bookstate.Borrowed)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "已借";
                 }
-                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Unavailable)
+                else if (PublicVar.eachBookState[i].BookState == Bookstate.Unavailable)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "不可用";
                 }
-                else if (ClassBackEnd.Currentbook.Book[i].Bookstate == BOOKSTATE.Scheduled)
+                else if (PublicVar.eachBookState[i].BookState == Bookstate.Scheduled)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "仅预约";
                 }
@@ -64,58 +66,50 @@ namespace LIBRARY
 
         private void BookDetailLoad()
         {
-            ClassBackEnd.LoadSearchResult(bookIndex);
-            BookNameLabel.Text = ClassBackEnd.Currentbook.Bookname;
-            AuthorText.Text = ClassBackEnd.Currentbook.Author;
-            BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
-            PublisherText.Text = ClassBackEnd.Currentbook.Publisher;
-            BookInfoTextbox.Text = ClassBackEnd.Currentbook.Introduction;
-            AmountText.Text = ClassBackEnd.Currentbook.Bookamount.ToString();
-            Label1Text.Text = ClassBackEnd.Currentbook.Booklable1;
-            Label2Text.Text = ClassBackEnd.Currentbook.Booklable2;
-            Label3Text.Text = ClassBackEnd.Currentbook.Booklable3;
-            try
-            {
-                BookPictureBox.Image = Image.FromFile(ClassBackEnd.Currentbook.Bookimage);
-            }
-            catch
-            {
-                BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
-            }
+            BookNameLabel.Text = PublicVar.nowBook.BookName;
+            AuthorText.Text = PublicVar.nowBook.BookAuthor;
+            BookIDText.Text = PublicVar.nowBook.BookIsbn;
+            PublisherText.Text = PublicVar.nowBook.BookPublisher;
+            BookInfoTextbox.Text = PublicVar.nowBook.BookIntroduction;
+            AmountText.Text = PublicVar.nowBook.BookAmount.ToString();
+            Label1Text.Text = PublicVar.nowBook.BookLable1;
+            Label2Text.Text = PublicVar.nowBook.BookLable2;
+            Label3Text.Text = PublicVar.nowBook.BookLable3;
 
+
+
+            BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
+            BookImageRequest.RunWorkerAsync();
         }
 
         private void OrderOrBorrow()
         {
-            if (ClassBackEnd.HasBorrowed(bookIndex))
+            switch (PublicVar.ReturnValue)
             {
-                BookBorrowButton.DM_NolImage = Properties.Resources.AlreadyBorrow;
-                BookBorrowButton.Enabled = false;
-                BookOrderButton.Hide();
-            }
-            else if (ClassBackEnd.GetBookState(bookIndex) == 1)
-            {
-                BookOrderButton.Hide();
-            }
-            else
-            {
-                if (ClassBackEnd.HasScheduled(bookIndex))
-                {
-                    BookOrderButton.DM_NolImage = Properties.Resources.AlreadyOrder;
-                    BookOrderButton.Enabled = false;
-                    BookBorrowButton.Hide();
-                }
-                else if(ClassBackEnd.GetBookState(bookIndex) == 2)
-                {
-                    BookBorrowButton.Hide();
-                    BookOrderButton.Show();
-                }
-                else
-                {
+                case 0:
                     BookBorrowButton.Hide();
                     BookOrderButton.Hide();
                     NoUseButton.Show();
-                }
+                    break;
+                case 1:
+                    BookBorrowButton.DM_NolImage = Properties.Resources.AlreadyBorrow;
+                    BookBorrowButton.Enabled = false;
+                    BookOrderButton.Hide();
+                    break;
+                case 2:
+                    BookOrderButton.Hide();
+                    break;
+                case 3:
+                    BookOrderButton.DM_NolImage = Properties.Resources.AlreadyOrder;
+                    BookOrderButton.Enabled = false;
+                    BookBorrowButton.Hide();
+                    break;
+                case 4:
+                    BookBorrowButton.Hide();
+                    BookOrderButton.Show();
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -142,6 +136,7 @@ namespace LIBRARY
 
             BookListRefresh();
 
+            PublicVar.ReturnValue = -233;
         }
 
         private void BookBorrowButton_Click(object sender, EventArgs e)
@@ -170,7 +165,7 @@ namespace LIBRARY
             else if (b == 0)
             {
                 #region Infobox Show
-                MessageBox infoBox = new MessageBox(9);   
+                MessageBox infoBox = new MessageBox(9);
                 infoBox.ShowDialog();
                 infoBox.Dispose();
                 #endregion
@@ -230,5 +225,29 @@ namespace LIBRARY
         {
             BookBorrowButton.BackgroundImage = BookBorrowButton.DM_NolImage;
         }
-	}
+
+        private void BookImageRequest_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ServerClient serverClient = new ServerClient();
+            FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
+            fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
+            serverClient.SendMessage(fp.ToString());
+            
+            PublicVar.pic = serverClient.receiveFileAsByte();
+        }
+
+        private void BookImageRequest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                BookPictureBox.Image = PublicVar.BytesToImage(PublicVar.pic);
+
+            }
+            catch (Exception ee)
+            {
+                System.Windows.Forms.MessageBox.Show(ee.Message);
+                return;
+            }
+        }
+    }
 }

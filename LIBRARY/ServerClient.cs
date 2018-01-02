@@ -22,7 +22,7 @@ namespace LIBRARY
         private bool isConnected;
         public bool isTimeOut;
         private string msg = "Welcome To .Net Sockets!";
-        private string remoteServerIp = "10.206.16.141";
+        private static string remoteServerIp = "10.206.16.143";
         private int remoteServerPort = 6000;
 
         internal FileProtocol FileProtocol
@@ -65,10 +65,11 @@ namespace LIBRARY
             else
             {
                 steamToServe = client.GetStream();
-                //SendMessage(fileProtocol.ToString());
             }
 
         }
+
+
         private void ConnectCallback(IAsyncResult ar)
         {
             TcpClient tcp = (TcpClient)ar.AsyncState;
@@ -104,7 +105,7 @@ namespace LIBRARY
 
         }
 
-        public void SendMessage() { SendMessage(this.msg); }
+        private void SendMessage() { SendMessage(this.msg); }
 
         private void ReadComplete(IAsyncResult ar)
         {
@@ -204,6 +205,25 @@ namespace LIBRARY
             steamToServe.BeginRead(buffer, 0, BufferSize, callBack, null);
         }
 
+        public FileProtocol Read()
+        {
+            int totalBytes = 0;
+            int bytesRead;
+            do
+            {
+                Array.Clear(buffer, 0, buffer.Length);
+                bytesRead = steamToServe.Read(buffer, totalBytes, BufferSize);
+                totalBytes += bytesRead;
+
+                Console.WriteLine("Reveiving {0} bytes ...", totalBytes);
+            } while (bytesRead > 0);
+            string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
+            string[] protocolArray = handler.GetProtocol(msg);
+            ProtocolHelper helper = new ProtocolHelper(protocolArray[0]);
+            FileProtocol protocol = helper.GetProtocol();
+            return protocol;
+        }
+
         private void OnReadComplete(IAsyncResult ar)
         {
             int bytesRead = 0;
@@ -259,7 +279,49 @@ namespace LIBRARY
                 PublicVar.bookTotalAmount = protocol.Endnum;
                 PublicVar.ReturnValue = 0;
             }
+            else if (protocol.Mode == RequestMode.UserBookDetailLoad)
+            {
+                PublicVar.nowBook = protocol.NowBook;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.UserBookStateLoad)
+            {
+                PublicVar.eachBookState = protocol.EachBookState;
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserBookCommentLoad)
+            {
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.UserBookLoad)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+                PublicVar.nowBook = protocol.NowBook;
+                PublicVar.eachBookState = protocol.EachBookState;
+            }
         }
 
+        public byte[] receiveFileAsByte()
+        {
+            //string path = Environment.CurrentDirectory + "//" + protocol.NowBook.BookIsbn;
+            byte[] fileBuffer = new byte[1000 * 1024];
+            byte[] tmp = new byte[1024];
+
+            int bytesRead;
+            int totalBytes = 0;
+            do
+            {
+                bytesRead = steamToServe.Read(tmp, 0, 1024);
+                tmp.CopyTo(fileBuffer, totalBytes);
+                totalBytes += bytesRead;
+                //Console.WriteLine("Reveiving {0} bytes ...", totalBytes);
+            } while (bytesRead > 0);
+
+            Console.WriteLine("Total {0} bytes received, Done!", totalBytes);
+
+            steamToServe.Dispose();
+
+            return fileBuffer;
+        }
     }
 }
