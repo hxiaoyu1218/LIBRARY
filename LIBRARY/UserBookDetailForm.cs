@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
 using System.Net.Sockets;
+using WindowsFormsControlLibrary1;
+using System.Threading;
 
 namespace LIBRARY
 {
@@ -17,13 +19,17 @@ namespace LIBRARY
     {
         private UserMainForm frmMain;
 
+        private int commentPage;
+
         private int bookIndex;//booklist索引
+
+        private UserControl1[] commentControlList;
 
         public UserBookDetailForm(UserMainForm frm, int bookindex)
         {
             bookIndex = bookindex;
             frmMain = frm;
-
+            commentPage = 1;
             InitializeComponent();
             if (PublicVar.GuestFlag == 1)
             {
@@ -116,7 +122,9 @@ namespace LIBRARY
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
             //test
-            comment0.setText("test commenttest commenttest commenttest commenttest commenttest commenttest commenttest commenttest commenttest comment\ntest comment\ntest comment\n");
+            LoadGIFBox.Visible = true;
+            BookCommentRequest.RunWorkerAsync();
+
 
             BookDetailLoad();
             if (PublicVar.GuestFlag != 1) OrderOrBorrow();
@@ -135,8 +143,6 @@ namespace LIBRARY
             SetStyle(ControlStyles.DoubleBuffer, true);
 
             BookListRefresh();
-
-            PublicVar.ReturnValue = -233;
         }
 
         private void BookBorrowButton_Click(object sender, EventArgs e)
@@ -232,7 +238,7 @@ namespace LIBRARY
             FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
             fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
             serverClient.SendMessage(fp.ToString());
-            
+
             PublicVar.pic = serverClient.receiveFileAsByte();
         }
 
@@ -247,6 +253,192 @@ namespace LIBRARY
             {
                 System.Windows.Forms.MessageBox.Show(ee.Message);
                 return;
+            }
+        }
+
+
+        private void BookCommentRequest_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ServerClient serverClient = new ServerClient();
+            FileProtocol fp = new FileProtocol(RequestMode.UserBookCommentLoad, 6000);
+            fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
+            fp.Curnum = commentPage;
+            serverClient.SendMessage(fp.ToString());
+
+            e.Result = serverClient;
+        }
+
+        private void BookCommentRequest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            WaitingThread.RunWorkerAsync((ServerClient)e.Result);
+        }
+
+        private void WaitingThread_DoWork(object sender, DoWorkEventArgs e)
+        {
+            PublicVar.ReturnValue = -233;
+            ServerClient serverClient = (ServerClient)e.Argument;
+            serverClient.BeginRead();
+            int timer = 0;
+            while (PublicVar.ReturnValue == -233 && timer < 10000)
+            {
+                Thread.Sleep(50);
+                timer += 50;
+            }
+            if (timer >= 10000)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void WaitingThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            PublicVar.ReturnValue = -233;
+            if (e.Cancelled)
+            {
+                System.Windows.Forms.MessageBox.Show("error time out!");
+                //time out
+                return;
+            }
+            if (PublicVar.currentCommentList == null)
+            {
+                System.Windows.Forms.MessageBox.Show("comment list null!");
+                return;
+            }
+            else
+            {
+
+
+                commentTextBox.Text = "";
+                LoadGIFBox.Visible = false;
+                if (commentControlList != null)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        flowLayoutPanel1.Controls.Remove(commentControlList[i]);
+                    }//exception??
+                }
+
+                commentControlList = new UserControl1[5];
+                for (int i = 0; i < 5; i++)
+                {
+                    UserControl1 comment = new UserControl1();
+                    comment.AutoSize = true;
+                    comment.Location = new Point(66, 706);
+                    comment.Margin = new Padding(64, 16, 64, 3);
+                    comment.Name = i.ToString();
+                    comment.Size = new Size(844, 86);
+                    commentControlList[i] = comment;
+                }
+
+
+                for (int i = 0; i < PublicVar.currentCommentList.Length; i++)
+                {
+                    if (PublicVar.currentCommentList[i].UserId == PublicVar.logUser.UserId)
+                    {
+                        commentControlList[i].setDeleteBtn(false);
+                    }
+                    else
+                    {
+                        commentControlList[i].setDeleteBtn(true);
+                    }
+                    commentControlList[i].setTime(PublicVar.currentCommentList[i].CommentTime.ToShortDateString());
+                    commentControlList[i].setText(PublicVar.currentCommentList[i].Text);
+                    commentControlList[i].UserControlDeleteBtnClicked += new UserControl1.deleteBtnClickHandle(this.CommentDeleteBtn_Click);
+                    flowLayoutPanel1.Controls.Add(commentControlList[i]);
+                    flowLayoutPanel1.Controls.SetChildIndex(commentControlList[i], i + 4);
+                }
+            }
+        }
+
+        private void CommentDeleteBtn_Click(object sender, EventArgs e)
+        {
+            PublicVar.ReturnValue = -233;
+            int index = Convert.ToInt32(((UserControl1)sender).Name);
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserDelComment, 6000);
+            fileProtocol.NowComment = new ClassComment();
+            fileProtocol.NowComment.CommentIsbn = PublicVar.currentCommentList[index].CommentIsbn;
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserDelComment, "正在删除", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+            if (PublicVar.ReturnValue == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("delete error!");
+                return;
+            }
+            if (PublicVar.ReturnValue == -233)
+            {
+                return;
+            }
+            else
+            {
+                PublicVar.ReturnValue = -233;
+                commentPage = 1;
+                LoadGIFBox.Visible = true;
+                BookCommentRequest.RunWorkerAsync();
+            }
+        }
+
+        private void CommentSubmitBtn_Click(object sender, EventArgs e)
+        {
+            if (commentTextBox.Text.Trim() == "")
+            {
+                return;
+            }
+            else
+            {
+                PublicVar.ReturnValue = -233;
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserCommentBook, 6000);
+                fileProtocol.NowComment = new ClassComment();
+                fileProtocol.NowComment.CommentIsbn = PublicVar.nowBook.BookIsbn;
+                fileProtocol.NowComment.UserId = PublicVar.logUser.UserId;
+                fileProtocol.NowComment.Text = commentTextBox.Text.Trim();
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.UserCommentBook, "正在提交", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+                if (PublicVar.ReturnValue == 0)
+                {
+                    System.Windows.Forms.MessageBox.Show("submit error!");
+                    return;
+                }
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
+                }
+                else
+                {
+                    PublicVar.ReturnValue = -233;
+                    commentPage = 1;
+                    LoadGIFBox.Visible = true;
+                    BookCommentRequest.RunWorkerAsync();
+                }
+            }
+        }
+
+        private void LastPageButton_Click(object sender, EventArgs e)
+        {
+            if (commentPage == 1)
+                return;
+            else
+            {
+                commentPage -= 5;
+                LoadGIFBox.Visible = true;
+                BookCommentRequest.RunWorkerAsync();
+            }
+
+        }
+
+        private void NextPageButton_Click(object sender, EventArgs e)
+        {
+            if (commentPage + 5 > PublicVar.commentTotalAmount)
+            {
+                return;
+            }
+            else
+            {
+                commentPage += 5;
+                LoadGIFBox.Visible = true;
+                BookCommentRequest.RunWorkerAsync();
             }
         }
     }

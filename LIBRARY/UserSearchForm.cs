@@ -328,6 +328,10 @@ namespace LIBRARY
 
         private void UserInfoButton_Click(object sender, EventArgs e)
         {
+
+
+
+
             frmMain.MainPanel.Controls.Clear();
             UserForm userForm = new UserForm(frmMain);
             userForm.TopLevel = false;

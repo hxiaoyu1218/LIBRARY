@@ -152,6 +152,10 @@ namespace LIBRARY
         public static ClassUserBasicInfo logUser;
         public static ClassComment nowComment;
         public static ClassComment[] currentCommentList;
+        public static int commentTotalAmount;
         public static byte[] pic;
+
+
+
     }
 }

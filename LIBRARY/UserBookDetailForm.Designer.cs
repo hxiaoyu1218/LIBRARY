@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserBookDetailForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.BookBorrowButton = new DMSkin.Controls.DM.DMButtonImage();
@@ -65,19 +65,17 @@
             this.Label1Text = new System.Windows.Forms.Label();
             this.Label2Text = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comment0 = new WindowsFormsControlLibrary1.UserControl1();
-            this.comment1 = new WindowsFormsControlLibrary1.UserControl1();
-            this.comment2 = new WindowsFormsControlLibrary1.UserControl1();
-            this.comment3 = new WindowsFormsControlLibrary1.UserControl1();
-            this.comment4 = new WindowsFormsControlLibrary1.UserControl1();
+            this.LoadGIFBox = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CommentSubmitBtn = new System.Windows.Forms.Button();
             this.NextPageButton = new System.Windows.Forms.Button();
             this.LastPageButton = new System.Windows.Forms.Button();
             this.commentTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
+            this.BookCommentRequest = new System.ComponentModel.BackgroundWorker();
+            this.WaitingThread = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -89,6 +87,7 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,55 +162,55 @@
             this.ResultDataSheet.AllowUserToDeleteRows = false;
             this.ResultDataSheet.AllowUserToResizeColumns = false;
             this.ResultDataSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.ResultDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ResultDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ResultDataSheet.CausesValidation = false;
             this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.ResultDataSheet.ColumnHeadersHeight = 40;
             this.ResultDataSheet.ColumnHeadersVisible = false;
             this.ResultDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookID,
             this.BookState});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle23;
-            this.ResultDataSheet.Location = new System.Drawing.Point(523, 11);
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle13;
+            this.ResultDataSheet.Location = new System.Drawing.Point(521, 11);
             this.ResultDataSheet.Margin = new System.Windows.Forms.Padding(37, 11, 0, 0);
             this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
             this.ResultDataSheet.ReadOnly = true;
             this.ResultDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.ResultDataSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.ResultDataSheet.RowTemplate.Height = 40;
             this.ResultDataSheet.RowTemplate.ReadOnly = true;
             this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -271,11 +270,7 @@
             this.flowLayoutPanel1.Controls.Add(this.BookNameLabel);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.comment0);
-            this.flowLayoutPanel1.Controls.Add(this.comment1);
-            this.flowLayoutPanel1.Controls.Add(this.comment2);
-            this.flowLayoutPanel1.Controls.Add(this.comment3);
-            this.flowLayoutPanel1.Controls.Add(this.comment4);
+            this.flowLayoutPanel1.Controls.Add(this.LoadGIFBox);
             this.flowLayoutPanel1.Controls.Add(this.panel7);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -304,7 +299,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(972, 372);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(971, 372);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -314,9 +309,9 @@
             this.panel2.Controls.Add(this.BookOrderButton);
             this.panel2.Controls.Add(this.BookBorrowButton);
             this.panel2.Controls.Add(this.NoUseButton);
-            this.panel2.Location = new System.Drawing.Point(489, 269);
+            this.panel2.Location = new System.Drawing.Point(487, 269);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(480, 100);
+            this.panel2.Size = new System.Drawing.Size(481, 100);
             this.panel2.TabIndex = 18;
             // 
             // flowLayoutPanel2
@@ -328,7 +323,7 @@
             this.flowLayoutPanel2.Controls.Add(this.panel5);
             this.flowLayoutPanel2.Controls.Add(this.panel6);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(246, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(245, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(211, 260);
             this.flowLayoutPanel2.TabIndex = 34;
@@ -560,86 +555,56 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "评论：";
             // 
-            // comment0
+            // LoadGIFBox
             // 
-            this.comment0.AutoSize = true;
-            this.comment0.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comment0.Location = new System.Drawing.Point(66, 601);
-            this.comment0.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment0.Name = "comment0";
-            this.comment0.Size = new System.Drawing.Size(844, 86);
-            this.comment0.TabIndex = 37;
-            // 
-            // comment1
-            // 
-            this.comment1.AutoSize = true;
-            this.comment1.Location = new System.Drawing.Point(66, 706);
-            this.comment1.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment1.Name = "comment1";
-            this.comment1.Size = new System.Drawing.Size(844, 86);
-            this.comment1.TabIndex = 40;
-            // 
-            // comment2
-            // 
-            this.comment2.AutoSize = true;
-            this.comment2.Location = new System.Drawing.Point(66, 811);
-            this.comment2.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment2.Name = "comment2";
-            this.comment2.Size = new System.Drawing.Size(844, 86);
-            this.comment2.TabIndex = 41;
-            // 
-            // comment3
-            // 
-            this.comment3.AutoSize = true;
-            this.comment3.Location = new System.Drawing.Point(66, 916);
-            this.comment3.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment3.Name = "comment3";
-            this.comment3.Size = new System.Drawing.Size(844, 86);
-            this.comment3.TabIndex = 39;
-            // 
-            // comment4
-            // 
-            this.comment4.AutoSize = true;
-            this.comment4.Location = new System.Drawing.Point(66, 1021);
-            this.comment4.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
-            this.comment4.Name = "comment4";
-            this.comment4.Size = new System.Drawing.Size(844, 86);
-            this.comment4.TabIndex = 38;
+            this.LoadGIFBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadGIFBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.LoadGIFBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.LoadGIFBox.Image = ((System.Drawing.Image)(resources.GetObject("LoadGIFBox.Image")));
+            this.LoadGIFBox.Location = new System.Drawing.Point(5, 588);
+            this.LoadGIFBox.Name = "LoadGIFBox";
+            this.LoadGIFBox.Size = new System.Drawing.Size(965, 50);
+            this.LoadGIFBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LoadGIFBox.TabIndex = 40;
+            this.LoadGIFBox.TabStop = false;
+            this.LoadGIFBox.Visible = false;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.button1);
+            this.panel7.Controls.Add(this.CommentSubmitBtn);
             this.panel7.Controls.Add(this.NextPageButton);
             this.panel7.Controls.Add(this.LastPageButton);
             this.panel7.Controls.Add(this.commentTextBox);
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(2, 1110);
+            this.panel7.Location = new System.Drawing.Point(2, 641);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 306);
             this.panel7.TabIndex = 39;
             // 
-            // button1
+            // CommentSubmitBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("黑体", 10F);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(812, 247);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 30);
-            this.button1.TabIndex = 46;
-            this.button1.TabStop = false;
-            this.button1.Text = "发表评论";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CommentSubmitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.CommentSubmitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.CommentSubmitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(126)))), ((int)(((byte)(110)))));
+            this.CommentSubmitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CommentSubmitBtn.Font = new System.Drawing.Font("黑体", 10F);
+            this.CommentSubmitBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.CommentSubmitBtn.Location = new System.Drawing.Point(812, 247);
+            this.CommentSubmitBtn.Name = "CommentSubmitBtn";
+            this.CommentSubmitBtn.Size = new System.Drawing.Size(96, 30);
+            this.CommentSubmitBtn.TabIndex = 46;
+            this.CommentSubmitBtn.TabStop = false;
+            this.CommentSubmitBtn.Text = "发表评论";
+            this.CommentSubmitBtn.UseVisualStyleBackColor = false;
+            this.CommentSubmitBtn.Click += new System.EventHandler(this.CommentSubmitBtn_Click);
             // 
             // NextPageButton
             // 
             this.NextPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.NextPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.NextPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.NextPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(126)))), ((int)(((byte)(110)))));
             this.NextPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NextPageButton.ForeColor = System.Drawing.SystemColors.Control;
             this.NextPageButton.Location = new System.Drawing.Point(858, 15);
@@ -649,12 +614,13 @@
             this.NextPageButton.TabStop = false;
             this.NextPageButton.Text = "下页";
             this.NextPageButton.UseVisualStyleBackColor = false;
+            this.NextPageButton.Click += new System.EventHandler(this.NextPageButton_Click);
             // 
             // LastPageButton
             // 
             this.LastPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.LastPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LastPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.LastPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(126)))), ((int)(((byte)(110)))));
             this.LastPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LastPageButton.ForeColor = System.Drawing.SystemColors.Control;
             this.LastPageButton.Location = new System.Drawing.Point(789, 15);
@@ -664,6 +630,7 @@
             this.LastPageButton.TabStop = false;
             this.LastPageButton.Text = "上页";
             this.LastPageButton.UseVisualStyleBackColor = false;
+            this.LastPageButton.Click += new System.EventHandler(this.LastPageButton_Click);
             // 
             // commentTextBox
             // 
@@ -674,6 +641,7 @@
             this.commentTextBox.Name = "commentTextBox";
             this.commentTextBox.Size = new System.Drawing.Size(840, 137);
             this.commentTextBox.TabIndex = 39;
+            this.commentTextBox.TabStop = false;
             this.commentTextBox.Text = "我是评论输入区域\r\n有啥想说的么\r\n没有\r\n再见\r\n";
             // 
             // label3
@@ -701,6 +669,16 @@
             // 
             this.BookImageRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookImageRequest_DoWork);
             this.BookImageRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookImageRequest_RunWorkerCompleted);
+            // 
+            // BookCommentRequest
+            // 
+            this.BookCommentRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookCommentRequest_DoWork);
+            this.BookCommentRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookCommentRequest_RunWorkerCompleted);
+            // 
+            // WaitingThread
+            // 
+            this.WaitingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitingThread_DoWork);
+            this.WaitingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitingThread_RunWorkerCompleted);
             // 
             // UserBookDetailForm
             // 
@@ -741,6 +719,7 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.ResumeLayout(false);
@@ -781,18 +760,16 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
-        private WindowsFormsControlLibrary1.UserControl1 comment0;
-        private WindowsFormsControlLibrary1.UserControl1 comment4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel7;
-        private WindowsFormsControlLibrary1.UserControl1 comment1;
-        private WindowsFormsControlLibrary1.UserControl1 comment2;
-        private WindowsFormsControlLibrary1.UserControl1 comment3;
         private System.Windows.Forms.TextBox commentTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CommentSubmitBtn;
         private System.Windows.Forms.Button NextPageButton;
         private System.Windows.Forms.Button LastPageButton;
         private System.ComponentModel.BackgroundWorker BookImageRequest;
+        private System.ComponentModel.BackgroundWorker BookCommentRequest;
+        private System.Windows.Forms.PictureBox LoadGIFBox;
+        private System.ComponentModel.BackgroundWorker WaitingThread;
     }
 }

@@ -58,7 +58,7 @@ namespace LIBRARY
                 else if ((int)ReturnButton.Tag == 2)
                 {
                     MainPanel.Controls.Clear();
-                    UserSearchResultForm searchResultForm = new UserSearchResultForm(this, 0, "");
+                    UserSearchResultForm searchResultForm = new UserSearchResultForm(this,UserSearchResultForm.lastState, UserSearchResultForm.lastString);
                     searchResultForm.TopLevel = false;
                     searchResultForm.Dock = DockStyle.Fill;
                     MainPanel.Controls.Add(searchResultForm);

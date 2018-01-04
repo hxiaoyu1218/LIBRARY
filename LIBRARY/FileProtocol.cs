@@ -55,6 +55,8 @@ namespace LIBRARY
         private ClassBook[] resbook;
         private ClassBook nowBook;
         private ClassABook[] eachBookState;
+        private ClassComment nowComment;
+        private ClassComment[] comments;
 
 
         public FileProtocol(RequestMode mode, int port)
@@ -216,6 +218,32 @@ namespace LIBRARY
             }
         }
 
+        public ClassComment NowComment
+        {
+            get
+            {
+                return nowComment;
+            }
+
+            set
+            {
+                nowComment = value;
+            }
+        }
+
+        public ClassComment[] Comments
+        {
+            get
+            {
+                return comments;
+            }
+
+            set
+            {
+                comments = value;
+            }
+        }
+
         public override string ToString()
         {
             switch (mode)
@@ -243,7 +271,9 @@ namespace LIBRARY
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userBasic userid=\"{2}\" /><book bookisbn=\"{3}\" /></protocol>", mode, port, Userinfo.UserId,NowBook.BookIsbn);
                     }
                 case RequestMode.UserBookCommentLoad:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><commentload bookisbn=\"{2}\" curnum=\"{3}\" /></protocol>", mode, port, NowBook.BookIsbn, curnum);
+                    }
                 case RequestMode.UserBookDetailLoad:
                     {
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /></protocol>", mode, port,NowBook.BookIsbn);
@@ -255,9 +285,13 @@ namespace LIBRARY
                 case RequestMode.UserBorrowBook:
                     break;
                 case RequestMode.UserCommentBook:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><comment text=\"{2}\" userid=\"{3}\" bookisbn=\"{4}\" /></protocol>", mode, port, NowComment.Text, NowComment.UserId, NowComment.CommentIsbn);
+                    }
                 case RequestMode.UserDelComment:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><comment commentisbn=\"{2}\" /></protocol>", mode, port, NowComment.CommentIsbn);
+                    }
                 case RequestMode.UserOrderBook:
                     break;
                 case RequestMode.UserInfoLoad:

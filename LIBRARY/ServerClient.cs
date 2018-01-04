@@ -107,34 +107,7 @@ namespace LIBRARY
 
         private void SendMessage() { SendMessage(this.msg); }
 
-        private void ReadComplete(IAsyncResult ar)
-        {
-            int bytesRead;
-            try
-            {
-                lock (steamToServe)
-                {
-                    bytesRead = steamToServe.EndRead(ar);
-                }
-                if (bytesRead == 0) throw new Exception("Nothing To Read!");
 
-                string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
-                Console.WriteLine("Received: {0}", msg);
-                Array.Clear(buffer, 0, buffer.Length);
-
-                lock (steamToServe)
-                {
-                    AsyncCallback callback = new AsyncCallback(ReadComplete);
-                    steamToServe.BeginRead(buffer, 0, BufferSize, callback, null);
-                }
-            }
-            catch (Exception e)
-            {
-                if (steamToServe != null) steamToServe.Dispose();
-                client.Close();
-                Console.WriteLine(e.Message);
-            }
-        }
 
         private void SendFile(string filePath)
         {
@@ -232,9 +205,13 @@ namespace LIBRARY
                 lock (steamToServe)
                 {
                     bytesRead = steamToServe.EndRead(ar);
+
                     Console.WriteLine("Reading Data, {0} bytes", bytesRead);
                 }
-
+                if (bytesRead == 0)
+                {
+                    return;
+                }
                 string msg = Encoding.Unicode.GetString(buffer, 0, bytesRead);
                 Array.Clear(buffer, 0, buffer.Length);
 
@@ -254,6 +231,11 @@ namespace LIBRARY
             catch (Exception e)
             {
                 //Console.WriteLine(e.Message);
+                if (steamToServe != null) steamToServe.Dispose();
+                client.Close();
+            }
+            finally
+            {
                 if (steamToServe != null) steamToServe.Dispose();
                 client.Close();
             }
@@ -291,6 +273,8 @@ namespace LIBRARY
             }
             else if (protocol.Mode == RequestMode.UserBookCommentLoad)
             {
+                PublicVar.currentCommentList = protocol.Comments;
+                PublicVar.commentTotalAmount = protocol.Endnum;
                 PublicVar.ReturnValue = 0;
             }
             else if (protocol.Mode == RequestMode.UserBookLoad)
@@ -299,6 +283,16 @@ namespace LIBRARY
                 PublicVar.nowBook = protocol.NowBook;
                 PublicVar.eachBookState = protocol.EachBookState;
             }
+            else if (protocol.Mode == RequestMode.UserCommentBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserDelComment)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+
+
         }
 
         public byte[] receiveFileAsByte()
@@ -320,7 +314,7 @@ namespace LIBRARY
             Console.WriteLine("Total {0} bytes received, Done!", totalBytes);
 
             steamToServe.Dispose();
-
+            client.Close();
             return fileBuffer;
         }
     }

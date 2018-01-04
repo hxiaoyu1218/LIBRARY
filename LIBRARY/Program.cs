@@ -17,6 +17,9 @@ namespace LIBRARY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //Application.Run(new UserBookDetailForm(null, 0));
+
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
             loginForm.Dispose();
@@ -31,7 +34,7 @@ namespace LIBRARY
                 Application.Run(new AdminMainForm());
             }
             ClassBackEnd.StopTime();
-         //   Application.Run(new AddBookForm());
+            //   Application.Run(new AddBookForm());
         }
     }
 }
