@@ -150,6 +150,8 @@ namespace LIBRARY
             return image;
         }
         public static ClassUserBasicInfo logUser;
+        public static ClassComment nowComment;
+        public static ClassComment[] currentCommentList;
         public static byte[] pic;
     }
 }

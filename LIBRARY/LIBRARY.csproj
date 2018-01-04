@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="ClassABook.cs" />
     <Compile Include="ClassBook.cs" />
+    <Compile Include="ClassComment.cs" />
     <Compile Include="ClassUserBasic.cs" />
     <Compile Include="FileProtocol.cs" />
     <Compile Include="Form2.cs">
