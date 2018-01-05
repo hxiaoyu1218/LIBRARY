@@ -30,6 +30,7 @@ namespace LIBRARY
         }
         private void searchBook()
         {
+            PublicVar.ReturnValue = -233;
             fileProtocol = new FileProtocol(RequestMode.UserSearchBook, 6000);
             fileProtocol.Curnum = (nPage - 1) * 10 + 1;
             fileProtocol.Searchwords = lastString;
@@ -47,6 +48,15 @@ namespace LIBRARY
             ResultDataSheet.Rows.Clear();
             ResultDataSheet.Hide();
             if (PublicVar.currentBookList == null) return;
+
+            //DataGridViewRow row1 = (DataGridViewRow)ResultDataSheet.RowTemplate.Clone();
+            //int index1 = ResultDataSheet.Rows.Add(row1);
+            //ResultDataSheet.Rows[index1].Cells[0].Value = "ISBN";
+            //ResultDataSheet.Rows[index1].Cells[1].Value = "书名";
+            //ResultDataSheet.Rows[index1].Cells[2].Value = "作者";
+            //ResultDataSheet.Rows[index1].Cells[3].Value = "出版社";
+            //ResultDataSheet.Rows[index1].Cells[4].Value = "操作";
+            //ResultDataSheet.Rows[index1].Cells[4].
             for (int i = 0; i < PublicVar.currentBookList.Length; i++)
             {
                 var c = PublicVar.currentBookList[i];
@@ -83,7 +93,7 @@ namespace LIBRARY
                 DataSheetLoad();
                 JumpPTextBox.Text = nPage.ToString();
                 PageTextBox.Text = maxPage.ToString();
-               
+
             }
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
@@ -344,10 +354,10 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 4)
             {
-               
+
                 FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookLoad, 6000);
                 fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
-             
+
                 fileProtocol.Userinfo = PublicVar.logUser;
 
 
@@ -421,6 +431,11 @@ namespace LIBRARY
         private void JumpPTextBox_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            label1.Focus();
         }
     }
 

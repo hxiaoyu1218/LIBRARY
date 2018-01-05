@@ -155,6 +155,10 @@ namespace LIBRARY
             {
                 TextBox.Text = "请求超时！";
             }
+            else if(textType==29)
+            {
+                TextBox.Text = "无可借书籍！";
+            }
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)

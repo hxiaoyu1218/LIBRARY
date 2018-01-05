@@ -120,6 +120,11 @@ namespace LIBRARY
                     }
                     break;
                 case RequestMode.UserBorrowBook:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserCommentBook:
                     while (PublicVar.ReturnValue == -233 && timer < 10000)
@@ -136,6 +141,11 @@ namespace LIBRARY
                     }
                     break;
                 case RequestMode.UserOrderBook:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserInfoLoad:
                     break;

@@ -54,7 +54,10 @@ namespace LIBRARY
         private int amo;
         private ClassBook[] resbook;
         private ClassBook nowBook;
+
+        private ClassABook nowABook;
         private ClassABook[] eachBookState;
+
         private ClassComment nowComment;
         private ClassComment[] comments;
 
@@ -244,6 +247,19 @@ namespace LIBRARY
             }
         }
 
+        public ClassABook NowABook
+        {
+            get
+            {
+                return nowABook;
+            }
+
+            set
+            {
+                nowABook = value;
+            }
+        }
+
         public override string ToString()
         {
             switch (mode)
@@ -283,7 +299,9 @@ namespace LIBRARY
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /></protocol>", mode, port, NowBook.BookIsbn);
                     }
                 case RequestMode.UserBorrowBook:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /><userbasic userid=\"{3}\" userpassword=\"{4}\" /></protocol>", mode, port, NowBook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
+                    }
                 case RequestMode.UserCommentBook:
                     {
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><comment text=\"{2}\" userid=\"{3}\" bookisbn=\"{4}\" /></protocol>", mode, port, NowComment.Text, NowComment.UserId, NowComment.CommentIsbn);
@@ -293,7 +311,9 @@ namespace LIBRARY
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><comment commentisbn=\"{2}\" /></protocol>", mode, port, NowComment.CommentIsbn);
                     }
                 case RequestMode.UserOrderBook:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /><userbasic userid=\"{3}\" userpassword=\"{4}\" /></protocol>", mode, port, NowBook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
+                    }
                 case RequestMode.UserInfoLoad:
                     break;
                 case RequestMode.UserInfoChange:

@@ -132,7 +132,7 @@ namespace LIBRARY
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserLogin, 6000);
             fileProtocol.Userinfo = classUserBasicInfo;
 
-           
+
 
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserLogin, "正在登录", fileProtocol);
             loadingBox.ShowDialog();
@@ -143,9 +143,10 @@ namespace LIBRARY
             var v = PublicVar.ReturnValue;
             if (v == 1)//用户登录
             {
-                
+
                 PublicVar.ReturnValue = -233;
                 PublicVar.logUser = new ClassUserBasicInfo(UserTextBox.Text);
+                PublicVar.logUser.UserPassword = PasswordTextBox.Text;
 
 
                 if (RememberCheckBox.Checked == true)

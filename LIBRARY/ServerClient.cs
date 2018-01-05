@@ -291,6 +291,18 @@ namespace LIBRARY
             {
                 PublicVar.ReturnValue = protocol.Retval;
             }
+            else if (protocol.Mode == RequestMode.UserBorrowBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserSearchBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserOrderBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
 
 
         }
