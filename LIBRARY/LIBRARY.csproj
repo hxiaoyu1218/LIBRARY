@@ -102,6 +102,12 @@
     <Compile Include="AdminBookDetailForm.Designer.cs">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserChangeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserChangeInfo.Designer.cs">
+      <DependentUpon>UserChangeInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassABook.cs" />
     <Compile Include="ClassBook.cs" />
     <Compile Include="ClassComment.cs" />
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUserDetailForm.resx">
       <DependentUpon>AdminUserDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserChangeInfo.resx">
+      <DependentUpon>UserChangeInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>

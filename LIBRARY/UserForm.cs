@@ -331,5 +331,11 @@ namespace LIBRARY
             creditRecordForm.ShowDialog();
             creditRecordForm.Dispose();
         }
+
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+            UserChangeInfo userChangeInfo = new UserChangeInfo();
+            userChangeInfo.Show();
+        }
     }
 }
