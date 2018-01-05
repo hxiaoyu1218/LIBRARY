@@ -113,12 +113,27 @@ namespace LIBRARY
                 case RequestMode.UserBookStateLoad:
                     break;
                 case RequestMode.UserBookCommentLoad:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserBorrowBook:
                     break;
                 case RequestMode.UserCommentBook:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserDelComment:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserOrderBook:
                     break;

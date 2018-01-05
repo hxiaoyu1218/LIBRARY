@@ -108,14 +108,14 @@ namespace LIBRARY
                         pro.NowBook.BookLable2 = bookNode.Attributes["booklable2"].Value;
                         pro.NowBook.BookLable3 = bookNode.Attributes["booklable3"].Value;
                         pro.NowBook.BookAmount = Convert.ToInt32(bookNode.Attributes["bookamo"].Value);
-                        
+
                         int k = Convert.ToInt32(bookNode.Attributes["bookamo"].Value);
                         XmlNodeList li = root.SelectNodes("bookstate");
                         List<ClassABook> bk = new List<ClassABook>();
                         foreach (XmlNode no in li)
                         {
                             ClassABook abk = new ClassABook(no.Attributes["bookextisbn"].Value);
-                            abk.BookState = (Bookstate)Enum.Parse(typeof(Bookstate), no.Attributes["bookstate"].Value, false); 
+                            abk.BookState = (Bookstate)Enum.Parse(typeof(Bookstate), no.Attributes["bookstate"].Value, false);
 
                             bk.Add(abk);
                         }
@@ -125,13 +125,38 @@ namespace LIBRARY
                         break;
                     }
                 case RequestMode.UserBookCommentLoad:
-                    break;
+                    {
+                        XmlNode commentSum = root.SelectSingleNode("commentsum");
+                        pro.Endnum = Convert.ToInt32(commentSum.Attributes["endnum"].Value);
+                        XmlNodeList li = root.SelectNodes("comment");
+                        List<ClassComment> comments = new List<ClassComment>();
+                        foreach (XmlNode no in li)
+                        {
+                            ClassComment cmt = new ClassComment();
+                            cmt.CommentIsbn = no.Attributes["commentisbn"].Value;
+                            cmt.Text = no.Attributes["text"].Value;
+                            cmt.UserId = no.Attributes["userid"].Value;
+                            cmt.CommentTime = DateTime.Parse(no.Attributes["commenttime"].Value);
+
+                            comments.Add(cmt);
+                        }
+                        pro.Comments = comments.ToArray();
+                        break;
+                    }
                 case RequestMode.UserBorrowBook:
                     break;
                 case RequestMode.UserCommentBook:
-                    break;
+                    {
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        break;
+                    }
                 case RequestMode.UserDelComment:
-                    break;
+                    {
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        break;
+                    }
                 case RequestMode.UserOrderBook:
                     break;
                 case RequestMode.UserInfoLoad:

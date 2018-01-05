@@ -21,7 +21,7 @@ namespace LIBRARY
             frmMain = frm;
             InitializeComponent();
         }
-        private void SheeetRefresh()
+        private void SheetRefresh()
         {
             MessageSheet.Rows.Clear();
             int i = 0;
@@ -218,7 +218,7 @@ namespace LIBRARY
             ClassBackEnd.GetIntoPersonCenter();
             UserInfoLoad();
             ButtonState = 0;
-            SheeetRefresh();
+            SheetRefresh();
             BookRecordSheet.Hide();
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;
@@ -307,7 +307,7 @@ namespace LIBRARY
                     returnForm.Dispose();
 
                     ClassBackEnd.GetIntoPersonCenter();
-                    SheeetRefresh();
+                    SheetRefresh();
                     UserInfoLoad();
                 }
                 else
@@ -318,7 +318,7 @@ namespace LIBRARY
                     ib.Dispose();
 
                     ClassBackEnd.GetIntoPersonCenter();
-                    SheeetRefresh();
+                    SheetRefresh();
                     UserInfoLoad();
                 }
 

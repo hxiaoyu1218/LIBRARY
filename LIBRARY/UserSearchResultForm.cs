@@ -14,9 +14,9 @@ namespace LIBRARY
         private FileProtocol fileProtocol;
         private static int maxPage;
         private static int nPage;
-        private int lastState;
-        private string lastString;
-        private int ButtonState;//控制滑块位置 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER 6 Label
+        public static int lastState;
+        public static string lastString;
+        private static int ButtonState;//控制滑块位置 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER 6 Label
 
         public UserSearchResultForm(UserMainForm frm, int state, string searchS)
         {
@@ -35,11 +35,10 @@ namespace LIBRARY
             fileProtocol.Searchwords = lastString;
             fileProtocol.Searchcat = lastState;
 
-            LoadingBox loadingBox = new LoadingBox(RequestMode.UserLogin, "正在查询", fileProtocol);
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserSearchBook, "正在查询", fileProtocol);
             loadingBox.ShowDialog();
-
-
             loadingBox.Dispose();
+
             PublicVar.ReturnValue = -233;
             DataSheetLoad();
         }
@@ -81,9 +80,10 @@ namespace LIBRARY
             }
             else
             {
-                //JumpPTextBox.Text = nPage.ToString();
-                //PageTextBox.Text = maxPage.ToString();
-                //DataSheetLoad();
+                DataSheetLoad();
+                JumpPTextBox.Text = nPage.ToString();
+                PageTextBox.Text = maxPage.ToString();
+               
             }
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
@@ -344,17 +344,11 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 4)
             {
-                FileProtocol[] fileProtocolList = new FileProtocol[3];
+               
                 FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookLoad, 6000);
                 fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
-                //fileProtocolList[0] = fileProtocol;
-                //fileProtocol = new FileProtocol(RequestMode.UserBookStateLoad, 6000);
-                //fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
+             
                 fileProtocol.Userinfo = PublicVar.logUser;
-                //fileProtocolList[1] = fileProtocol;
-                //fileProtocol = new FileProtocol(RequestMode.UserBookCommentLoad, 6000);
-                //fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
-                //fileProtocolList[2] = fileProtocol;
 
 
                 LoadingBox loadingBox = new LoadingBox(RequestMode.UserBookLoad, "正在加载", fileProtocol);
