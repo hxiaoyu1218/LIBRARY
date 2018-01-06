@@ -155,13 +155,17 @@ namespace LIBRARY
             {
                 TextBox.Text = "请求超时！";
             }
-            else if (textType == 31)
+            else if (textType == 29)
             {
-                TextBox.Text = "密码格式错误！";//cbXG
+                TextBox.Text = "无可借书籍！";
             }
             else if (textType == 30)
             {
                 TextBox.Text = "用户名或学院不能为空！";//cbXG
+            }
+            else if (textType == 31)
+            {
+                TextBox.Text = "密码格式错误！";//cbXG
             }
         }
 
