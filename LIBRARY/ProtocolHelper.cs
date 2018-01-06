@@ -84,8 +84,8 @@ namespace LIBRARY
                         List<ClassABook> bk = new List<ClassABook>();
                         foreach (XmlNode no in li)
                         {
-                            ClassABook abk = new ClassABook(no.Attributes["bookextisbn"].Value);
-                            abk.BookState = (Bookstate)Enum.ToObject(typeof(Bookstate), no.Attributes["bookstate"].Value);
+                            ClassABook abk = new ClassABook(no.Attributes["bookisbn"].Value);
+                            abk.BookState = (Bookstate)Enum.Parse(typeof(Bookstate), no.Attributes["bookstate"].Value, false);
 
                             bk.Add(abk);
                         }
@@ -144,7 +144,11 @@ namespace LIBRARY
                         break;
                     }
                 case RequestMode.UserBorrowBook:
-                    break;
+                    {
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        break;
+                    }
                 case RequestMode.UserCommentBook:
                     {
                         XmlNode usernode = root.SelectSingleNode("file");
@@ -158,7 +162,11 @@ namespace LIBRARY
                         break;
                     }
                 case RequestMode.UserOrderBook:
-                    break;
+                    {
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        break;
+                    }
                 case RequestMode.UserInfoLoad:
                     break;
                 case RequestMode.UserInfoChange:

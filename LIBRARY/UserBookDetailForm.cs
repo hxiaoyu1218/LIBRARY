@@ -103,6 +103,7 @@ namespace LIBRARY
                     BookOrderButton.Hide();
                     break;
                 case 2:
+                    BookBorrowButton.DM_NolImage = Properties.Resources.BookBorrowButton;
                     BookOrderButton.Hide();
                     break;
                 case 3:
@@ -112,7 +113,9 @@ namespace LIBRARY
                     break;
                 case 4:
                     BookBorrowButton.Hide();
+                    BookOrderButton.DM_NolImage = Properties.Resources.BookOrderButton;
                     BookOrderButton.Show();
+
                     break;
                 default:
                     break;
@@ -147,28 +150,56 @@ namespace LIBRARY
 
         private void BookBorrowButton_Click(object sender, EventArgs e)
         {
-            var b = ClassBackEnd.BorrowBook(bookIndex);
-            if (b == 1)
+            BookBorrowButton.Enabled = false;
+
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBorrowBook, 6000);
+            fileProtocol.NowBook = PublicVar.currentBookList[bookIndex];
+            fileProtocol.Userinfo = PublicVar.logUser;
+            PublicVar.ReturnValue = -233;
+
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserBorrowBook, "正在提交", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+
+            var v = PublicVar.ReturnValue;
+            if (v == -233)
+            {
+                BookBorrowButton.Enabled = true;
+                return;
+            }
+
+
+            if (v == 0)//success
             {
                 #region Infobox Show
                 MessageBox infoBox = new MessageBox(1);
                 infoBox.ShowDialog();
                 infoBox.Dispose();
                 #endregion
-                BookBorrowButton.DM_NolImage = Properties.Resources.AlreadyBorrow;
-                BookBorrowButton.Enabled = false;
+
+
             }
-            else if (b == 2)
+            else if (v == 1)//amount
             {
                 #region Infobox Show
                 MessageBox infoBox = new MessageBox(11);
                 infoBox.ShowDialog();
                 infoBox.Dispose();
                 #endregion
-                BookBorrowButton.DM_NolImage = Properties.Resources.AlreadyBorrow;
-                BookBorrowButton.Enabled = false;
+
+
             }
-            else if (b == 0)
+            else if (v == 2)
+            {
+                #region Infobox Show
+                MessageBox infoBox = new MessageBox(29);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                #endregion
+
+            }
+            else
             {
                 #region Infobox Show
                 MessageBox infoBox = new MessageBox(9);
@@ -176,31 +207,62 @@ namespace LIBRARY
                 infoBox.Dispose();
                 #endregion
             }
-            BookListRefresh();
+
+            PublicVar.ReturnValue = -233;
+            BookListRequest.RunWorkerAsync();
         }
 
         private void BookOrderButton_Click(object sender, EventArgs e)
         {
-            var v = ClassBackEnd.ScheduleBook(bookIndex);
-            if (v)
+            BookOrderButton.Enabled = false;
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserOrderBook, 6000);
+            fileProtocol.NowBook = PublicVar.currentBookList[bookIndex];
+            fileProtocol.Userinfo = PublicVar.logUser;
+            PublicVar.ReturnValue = -233;
+
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserOrderBook, "正在提交", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+            var v = PublicVar.ReturnValue;
+            if (v == -233)
+            {
+                BookOrderButton.Enabled = true;
+                return;
+            }
+            if (v == 0)//success
             {
                 #region Infobox Show
                 MessageBox infoBox = new MessageBox(2);
                 infoBox.ShowDialog();
                 infoBox.Dispose();
                 #endregion
+
+                PublicVar.ReturnValue = -233;
+                BookListRequest.RunWorkerAsync();
             }
-            else
+            else if (v == 1)//amount
             {
+                BookOrderButton.Enabled = true;
                 #region Infobox Show
                 MessageBox infoBox = new MessageBox(12);
                 infoBox.ShowDialog();
                 infoBox.Dispose();
                 #endregion
+
+                PublicVar.ReturnValue = -233;
             }
-            BookOrderButton.DM_NolImage = Properties.Resources.AlreadyOrder;
-            BookOrderButton.Enabled = false;
-            BookListRefresh();
+            else//error
+            {
+                BookOrderButton.Enabled = true;
+                PublicVar.ReturnValue = -233;
+                #region Infobox Show
+                MessageBox infoBox = new MessageBox(9);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                #endregion
+            }
+
         }
 
         private void NoUseButton_Click(object sender, EventArgs e)
@@ -214,22 +276,22 @@ namespace LIBRARY
 
         private void BookOrderButton_MouseMove(object sender, MouseEventArgs e)
         {
-            BookOrderButton.BackgroundImage = BookOrderButton.DM_HoverImage;
+            BookOrderButton.DM_NolImage = BookOrderButton.DM_HoverImage;
         }
 
         private void BookOrderButton_MouseLeave(object sender, EventArgs e)
         {
-            BookOrderButton.BackgroundImage = BookOrderButton.DM_NolImage;
+            BookOrderButton.DM_NolImage = Properties.Resources.BookOrderButton;
         }
 
         private void BookBorrowButton_MouseMove(object sender, MouseEventArgs e)
         {
-            BookBorrowButton.BackgroundImage = BookBorrowButton.DM_HoverImage;
+            BookBorrowButton.DM_NolImage = BookBorrowButton.DM_HoverImage;
         }
 
         private void BookBorrowButton_MouseLeave(object sender, EventArgs e)
         {
-            BookBorrowButton.BackgroundImage = BookBorrowButton.DM_NolImage;
+            BookBorrowButton.DM_NolImage = Properties.Resources.BookBorrowButton;
         }
 
         private void BookImageRequest_DoWork(object sender, DoWorkEventArgs e)
@@ -260,17 +322,34 @@ namespace LIBRARY
         private void BookCommentRequest_DoWork(object sender, DoWorkEventArgs e)
         {
             ServerClient serverClient = new ServerClient();
-            FileProtocol fp = new FileProtocol(RequestMode.UserBookCommentLoad, 6000);
-            fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
-            fp.Curnum = commentPage;
-            serverClient.SendMessage(fp.ToString());
-
+            if (serverClient.isTimeOut)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                FileProtocol fp = new FileProtocol(RequestMode.UserBookCommentLoad, 6000);
+                fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
+                fp.Curnum = commentPage;
+                serverClient.SendMessage(fp.ToString());
+            }
             e.Result = serverClient;
         }
 
         private void BookCommentRequest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            WaitingThread.RunWorkerAsync((ServerClient)e.Result);
+            ServerClient serverClient = (ServerClient)e.Result;
+            if (serverClient.isTimeOut)
+            {
+                MessageBox infoBox = new MessageBox(28);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+            }
+            else
+            {
+                WaitingThread.RunWorkerAsync(serverClient);
+            }
+
         }
 
         private void WaitingThread_DoWork(object sender, DoWorkEventArgs e)
@@ -439,6 +518,81 @@ namespace LIBRARY
                 commentPage += 5;
                 LoadGIFBox.Visible = true;
                 BookCommentRequest.RunWorkerAsync();
+            }
+        }
+
+        private void BookListRequest_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ServerClient serverClient = new ServerClient();
+            if (serverClient.isTimeOut)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookStateLoad, 6000);
+                fileProtocol.NowBook = PublicVar.currentBookList[bookIndex];
+                fileProtocol.Userinfo = PublicVar.logUser;
+                serverClient.SendMessage(fileProtocol.ToString());
+            }
+            e.Result = serverClient;
+        }
+
+        private void BookListRequest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ServerClient serverClient = (ServerClient)e.Result;
+            if (serverClient.isTimeOut)
+            {
+                MessageBox infoBox = new MessageBox(28);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                BookBorrowButton.Hide();
+                BookOrderButton.Hide();
+                NoUseButton.Enabled = false;
+
+            }
+            else
+            {
+                BookListRequestWaiting.RunWorkerAsync(serverClient);
+            }
+        }
+
+        private void BookListRequestWaiting_DoWork(object sender, DoWorkEventArgs e)
+        {
+            PublicVar.ReturnValue = -233;
+            ServerClient serverClient = (ServerClient)e.Argument;
+            serverClient.BeginRead();
+            int timer = 0;
+            while (PublicVar.ReturnValue == -233 && timer < 10000)
+            {
+                Thread.Sleep(50);
+                timer += 50;
+            }
+            if (timer >= 10000)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void BookListRequestWaiting_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox infoBox = new MessageBox(28);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                BookBorrowButton.Hide();
+                BookOrderButton.Hide();
+                NoUseButton.Enabled = false;
+                //time out
+            }
+            else
+            {
+                BookBorrowButton.Enabled = true;
+                BookOrderButton.Enabled = true;
+
+                BookListRefresh();
+                OrderOrBorrow();
             }
         }
     }

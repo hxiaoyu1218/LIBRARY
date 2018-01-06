@@ -155,7 +155,7 @@ namespace LIBRARY
             {
                 TextBox.Text = "请求超时！";
             }
-            else if(textType == 29)
+            else if (textType == 31)
             {
                 TextBox.Text = "密码格式错误！";//cbXG
             }

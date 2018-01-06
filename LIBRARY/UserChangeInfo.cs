@@ -253,7 +253,7 @@ namespace LIBRARY
             }
             else if(label1.Visible==true||PWD1AlertLabel.Visible==true||PWD2AlertLabel.Visible==true)
             {
-                MessageBox ib = new MessageBox(29);
+                MessageBox ib = new MessageBox(31);
                 ib.ShowDialog();
                 ib.Dispose();
                 return;

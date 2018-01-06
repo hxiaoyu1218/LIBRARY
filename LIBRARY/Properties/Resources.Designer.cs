@@ -103,9 +103,29 @@ namespace LIBRARY.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap BookBorrowButton {
+            get {
+                object obj = ResourceManager.GetObject("BookBorrowButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap BookNullImage {
             get {
                 object obj = ResourceManager.GetObject("BookNullImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BookOrderButton {
+            get {
+                object obj = ResourceManager.GetObject("BookOrderButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
