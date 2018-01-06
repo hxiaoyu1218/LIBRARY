@@ -61,6 +61,8 @@ namespace LIBRARY
         private ClassComment nowComment;
         private ClassComment[] comments;
 
+        private ClassUser user;
+
 
         public FileProtocol(RequestMode mode, int port)
         {
@@ -260,6 +262,18 @@ namespace LIBRARY
             }
         }
 
+        public ClassUser User
+        {
+            get
+            {
+                return user;
+            }
+            set
+            {
+                user = value;
+            }
+        }
+
         public override string ToString()
         {
             switch (mode)
@@ -284,7 +298,7 @@ namespace LIBRARY
                     }
                 case RequestMode.UserBookStateLoad:
                     {
-                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userBasic userid=\"{2}\" /><book bookisbn=\"{3}\" /></protocol>", mode, port, Userinfo.UserId,NowBook.BookIsbn);
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userBasic userid=\"{2}\" /><book bookisbn=\"{3}\" /></protocol>", mode, port, Userinfo.UserId, NowBook.BookIsbn);
                     }
                 case RequestMode.UserBookCommentLoad:
                     {
@@ -292,7 +306,7 @@ namespace LIBRARY
                     }
                 case RequestMode.UserBookDetailLoad:
                     {
-                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /></protocol>", mode, port,NowBook.BookIsbn);
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /></protocol>", mode, port, NowBook.BookIsbn);
                     }
                 case RequestMode.PicSend:
                     {
@@ -315,7 +329,9 @@ namespace LIBRARY
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /><userbasic userid=\"{3}\" userpassword=\"{4}\" /></protocol>", mode, port, NowBook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
                     }
                 case RequestMode.UserInfoLoad:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userbasic userid=\"{2}\" userpassword=\"{3}\" /></protocol>", mode, port, userinfo.UserId, userinfo.UserPassword);
+                    }
                 case RequestMode.UserInfoChange:
                     break;
                 case RequestMode.UserNotificationLoad:

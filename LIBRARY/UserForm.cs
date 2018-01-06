@@ -126,19 +126,19 @@ namespace LIBRARY
         }
         private void UserInfoLoad()
         {
-            WelTextBox.Text = "欢迎，" + PublicVar.logUser.UserName + "！";
-            AcedemicText.Text = PublicVar.logUser.UserSchool;
-            CreditText.Text = PublicVar.logUser.UserCredit.ToString();
-            MaxBorrowText.Text = PublicVar.logUser.UserCurrentMaxBorrowableAmount.ToString();
-            NowBorrowText.Text = PublicVar.logUser.UserCurrentBorrowedAmount.ToString();
-            NowOrderText.Text = PublicVar.logUser.UserCurrentScheduleAmount.ToString();
+            WelTextBox.Text = "欢迎，" + PublicVar.classUser.UserBasic.UserName + "！";
+            AcedemicText.Text = PublicVar.classUser.UserBasic.UserSchool;
+            CreditText.Text = PublicVar.classUser.UserBasic.UserCredit.ToString();
+            MaxBorrowText.Text = PublicVar.classUser.UserBasic.UserCurrentMaxBorrowableAmount.ToString();
+            NowBorrowText.Text = PublicVar.classUser.UserBasic.UserCurrentBorrowedAmount.ToString();
+            NowOrderText.Text = PublicVar.classUser.UserBasic.UserCurrentScheduleAmount.ToString();
             UserPicBox.Image = PickHeadImage();
         }
         private Image PickHeadImage()
         {
-            if (Char.IsLetter(PublicVar.logUser.UserName[0]))
+            if (Char.IsLetter(PublicVar.classUser.UserBasic.UserName[0]))
             {
-                switch (PublicVar.logUser.UserName[0])
+                switch (PublicVar.classUser.UserBasic.UserName[0])
                 {
                     case 'A':
                     case 'a':

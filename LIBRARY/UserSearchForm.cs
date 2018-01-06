@@ -336,7 +336,7 @@ namespace LIBRARY
             loadingBox.ShowDialog();
             loadingBox.Dispose();
             var v = PublicVar.ReturnValue;
-            if (v == -2333)//cancel
+            if (v == -233)//cancel
             {
                 v = -233;
                 return;

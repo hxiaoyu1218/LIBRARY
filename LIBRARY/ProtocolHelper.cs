@@ -168,7 +168,58 @@ namespace LIBRARY
                         break;
                     }
                 case RequestMode.UserInfoLoad:
-                    break;
+                    {
+                        XmlNode usernode = root.SelectSingleNode("userbasicinfo");
+                        pro.User = new ClassUser(usernode.Attributes["userid"].Value);
+                        pro.User.UserBasic.UserName = usernode.Attributes["username"].Value;
+                        pro.User.UserBasic.UserSchool = usernode.Attributes["userschool"].Value;
+                        pro.User.UserBasic.UserCredit = Convert.ToInt32(usernode.Attributes["usercredit"].Value);
+                        pro.User.UserBasic.UserCurrentBorrowedAmount = Convert.ToInt32(usernode.Attributes["usercurrentborrowedamount"].Value);
+                        pro.User.UserBasic.UserCurrentMaxBorrowableAmount = Convert.ToInt32(usernode.Attributes["usercurrentmaxborrowableamount"].Value);
+                        pro.User.UserBasic.UserCurrentScheduleAmount = Convert.ToInt32(usernode.Attributes["usercurrentscheduleamount"].Value);
+
+                        pro.User.Informations = new List<string>();
+                        pro.User.BorrowedBooks = new List<ClassABook>();
+                        pro.User.ScheduledBooks = new List<ClassABook>();
+                        pro.User.BorrowHis = new List<ClassABook>();
+                        
+                        XmlNodeList li = root.SelectNodes("eachinformation");
+                        foreach(XmlNode lli in li)
+                        {
+                            pro.User.Informations.Add(lli.Attributes["content"].Value);
+                        }
+                        
+                        li = root.SelectNodes("usereachborrowedbook");
+                        foreach (XmlNode lli in li)
+                        {
+                            ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
+                            tmp.BookName = lli.Attributes["bookname"].Value;
+                            tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value);
+                            tmp.ReturnTime = DateTime.Parse(lli.Attributes["bookreturndate"].Value);
+                            pro.User.BorrowedBooks.Add(tmp);
+                        }
+                        
+                        li = root.SelectNodes("usereachscheduledbook");
+                        foreach (XmlNode lli in li)
+                        {
+                            ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
+                            tmp.BookName = lli.Attributes["bookname"].Value;
+                            tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value);
+                            pro.User.ScheduledBooks.Add(tmp);
+                        }
+
+                        li = root.SelectNodes("usereachborrowhis");
+                        foreach (XmlNode lli in li)
+                        {
+                            ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
+                            tmp.BookName = lli.Attributes["bookname"].Value;
+                            tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value);
+                            tmp.ReturnTime = DateTime.Parse(lli.Attributes["bookreturndate"].Value);
+                            pro.User.BorrowHis.Add(tmp);
+                        }
+
+                        break;
+                    }
                 case RequestMode.UserInfoChange:
                     break;
                 case RequestMode.UserNotificationLoad:

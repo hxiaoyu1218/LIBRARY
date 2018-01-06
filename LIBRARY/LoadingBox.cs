@@ -155,6 +155,11 @@ namespace LIBRARY
                     }
                     break;
                 case RequestMode.UserInfoChange:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserNotificationLoad:
                     break;
