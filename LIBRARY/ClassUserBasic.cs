@@ -60,13 +60,13 @@ namespace LIBRARY
 							   ///借书数量是信用百分比乘最大借书数量向上取整
 							   ///交钱恢复信用一元一点信用
 		private DateTime userRegisterDate;
-		#endregion
+        #endregion
 
-		#region 访问器
-		/// <summary>
-		/// 用户名
-		/// </summary>
-		public string UserName
+        #region 访问器
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserName
 		{
 			get
 			{

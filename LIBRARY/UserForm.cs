@@ -23,14 +23,14 @@ namespace LIBRARY
         }
         private void SheetRefresh()
         {
-            MessageSheet.Rows.Clear();
+            MessageSheet.Rows.Clear();//通知初始化
             int i = 0;
-            for (; i < ClassBackEnd.Usermessage.Count; i++)//至少填充6个
+            for (; i < PublicVar.classUser.Informations.Count; i++)//至少填充6个
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = MessageSheet.Rows.Add(row);
                 MessageSheet.Rows[index].Cells[0].Value = (i + 1).ToString();
-                MessageSheet.Rows[index].Cells[1].Value = ClassBackEnd.Usermessage[i];
+                MessageSheet.Rows[index].Cells[1].Value = PublicVar.classUser.Informations[i];
                 MessageSheet.Rows[index].Height = 48;
             }
             while (i < 5)
@@ -46,23 +46,38 @@ namespace LIBRARY
             MessageSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 
-            BorrowInfoSheet.Rows.Clear();
-            for (i = 0; i < ClassBackEnd.Userbsbook.Count; i++)
+            BorrowInfoSheet.Rows.Clear();//借书信息初始化
+                
+            for (i = 0; i < PublicVar.classUser.BorrowedBooks.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
-                BorrowInfoSheet.Rows[index].Cells[0].Value = ClassBackEnd.Userbsbook[i].Bookname;
-                
-                if (ClassBackEnd.Userbsbook[i].Isborrowed)
-                {
-					BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate + " " + ClassBackEnd.Userbsbook[i].Rgdate;
+                BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowedBooks[i].BookName;
+
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime;
 					BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
-                }
-                else
+                
+                /*else
                 {
 					BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate ;
 					BorrowInfoSheet.Rows[index].Cells[2].Value = "取消预约";
-                }
+                }*/
+                BorrowInfoSheet.Rows[index].Height = 60;
+            }
+            for (i = 0; i < PublicVar.classUser.ScheduledBooks.Count; i++)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = BorrowInfoSheet.Rows.Add(row);
+                BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.ScheduledBooks[i].BookName;
+
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.ScheduledBooks[i].BorrowTime;
+                BorrowInfoSheet.Rows[index].Cells[2].Value = "取消预约";
+
+                /*else
+                {
+					BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate ;
+					BorrowInfoSheet.Rows[index].Cells[2].Value = "取消预约";
+                }*/
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
             while (i < 7)
@@ -82,13 +97,13 @@ namespace LIBRARY
 
 
 
-            BookRecordSheet.Rows.Clear();
-            for (i = 0; i < ClassBackEnd.Borrowhis.Count; i++)
+            BookRecordSheet.Rows.Clear();//借阅记录初始化
+            for (i = 0; i < PublicVar.classUser.BorrowHis.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BookRecordSheet.Rows.Add(row);
-                BookRecordSheet.Rows[index].Cells[0].Value = ClassBackEnd.Borrowhis[i].Bookname;
-                BookRecordSheet.Rows[index].Cells[1].Value = ClassBackEnd.Borrowhis[i].Borrowdata + " " + ClassBackEnd.Borrowhis[i].Returndata;
+                BookRecordSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowHis[i].BookName;
+                BookRecordSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowHis[i].BorrowTime;
                 BookRecordSheet.Rows[index].Cells[2].Value = "详情";
                 BookRecordSheet.Rows[index].Height = 60;
             }
@@ -111,19 +126,19 @@ namespace LIBRARY
         }
         private void UserInfoLoad()
         {
-            WelTextBox.Text = "欢迎，" + ClassBackEnd.Currentuser.Username + "！";
-            AcedemicText.Text = ClassBackEnd.Currentuser.School;
-            CreditText.Text = ClassBackEnd.Currentuser.Credit.ToString();
-            MaxBorrowText.Text = ClassBackEnd.Currentuser.Currentmaxborrowableamount.ToString();
-            NowBorrowText.Text = ClassBackEnd.Currentuser.Currentborrowedamount.ToString();
-            NowOrderText.Text = ClassBackEnd.Currentuser.Currentscheduleamount.ToString();
+            WelTextBox.Text = "欢迎，" + PublicVar.logUser.UserName + "！";
+            AcedemicText.Text = PublicVar.logUser.UserSchool;
+            CreditText.Text = PublicVar.logUser.UserCredit.ToString();
+            MaxBorrowText.Text = PublicVar.logUser.UserCurrentMaxBorrowableAmount.ToString();
+            NowBorrowText.Text = PublicVar.logUser.UserCurrentBorrowedAmount.ToString();
+            NowOrderText.Text = PublicVar.logUser.UserCurrentScheduleAmount.ToString();
             UserPicBox.Image = PickHeadImage();
         }
         private Image PickHeadImage()
         {
-            if (Char.IsLetter(ClassBackEnd.Currentuser.Username[0]))
+            if (Char.IsLetter(PublicVar.logUser.UserName[0]))
             {
-                switch (ClassBackEnd.Currentuser.Username[0])
+                switch (PublicVar.logUser.UserName[0])
                 {
                     case 'A':
                     case 'a':
@@ -215,7 +230,7 @@ namespace LIBRARY
         }
         private void UserForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.GetIntoPersonCenter();
+            //PublicVar
             UserInfoLoad();
             ButtonState = 0;
             SheetRefresh();
@@ -335,7 +350,22 @@ namespace LIBRARY
         private void linkLabel1_Click(object sender, EventArgs e)
         {
             UserChangeInfo userChangeInfo = new UserChangeInfo();
-            userChangeInfo.Show();
+            userChangeInfo.ShowDialog();
+            if ((bool)userChangeInfo.Tag==true)
+            {
+                /*FileProtocol fileProtocol = new FileProtocol(RequestMode.UserInfoLoad, 6000);
+                fileProtocol.Userinfo = PublicVar.logUser;
+                
+                LoadingBox loadingBox = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();*/
+
+                WelTextBox.Text = "欢迎，" + PublicVar.logUser.UserName + "！";
+                AcedemicText.Text = PublicVar.logUser.UserSchool;
+            }
+            
+
+            userChangeInfo.Dispose();
         }
     }
 }

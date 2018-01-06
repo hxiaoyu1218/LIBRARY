@@ -102,6 +102,8 @@
     <Compile Include="AdminBookDetailForm.Designer.cs">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassBookHis.cs" />
+    <Compile Include="ClassUser.cs" />
     <Compile Include="UserChangeInfo.cs">
       <SubType>Form</SubType>
     </Compile>

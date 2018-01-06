@@ -18,7 +18,7 @@ namespace LIBRARY
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new UserBookDetailForm(null, 0));
+            //Application.Run(new UserForm(null));
 
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();

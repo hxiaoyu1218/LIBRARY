@@ -138,6 +138,11 @@ namespace LIBRARY
                 case RequestMode.UserOrderBook:
                     break;
                 case RequestMode.UserInfoLoad:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserInfoChange:
                     break;

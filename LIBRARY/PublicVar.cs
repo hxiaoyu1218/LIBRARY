@@ -150,6 +150,7 @@ namespace LIBRARY
             return image;
         }
         public static ClassUserBasicInfo logUser;
+        public static ClassUser classUser;
         public static ClassComment nowComment;
         public static ClassComment[] currentCommentList;
         public static int commentTotalAmount;

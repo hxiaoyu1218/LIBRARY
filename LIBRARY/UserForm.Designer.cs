@@ -648,9 +648,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewLinkColumn Op;
         public System.Windows.Forms.DataGridView BookRecordSheet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
         private System.Windows.Forms.Label AcedemicText;
         private System.Windows.Forms.Label CreditText;
         private System.Windows.Forms.Label MaxBorrowText;
@@ -659,5 +656,8 @@
         private System.Windows.Forms.PictureBox UserPicBox;
         private System.Windows.Forms.Label WelTextBox;
         private System.Windows.Forms.LinkLabel CreditRecordButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
     }
 }

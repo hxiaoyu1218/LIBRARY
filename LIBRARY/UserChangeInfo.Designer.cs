@@ -42,8 +42,6 @@
             this.ShutDownButton = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.BgImage = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.UserAlertLabel = new System.Windows.Forms.Label();
             this.AcademicCueText = new System.Windows.Forms.Label();
             this.AcademicTextBox = new System.Windows.Forms.TextBox();
             this.AcademicBg = new System.Windows.Forms.PictureBox();
@@ -76,6 +74,7 @@
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.OKButton.TabIndex = 46;
             this.OKButton.TabStop = false;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // NPasswordCueText2
             // 
@@ -88,6 +87,7 @@
             this.NPasswordCueText2.Size = new System.Drawing.Size(119, 15);
             this.NPasswordCueText2.TabIndex = 45;
             this.NPasswordCueText2.Text = "再输入一次密码";
+            this.NPasswordCueText2.Click += new System.EventHandler(this.NPasswordCueText2_Click);
             // 
             // NPasswordTextBox2
             // 
@@ -99,6 +99,8 @@
             this.NPasswordTextBox2.PasswordChar = '*';
             this.NPasswordTextBox2.Size = new System.Drawing.Size(259, 22);
             this.NPasswordTextBox2.TabIndex = 37;
+            this.NPasswordTextBox2.Enter += new System.EventHandler(this.NPasswordTextBox2_Enter);
+            this.NPasswordTextBox2.Leave += new System.EventHandler(this.NPasswordTextBox2_Leave);
             // 
             // NPasswordBg2
             // 
@@ -121,6 +123,7 @@
             this.NPasswordCueText1.Size = new System.Drawing.Size(55, 15);
             this.NPasswordCueText1.TabIndex = 43;
             this.NPasswordCueText1.Text = "新密码";
+            this.NPasswordCueText1.Click += new System.EventHandler(this.NPasswordCueText1_Click);
             // 
             // NPasswordTextBox1
             // 
@@ -132,6 +135,8 @@
             this.NPasswordTextBox1.PasswordChar = '*';
             this.NPasswordTextBox1.Size = new System.Drawing.Size(259, 22);
             this.NPasswordTextBox1.TabIndex = 36;
+            this.NPasswordTextBox1.Enter += new System.EventHandler(this.NPasswordTextBox1_Enter);
+            this.NPasswordTextBox1.Leave += new System.EventHandler(this.NPasswordTextBox1_Leave);
             // 
             // NPasswordBg1
             // 
@@ -154,6 +159,7 @@
             this.OPasswordCueText.Size = new System.Drawing.Size(55, 15);
             this.OPasswordCueText.TabIndex = 41;
             this.OPasswordCueText.Text = "原密码";
+            this.OPasswordCueText.Click += new System.EventHandler(this.OPasswordCueText_Click);
             // 
             // OPasswordTextBox
             // 
@@ -165,6 +171,8 @@
             this.OPasswordTextBox.PasswordChar = '*';
             this.OPasswordTextBox.Size = new System.Drawing.Size(259, 22);
             this.OPasswordTextBox.TabIndex = 35;
+            this.OPasswordTextBox.Enter += new System.EventHandler(this.OPasswordTextBox_Enter_1);
+            this.OPasswordTextBox.Leave += new System.EventHandler(this.OPasswordTextBox_Leave_1);
             // 
             // OPasswordBg
             // 
@@ -215,32 +223,6 @@
             this.BgImage.TabStop = false;
             this.BgImage.Click += new System.EventHandler(this.BgImage_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(39, 140);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 15);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "格式错误";
-            this.label4.Visible = false;
-            // 
-            // UserAlertLabel
-            // 
-            this.UserAlertLabel.AutoSize = true;
-            this.UserAlertLabel.BackColor = System.Drawing.Color.White;
-            this.UserAlertLabel.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.UserAlertLabel.ForeColor = System.Drawing.Color.Red;
-            this.UserAlertLabel.Location = new System.Drawing.Point(39, 71);
-            this.UserAlertLabel.Name = "UserAlertLabel";
-            this.UserAlertLabel.Size = new System.Drawing.Size(71, 15);
-            this.UserAlertLabel.TabIndex = 53;
-            this.UserAlertLabel.Text = "格式错误";
-            this.UserAlertLabel.Visible = false;
-            // 
             // AcademicCueText
             // 
             this.AcademicCueText.AutoSize = true;
@@ -289,7 +271,6 @@
             this.UserCueText.TabIndex = 50;
             this.UserCueText.Text = "新的用户名";
             this.UserCueText.Click += new System.EventHandler(this.UserCueText_Click);
-            this.UserCueText.Enter += new System.EventHandler(this.UserCueText_Enter);
             // 
             // UserTextBox
             // 
@@ -363,8 +344,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PWD2AlertLabel);
             this.Controls.Add(this.PWD1AlertLabel);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.UserAlertLabel);
             this.Controls.Add(this.AcademicCueText);
             this.Controls.Add(this.AcademicTextBox);
             this.Controls.Add(this.AcademicBg);
@@ -412,8 +391,6 @@
         private System.Windows.Forms.Button ShutDownButton;
         public System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.PictureBox BgImage;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label UserAlertLabel;
         private System.Windows.Forms.Label AcademicCueText;
         private System.Windows.Forms.TextBox AcademicTextBox;
         private System.Windows.Forms.PictureBox AcademicBg;

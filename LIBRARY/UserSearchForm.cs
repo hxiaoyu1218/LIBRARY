@@ -328,16 +328,29 @@ namespace LIBRARY
 
         private void UserInfoButton_Click(object sender, EventArgs e)
         {
-
-
-
-
-            frmMain.MainPanel.Controls.Clear();
-            UserForm userForm = new UserForm(frmMain);
-            userForm.TopLevel = false;
-            userForm.Dock = DockStyle.Fill;
-            frmMain.MainPanel.Controls.Add(userForm);
-            userForm.Show();
+            //ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(UserTextBox.Text, "", PasswordTextBox.Text, "", Usertype.Student);
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserInfoLoad, 6000);
+            fileProtocol.Userinfo = PublicVar.logUser;
+            
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+            var v = PublicVar.ReturnValue;
+            if (v == -2333)//cancel
+            {
+                v = -233;
+                return;
+            }
+            if (v == 1)//success
+            {
+                frmMain.MainPanel.Controls.Clear();
+                UserForm userForm = new UserForm(frmMain);
+                userForm.TopLevel = false;
+                userForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(userForm);
+                userForm.Show();
+            }
+  
         }
 
         private void BookReturnButton_Click(object sender, EventArgs e)

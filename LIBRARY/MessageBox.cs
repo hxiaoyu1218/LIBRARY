@@ -155,6 +155,14 @@ namespace LIBRARY
             {
                 TextBox.Text = "请求超时！";
             }
+            else if(textType == 29)
+            {
+                TextBox.Text = "密码格式错误！";//cbXG
+            }
+            else if (textType == 30)
+            {
+                TextBox.Text = "用户名或学院不能为空！";//cbXG
+            }
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
