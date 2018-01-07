@@ -39,6 +39,9 @@ namespace LIBRARY
             {
                 BookBorrowButton.Hide();
                 BookOrderButton.Hide();
+				CommentSubmitBtn.Hide();
+				commentTextBox.Hide();
+				label3.Hide();//添加评论标签
             }
         }
 
@@ -310,7 +313,8 @@ namespace LIBRARY
                 fileStream.Close();
                 return;
             }
-            Array.Clear(PublicVar.pic, 0, PublicVar.pic.Length);
+
+            //Array.Clear(PublicVar.pic, 0, PublicVar.pic.Length);
             ServerClient serverClient = new ServerClient();
             FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
             fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
