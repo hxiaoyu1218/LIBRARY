@@ -128,7 +128,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.91793F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.08207F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
             this.tableLayoutPanel1.Controls.Add(this.ReBorrowButton, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.BorrowDateLabel, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.PublisherText, 2, 2);
@@ -155,7 +155,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(534, 642);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(535, 642);
             this.tableLayoutPanel1.TabIndex = 58;
             // 
             // ReBorrowButton
@@ -175,6 +175,9 @@
             this.ReBorrowButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.ReBorrowButton.TabIndex = 70;
             this.ReBorrowButton.TabStop = false;
+            this.ReBorrowButton.Click += new System.EventHandler(this.ReBorrowButton_Click);
+            this.ReBorrowButton.MouseLeave += new System.EventHandler(this.ReBorrowButton_MouseLeave);
+            this.ReBorrowButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReBorrowButton_MouseMove);
             // 
             // BorrowDateLabel
             // 
@@ -311,6 +314,9 @@
             this.ReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.ReturnButton.TabIndex = 69;
             this.ReturnButton.TabStop = false;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            this.ReturnButton.MouseLeave += new System.EventHandler(this.ReturnButton_MouseLeave);
+            this.ReturnButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReturnButton_MouseMove);
             // 
             // authorLabel
             // 

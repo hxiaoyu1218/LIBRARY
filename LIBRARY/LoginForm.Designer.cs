@@ -206,6 +206,7 @@
             this.PasswordTextBox.Size = new System.Drawing.Size(259, 22);
             this.PasswordTextBox.TabIndex = 26;
             this.PasswordTextBox.Enter += new System.EventHandler(this.PasswordTextBox_Enter);
+            this.PasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             this.PasswordTextBox.Leave += new System.EventHandler(this.PasswordTextBox_Leave);
             // 
             // UserCueText

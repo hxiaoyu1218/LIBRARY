@@ -18,7 +18,7 @@ namespace LIBRARY
 
 		public UserMainForm()
         {
-            ClassBackEnd.StartTime();
+           // ClassBackEnd.StartTime();
             InitializeComponent();
         }
 
@@ -68,6 +68,20 @@ namespace LIBRARY
                 }
                 else if ((int)ReturnButton.Tag == 3)
                 {
+                    PublicVar.ReturnValue = -233;
+                    FileProtocol fileProtocol1 = new FileProtocol(RequestMode.UserInfoLoad, 6000);
+                    fileProtocol1.Userinfo = PublicVar.logUser;
+
+                    LoadingBox loadingBox1 = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol1);
+                    loadingBox1.ShowDialog();
+                    loadingBox1.Dispose();
+                    var v = PublicVar.ReturnValue;
+                    if (v == -233)//cancel
+                    {
+                        return;
+                    }
+                    PublicVar.ReturnValue = -233;
+                    
                     MainPanel.Controls.Clear();
                     UserForm userForm = new UserForm(this);
                     userForm.TopLevel = false;
@@ -83,11 +97,10 @@ namespace LIBRARY
             BackgroundWorker myworker = (BackgroundWorker)sender;
             while (true)
             {
-                if (myworker.CancellationPending != true)
-                {
-                    TimeWork.GetLastInputTime();
-                    myworker.ReportProgress(1, ClassTime.SystemTime);
-                }
+               
+                 
+                myworker.ReportProgress(1, DateTime.Now);
+                
                 System.Threading.Thread.Sleep(1000);
             }
         }
