@@ -161,11 +161,15 @@ namespace LIBRARY
             }
             else if (textType == 30)
             {
-                TextBox.Text = "用户名或学院不能为空！";//cbXG
+                TextBox.Text = "请输入原密码！";//cbXG
             }
             else if (textType == 31)
             {
                 TextBox.Text = "密码格式错误！";//cbXG
+            }
+            else if (textType == 32)
+            {
+                TextBox.Text = "请输入您要更改的信息！";//cbXG
             }
         }
 

@@ -25,7 +25,7 @@ namespace LIBRARY
         private void RegistForm_Load(object sender, EventArgs e)
         {
             loginfrm.Hide();
-            
+
         }
 
         private bool IsSchoolID(string input)
@@ -75,9 +75,22 @@ namespace LIBRARY
         private void UserTextBox_Leave(object sender, EventArgs e)
         {
             if (UserTextBox.Text.Trim() == "")
+            {
                 UserCueText.Show();
+                UserAlertLabel.Show();
+            }
             else
+            {
+                string tmp = UserTextBox.Text;
+                if(Char.IsDigit(tmp[0]))
+                {
+                    UserAlertLabel.Show();
+                }
                 UserCueText.Hide();
+                UserAlertLabel.Show();
+            }
+
+            //if()
         }
 
         private void PasswordTextBox1_Enter(object sender, EventArgs e)
@@ -194,7 +207,10 @@ namespace LIBRARY
         private void IDTextBox_Leave(object sender, EventArgs e)
         {
             if (IDTextBox.Text.Trim() == "")
+            {
                 IDCueText.Show();
+                IDAlertLabel.Show();
+            }
             else
             {
                 if (IsSchoolID(IDTextBox.Text) == false)
@@ -231,9 +247,16 @@ namespace LIBRARY
         private void AcademicTextBox_Leave(object sender, EventArgs e)
         {
             if (AcademicTextBox.Text.Trim() == "")
+            {
                 AcademicCueText.Show();
+                label4.Show();
+            }
             else
+            {
                 AcademicCueText.Hide();
+                label4.Hide();
+            }
+
         }
 
         private void ReturnButton_MouseMove(object sender, MouseEventArgs e)
@@ -267,9 +290,18 @@ namespace LIBRARY
 
         private void RegistButton_Click(object sender, EventArgs e)
         {
+            if (IDTextBox.Text == "")
+                IDAlertLabel.Show();
+            if (UserTextBox.Text == "")
+                UserAlertLabel.Show();
+            if (PasswordTextBox1.Text == "")
+                PWD1AlertLabel.Show();
+            if (PasswordTextBox2.Text == "")
+                PWD2AlertLabel.Show();
+            if (AcademicTextBox.Text == "")
+                label4.Show();
 
-
-            if (IDAlertLabel.Visible == true || PWD1AlertLabel.Visible == true || PWD2AlertLabel.Visible == true)
+            if (IDAlertLabel.Visible == true || PWD1AlertLabel.Visible == true || PWD2AlertLabel.Visible == true || UserAlertLabel.Visible == true || AcademicCueText.Visible == true)
             {
                 MessageBox ib = new MessageBox(10);
                 ib.ShowDialog();
@@ -291,7 +323,7 @@ namespace LIBRARY
             ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(IDTextBox.Text, UserTextBox.Text, PasswordTextBox1.Text, AcademicTextBox.Text, type);
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserRegist, 6000);
             fileProtocol.Userinfo = classUserBasicInfo;
-            
+
 
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserRegist, "正在注册", fileProtocol);
             loadingBox.ShowDialog();
@@ -299,7 +331,7 @@ namespace LIBRARY
 
             var v = PublicVar.ReturnValue;
             //暂时无取消功能
-            if(v==-2333)//cancel
+            if (v == -2333)//cancel
             {
                 v = -233;
                 return;

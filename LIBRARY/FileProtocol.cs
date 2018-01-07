@@ -46,6 +46,7 @@ namespace LIBRARY
         private int port;
         private string filename;
         private ClassUserBasicInfo userinfo;
+        private ClassUserBasicInfo newUserInfo;
         private int retval;
         private string searchwords;
         private int searchcat;
@@ -273,6 +274,17 @@ namespace LIBRARY
                 user = value;
             }
         }
+        public ClassUserBasicInfo NewUserInfo
+        {
+            get
+            {
+                return newUserInfo;
+            }
+            set
+            {
+                newUserInfo = value;
+            }
+        }
 
         public override string ToString()
         {
@@ -333,7 +345,9 @@ namespace LIBRARY
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userbasic userid=\"{2}\" userpassword=\"{3}\" /></protocol>", mode, port, userinfo.UserId, userinfo.UserPassword);
                     }
                 case RequestMode.UserInfoChange:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userOld userid=\"{2}\" userpassword=\"{3}\" /><userNew userid=\"{4}\" userpassword=\"{5}\" userschool=\"{6}\" username=\"{7}\" /></protocol>", mode, port, userinfo.UserId, userinfo.UserPassword, userinfo.UserId, NewUserInfo.UserPassword, NewUserInfo.UserSchool, NewUserInfo.UserName);
+                    }
                 case RequestMode.UserNotificationLoad:
                     break;
                 case RequestMode.UserBorrowedBook:

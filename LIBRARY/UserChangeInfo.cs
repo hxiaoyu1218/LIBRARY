@@ -16,11 +16,13 @@ namespace LIBRARY
         public UserChangeInfo()
         {
             InitializeComponent();
-            //UserAlertLabel.Hide();
-            //label4.Hide();
+            
             label1.Hide();
+            //label2.Hide();
             PWD1AlertLabel.Hide();
             PWD2AlertLabel.Hide();
+            //label1.TabIndex = 100;
+            //textBox1.TabStop = false;
         }
 
         #region 水印文字及按钮响应方法
@@ -107,7 +109,10 @@ namespace LIBRARY
             if (OPasswordTextBox.Text.Trim() == "")
                 OPasswordCueText.Hide();
             else if (OPasswordTextBox.Text.Trim() != "" && OPasswordCueText.Visible == false)
+            {
                 OPasswordCueText.Hide();
+                
+            }
             OPasswordTextBox.Focus();
         }
 
@@ -184,6 +189,7 @@ namespace LIBRARY
 
                 }
             }
+            
         }
 
         private void NPasswordTextBox2_Enter(object sender, EventArgs e)
@@ -199,6 +205,7 @@ namespace LIBRARY
             if (NPasswordTextBox2.Text == "")
             {
                 NPasswordCueText2.Show();
+                //label2.Show();
             }
             else
             {
@@ -210,8 +217,11 @@ namespace LIBRARY
                 {
                     NPasswordCueText2.Hide();
                     PWD2AlertLabel.Hide();
+                    //label2.Hide();
                 }
             }
+            if (NPasswordTextBox2.Text != "")
+                label2.Hide();
         }
 
         private void OPasswordTextBox_Enter_1(object sender, EventArgs e)
@@ -244,46 +254,93 @@ namespace LIBRARY
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            if(OPasswordTextBox.Text!=PublicVar.logUser.UserPassword)
-            {
-                MessageBox ib = new MessageBox(15);
-                ib.ShowDialog();
-                ib.Dispose();
-                return;
-            }
-            else if(label1.Visible==true||PWD1AlertLabel.Visible==true||PWD2AlertLabel.Visible==true)
-            {
-                MessageBox ib = new MessageBox(31);
-                ib.ShowDialog();
-                ib.Dispose();
-                return;
-            }
-            else if(UserTextBox.Text.Trim()==""||AcademicTextBox.Text.Trim()=="")
+            if (NPasswordTextBox1.Text != "" && NPasswordTextBox2.Text == "")
+                label2.Show();
+            if(OPasswordTextBox.Text=="")
             {
                 MessageBox ib = new MessageBox(30);
                 ib.ShowDialog();
                 ib.Dispose();
                 return;
             }
+            else if(label1.Visible==true||PWD1AlertLabel.Visible==true||PWD2AlertLabel.Visible==true||label2.Visible==true)
+            {
+                MessageBox ib = new MessageBox(31);
+                ib.ShowDialog();
+                ib.Dispose();
+                return;
+            }
+            else if(UserTextBox.Text.Trim()==""&&AcademicTextBox.Text.Trim()==""&&NPasswordTextBox1.Text=="")
+            {
+                MessageBox ib = new MessageBox(32);
+                ib.ShowDialog();
+                ib.Dispose();
+                return;
+            }
             else
             {
-                ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo("", UserTextBox.Text, NPasswordTextBox2.Text, AcademicTextBox.Text, Usertype.Student);//此处和肖智轩核对
-                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserInfoChange, 6000);
-                fileProtocol.Userinfo = classUserBasicInfo;
                 
+                ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo("", UserTextBox.Text, NPasswordTextBox2.Text, AcademicTextBox.Text, Usertype.Student);//此处和肖智轩核对
+                if (UserTextBox.Text == "")
+                    classUserBasicInfo.UserName = PublicVar.logUser.UserName;
+                if (AcademicTextBox.Text == "")
+                    classUserBasicInfo.UserSchool = PublicVar.logUser.UserSchool;
+                if (NPasswordTextBox2.Text == "")
+                    classUserBasicInfo.UserPassword = OPasswordTextBox.Text;
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserInfoChange, 6000);
+                fileProtocol.NewUserInfo = classUserBasicInfo;
+                fileProtocol.Userinfo = PublicVar.logUser;
+                fileProtocol.Userinfo.UserPassword = OPasswordTextBox.Text;
+
                 LoadingBox loadingBox = new LoadingBox(RequestMode.UserInfoChange, "正在修改", fileProtocol);
                 loadingBox.ShowDialog();
                 loadingBox.Dispose();
+                var v = PublicVar.ReturnValue;
+                if (v == -233)//cancel
+                {
+                    v = -233;
+                    return;
+                }
+                if (v == 0)//success
+                {
+                    MessageBox ib = new MessageBox(3);
+                    ib.ShowDialog();
+                    ib.Dispose();
+                    Tag = true;
+                    PublicVar.ReturnValue = -233;
 
-                MessageBox ib = new MessageBox(3);
-                ib.ShowDialog();
-                ib.Dispose();
-                Tag = true;
-                //return;
-                Close();
+                    PublicVar.logUser.UserPassword = fileProtocol.NewUserInfo.UserPassword;
+                    PublicVar.logUser.UserName = fileProtocol.NewUserInfo.UserName;
+                    PublicVar.logUser.UserSchool = fileProtocol.NewUserInfo.UserSchool;
+                    //return;
+                    Close();
+                }
+                else if(v == 1)//原密码错误
+                {
+                    MessageBox ib = new MessageBox(15);
+                    ib.ShowDialog();
+                    ib.Dispose();
+                    PublicVar.ReturnValue = -233;
+                    return;
+                }
+                else//其他错误
+                {
+                    MessageBox ib = new MessageBox(9);
+                    ib.ShowDialog();
+                    ib.Dispose();
+                    PublicVar.ReturnValue = -233;
+                    return;
+                }
+
+                    
                 
             }
             //Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

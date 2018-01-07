@@ -349,6 +349,7 @@ namespace LIBRARY
                 userForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(userForm);
                 userForm.Show();
+                PublicVar.ReturnValue = -233;
             }
   
         }

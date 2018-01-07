@@ -577,6 +577,7 @@
             this.CreditRecordButton.TabIndex = 36;
             this.CreditRecordButton.TabStop = true;
             this.CreditRecordButton.Text = "不良记录";
+            this.CreditRecordButton.Visible = false;
             this.CreditRecordButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreditRecordButton_LinkClicked);
             // 
             // UserForm

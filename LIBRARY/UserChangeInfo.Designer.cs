@@ -51,6 +51,7 @@
             this.PWD2AlertLabel = new System.Windows.Forms.Label();
             this.PWD1AlertLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OPasswordBg)).BeginInit();
@@ -73,7 +74,6 @@
             this.OKButton.Size = new System.Drawing.Size(80, 80);
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.OKButton.TabIndex = 46;
-            this.OKButton.TabStop = false;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // NPasswordCueText2
@@ -98,7 +98,7 @@
             this.NPasswordTextBox2.Name = "NPasswordTextBox2";
             this.NPasswordTextBox2.PasswordChar = '*';
             this.NPasswordTextBox2.Size = new System.Drawing.Size(259, 22);
-            this.NPasswordTextBox2.TabIndex = 37;
+            this.NPasswordTextBox2.TabIndex = 51;
             this.NPasswordTextBox2.Enter += new System.EventHandler(this.NPasswordTextBox2_Enter);
             this.NPasswordTextBox2.Leave += new System.EventHandler(this.NPasswordTextBox2_Leave);
             // 
@@ -134,7 +134,7 @@
             this.NPasswordTextBox1.Name = "NPasswordTextBox1";
             this.NPasswordTextBox1.PasswordChar = '*';
             this.NPasswordTextBox1.Size = new System.Drawing.Size(259, 22);
-            this.NPasswordTextBox1.TabIndex = 36;
+            this.NPasswordTextBox1.TabIndex = 50;
             this.NPasswordTextBox1.Enter += new System.EventHandler(this.NPasswordTextBox1_Enter);
             this.NPasswordTextBox1.Leave += new System.EventHandler(this.NPasswordTextBox1_Leave);
             // 
@@ -170,7 +170,7 @@
             this.OPasswordTextBox.Name = "OPasswordTextBox";
             this.OPasswordTextBox.PasswordChar = '*';
             this.OPasswordTextBox.Size = new System.Drawing.Size(259, 22);
-            this.OPasswordTextBox.TabIndex = 35;
+            this.OPasswordTextBox.TabIndex = 49;
             this.OPasswordTextBox.Enter += new System.EventHandler(this.OPasswordTextBox_Enter_1);
             this.OPasswordTextBox.Leave += new System.EventHandler(this.OPasswordTextBox_Leave_1);
             // 
@@ -302,7 +302,7 @@
             this.PWD2AlertLabel.BackColor = System.Drawing.Color.White;
             this.PWD2AlertLabel.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PWD2AlertLabel.ForeColor = System.Drawing.Color.Red;
-            this.PWD2AlertLabel.Location = new System.Drawing.Point(37, 342);
+            this.PWD2AlertLabel.Location = new System.Drawing.Point(39, 341);
             this.PWD2AlertLabel.Name = "PWD2AlertLabel";
             this.PWD2AlertLabel.Size = new System.Drawing.Size(151, 15);
             this.PWD2AlertLabel.TabIndex = 56;
@@ -319,7 +319,7 @@
             this.PWD1AlertLabel.Name = "PWD1AlertLabel";
             this.PWD1AlertLabel.Size = new System.Drawing.Size(295, 15);
             this.PWD1AlertLabel.TabIndex = 55;
-            this.PWD1AlertLabel.Text = "格式错误，格式为6-12位英文和数字组合";
+            this.PWD1AlertLabel.Text = "格式错误，格式为6-12位英文或数字组合";
             this.PWD1AlertLabel.Visible = false;
             // 
             // label1
@@ -331,9 +331,23 @@
             this.label1.Location = new System.Drawing.Point(39, 206);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(295, 15);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "格式错误，格式为6-12位英文和数字组合";
+            this.label1.TabIndex = 0;
+            this.label1.Text = "格式错误，格式为6-12位英文或数字组合";
             this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(37, 341);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 15);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "请确认您的密码             ";
+            this.label2.Visible = false;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // UserChangeInfo
             // 
@@ -341,8 +355,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(408, 529);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.PWD2AlertLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.PWD1AlertLabel);
             this.Controls.Add(this.AcademicCueText);
             this.Controls.Add(this.AcademicTextBox);
@@ -400,5 +415,6 @@
         private System.Windows.Forms.Label PWD2AlertLabel;
         private System.Windows.Forms.Label PWD1AlertLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

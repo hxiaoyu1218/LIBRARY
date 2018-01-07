@@ -54,7 +54,7 @@ namespace LIBRARY
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowedBooks[i].BookName;
 
-                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime;
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime.ToShortDateString() +'\n'+ PublicVar.classUser.BorrowedBooks[i].ReturnTime.ToShortDateString();
 					BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
                 
                 /*else
@@ -70,7 +70,7 @@ namespace LIBRARY
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.ScheduledBooks[i].BookName;
 
-                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.ScheduledBooks[i].BorrowTime;
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.ScheduledBooks[i].BorrowTime.ToShortDateString();
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "取消预约";
 
                 /*else
@@ -103,7 +103,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BookRecordSheet.Rows.Add(row);
                 BookRecordSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowHis[i].BookName;
-                BookRecordSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowHis[i].BorrowTime;
+                BookRecordSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowHis[i].BorrowTime.ToShortDateString() + '\n' + PublicVar.classUser.BorrowHis[i].ReturnTime.ToShortDateString();
                 BookRecordSheet.Rows[index].Cells[2].Value = "详情";
                 BookRecordSheet.Rows[index].Height = 60;
             }
@@ -126,6 +126,7 @@ namespace LIBRARY
         }
         private void UserInfoLoad()
         {
+            PublicVar.logUser = PublicVar.classUser.UserBasic;
             WelTextBox.Text = "欢迎，" + PublicVar.classUser.UserBasic.UserName + "！";
             AcedemicText.Text = PublicVar.classUser.UserBasic.UserSchool;
             CreditText.Text = PublicVar.classUser.UserBasic.UserCredit.ToString();

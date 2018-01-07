@@ -22,7 +22,7 @@ namespace LIBRARY
         private bool isConnected;
         public bool isTimeOut;
         private string msg = "Welcome To .Net Sockets!";
-        private static string remoteServerIp = "192.168.137.1";
+        private static string remoteServerIp = "10.128.234.92";
         private int remoteServerPort = 6000;
 
         internal FileProtocol FileProtocol
@@ -308,7 +308,10 @@ namespace LIBRARY
                 PublicVar.ReturnValue = 1;
                 PublicVar.classUser = protocol.User;
             }
-
+            else if(protocol.Mode==RequestMode.UserInfoChange)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
 
         }
 

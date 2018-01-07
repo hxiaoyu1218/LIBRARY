@@ -372,9 +372,9 @@
             this.UserAlertLabel.ForeColor = System.Drawing.Color.Red;
             this.UserAlertLabel.Location = new System.Drawing.Point(67, 126);
             this.UserAlertLabel.Name = "UserAlertLabel";
-            this.UserAlertLabel.Size = new System.Drawing.Size(71, 15);
+            this.UserAlertLabel.Size = new System.Drawing.Size(199, 15);
             this.UserAlertLabel.TabIndex = 40;
-            this.UserAlertLabel.Text = "格式错误";
+            this.UserAlertLabel.Text = "请输入非数字的英文或汉字";
             this.UserAlertLabel.Visible = false;
             // 
             // PWD1AlertLabel
@@ -387,7 +387,7 @@
             this.PWD1AlertLabel.Name = "PWD1AlertLabel";
             this.PWD1AlertLabel.Size = new System.Drawing.Size(295, 15);
             this.PWD1AlertLabel.TabIndex = 41;
-            this.PWD1AlertLabel.Text = "格式错误，格式为6-12位英文和数字组合";
+            this.PWD1AlertLabel.Text = "格式错误，格式为6-12位英文或数字组合";
             this.PWD1AlertLabel.Visible = false;
             // 
             // PWD2AlertLabel
