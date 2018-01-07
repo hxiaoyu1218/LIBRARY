@@ -52,6 +52,7 @@
             this.PWD1AlertLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.UserAlertLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OPasswordBg)).BeginInit();
@@ -69,7 +70,7 @@
             this.OKButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("OKButton.DM_HoverImage")));
             this.OKButton.DM_Mode = false;
             this.OKButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("OKButton.DM_NolImage")));
-            this.OKButton.Location = new System.Drawing.Point(147, 430);
+            this.OKButton.Location = new System.Drawing.Point(164, 427);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(80, 80);
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
@@ -82,7 +83,7 @@
             this.NPasswordCueText2.BackColor = System.Drawing.Color.White;
             this.NPasswordCueText2.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NPasswordCueText2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.NPasswordCueText2.Location = new System.Drawing.Point(81, 373);
+            this.NPasswordCueText2.Location = new System.Drawing.Point(88, 373);
             this.NPasswordCueText2.Name = "NPasswordCueText2";
             this.NPasswordCueText2.Size = new System.Drawing.Size(119, 15);
             this.NPasswordCueText2.TabIndex = 45;
@@ -94,7 +95,7 @@
             this.NPasswordTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NPasswordTextBox2.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NPasswordTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.NPasswordTextBox2.Location = new System.Drawing.Point(86, 371);
+            this.NPasswordTextBox2.Location = new System.Drawing.Point(93, 371);
             this.NPasswordTextBox2.Name = "NPasswordTextBox2";
             this.NPasswordTextBox2.PasswordChar = '*';
             this.NPasswordTextBox2.Size = new System.Drawing.Size(259, 22);
@@ -106,7 +107,7 @@
             // 
             this.NPasswordBg2.BackColor = System.Drawing.Color.White;
             this.NPasswordBg2.Image = ((System.Drawing.Image)(resources.GetObject("NPasswordBg2.Image")));
-            this.NPasswordBg2.Location = new System.Drawing.Point(40, 361);
+            this.NPasswordBg2.Location = new System.Drawing.Point(47, 361);
             this.NPasswordBg2.Name = "NPasswordBg2";
             this.NPasswordBg2.Size = new System.Drawing.Size(314, 42);
             this.NPasswordBg2.TabIndex = 44;
@@ -118,7 +119,7 @@
             this.NPasswordCueText1.BackColor = System.Drawing.Color.White;
             this.NPasswordCueText1.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NPasswordCueText1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.NPasswordCueText1.Location = new System.Drawing.Point(81, 305);
+            this.NPasswordCueText1.Location = new System.Drawing.Point(88, 305);
             this.NPasswordCueText1.Name = "NPasswordCueText1";
             this.NPasswordCueText1.Size = new System.Drawing.Size(55, 15);
             this.NPasswordCueText1.TabIndex = 43;
@@ -130,7 +131,7 @@
             this.NPasswordTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NPasswordTextBox1.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NPasswordTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.NPasswordTextBox1.Location = new System.Drawing.Point(86, 304);
+            this.NPasswordTextBox1.Location = new System.Drawing.Point(93, 304);
             this.NPasswordTextBox1.Name = "NPasswordTextBox1";
             this.NPasswordTextBox1.PasswordChar = '*';
             this.NPasswordTextBox1.Size = new System.Drawing.Size(259, 22);
@@ -142,7 +143,7 @@
             // 
             this.NPasswordBg1.BackColor = System.Drawing.Color.White;
             this.NPasswordBg1.Image = ((System.Drawing.Image)(resources.GetObject("NPasswordBg1.Image")));
-            this.NPasswordBg1.Location = new System.Drawing.Point(40, 293);
+            this.NPasswordBg1.Location = new System.Drawing.Point(47, 293);
             this.NPasswordBg1.Name = "NPasswordBg1";
             this.NPasswordBg1.Size = new System.Drawing.Size(314, 42);
             this.NPasswordBg1.TabIndex = 42;
@@ -154,7 +155,7 @@
             this.OPasswordCueText.BackColor = System.Drawing.Color.White;
             this.OPasswordCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OPasswordCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.OPasswordCueText.Location = new System.Drawing.Point(81, 237);
+            this.OPasswordCueText.Location = new System.Drawing.Point(88, 237);
             this.OPasswordCueText.Name = "OPasswordCueText";
             this.OPasswordCueText.Size = new System.Drawing.Size(55, 15);
             this.OPasswordCueText.TabIndex = 41;
@@ -166,7 +167,7 @@
             this.OPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OPasswordTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.OPasswordTextBox.Location = new System.Drawing.Point(86, 237);
+            this.OPasswordTextBox.Location = new System.Drawing.Point(93, 237);
             this.OPasswordTextBox.Name = "OPasswordTextBox";
             this.OPasswordTextBox.PasswordChar = '*';
             this.OPasswordTextBox.Size = new System.Drawing.Size(259, 22);
@@ -178,7 +179,7 @@
             // 
             this.OPasswordBg.BackColor = System.Drawing.Color.White;
             this.OPasswordBg.Image = ((System.Drawing.Image)(resources.GetObject("OPasswordBg.Image")));
-            this.OPasswordBg.Location = new System.Drawing.Point(40, 225);
+            this.OPasswordBg.Location = new System.Drawing.Point(47, 225);
             this.OPasswordBg.Name = "OPasswordBg";
             this.OPasswordBg.Size = new System.Drawing.Size(314, 42);
             this.OPasswordBg.TabIndex = 40;
@@ -225,11 +226,12 @@
             // 
             // AcademicCueText
             // 
+            this.AcademicCueText.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AcademicCueText.AutoSize = true;
             this.AcademicCueText.BackColor = System.Drawing.Color.White;
             this.AcademicCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AcademicCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.AcademicCueText.Location = new System.Drawing.Point(83, 173);
+            this.AcademicCueText.Location = new System.Drawing.Point(88, 173);
             this.AcademicCueText.Name = "AcademicCueText";
             this.AcademicCueText.Size = new System.Drawing.Size(55, 15);
             this.AcademicCueText.TabIndex = 52;
@@ -238,11 +240,12 @@
             // 
             // AcademicTextBox
             // 
+            this.AcademicTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AcademicTextBox.BackColor = System.Drawing.Color.White;
             this.AcademicTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AcademicTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AcademicTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.AcademicTextBox.Location = new System.Drawing.Point(88, 170);
+            this.AcademicTextBox.Location = new System.Drawing.Point(93, 170);
             this.AcademicTextBox.Name = "AcademicTextBox";
             this.AcademicTextBox.Size = new System.Drawing.Size(259, 22);
             this.AcademicTextBox.TabIndex = 48;
@@ -251,9 +254,10 @@
             // 
             // AcademicBg
             // 
+            this.AcademicBg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AcademicBg.BackColor = System.Drawing.Color.White;
             this.AcademicBg.Image = ((System.Drawing.Image)(resources.GetObject("AcademicBg.Image")));
-            this.AcademicBg.Location = new System.Drawing.Point(42, 161);
+            this.AcademicBg.Location = new System.Drawing.Point(47, 161);
             this.AcademicBg.Name = "AcademicBg";
             this.AcademicBg.Size = new System.Drawing.Size(314, 42);
             this.AcademicBg.TabIndex = 51;
@@ -261,11 +265,12 @@
             // 
             // UserCueText
             // 
+            this.UserCueText.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserCueText.AutoSize = true;
             this.UserCueText.BackColor = System.Drawing.Color.White;
             this.UserCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.UserCueText.Location = new System.Drawing.Point(83, 104);
+            this.UserCueText.Location = new System.Drawing.Point(87, 104);
             this.UserCueText.Name = "UserCueText";
             this.UserCueText.Size = new System.Drawing.Size(87, 15);
             this.UserCueText.TabIndex = 50;
@@ -274,11 +279,12 @@
             // 
             // UserTextBox
             // 
+            this.UserTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserTextBox.BackColor = System.Drawing.Color.White;
             this.UserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserTextBox.Font = new System.Drawing.Font("黑体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.UserTextBox.Location = new System.Drawing.Point(88, 101);
+            this.UserTextBox.Location = new System.Drawing.Point(92, 101);
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.Size = new System.Drawing.Size(259, 22);
             this.UserTextBox.TabIndex = 47;
@@ -288,9 +294,10 @@
             // 
             // UserBg
             // 
+            this.UserBg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserBg.BackColor = System.Drawing.Color.White;
             this.UserBg.Image = ((System.Drawing.Image)(resources.GetObject("UserBg.Image")));
-            this.UserBg.Location = new System.Drawing.Point(42, 92);
+            this.UserBg.Location = new System.Drawing.Point(47, 92);
             this.UserBg.Name = "UserBg";
             this.UserBg.Size = new System.Drawing.Size(314, 42);
             this.UserBg.TabIndex = 49;
@@ -302,7 +309,7 @@
             this.PWD2AlertLabel.BackColor = System.Drawing.Color.White;
             this.PWD2AlertLabel.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PWD2AlertLabel.ForeColor = System.Drawing.Color.Red;
-            this.PWD2AlertLabel.Location = new System.Drawing.Point(39, 341);
+            this.PWD2AlertLabel.Location = new System.Drawing.Point(44, 341);
             this.PWD2AlertLabel.Name = "PWD2AlertLabel";
             this.PWD2AlertLabel.Size = new System.Drawing.Size(151, 15);
             this.PWD2AlertLabel.TabIndex = 56;
@@ -315,7 +322,7 @@
             this.PWD1AlertLabel.BackColor = System.Drawing.Color.White;
             this.PWD1AlertLabel.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PWD1AlertLabel.ForeColor = System.Drawing.Color.Red;
-            this.PWD1AlertLabel.Location = new System.Drawing.Point(37, 272);
+            this.PWD1AlertLabel.Location = new System.Drawing.Point(43, 272);
             this.PWD1AlertLabel.Name = "PWD1AlertLabel";
             this.PWD1AlertLabel.Size = new System.Drawing.Size(295, 15);
             this.PWD1AlertLabel.TabIndex = 55;
@@ -328,7 +335,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(39, 206);
+            this.label1.Location = new System.Drawing.Point(44, 206);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(295, 15);
             this.label1.TabIndex = 0;
@@ -341,7 +348,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(37, 341);
+            this.label2.Location = new System.Drawing.Point(44, 341);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 15);
             this.label2.TabIndex = 58;
@@ -349,12 +356,26 @@
             this.label2.Visible = false;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // UserAlertLabel
+            // 
+            this.UserAlertLabel.AutoSize = true;
+            this.UserAlertLabel.BackColor = System.Drawing.Color.White;
+            this.UserAlertLabel.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.UserAlertLabel.ForeColor = System.Drawing.Color.Red;
+            this.UserAlertLabel.Location = new System.Drawing.Point(43, 73);
+            this.UserAlertLabel.Name = "UserAlertLabel";
+            this.UserAlertLabel.Size = new System.Drawing.Size(199, 15);
+            this.UserAlertLabel.TabIndex = 59;
+            this.UserAlertLabel.Text = "请输入非数字的英文或汉字";
+            this.UserAlertLabel.Visible = false;
+            // 
             // UserChangeInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(408, 529);
+            this.Controls.Add(this.UserAlertLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PWD2AlertLabel);
             this.Controls.Add(this.label1);
@@ -380,6 +401,7 @@
             this.Controls.Add(this.BgImage);
             this.Name = "UserChangeInfo";
             this.Text = "ChangeInfo";
+            this.Load += new System.EventHandler(this.UserChangeInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OPasswordBg)).EndInit();
@@ -416,5 +438,6 @@
         private System.Windows.Forms.Label PWD1AlertLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label UserAlertLabel;
     }
 }

@@ -39,8 +39,8 @@ namespace LIBRARY
         UserBookLoad,
         PicReceive,
         PicSend,
-        UserCancelScheduleBook,
-    }
+		UserCancelScheduleBook,
+	}
     public class FileProtocol
     {
         private RequestMode mode;
@@ -362,17 +362,17 @@ namespace LIBRARY
                         return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /></protocol>", mode, port, nowABook.BookIsbn);
                     }
                 case RequestMode.UserReturnBook:
-                    {
-                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\"  /><userbasic userid=\"{3}\" userpassword=\"{4}\"></protocol>", mode, port, nowABook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
-                    }
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /><userbasic userid=\"{3}\" userpassword=\"{4}\" /></protocol>", mode, port, NowABook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
+					}
                 case RequestMode.UserDelayBook:
-                    {
-                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\"  /><userbasic userid=\"{3}\" userpassword=\"{4}\"></protocol>", mode, port, nowABook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
-                    }
-                case RequestMode.UserCancelScheduleBook:
-                    {
-                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\"  /><userbasic userid=\"{3}\" userpassword=\"{4}\"></protocol>", mode, port, nowABook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
-                    }
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /><userbasic userid=\"{3}\" userpassword=\"{4}\" /></protocol>", mode, port, NowABook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
+					}
+				case RequestMode.UserCancelScheduleBook:
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /><userbasic userid=\"{3}\" userpassword=\"{4}\" /></protocol>", mode, port, NowABook.BookIsbn, userinfo.UserId, userinfo.UserPassword);
+					}
                 default:
 
                     break;
