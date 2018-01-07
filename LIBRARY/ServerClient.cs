@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Linq;  
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -22,7 +22,7 @@ namespace LIBRARY
         private bool isConnected;
         public bool isTimeOut;
         private string msg = "Welcome To .Net Sockets!";
-        private static string remoteServerIp = "192.168.137.1";
+        private static string remoteServerIp = "10.128.234.92";
         private int remoteServerPort = 6000;
 
         internal FileProtocol FileProtocol
@@ -315,7 +315,7 @@ namespace LIBRARY
         public byte[] receiveFileAsByte()
         {
             //string path = Environment.CurrentDirectory + "//" + protocol.NowBook.BookIsbn;
-            byte[] fileBuffer = new byte[1000 * 1024];
+            List<byte> fileBuffer = new List<byte>();
             byte[] tmp = new byte[1024];
 
             int bytesRead;
@@ -323,7 +323,9 @@ namespace LIBRARY
             do
             {
                 bytesRead = steamToServe.Read(tmp, 0, 1024);
-                tmp.CopyTo(fileBuffer, totalBytes);
+                for (int i = 0; i < bytesRead; i++)
+                    fileBuffer.Add(tmp[i]);
+               
                 totalBytes += bytesRead;
                 //Console.WriteLine("Reveiving {0} bytes ...", totalBytes);
             } while (bytesRead > 0);
@@ -332,7 +334,7 @@ namespace LIBRARY
 
             steamToServe.Dispose();
             client.Close();
-            return fileBuffer;
+            return fileBuffer.ToArray();
         }
     }
 }

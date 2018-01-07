@@ -54,19 +54,20 @@ namespace LIBRARY
         #endregion
         private void BookDetailLoad()
         {
-            BookNameText.Text = ClassBackEnd.Currentbook.Bookname;
-            AuthorText.Text = ClassBackEnd.Currentbook.Author;
-            BookIDText.Text = ClassBackEnd.Currentbook.Bookisbn;
-            PublisherText.Text = ClassBackEnd.Currentbook.Publisher;
-            BorrowDateText.Text = ClassBackEnd.BorrowedBookI.Bsdate;
-            ReturnDateText.Text = ClassBackEnd.BorrowedBookI.Rgdate;
+            BookNameText.Text = PublicVar.nowABook.BookName;
+            AuthorText.Text = PublicVar.nowABook.BookAuthor;
+            BookIDText.Text = PublicVar.nowABook.BookIsbn;
+            PublisherText.Text = PublicVar.nowABook.BookPublisher;
+            BorrowDateText.Text = PublicVar.nowABook.BorrowTime.ToLongDateString();
+            ReturnDateText.Text = PublicVar.nowABook.ReturnTime.ToLongDateString();
+
             try
             {
-                BookPictureBox.Image = Image.FromFile(ClassBackEnd.Currentbook.Bookimage);
+                BookPictureBox.Image = PublicVar.BytesToImage(PublicVar.pic);
             }
             catch
             {
-                BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
+                BookPictureBox.Image = Properties.Resources.BookNullImage;
             }
 
         }
@@ -123,89 +124,6 @@ namespace LIBRARY
             Close();
         }
 
-        private void BookNameText_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void PublisherText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BookIDText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AuthorText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BookIDLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void authorLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BorrowDateLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BorrowDateText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ReturnDateLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ReturnDateText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TitleLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RemindLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BgImage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BookPictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ReturnButton_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ReBorrowButton_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

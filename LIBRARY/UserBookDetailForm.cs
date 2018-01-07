@@ -12,6 +12,7 @@ using LibrarySystemBackEnd;
 using System.Net.Sockets;
 using WindowsFormsControlLibrary1;
 using System.Threading;
+using System.IO;
 
 namespace LIBRARY
 {
@@ -296,12 +297,24 @@ namespace LIBRARY
 
         private void BookImageRequest_DoWork(object sender, DoWorkEventArgs e)
         {
+
+            if (File.Exists(@"cache\" + PublicVar.nowBook.BookImage))
+            {
+                FileStream fileStream = File.Open(@"cache\" + PublicVar.nowBook.BookImage, FileMode.Open);
+                byte[] buffer = new byte[PublicVar.IMAGE_MAX_SIZE];
+                int size = fileStream.Read(buffer, 0, PublicVar.IMAGE_MAX_SIZE);
+                PublicVar.pic = buffer;
+                fileStream.Close();
+                return;
+            }
+
             ServerClient serverClient = new ServerClient();
             FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
             fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
             serverClient.SendMessage(fp.ToString());
 
             PublicVar.pic = serverClient.receiveFileAsByte();
+
         }
 
         private void BookImageRequest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -316,6 +329,9 @@ namespace LIBRARY
                 System.Windows.Forms.MessageBox.Show(ee.Message);
                 return;
             }
+            FileStream fileStream = File.Open(@"cache\" + PublicVar.nowBook.BookImage, FileMode.Create);
+            fileStream.Write(PublicVar.pic, 0, PublicVar.pic.Length);
+            fileStream.Close();
         }
 
 

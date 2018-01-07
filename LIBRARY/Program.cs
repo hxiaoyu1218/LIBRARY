@@ -19,6 +19,7 @@ namespace LIBRARY
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Application.Run(new UserForm(null));
+            PublicVar.CacheCheck();
 
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
