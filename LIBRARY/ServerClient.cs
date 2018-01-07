@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;  
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -303,14 +303,19 @@ namespace LIBRARY
             {
                 PublicVar.ReturnValue = protocol.Retval;
             }
-            else if(protocol.Mode==RequestMode.UserInfoLoad)
+            else if (protocol.Mode == RequestMode.UserInfoLoad)
             {
                 PublicVar.ReturnValue = 1;
                 PublicVar.classUser = protocol.User;
             }
-            else if(protocol.Mode==RequestMode.UserInfoChange)
+            else if (protocol.Mode == RequestMode.UserInfoChange)
             {
                 PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserAbookLoad)
+            {
+                PublicVar.nowABook = protocol.NowABook;
+                PublicVar.ReturnValue = 0;
             }
 
         }
@@ -328,7 +333,7 @@ namespace LIBRARY
                 bytesRead = steamToServe.Read(tmp, 0, 1024);
                 for (int i = 0; i < bytesRead; i++)
                     fileBuffer.Add(tmp[i]);
-               
+
                 totalBytes += bytesRead;
                 //Console.WriteLine("Reveiving {0} bytes ...", totalBytes);
             } while (bytesRead > 0);

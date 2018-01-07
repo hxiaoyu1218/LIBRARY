@@ -126,7 +126,9 @@ namespace LIBRARY
         }
         private void UserInfoLoad()
         {
+            string tpwd = PublicVar.logUser.UserPassword;
             PublicVar.logUser = PublicVar.classUser.UserBasic;
+            PublicVar.logUser.UserPassword = tpwd;
             WelTextBox.Text = "欢迎，" + PublicVar.classUser.UserBasic.UserName + "！";
             AcedemicText.Text = PublicVar.classUser.UserBasic.UserSchool;
             CreditText.Text = PublicVar.classUser.UserBasic.UserCredit.ToString();
@@ -135,42 +137,6 @@ namespace LIBRARY
             NowOrderText.Text = PublicVar.classUser.UserBasic.UserCurrentScheduleAmount.ToString();
             UserPicBox.Image = PickHeadImage();
         }
-
-        public static string HZToCode(string chineseStr)//typeStr是指拼音还是五笔码  
-        {
-            try
-            {
-                string resultStr = "";
-                byte[] arrCN = Encoding.Default.GetBytes(chineseStr);
-                if (arrCN.Length > 1)
-                {
-                    int area = (short)arrCN[0];
-                    int pos = (short)arrCN[1];
-                    int code = (area << 8) + pos;
-                    int[] areacode = { 45217, 45253, 45761, 46318, 46826, 47010, 47297, 47614,
-                       48119, 48119, 49062, 49324, 49896, 50371, 50614, 50622, 50906, 51387,
-                       51446, 52218, 52698, 52698, 52698, 52980, 53689, 54481 };
-                    for (int i = 0; i < 26; i++)
-                    {
-                        int max = 55290;
-                        if (i != 25) max = areacode[i + 1];
-                        if (areacode[i] <= code && code < max)
-                        {
-                            resultStr = Encoding.Default.GetString(new byte[] { (byte)(65 + i) });
-                            break;
-                        }
-                    }
-                }
-
-                return resultStr;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("错误:", ex);
-            }
-        }
-
-
         private Image PickHeadImage()
         {
             if (Char.IsLetter(PublicVar.classUser.UserBasic.UserName[0]))
@@ -262,95 +228,8 @@ namespace LIBRARY
             }
             else
             {
-                byte[] b = System.Text.UnicodeEncoding.Default.GetBytes(PublicVar.classUser.UserBasic.UserName);
-                string tmp = System.Text.UnicodeEncoding.Default.GetString(b, 0, 2);
-                tmp = HZToCode(tmp);
-                switch (tmp[0])
-                {
-                    case 'A':
-                    case 'a':
-                        return Properties.Resources.A;
-                    case 'B':
-                    case 'b':
-                        return Properties.Resources.B;
-                    case 'C':
-                    case 'c':
-                        return Properties.Resources.C;
-                    case 'D':
-                    case 'd':
-                        return Properties.Resources.D;
-                    case 'E':
-                    case 'e':
-                        return Properties.Resources.E;
-                    case 'F':
-                    case 'f':
-                        return Properties.Resources.F;
-                    case 'G':
-                    case 'g':
-                        return Properties.Resources.G;
-                    case 'H':
-                    case 'h':
-                        return Properties.Resources.H;
-                    case 'I':
-                    case 'i':
-                        return Properties.Resources.I;
-                    case 'J':
-                    case 'j':
-                        return Properties.Resources.J;
-                    case 'K':
-                    case 'k':
-                        return Properties.Resources.K;
-                    case 'L':
-                    case 'l':
-                        return Properties.Resources.L;
-                    case 'M':
-                    case 'm':
-                        return Properties.Resources.M;
-                    case 'N':
-                    case 'n':
-                        return Properties.Resources.N;
-                    case 'O':
-                    case 'o':
-                        return Properties.Resources.O;
-                    case 'P':
-                    case 'p':
-                        return Properties.Resources.P;
-                    case 'Q':
-                    case 'q':
-                        return Properties.Resources.Q;
-                    case 'R':
-                    case 'r':
-                        return Properties.Resources.R;
-                    case 'S':
-                    case 's':
-                        return Properties.Resources.S;
-                    case 'T':
-                    case 't':
-                        return Properties.Resources.T;
-                    case 'U':
-                    case 'u':
-                        return Properties.Resources.U;
-                    case 'V':
-                    case 'v':
-                        return Properties.Resources.V;
-                    case 'W':
-                    case 'w':
-                        return Properties.Resources.W;
-                    case 'X':
-                    case 'x':
-                        return Properties.Resources.X;
-                    case 'Y':
-                    case 'y':
-                        return Properties.Resources.Y;
-                    case 'Z':
-                    case 'z':
-                        return Properties.Resources.Z;
-                    default:
-                        return Properties.Resources.DefaultHead;
-                }
-
+                return Properties.Resources.DefaultHead;
             }
-
         }
         private void UserForm_Load(object sender, EventArgs e)
         {
@@ -411,23 +290,45 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 2)
             {
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookLoad, 6000);
+                fileProtocol.NowBook = new ClassBook(PublicVar.classUser.BorrowHis[e.RowIndex].BookIsbn.Substring(0,13));
 
-                if (ClassBackEnd.BorrowHistoryIDown(e.RowIndex) == 2)
+                fileProtocol.Userinfo = PublicVar.logUser;
+
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.UserBookLoad, "正在加载", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+                if (PublicVar.ReturnValue == -233)
                 {
-                    MessageBox infobox = new MessageBox(25);
-                    infobox.ShowDialog();
-                    infobox.Dispose();
+                    return;
                 }
-                else
+                PublicVar.ReturnValue = -233;
+
+                frmMain.MainPanel.Controls.Clear();
+                UserBookDetailForm bookDetailForm = new UserBookDetailForm(frmMain, 0);
+                bookDetailForm.TopLevel = false;
+                bookDetailForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(bookDetailForm);
+                bookDetailForm.Show();
+                frmMain.ReturnButton.Tag = 3;
+
+                FileProtocol fileProtocol1 = new FileProtocol(RequestMode.UserInfoLoad, 6000);
+                fileProtocol1.Userinfo = PublicVar.logUser;
+
+                LoadingBox loadingBox1 = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol1);
+                loadingBox1.ShowDialog();
+                loadingBox1.Dispose();
+                var v = PublicVar.ReturnValue;
+                if (v == -233)//cancel
                 {
-                    frmMain.MainPanel.Controls.Clear();
-                    UserBookDetailForm bookDetailForm = new UserBookDetailForm(frmMain, 0);
-                    bookDetailForm.TopLevel = false;
-                    bookDetailForm.Dock = DockStyle.Fill;
-                    frmMain.MainPanel.Controls.Add(bookDetailForm);
-                    bookDetailForm.Show();
-                    frmMain.ReturnButton.Tag = 3;
+                    return;
                 }
+                PublicVar.ReturnValue = -233;
+                SheetRefresh();
+                UserInfoLoad();
+
 
             }
         }
@@ -439,18 +340,41 @@ namespace LIBRARY
                 if (BorrowInfoSheet.Rows[e.RowIndex].Cells[2].Value.ToString() == "归还/续借")
                 {
 
-                    ClassBackEnd.BorrowedBookIDown(e.RowIndex);
+                    PublicVar.ReturnValue = -233;
+                    FileProtocol fileProtocol = new FileProtocol(RequestMode.UserAbookLoad, 6000);
+                    fileProtocol.NowABook = PublicVar.classUser.BorrowedBooks[e.RowIndex];
 
+                    LoadingBox loadingBox = new LoadingBox(RequestMode.UserAbookLoad, "正在加载", fileProtocol);
+                    loadingBox.ShowDialog();
+                    loadingBox.Dispose();
+
+                    if (PublicVar.ReturnValue == -233)
+                    {
+                        return;
+                    }
                     UserReturnForm returnForm = new UserReturnForm(e.RowIndex);
                     returnForm.ShowDialog();
                     returnForm.Dispose();
 
-                    ClassBackEnd.GetIntoPersonCenter();
+
+                    PublicVar.ReturnValue = -233;
+                    FileProtocol fileProtocol1 = new FileProtocol(RequestMode.UserInfoLoad, 6000);
+                    fileProtocol1.Userinfo = PublicVar.logUser;
+
+                    LoadingBox loadingBox1 = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol1);
+                    loadingBox1.ShowDialog();
+                    loadingBox1.Dispose();
+                    var v = PublicVar.ReturnValue;
+                    if (v == -233)//cancel
+                    {
+                        return;
+                    }
+                    PublicVar.ReturnValue = -233;
                     SheetRefresh();
                     UserInfoLoad();
                 }
                 else
-                {
+                {//cancel order
                     ClassBackEnd.CancelScheduleBook(e.RowIndex);
                     MessageBox ib = new MessageBox(21);
                     ib.ShowDialog();
@@ -473,7 +397,7 @@ namespace LIBRARY
 
         private void linkLabel1_Click(object sender, EventArgs e)
         {
-            UserChangeInfo userChangeInfo = new UserChangeInfo(frmMain.Location);
+            UserChangeInfo userChangeInfo = new UserChangeInfo();
             userChangeInfo.ShowDialog();
             if ((bool)userChangeInfo.Tag == true)
             {

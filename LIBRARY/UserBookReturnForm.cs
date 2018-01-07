@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
+using System.IO;
 
 namespace LIBRARY
 {
@@ -15,9 +16,22 @@ namespace LIBRARY
     {
         private UserMainForm frmMain;
         private int maxPage;
+        private BackgroundWorker[] threadList;
+
         public UserBookReturnForm(UserMainForm frm)
         {
-            ClassBackEnd.LoadBorrowedBook();
+
+
+            threadList = new BackgroundWorker[20];
+            for (int i = 0; i < 20; i++)
+            {
+                threadList[i].DoWork += new DoWorkEventHandler(BookImageRequest_DoWork);
+                threadList[i].RunWorkerCompleted += new RunWorkerCompletedEventHandler(BookImageRequest_RunWorkerCompleted);
+            }
+
+
+
+
 
             frmMain = frm;
             InitializeComponent();
@@ -26,7 +40,7 @@ namespace LIBRARY
         }
         private void PageButtonLoad()
         {
-            if(ClassBackEnd.Userbsbook.Count==0)
+            if (ClassBackEnd.Userbsbook.Count == 0)
             {
                 LastPButton.Hide();
                 NextPbutton.Hide();
@@ -68,9 +82,9 @@ namespace LIBRARY
                 pic.Size = new Size(140, 200);
                 try
                 {
-					string isbn = ClassBackEnd.Userbsbook[i - 1].Bookisbn.Substring(0, 10);
-                    LibrarySystemBackEnd.ClassBook tmp = new LibrarySystemBackEnd.ClassBook(isbn);
-					pic.Image = Image.FromFile(tmp.Bookimage);
+                    string isbn = ClassBackEnd.Userbsbook[i - 1].Bookisbn.Substring(0, 10);
+
+                    pic.Image = Properties.Resources.BookNullImage;
                 }
                 catch
                 {
@@ -86,7 +100,7 @@ namespace LIBRARY
                 LinkLabel NameLink = new LinkLabel();
                 NameLink.ActiveLinkColor = Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
                 NameLink.AutoSize = false;
-                NameLink.TextAlign= System.Drawing.ContentAlignment.TopCenter;
+                NameLink.TextAlign = System.Drawing.ContentAlignment.TopCenter;
                 NameLink.BackColor = System.Drawing.Color.Transparent;
                 NameLink.Font = new Font("微软雅黑", 13F, FontStyle.Regular, GraphicsUnit.Point, 134);
                 NameLink.LinkBehavior = LinkBehavior.HoverUnderline;
@@ -123,7 +137,7 @@ namespace LIBRARY
 
             ClassBackEnd.LoadBorrowedBook();
             maxPage = ClassBackEnd.Userbsbook.Count > 10 ? 2 : 1;
-            if (linkID>9) ComponentDynamicLoad(2);
+            if (linkID > 9) ComponentDynamicLoad(2);
             else ComponentDynamicLoad(1);
 
         }
@@ -158,7 +172,7 @@ namespace LIBRARY
 
         private void LastPButton_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(JumpPTextBox.Text)==1)
+            if (Convert.ToInt32(JumpPTextBox.Text) == 1)
             {
                 return;
             }
@@ -180,6 +194,46 @@ namespace LIBRARY
                 ComponentDynamicLoad(Convert.ToInt32(JumpPTextBox.Text) + 1);
                 JumpPTextBox.Text = "2";
             }
+        }
+        private void BookImageRequest_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int index = (int)sender;
+            if (File.Exists(@"cache\" + PublicVar.nowBook.BookImage))
+            {
+                FileStream fileStream = File.Open(@"cache\" + PublicVar.nowBook.BookImage, FileMode.Open);
+                byte[] buffer = new byte[PublicVar.IMAGE_MAX_SIZE];
+                int size = fileStream.Read(buffer, 0, PublicVar.IMAGE_MAX_SIZE);
+                PublicVar.picList[index] = buffer;
+                fileStream.Close();
+                return;
+            }
+
+            ServerClient serverClient = new ServerClient();
+            FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
+            fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
+            serverClient.SendMessage(fp.ToString());
+
+            PublicVar.picList[index] = serverClient.receiveFileAsByte();
+            e.Result = index;
+        }
+
+        private void BookImageRequest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                Control[] p = Panel.Controls.Find(((int)e.Result).ToString(), false);
+
+                ((PictureBox)p[0]).Image = PublicVar.BytesToImage((byte[])PublicVar.picList[(int)e.Result]);
+
+            }
+            catch (Exception ee)
+            {
+                System.Windows.Forms.MessageBox.Show(ee.Message);
+                return;
+            }
+            FileStream fileStream = File.Open(@"cache\" + PublicVar.nowBook.BookImage, FileMode.Create);
+            fileStream.Write(PublicVar.pic, 0, PublicVar.pic.Length);
+            fileStream.Close();
         }
     }
 }

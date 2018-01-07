@@ -42,7 +42,7 @@ namespace LIBRARY
 		private string bookIsbn;// 完整的isbn
 		private string bookPublisher;
 		private string bookAuthor;
-		private byte[] bookImage;
+		private string bookImage;
 		private DateTime bookPublishDate;
 		private DateTime bookBroughtTime;// 购买时间
 		private Bookstate bookState;// 书籍状态
@@ -122,7 +122,7 @@ namespace LIBRARY
 		/// <summary>
 		/// 书籍图片地址
 		/// </summary>
-		public byte[] BookImage
+		public string BookImage
 		{
 			get
 			{
@@ -261,108 +261,7 @@ namespace LIBRARY
 		}
 
 		#endregion
-
-		///// <summary>
-		///// 写入文件函数
-		///// </summary>
-		///// <param name="sw">streamwriter类型</param>
-		//internal void SaveToFile(StreamWriter sw)
-		//{
-		//	sw.WriteLine(Convert.ToInt32(Bookstate));
-		//	sw.WriteLine(Borrowuserid);
-		//	sw.WriteLine(BroughtTime.ToString());
-		//	sw.WriteLine(Extisbn);
-		//}
-		///// <summary>
-		///// 从文件的构造函数
-		///// </summary>
-		///// <param name="sr">streamreader类型</param>
-		//internal ABook(StreamReader sr)
-		//{
-		//	Bookstate = (BOOKSTATE)(System.Enum.Parse(typeof(BOOKSTATE), Convert.ToInt16(sr.ReadLine()).ToString()));
-		//	Borrowuserid = sr.ReadLine();
-		//	BroughtTime = Convert.ToDateTime(sr.ReadLine());
-		//	Extisbn = sr.ReadLine();
-		//}
-
-		/// <summary>
-		/// 完整的构造函数
-		/// </summary>
-		/// <param name="bookName">书名</param>
-		/// <param name="bookIsbn">完整ISBN</param>
-		/// <param name="bookPublisher">出版社</param>
-		/// <param name="bookAuthor">作者</param>
-		/// <param name="bookImage">图片地址</param>
-		/// <param name="bookPublishDate">出版日期</param>
-		/// <param name="broughtTime">购买时间</param>
-		/// <param name="bookState">书籍状态</param>
-		/// <param name="borrowUserId">借阅用户ID</param>
-		/// <param name="borrowTime">借出时间</param>
-		/// <param name="returnTime">应归还时间</param>
-		/// <param name="delayed">是否已续借</param>
-		/// <param name="deleted">是否已被管理员回收</param>
-		public ClassABook(string bookName, string bookIsbn, string bookPublisher, string bookAuthor, byte[] bookImage, DateTime bookPublishDate, DateTime broughtTime, Bookstate bookState, string borrowUserId, DateTime borrowTime, DateTime returnTime, bool delayed, bool deleted)
-		{
-			this.BookName = bookName;
-			this.BookIsbn = bookIsbn;
-			this.BookPublisher = bookPublisher;
-			this.BookAuthor = bookAuthor;
-			this.BookImage = bookImage;
-			this.BookPublishDate = bookPublishDate;
-			this.BookBroughtTime = broughtTime;
-			this.BookState = bookState;
-			this.BorrowUserId = borrowUserId;
-			this.BorrowTime = borrowTime;
-			this.ReturnTime = returnTime;
-			this.Delayed = delayed;
-			this.Deleted = deleted;
-		}
-
-		/// <summary>
-		/// 构造函数
-		/// </summary>
-		/// <param name="bookName">书名</param>
-		/// <param name="bookIsbn">完整ISBN</param>
-		/// <param name="bookPublisher">出版社</param>
-		/// <param name="bookAuthor">作者</param>
-		/// <param name="bookImage">图片地址</param>
-		/// <param name="bookPublishDate">出版时间</param>
-		/// <param name="broughtTime">购买时间</param>
-		public ClassABook(string bookName, string bookIsbn, string bookPublisher, string bookAuthor, byte[] bookImage, DateTime bookPublishDate, DateTime broughtTime)
-		{
-			this.BookName = bookName;
-			this.BookIsbn = bookIsbn;
-			this.BookPublisher = bookPublisher;
-			this.BookAuthor = bookAuthor;
-			this.BookImage = bookImage;
-			this.BookPublishDate = bookPublishDate;
-			this.BookBroughtTime = broughtTime;
-
-			this.BookState = Bookstate.Available;
-			this.BorrowUserId = "";
-			this.BorrowTime = DateTime.Now;
-			this.ReturnTime = DateTime.Now;
-			this.Delayed = false;
-			this.Deleted = false;
-		}
-
-		internal ClassABook(DbDataReader dr)
-		{
-			this.BookName = dr["bookName"].ToString();
-			this.BookIsbn = dr["bookIsbn"].ToString();
-			this.BookPublisher = dr["bookPublisher"].ToString();
-			this.BookAuthor = dr["bookAuthor"].ToString();
-			this.BookImage = (byte[])dr["bookImage"];
-			this.BookPublishDate = (DateTime)dr["bookPublishDate"];
-			this.BookBroughtTime = (DateTime)dr["broughtTime"];
-
-			this.BookState = (Bookstate)Enum.ToObject(typeof(Bookstate), dr["bookState"]);
-			this.BorrowUserId = dr["borrowUserId"].ToString();
-			this.BorrowTime = (DateTime)dr["borrowTime"];
-			this.ReturnTime = (DateTime)dr["returnTime"];
-			this.Delayed = (bool)dr["delayed"];
-			this.Deleted = (bool)dr["deleted"];
-		}
+                
         public ClassABook(string isbn)
         {
             this.bookIsbn = isbn;

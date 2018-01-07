@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using LibrarySystemBackEnd;
+using System.IO;
 
 namespace LIBRARY
 {
@@ -27,6 +28,7 @@ namespace LIBRARY
             myPath.AddEllipse(0, 0, 102, 102);
             ReturnButton.Region = new Region(myPath);
             ReBorrowButton.Region = new Region(myPath);
+            BookImageRequest.RunWorkerAsync();
             BookDetailLoad();
         }
 
@@ -61,19 +63,18 @@ namespace LIBRARY
             BorrowDateText.Text = PublicVar.nowABook.BorrowTime.ToLongDateString();
             ReturnDateText.Text = PublicVar.nowABook.ReturnTime.ToLongDateString();
 
-            try
-            {
-                BookPictureBox.Image = PublicVar.BytesToImage(PublicVar.pic);
-            }
-            catch
-            {
-                BookPictureBox.Image = Properties.Resources.BookNullImage;
-            }
+            
 
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
+
+
+
+
+
+
             if (ClassBackEnd.ReturnBook())
             {
                 MessageBox ib = new MessageBox(16);
@@ -124,6 +125,41 @@ namespace LIBRARY
             Close();
         }
 
+        private void BookImageRequest_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (File.Exists(@"cache\" + PublicVar.nowABook.BookImage))
+            {
+                FileStream fileStream = File.Open(@"cache\" + PublicVar.nowABook.BookImage, FileMode.Open);
+                byte[] buffer = new byte[PublicVar.IMAGE_MAX_SIZE];
+                int size = fileStream.Read(buffer, 0, PublicVar.IMAGE_MAX_SIZE);
+                PublicVar.pic = buffer;
+                fileStream.Close();
+                return;
+            }
+            Array.Clear(PublicVar.pic,0,PublicVar.pic.Length);
+            ServerClient serverClient = new ServerClient();
+            FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
+            fp.NowBook = new ClassBook(PublicVar.nowABook.BookIsbn.Substring(0, 13));
+            serverClient.SendMessage(fp.ToString());
 
+            PublicVar.pic = serverClient.receiveFileAsByte();
+        }
+
+        private void BookImageRequest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                BookPictureBox.Image = PublicVar.BytesToImage(PublicVar.pic);
+
+            }
+            catch (Exception ee)
+            {
+                System.Windows.Forms.MessageBox.Show(ee.Message);
+                return;
+            }
+            FileStream fileStream = File.Open(@"cache\" + PublicVar.nowABook.BookImage, FileMode.Create);
+            fileStream.Write(PublicVar.pic, 0, PublicVar.pic.Length);
+            fileStream.Close();
+        }
     }
 }

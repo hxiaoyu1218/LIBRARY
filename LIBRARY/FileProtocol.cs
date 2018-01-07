@@ -357,7 +357,9 @@ namespace LIBRARY
                 case RequestMode.UserBadRecord:
                     break;
                 case RequestMode.UserAbookLoad:
-                    break;
+                    {
+                        return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /></protocol>", mode, port, nowABook.BookIsbn);
+                    }
                 case RequestMode.UserReturnBook:
                     break;
                 case RequestMode.UserDelayBook:

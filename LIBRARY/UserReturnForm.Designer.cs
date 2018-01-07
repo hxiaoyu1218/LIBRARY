@@ -40,7 +40,6 @@
             this.PublisherText = new System.Windows.Forms.Label();
             this.BookIDText = new System.Windows.Forms.Label();
             this.BookIDLabel = new System.Windows.Forms.Label();
-            this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BorrowDateText = new System.Windows.Forms.Label();
             this.ReturnDateText = new System.Windows.Forms.Label();
@@ -49,11 +48,13 @@
             this.ReturnButton = new DMSkin.Controls.DM.DMButtonImage();
             this.authorLabel = new System.Windows.Forms.Label();
             this.AuthorText = new System.Windows.Forms.Label();
+            this.BookPictureBox = new System.Windows.Forms.PictureBox();
+            this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // BgImage
@@ -127,7 +128,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.91793F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.08207F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
             this.tableLayoutPanel1.Controls.Add(this.ReBorrowButton, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.BorrowDateLabel, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.PublisherText, 2, 2);
@@ -154,7 +155,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(533, 642);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(534, 642);
             this.tableLayoutPanel1.TabIndex = 58;
             // 
             // ReBorrowButton
@@ -227,19 +228,6 @@
             this.BookIDLabel.TabIndex = 60;
             this.BookIDLabel.Text = "书　　号：";
             // 
-            // BookPictureBox
-            // 
-            this.BookPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookPictureBox.Location = new System.Drawing.Point(16, 66);
-            this.BookPictureBox.Name = "BookPictureBox";
-            this.tableLayoutPanel1.SetRowSpan(this.BookPictureBox, 5);
-            this.BookPictureBox.Size = new System.Drawing.Size(170, 231);
-            this.BookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BookPictureBox.TabIndex = 57;
-            this.BookPictureBox.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
@@ -297,7 +285,7 @@
             this.RemindLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.tableLayoutPanel1.SetColumnSpan(this.RemindLabel, 3);
             this.RemindLabel.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.RemindLabel.Location = new System.Drawing.Point(86, 396);
+            this.RemindLabel.Location = new System.Drawing.Point(87, 396);
             this.RemindLabel.Margin = new System.Windows.Forms.Padding(3, 32, 3, 16);
             this.RemindLabel.Name = "RemindLabel";
             this.RemindLabel.Size = new System.Drawing.Size(360, 93);
@@ -316,7 +304,7 @@
             this.ReturnButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.DM_HoverImage")));
             this.ReturnButton.DM_Mode = false;
             this.ReturnButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.DM_NolImage")));
-            this.ReturnButton.Location = new System.Drawing.Point(379, 508);
+            this.ReturnButton.Location = new System.Drawing.Point(380, 508);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(128, 3, 3, 32);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(102, 102);
@@ -350,6 +338,25 @@
             this.AuthorText.TabIndex = 59;
             this.AuthorText.Text = "测试作者测试作者测试作者测试作者";
             // 
+            // BookPictureBox
+            // 
+            this.BookPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BookPictureBox.Image = global::LIBRARY.Properties.Resources.BookNullImage;
+            this.BookPictureBox.Location = new System.Drawing.Point(16, 66);
+            this.BookPictureBox.Name = "BookPictureBox";
+            this.tableLayoutPanel1.SetRowSpan(this.BookPictureBox, 5);
+            this.BookPictureBox.Size = new System.Drawing.Size(170, 231);
+            this.BookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BookPictureBox.TabIndex = 57;
+            this.BookPictureBox.TabStop = false;
+            // 
+            // BookImageRequest
+            // 
+            this.BookImageRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookImageRequest_DoWork);
+            this.BookImageRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookImageRequest_RunWorkerCompleted);
+            // 
             // UserReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -375,8 +382,8 @@
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +411,6 @@
         private DMSkin.Controls.DM.DMButtonImage ReturnButton;
         private System.Windows.Forms.Label authorLabel;
         private System.Windows.Forms.Label AuthorText;
+        private System.ComponentModel.BackgroundWorker BookImageRequest;
     }
 }

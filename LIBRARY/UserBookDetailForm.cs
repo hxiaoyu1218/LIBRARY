@@ -24,10 +24,13 @@ namespace LIBRARY
 
         private int bookIndex;//booklist索引
 
+       
+
         private UserControl1[] commentControlList;
 
         public UserBookDetailForm(UserMainForm frm, int bookindex)
         {
+            
             bookIndex = bookindex;
             frmMain = frm;
             commentPage = 1;
@@ -307,7 +310,7 @@ namespace LIBRARY
                 fileStream.Close();
                 return;
             }
-
+            Array.Clear(PublicVar.pic, 0, PublicVar.pic.Length);
             ServerClient serverClient = new ServerClient();
             FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
             fp.NowBook = new ClassBook(PublicVar.nowBook.BookIsbn);
