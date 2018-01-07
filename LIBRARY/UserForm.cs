@@ -401,12 +401,7 @@ namespace LIBRARY
             userChangeInfo.ShowDialog();
             if ((bool)userChangeInfo.Tag == true)
             {
-                /*FileProtocol fileProtocol = new FileProtocol(RequestMode.UserInfoLoad, 6000);
-                fileProtocol.Userinfo = PublicVar.logUser;
                 
-                LoadingBox loadingBox = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol);
-                loadingBox.ShowDialog();
-                loadingBox.Dispose();*/
 
                 WelTextBox.Text = "欢迎，" + PublicVar.logUser.UserName + "！";
                 AcedemicText.Text = PublicVar.logUser.UserSchool;

@@ -247,9 +247,23 @@ namespace LIBRARY
                         break;
                     }
                 case RequestMode.UserReturnBook:
-                    break;
+                    {
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        break;
+                    }
                 case RequestMode.UserDelayBook:
-                    break;
+                    {
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        break;
+                    }
+                case RequestMode.UserCancelScheduleBook:
+                    {
+                        XmlNode usernode = root.SelectSingleNode("file");
+                        pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+                        break;
+                    }
                 default:
                     break;
             }
