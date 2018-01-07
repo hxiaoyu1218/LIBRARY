@@ -5,18 +5,21 @@ using System.Windows.Forms;
 using LibrarySystemBackEnd;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Collections;
 
 namespace LIBRARY
 {
     class PublicVar
     {
+        public const int IMAGE_MAX_SIZE = 1024 * 1024;
         public static int GuestFlag = 0;
         public static string DeletePath = "";
-		public static string Delpic = "";
+        public static string Delpic = "";
         public static int ReturnValue = -233;
         public static int TEMP = -1;
         public static ClassBook[] currentBookList;
         public static ClassBook nowBook;
+        public static ClassABook nowABook;
         public static ClassABook[] eachBookState;
         public static int bookTotalAmount;
         public static Image LoadHeadImage(string name)
@@ -156,7 +159,42 @@ namespace LIBRARY
         public static int commentTotalAmount;
         public static byte[] pic;
 
+        public static void CacheCheck()
+        {
+            if (!Directory.Exists(@"cache\"))
+            {
+                Directory.CreateDirectory(@"cache\");
+                return;
+            }
+            DirectoryInfo cacheDirectory = new DirectoryInfo(@"cache\");
+            FileInfo[] files = cacheDirectory.GetFiles();
 
+            long cacheSize = 0;
 
+            foreach (FileInfo file in files)
+            {
+                cacheSize += file.Length;
+            }
+            if (cacheSize > (1024 * 1024 * 10))
+            {
+                FileComparer fileComparer = new FileComparer();
+                Array.Sort(files, fileComparer);
+                for (int i = 0; i < files.Length / 2; i++)
+                {
+                    files[i].Delete();
+                }
+            }
+
+        }
+
+        public class FileComparer : IComparer
+        {
+            int IComparer.Compare(Object o1, Object o2)
+            {
+                FileInfo fi1 = o1 as FileInfo;
+                FileInfo fi2 = o2 as FileInfo;
+                return -1 * fi1.CreationTime.CompareTo(fi2.CreationTime);
+            }
+        }
     }
 }
