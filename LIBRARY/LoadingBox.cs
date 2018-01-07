@@ -111,6 +111,11 @@ namespace LIBRARY
                     }
                     break;
                 case RequestMode.UserBookStateLoad:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserBookCommentLoad:
                     while (PublicVar.ReturnValue == -233 && timer < 10000)
@@ -170,6 +175,11 @@ namespace LIBRARY
                 case RequestMode.UserBadRecord:
                     break;
                 case RequestMode.UserAbookLoad:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserReturnBook:
                     break;
@@ -180,13 +190,13 @@ namespace LIBRARY
             }
             if (timer >= 10000)
             {
-                e.Cancel = true;           
+                e.Cancel = true;
             }
         }
 
         private void WaitingThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if(e.Cancelled)
+            if (e.Cancelled)
             {
                 TextBox.Text = "请求超时";
                 LoadGIFBox.Enabled = false;
@@ -215,9 +225,9 @@ namespace LIBRARY
                 TextBox.Text = "请求超时";
                 return;
             }
-           
+
             serverClient.SendMessage(fileProtocol.ToString());
-                 
+
             WaitingThread.RunWorkerAsync();
         }
     }

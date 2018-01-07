@@ -235,7 +235,17 @@ namespace LIBRARY
                 case RequestMode.UserBadRecord:
                     break;
                 case RequestMode.UserAbookLoad:
-                    break;
+                    {
+                        XmlNode abook = root.SelectSingleNode("abook");
+                        pro.NowABook = new ClassABook(abook.Attributes["bookisbn"].Value);
+                        pro.NowABook.BookAuthor = abook.Attributes["bookauthor"].Value;
+                        pro.NowABook.BookPublisher = abook.Attributes["bookpublisher"].Value;
+                        pro.NowABook.BorrowTime = DateTime.Parse(abook.Attributes["bookborrowtime"].Value);
+                        pro.NowABook.ReturnTime = DateTime.Parse(abook.Attributes["bookreturntime"].Value);
+                        pro.NowABook.BookName = abook.Attributes["bookname"].Value;
+                        pro.NowABook.BookImage = abook.Attributes["bookpic"].Value;
+                        break;
+                    }
                 case RequestMode.UserReturnBook:
                     break;
                 case RequestMode.UserDelayBook:

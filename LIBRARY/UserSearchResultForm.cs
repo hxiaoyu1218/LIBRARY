@@ -10,7 +10,6 @@ namespace LIBRARY
     public partial class UserSearchResultForm : DMSkin.Main
     {
         private UserMainForm frmMain;
-        private ServerClient serverClient;
         private FileProtocol fileProtocol;
         private static int maxPage;
         private static int nPage;

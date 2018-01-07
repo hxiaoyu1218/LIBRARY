@@ -6,6 +6,7 @@ using LibrarySystemBackEnd;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace LIBRARY
 {
@@ -158,7 +159,7 @@ namespace LIBRARY
         public static ClassComment[] currentCommentList;
         public static int commentTotalAmount;
         public static byte[] pic;
-
+        public static ArrayList picList = new ArrayList(20);
         public static void CacheCheck()
         {
             if (!Directory.Exists(@"cache\"))

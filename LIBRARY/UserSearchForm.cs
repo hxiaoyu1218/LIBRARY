@@ -338,7 +338,6 @@ namespace LIBRARY
             var v = PublicVar.ReturnValue;
             if (v == -233)//cancel
             {
-                v = -233;
                 return;
             }
             if (v == 1)//success

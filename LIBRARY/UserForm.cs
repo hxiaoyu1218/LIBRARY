@@ -47,16 +47,16 @@ namespace LIBRARY
 
 
             BorrowInfoSheet.Rows.Clear();//借书信息初始化
-                
+
             for (i = 0; i < PublicVar.classUser.BorrowedBooks.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowedBooks[i].BookName;
 
-                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime.ToShortDateString() +'\n'+ PublicVar.classUser.BorrowedBooks[i].ReturnTime.ToShortDateString();
-					BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
-                
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime.ToShortDateString() + '\n' + PublicVar.classUser.BorrowedBooks[i].ReturnTime.ToShortDateString();
+                BorrowInfoSheet.Rows[index].Cells[2].Value = "归还/续借";
+
                 /*else
                 {
 					BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate ;
@@ -126,7 +126,9 @@ namespace LIBRARY
         }
         private void UserInfoLoad()
         {
+            string tpwd = PublicVar.logUser.UserPassword;
             PublicVar.logUser = PublicVar.classUser.UserBasic;
+            PublicVar.logUser.UserPassword = tpwd;
             WelTextBox.Text = "欢迎，" + PublicVar.classUser.UserBasic.UserName + "！";
             AcedemicText.Text = PublicVar.classUser.UserBasic.UserSchool;
             CreditText.Text = PublicVar.classUser.UserBasic.UserCredit.ToString();
@@ -288,24 +290,46 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 2)
             {
-                
-                if(ClassBackEnd.BorrowHistoryIDown(e.RowIndex)==2)
-				{
-					MessageBox infobox = new MessageBox(25);
-					infobox.ShowDialog();
-					infobox.Dispose();
-				}
-				else
-				{
-					frmMain.MainPanel.Controls.Clear();
-					UserBookDetailForm bookDetailForm = new UserBookDetailForm(frmMain, 0);
-					bookDetailForm.TopLevel = false;
-					bookDetailForm.Dock = DockStyle.Fill;
-					frmMain.MainPanel.Controls.Add(bookDetailForm);
-					bookDetailForm.Show();
-					frmMain.ReturnButton.Tag = 3;
-				}
-                
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookLoad, 6000);
+                fileProtocol.NowBook = new ClassBook(PublicVar.classUser.BorrowHis[e.RowIndex].BookIsbn.Substring(0,13));
+
+                fileProtocol.Userinfo = PublicVar.logUser;
+
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.UserBookLoad, "正在加载", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
+                }
+                PublicVar.ReturnValue = -233;
+
+                frmMain.MainPanel.Controls.Clear();
+                UserBookDetailForm bookDetailForm = new UserBookDetailForm(frmMain, 0);
+                bookDetailForm.TopLevel = false;
+                bookDetailForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(bookDetailForm);
+                bookDetailForm.Show();
+                frmMain.ReturnButton.Tag = 3;
+
+                FileProtocol fileProtocol1 = new FileProtocol(RequestMode.UserInfoLoad, 6000);
+                fileProtocol1.Userinfo = PublicVar.logUser;
+
+                LoadingBox loadingBox1 = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol1);
+                loadingBox1.ShowDialog();
+                loadingBox1.Dispose();
+                var v = PublicVar.ReturnValue;
+                if (v == -233)//cancel
+                {
+                    return;
+                }
+                PublicVar.ReturnValue = -233;
+                SheetRefresh();
+                UserInfoLoad();
+
+
             }
         }
 
@@ -316,18 +340,41 @@ namespace LIBRARY
                 if (BorrowInfoSheet.Rows[e.RowIndex].Cells[2].Value.ToString() == "归还/续借")
                 {
 
-                    ClassBackEnd.BorrowedBookIDown(e.RowIndex);
+                    PublicVar.ReturnValue = -233;
+                    FileProtocol fileProtocol = new FileProtocol(RequestMode.UserAbookLoad, 6000);
+                    fileProtocol.NowABook = PublicVar.classUser.BorrowedBooks[e.RowIndex];
 
+                    LoadingBox loadingBox = new LoadingBox(RequestMode.UserAbookLoad, "正在加载", fileProtocol);
+                    loadingBox.ShowDialog();
+                    loadingBox.Dispose();
+
+                    if (PublicVar.ReturnValue == -233)
+                    {
+                        return;
+                    }
                     UserReturnForm returnForm = new UserReturnForm(e.RowIndex);
                     returnForm.ShowDialog();
                     returnForm.Dispose();
 
-                    ClassBackEnd.GetIntoPersonCenter();
+
+                    PublicVar.ReturnValue = -233;
+                    FileProtocol fileProtocol1 = new FileProtocol(RequestMode.UserInfoLoad, 6000);
+                    fileProtocol1.Userinfo = PublicVar.logUser;
+
+                    LoadingBox loadingBox1 = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol1);
+                    loadingBox1.ShowDialog();
+                    loadingBox1.Dispose();
+                    var v = PublicVar.ReturnValue;
+                    if (v == -233)//cancel
+                    {
+                        return;
+                    }
+                    PublicVar.ReturnValue = -233;
                     SheetRefresh();
                     UserInfoLoad();
                 }
                 else
-                {
+                {//cancel order
                     ClassBackEnd.CancelScheduleBook(e.RowIndex);
                     MessageBox ib = new MessageBox(21);
                     ib.ShowDialog();
@@ -352,7 +399,7 @@ namespace LIBRARY
         {
             UserChangeInfo userChangeInfo = new UserChangeInfo();
             userChangeInfo.ShowDialog();
-            if ((bool)userChangeInfo.Tag==true)
+            if ((bool)userChangeInfo.Tag == true)
             {
                 /*FileProtocol fileProtocol = new FileProtocol(RequestMode.UserInfoLoad, 6000);
                 fileProtocol.Userinfo = PublicVar.logUser;
@@ -364,7 +411,7 @@ namespace LIBRARY
                 WelTextBox.Text = "欢迎，" + PublicVar.logUser.UserName + "！";
                 AcedemicText.Text = PublicVar.logUser.UserSchool;
             }
-            
+
 
             userChangeInfo.Dispose();
         }
