@@ -165,7 +165,7 @@ namespace LIBRARY
             }
             else if (textType == 31)
             {
-                TextBox.Text = "密码格式错误！";//cbXG
+                TextBox.Text = "请正确输入更改信息！";//cbXG
             }
             else if (textType == 32)
             {

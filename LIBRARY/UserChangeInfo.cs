@@ -13,8 +13,10 @@ namespace LIBRARY
 {
     public partial class UserChangeInfo : DMSkin.Main
     {
-        public UserChangeInfo()
+        public Point location;
+        public UserChangeInfo(Point v)
         {
+            location = v;
             InitializeComponent();
             
             label1.Hide();
@@ -73,8 +75,18 @@ namespace LIBRARY
             if (UserTextBox.Text.Trim() == "")
                 UserCueText.Show();
             else
-                UserCueText.Hide();
-            
+            {
+                string tmp = UserTextBox.Text.Trim();
+                if (Char.IsDigit(tmp[0]))
+                {
+                    UserAlertLabel.Show();
+                }
+                else
+                {
+                    UserCueText.Hide();
+                    UserAlertLabel.Hide();
+                }
+            }
         }
 
         private void AcademicCueText_Click(object sender, EventArgs e)
@@ -263,7 +275,7 @@ namespace LIBRARY
                 ib.Dispose();
                 return;
             }
-            else if(label1.Visible==true||PWD1AlertLabel.Visible==true||PWD2AlertLabel.Visible==true||label2.Visible==true)
+            else if(label1.Visible==true||PWD1AlertLabel.Visible==true||PWD2AlertLabel.Visible==true||label2.Visible==true||UserAlertLabel.Visible == true)
             {
                 MessageBox ib = new MessageBox(31);
                 ib.ShowDialog();
@@ -341,6 +353,13 @@ namespace LIBRARY
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UserChangeInfo_Load(object sender, EventArgs e)
+        {
+            int x = location.X+(1000 - 408) / 2;
+            int y = location.Y+(750 - 529) / 2;
+            Location = new Point(x, y);
         }
     }
 }

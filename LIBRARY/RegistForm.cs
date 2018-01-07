@@ -82,15 +82,17 @@ namespace LIBRARY
             else
             {
                 string tmp = UserTextBox.Text;
-                if(Char.IsDigit(tmp[0]))
+                if (Char.IsDigit(tmp[0]))
                 {
                     UserAlertLabel.Show();
                 }
-                UserCueText.Hide();
-                UserAlertLabel.Show();
-            }
+                else
+                {
+                    UserCueText.Hide();
+                    UserAlertLabel.Show();
+                }
 
-            //if()
+            }
         }
 
         private void PasswordTextBox1_Enter(object sender, EventArgs e)
@@ -104,7 +106,11 @@ namespace LIBRARY
         private void PasswordTextBox1_Leave(object sender, EventArgs e)
         {
             if (PasswordTextBox1.Text.Trim() == "")
+            {
                 PasswordCueText1.Show();
+                PWD1AlertLabel.Show();
+            }
+
             else
             {
                 if (IsNumAndEnCh(PasswordTextBox1.Text) == false)
@@ -144,7 +150,11 @@ namespace LIBRARY
         private void PasswordTextBox2_Leave(object sender, EventArgs e)
         {
             if (PasswordTextBox2.Text.Trim() == "")
+            {
                 PasswordCueText2.Show();
+                PWD2AlertLabel.Show();
+            }
+
             else
             {
                 if (PasswordTextBox1.Text != PasswordTextBox2.Text)

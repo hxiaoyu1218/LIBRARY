@@ -313,8 +313,7 @@
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(96, 96);
             this.ReturnButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.ReturnButton.TabIndex = 38;
-            this.ReturnButton.TabStop = false;
+            this.ReturnButton.TabIndex = 0;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             this.ReturnButton.MouseLeave += new System.EventHandler(this.ReturnButton_MouseLeave);
             this.ReturnButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReturnButton_MouseMove);
