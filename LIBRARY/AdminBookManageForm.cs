@@ -30,7 +30,7 @@ namespace LIBRARY
             {
                 LoadGIFBox.Hide();
                 NoResultTextBox.Show();
-                AddBookButton.Show();
+                //AddBookButton.Show();
                 NextPbutton.Hide();
                 LastPButton.Hide();
                 JumpPTextBox.Hide();
@@ -41,7 +41,7 @@ namespace LIBRARY
             else
             {
                 NoResultTextBox.Hide();
-                AddBookButton.Hide();
+                //AddBookButton.Hide();
                 NextPbutton.Show();
                 LastPButton.Show();
                 JumpPTextBox.Show();
@@ -329,15 +329,6 @@ namespace LIBRARY
             LabelButton.BackColor = Color.FromArgb(26, 148, 129);
         }
 
-        private void AddBookButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            AddBookButton.BackgroundImage = AddBookButton.DM_HoverImage;
-        }
-
-        private void AddBookButton_MouseLeave(object sender, EventArgs e)
-        {
-            AddBookButton.BackgroundImage = AddBookButton.DM_NolImage;
-        }
         #endregion
 
         private void ResultDataSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -364,7 +355,6 @@ namespace LIBRARY
                 return;
             }
             NoResultTextBox.Hide();
-            AddBookButton.Hide();
             ResultDataSheet.Rows.Clear();
             lastState = ButtonState;
             lastString = SearchBox.Text;
