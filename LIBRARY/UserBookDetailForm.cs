@@ -336,9 +336,14 @@ namespace LIBRARY
                 System.Windows.Forms.MessageBox.Show(ee.Message);
                 return;
             }
-            FileStream fileStream = File.Open(@"cache\" + PublicVar.nowBook.BookImage, FileMode.Create);
-            fileStream.Write(PublicVar.pic, 0, PublicVar.pic.Length);
-            fileStream.Close();
+			if (!File.Exists(@"cache\" + PublicVar.nowBook.BookImage))
+			{
+				FileStream fileStream = File.Open(@"cache\" + PublicVar.nowBook.BookImage, FileMode.Create);
+				fileStream.Write(PublicVar.pic, 0, PublicVar.pic.Length);
+				fileStream.Close();
+				return;
+			}
+			
         }
 
 
