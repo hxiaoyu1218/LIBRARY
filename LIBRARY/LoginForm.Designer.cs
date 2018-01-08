@@ -43,6 +43,7 @@
             this.UserCueText = new System.Windows.Forms.Label();
             this.PasswordCueText = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordBg)).BeginInit();
@@ -249,13 +250,24 @@
             this.panel1.Controls.Add(this.RegisterButton);
             this.panel1.Controls.Add(this.PasswordBg);
             this.panel1.Controls.Add(this.UserBg);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(0, 197);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 403);
             this.panel1.TabIndex = 24;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(126, 290);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(21, 18);
+            this.button1.TabIndex = 34;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LoginForm
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(150)))));
@@ -297,5 +309,6 @@
         private System.Windows.Forms.Label UserCueText;
         private System.Windows.Forms.Label PasswordCueText;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

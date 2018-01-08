@@ -362,5 +362,10 @@ namespace LIBRARY
                 ib.Dispose();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegistButton_Click(RegistButton, new EventArgs());
+        }
     }
 }

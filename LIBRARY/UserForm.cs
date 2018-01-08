@@ -266,7 +266,9 @@ namespace LIBRARY
                 byte[] b = System.Text.UnicodeEncoding.Default.GetBytes(PublicVar.classUser.UserBasic.UserName);
                 string tmp = System.Text.UnicodeEncoding.Default.GetString(b, 0, 2);
                 tmp = HZToCode(tmp);
-                switch (tmp[0])
+                if(tmp == "")
+                    return Properties.Resources.DefaultHead;
+                else switch (tmp[0])
                 {
                     case 'A':
                     case 'a':

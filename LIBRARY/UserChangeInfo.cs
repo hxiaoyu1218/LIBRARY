@@ -23,8 +23,10 @@ namespace LIBRARY
             //label2.Hide();
             PWD1AlertLabel.Hide();
             PWD2AlertLabel.Hide();
+            //button1.Hide();
             //label1.TabIndex = 100;
             //textBox1.TabStop = false;
+            //this.AcceptButton = OKButton;
         }
 
         #region 水印文字及按钮响应方法
@@ -360,6 +362,11 @@ namespace LIBRARY
             int x = location.X+(1000 - 408) / 2;
             int y = location.Y+(750 - 529) / 2;
             Location = new Point(x, y);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OKButton_Click(OKButton, new EventArgs());
         }
     }
 }
