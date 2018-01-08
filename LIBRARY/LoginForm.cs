@@ -265,5 +265,10 @@ namespace LIBRARY
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginButton_Click(LoginButton, new EventArgs());
+        }
     }
 }

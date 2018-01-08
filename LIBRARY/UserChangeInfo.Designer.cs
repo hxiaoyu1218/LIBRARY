@@ -53,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.UserAlertLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NPasswordBg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OPasswordBg)).BeginInit();
@@ -369,11 +370,23 @@
             this.UserAlertLabel.Text = "请输入非数字的英文或汉字";
             this.UserAlertLabel.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(46, 460);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 28);
+            this.button1.TabIndex = 60;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UserChangeInfo
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.CancelButton = this.ShutDownButton;
             this.ClientSize = new System.Drawing.Size(408, 529);
             this.Controls.Add(this.UserAlertLabel);
             this.Controls.Add(this.label2);
@@ -399,6 +412,7 @@
             this.Controls.Add(this.ShutDownButton);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.BgImage);
+            this.Controls.Add(this.button1);
             this.Name = "UserChangeInfo";
             this.Text = "ChangeInfo";
             this.Load += new System.EventHandler(this.UserChangeInfo_Load);
@@ -414,8 +428,6 @@
         }
 
         #endregion
-
-        private DMSkin.Controls.DM.DMButtonImage OKButton;
         private System.Windows.Forms.Label NPasswordCueText2;
         private System.Windows.Forms.TextBox NPasswordTextBox2;
         private System.Windows.Forms.PictureBox NPasswordBg2;
@@ -439,5 +451,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label UserAlertLabel;
+        private DMSkin.Controls.DM.DMButtonImage OKButton;
+        private System.Windows.Forms.Button button1;
     }
 }

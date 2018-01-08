@@ -56,6 +56,7 @@
             this.PWD1AlertLabel = new System.Windows.Forms.Label();
             this.PWD2AlertLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.WhiteBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordBg1)).BeginInit();
@@ -415,8 +416,18 @@
             this.label4.Text = "格式错误";
             this.label4.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(30, 554);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(15, 11);
+            this.button1.TabIndex = 44;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RegistForm
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(150)))));
@@ -449,6 +460,7 @@
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.ShutDownButton);
             this.Controls.Add(this.WhiteBg);
+            this.Controls.Add(this.button1);
             this.DM_howBorder = false;
             this.DM_ShadowWidth = 6;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -495,5 +507,6 @@
         private System.Windows.Forms.Label PWD1AlertLabel;
         private System.Windows.Forms.Label PWD2AlertLabel;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }
