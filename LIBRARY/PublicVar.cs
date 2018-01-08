@@ -188,6 +188,10 @@ namespace LIBRARY
 
         }
 
+		public static ClassAdmin nowAdmin;
+		public static ClassUserBasicInfo[] adminSearchUser;
+		public static int  userTotalAmount;
+
         public class FileComparer : IComparer
         {
             int IComparer.Compare(Object o1, Object o2)

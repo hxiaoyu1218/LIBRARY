@@ -408,6 +408,24 @@ namespace LIBRARY
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
 						break;
 					}
+				case RequestMode.AdminSearchUser:
+					{
+						XmlNode searchnode = root.SelectSingleNode("adminsearchuser");
+						pro.Curnum = Convert.ToInt32(searchnode.Attributes["curnum"].Value);
+						pro.Endnum = Convert.ToInt32(searchnode.Attributes["endnum"].Value);
+						pro.Amo = Convert.ToInt32(searchnode.Attributes["amo"].Value);
+						XmlNodeList li = root.SelectNodes("userbasic");
+						List<ClassUserBasicInfo> users = new List<ClassUserBasicInfo>();
+						foreach (XmlNode no in li)
+						{
+							ClassUserBasicInfo ub = new ClassUserBasicInfo(no.Attributes["userid"].Value);
+							ub.UserSchool = no.Attributes["userschool"].Value;
+							ub.UserName = no.Attributes["username"].Value;
+							users.Add(ub);
+						}
+						pro.AdminSearchUser = users.ToArray();
+						break;
+					}
 				default:
 					break;
 			}
