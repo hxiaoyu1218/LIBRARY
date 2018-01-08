@@ -66,6 +66,9 @@ namespace LIBRARY
 						pro.NowBook = new ClassBook(bookNode.Attributes["bookisbn"].Value);
 						pro.NowBook.BookName = bookNode.Attributes["bookname"].Value;
 						pro.NowBook.BookPublisher = bookNode.Attributes["bookpublisher"].Value;
+						bool suc = false;
+						DateTime res=DateTime.Now;
+						suc = DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res);
 						pro.NowBook.BookPublishTime = DateTime.Parse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"));
 						pro.NowBook.BookAuthor = bookNode.Attributes["bookauthor"].Value;
 						pro.NowBook.BookIntroduction = bookNode.Attributes["bookintroduction"].Value;
