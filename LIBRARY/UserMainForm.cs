@@ -24,7 +24,7 @@ namespace LIBRARY
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            TimeWorker.RunWorkerAsync();
+           // TimeWorker.RunWorkerAsync();
             MainPanel.Controls.Clear();
             UserSearchForm searchForm = new UserSearchForm(this);
             searchForm.TopLevel = false;

@@ -355,8 +355,21 @@ namespace LIBRARY
 
         private void BookReturnButton_Click(object sender, EventArgs e)
         {
+            PublicVar.ReturnValue = -233;
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBorrowedBook, 6000);
+            fileProtocol.Userinfo = PublicVar.logUser;
 
 
+
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserBorrowedBook, "正在加载", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+            if(PublicVar.ReturnValue==-233)
+            {
+                return;
+            }
+            PublicVar.ReturnValue = -233;
 
             frmMain.MainPanel.Controls.Clear();
             UserBookReturnForm bookReturnForm = new UserBookReturnForm(frmMain);

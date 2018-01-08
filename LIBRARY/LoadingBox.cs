@@ -169,6 +169,11 @@ namespace LIBRARY
                 case RequestMode.UserNotificationLoad:
                     break;
                 case RequestMode.UserBorrowedBook:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
                     break;
                 case RequestMode.UserBorrowHis:
                     break;

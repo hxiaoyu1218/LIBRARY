@@ -317,24 +317,24 @@ namespace LIBRARY
                 PublicVar.nowABook = protocol.NowABook;
                 PublicVar.ReturnValue = 0;
             }
-			else if(protocol.Mode==RequestMode.UserReturnBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if(protocol.Mode==RequestMode.UserDelayBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if(protocol.Mode==RequestMode.UserCancelScheduleBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserBorrowedBook)
-			{
-				PublicVar.ReturnValue = 1;
-				PublicVar.classUser = protocol.User;
-			}
-		}
+            else if (protocol.Mode == RequestMode.UserReturnBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserDelayBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserCancelScheduleBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserBorrowedBook)
+            {
+                PublicVar.ReturnValue = 1;
+                PublicVar.classUser = protocol.User;
+            }
+        }
 
         public byte[] receiveFileAsByte()
         {

@@ -312,8 +312,36 @@ namespace LIBRARY
 							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
 							tmp.BookName = lli.Attributes["bookname"].Value;
 
-							tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"));
-							tmp.ReturnTime = DateTime.Parse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"));
+
+                            DateTime res = DateTime.Now;
+                            if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.BorrowTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.BorrowTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.BorrowTime = res;
+                            }
+
+                            if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.ReturnTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.ReturnTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.ReturnTime = res;
+                            }
+
+                           
+                            tmp.BookImage = lli.Attributes["bookpic"].Value;
 							pro.User.BorrowedBooks.Add(tmp);
 						}
 						break;
