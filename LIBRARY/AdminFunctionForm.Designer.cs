@@ -40,6 +40,7 @@
             this.BookAmountText = new System.Windows.Forms.Label();
             this.UserAmountText = new System.Windows.Forms.Label();
             this.BorrowRateText = new System.Windows.Forms.Label();
+            this.AddBookButton = new DMSkin.Controls.DM.DMButtonImage();
             ((System.ComponentModel.ISupportInitialize)(this.BigTitlePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -134,6 +135,7 @@
             this.SystemLogButton.Size = new System.Drawing.Size(172, 172);
             this.SystemLogButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.SystemLogButton.TabIndex = 26;
+            this.SystemLogButton.Visible = false;
             this.SystemLogButton.Click += new System.EventHandler(this.SystemLogButton_Click);
             this.SystemLogButton.MouseLeave += new System.EventHandler(this.SystemLogButton_MouseLeave);
             this.SystemLogButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SystemLogButton_MouseMove);
@@ -183,6 +185,22 @@
             this.BorrowRateText.Text = "12.34%";
             this.BorrowRateText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // AddBookButton
+            // 
+            this.AddBookButton.BackColor = System.Drawing.Color.Transparent;
+            this.AddBookButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddBookButton.BackgroundImage")));
+            this.AddBookButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddBookButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("AddBookButton.DM_DownImage")));
+            this.AddBookButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("AddBookButton.DM_HoverImage")));
+            this.AddBookButton.DM_Mode = false;
+            this.AddBookButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("AddBookButton.DM_NolImage")));
+            this.AddBookButton.Location = new System.Drawing.Point(701, 300);
+            this.AddBookButton.Name = "AddBookButton";
+            this.AddBookButton.Size = new System.Drawing.Size(172, 172);
+            this.AddBookButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.AddBookButton.TabIndex = 38;
+            this.AddBookButton.TabStop = false;
+            // 
             // AdminFunctionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -190,6 +208,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(1000, 705);
             this.ControlBox = false;
+            this.Controls.Add(this.AddBookButton);
             this.Controls.Add(this.BorrowRateText);
             this.Controls.Add(this.UserAmountText);
             this.Controls.Add(this.BookAmountText);
@@ -234,5 +253,6 @@
         private System.Windows.Forms.Label BookAmountText;
         private System.Windows.Forms.Label UserAmountText;
         private System.Windows.Forms.Label BorrowRateText;
+        private DMSkin.Controls.DM.DMButtonImage AddBookButton;
     }
 }
