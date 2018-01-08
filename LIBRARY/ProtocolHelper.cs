@@ -66,10 +66,21 @@ namespace LIBRARY
 						pro.NowBook = new ClassBook(bookNode.Attributes["bookisbn"].Value);
 						pro.NowBook.BookName = bookNode.Attributes["bookname"].Value;
 						pro.NowBook.BookPublisher = bookNode.Attributes["bookpublisher"].Value;
-						bool suc = false;
+						
 						DateTime res=DateTime.Now;
-						suc = DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res);
-						pro.NowBook.BookPublishTime = DateTime.Parse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"));
+						if( DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowBook.BookPublishTime = res;
+                        }
+                        else if(DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowBook.BookPublishTime = res;
+                        }
+                        else if(DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowBook.BookPublishTime = res;
+                        }
+						
 						pro.NowBook.BookAuthor = bookNode.Attributes["bookauthor"].Value;
 						pro.NowBook.BookIntroduction = bookNode.Attributes["bookintroduction"].Value;
 						pro.NowBook.BookImage = bookNode.Attributes["bookpic"].Value;
@@ -104,7 +115,21 @@ namespace LIBRARY
 						pro.NowBook = new ClassBook(bookNode.Attributes["bookisbn"].Value);
 						pro.NowBook.BookName = bookNode.Attributes["bookname"].Value;
 						pro.NowBook.BookPublisher = bookNode.Attributes["bookpublisher"].Value;
-						pro.NowBook.BookPublishTime = DateTime.Parse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"));
+
+                        DateTime res = DateTime.Now;
+                        if (DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowBook.BookPublishTime = res;
+                        }
+                        else if (DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowBook.BookPublishTime = res;
+                        }
+                        else if (DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowBook.BookPublishTime = res;
+                        }
+
 						pro.NowBook.BookAuthor = bookNode.Attributes["bookauthor"].Value;
 						pro.NowBook.BookIntroduction = bookNode.Attributes["bookintroduction"].Value;
 						pro.NowBook.BookImage = bookNode.Attributes["bookpic"].Value;
@@ -140,7 +165,21 @@ namespace LIBRARY
 							cmt.CommentIsbn = no.Attributes["commentisbn"].Value;
 							cmt.Text = no.Attributes["text"].Value;
 							cmt.UserId = no.Attributes["userid"].Value;
-							cmt.CommentTime = DateTime.Parse(no.Attributes["commenttime"].Value, new CultureInfo("zh-CN"));
+
+                            DateTime res = DateTime.Now;
+                            if (DateTime.TryParse(no.Attributes["commenttime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                cmt.CommentTime = res;
+                            }
+                            else if (DateTime.TryParse(no.Attributes["commenttime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                cmt.CommentTime = res;
+                            }
+                            else if (DateTime.TryParse(no.Attributes["commenttime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                cmt.CommentTime = res;
+                            }
+                           
 
 							comments.Add(cmt);
 						}
@@ -198,6 +237,7 @@ namespace LIBRARY
 						{
 							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
 							tmp.BookName = lli.Attributes["bookname"].Value;
+
 							tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"));
 							tmp.ReturnTime = DateTime.Parse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"));
 							pro.User.BorrowedBooks.Add(tmp);
@@ -217,8 +257,35 @@ namespace LIBRARY
 						{
 							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
 							tmp.BookName = lli.Attributes["bookname"].Value;
-							tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"));
-							tmp.ReturnTime = DateTime.Parse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"));
+
+
+                            DateTime res = DateTime.Now;
+                            if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.BorrowTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.BorrowTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.BorrowTime = res;
+                            }
+
+
+                            if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.ReturnTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.ReturnTime = res;
+                            }
+                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                            {
+                                tmp.ReturnTime = res;
+                            }
 							pro.User.BorrowHis.Add(tmp);
 						}
 
@@ -244,8 +311,36 @@ namespace LIBRARY
 						pro.NowABook = new ClassABook(abook.Attributes["bookisbn"].Value);
 						pro.NowABook.BookAuthor = abook.Attributes["bookauthor"].Value;
 						pro.NowABook.BookPublisher = abook.Attributes["bookpublisher"].Value;
-						pro.NowABook.BorrowTime = DateTime.Parse(abook.Attributes["bookborrowtime"].Value, new CultureInfo("zh-CN"));
-						pro.NowABook.ReturnTime = DateTime.Parse(abook.Attributes["bookreturntime"].Value, new CultureInfo("zh-CN"));
+
+
+                        DateTime res = DateTime.Now;
+                        if (DateTime.TryParse(abook.Attributes["bookborrowtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowABook.BorrowTime = res;
+                        }
+                        else if (DateTime.TryParse(abook.Attributes["bookborrowtime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowABook.BorrowTime = res;
+                        }
+                        else if (DateTime.TryParse(abook.Attributes["bookborrowtime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowABook.BorrowTime = res;
+                        }
+
+
+                        if (DateTime.TryParse(abook.Attributes["bookreturntime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowABook.ReturnTime = res;
+                        }
+                        else if (DateTime.TryParse(abook.Attributes["bookreturntime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowABook.ReturnTime = res;
+                        }
+                        else if (DateTime.TryParse(abook.Attributes["bookreturntime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+                        {
+                            pro.NowABook.ReturnTime = res;
+                        }
+
 						pro.NowABook.BookName = abook.Attributes["bookname"].Value;
 						pro.NowABook.BookImage = abook.Attributes["bookpic"].Value;
 						break;
