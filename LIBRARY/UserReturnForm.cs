@@ -63,60 +63,97 @@ namespace LIBRARY
             BorrowDateText.Text = PublicVar.nowABook.BorrowTime.ToLongDateString();
             ReturnDateText.Text = PublicVar.nowABook.ReturnTime.ToLongDateString();
 
-            
+
 
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
 
+            PublicVar.ReturnValue = -233;
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserReturnBook, 6000);
+            fileProtocol.NowABook = PublicVar.nowABook;
+            fileProtocol.Userinfo = PublicVar.logUser;
 
 
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserReturnBook, "正在提交", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
 
+            if (PublicVar.ReturnValue == -233)
+            {
+                return;
+            }
 
-
-            if (ClassBackEnd.ReturnBook())
+            if (PublicVar.ReturnValue == 0)
             {
                 MessageBox ib = new MessageBox(16);
                 ib.ShowDialog();
                 ib.Dispose();
+                PublicVar.ReturnValue = -233;
                 Close();
             }
             else
             {
+                PublicVar.ReturnValue = -233;
                 MessageBox ib = new MessageBox(9);
                 ib.ShowDialog();
                 ib.Dispose();
             }
+            
         }
 
         private void ReBorrowButton_Click(object sender, EventArgs e)
         {
-            var t = ClassBackEnd.RenewBook();
-            if (t == 1)
+            PublicVar.ReturnValue = -233;
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserDelayBook, 6000);
+            fileProtocol.NowABook = PublicVar.nowABook;
+            fileProtocol.Userinfo = PublicVar.logUser;
+
+
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserDelayBook, "正在提交", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+            if (PublicVar.ReturnValue == -233)
+            {
+                return;
+            }
+            if (PublicVar.ReturnValue == 0)
             {
                 MessageBox ib = new MessageBox(17);
                 ib.ShowDialog();
                 ib.Dispose();
+                PublicVar.ReturnValue = -233;
                 Close();
             }
-            else if (t == 2)
+            else if(PublicVar.ReturnValue == 1|| PublicVar.ReturnValue == 5)
             {
-                MessageBox ib = new MessageBox(18);
+                MessageBox ib = new MessageBox(9);
                 ib.ShowDialog();
                 ib.Dispose();
+                PublicVar.ReturnValue = -233;
             }
-            else if (t == 3)
+            else if(PublicVar.ReturnValue == 2)
             {
                 MessageBox ib = new MessageBox(20);
                 ib.ShowDialog();
                 ib.Dispose();
+                PublicVar.ReturnValue = -233;
             }
-            else
+            else if (PublicVar.ReturnValue == 3)
             {
                 MessageBox ib = new MessageBox(19);
                 ib.ShowDialog();
                 ib.Dispose();
+                PublicVar.ReturnValue = -233;
+            }
+            else if (PublicVar.ReturnValue == 4)
+            {
+                MessageBox ib = new MessageBox(18);
+                ib.ShowDialog();
+                ib.Dispose();
+                PublicVar.ReturnValue = -233;
             }
         }
 
@@ -136,7 +173,7 @@ namespace LIBRARY
                 fileStream.Close();
                 return;
             }
-            Array.Clear(PublicVar.pic,0,PublicVar.pic.Length);
+            Array.Clear(PublicVar.pic, 0, PublicVar.pic.Length);
             ServerClient serverClient = new ServerClient();
             FileProtocol fp = new FileProtocol(RequestMode.PicSend, 6000);
             fp.NowBook = new ClassBook(PublicVar.nowABook.BookIsbn.Substring(0, 13));

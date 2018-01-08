@@ -193,6 +193,8 @@ namespace LIBRARY
         {
             Tag = 1;
             PublicVar.GuestFlag = 1;
+			PublicVar.logUser = new ClassUserBasicInfo("");
+			PublicVar.logUser.UserPassword = "";
             Close();
         }
         private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)

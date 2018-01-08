@@ -268,25 +268,6 @@ namespace LIBRARY
 			else UserCurrentMaxBorrowableAmount = 0;
 		}
 
-		/// <summary>
-		/// 数据库构造函数
-		/// </summary>
-		/// <param name="dr">数据库阅读器</param>
-		internal ClassUserBasicInfo(DbDataReader dr)
-		{
-			this.userId = dr["userId"].ToString();
-			this.userName = dr["userName"].ToString();
-			this.userPassword = dr["userPassword"].ToString();
-			this.userSchool = dr["userSchool"].ToString();
-			this.userType = (Usertype)Enum.ToObject(typeof(Usertype), dr["userType"]);
-			this.userCurrentScheduleAmount = (int)dr["userCurrentScheduleAmount"];
-			this.userMaxBorrowableAmount = (int)dr["userMaxBorrowableAmount"];
-			this.userCurrentBorrowedAmount = (int)dr["userCurrentBorrowedAmount"];
-			this.userCurrentMaxBorrowableAmount = (int)dr["userCurrentMaxBorrowableAmount"];
-			this.userCredit = (int)dr["userCredit"];
-			this.userRegisterDate = (DateTime)dr["userRegisterDate"];
-		}
-
 		public override string ToString()
 		{
 			return String.Format("<UserBasic userId=\"{0}\" userName=\"{1}\" userPassword=\"{2}\" userSchool=\"{3}\" userType=\"{4}\" userCurrentScheduleAmount=\"{5}\" userCurrentBorrowedAmount=\"{6}\" userCurrentMaxBorrowableAmount=\"{7}\" userCredit=\"{8}\" userRegisterDate=\"{9}\">", UserId, UserName, UserPassword, UserType, UserCurrentScheduleAmount, UserCurrentBorrowedAmount, UserCurrentMaxBorrowableAmount, UserCredit);
