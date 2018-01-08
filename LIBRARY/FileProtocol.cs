@@ -352,7 +352,9 @@ namespace LIBRARY
                 case RequestMode.UserNotificationLoad:
                     break;
                 case RequestMode.UserBorrowedBook:
-                    break;
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><userbasic userid=\"{2}\" userpassword=\"{3}\" /></protocol>", mode, port, userinfo.UserId, userinfo.UserPassword);
+					}
                 case RequestMode.UserBorrowHis:
                     break;
                 case RequestMode.UserBadRecord:

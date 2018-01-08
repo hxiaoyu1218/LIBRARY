@@ -329,7 +329,12 @@ namespace LIBRARY
 			{
 				PublicVar.ReturnValue = protocol.Retval;
 			}
-        }
+			else if (protocol.Mode == RequestMode.UserBorrowedBook)
+			{
+				PublicVar.ReturnValue = 1;
+				PublicVar.classUser = protocol.User;
+			}
+		}
 
         public byte[] receiveFileAsByte()
         {

@@ -300,7 +300,24 @@ namespace LIBRARY
 				case RequestMode.UserNotificationLoad:
 					break;
 				case RequestMode.UserBorrowedBook:
-					break;
+					{
+						XmlNode usernode = root.SelectSingleNode("userbasicinfo");
+						pro.User = new ClassUser(usernode.Attributes["userid"].Value);
+						
+						pro.User.BorrowedBooks = new List<ClassABook>();
+						
+						XmlNodeList li = root.SelectNodes("usereachborrowedbook");
+						foreach (XmlNode lli in li)
+						{
+							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
+							tmp.BookName = lli.Attributes["bookname"].Value;
+
+							tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"));
+							tmp.ReturnTime = DateTime.Parse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"));
+							pro.User.BorrowedBooks.Add(tmp);
+						}
+						break;
+					}
 				case RequestMode.UserBorrowHis:
 					break;
 				case RequestMode.UserBadRecord:
