@@ -345,6 +345,10 @@ namespace LIBRARY
 				PublicVar.classUser = protocol.User;
 				PublicVar.ReturnValue = 0;
 			}
+			else if(protocol.Mode==RequestMode.AdminSetUserPassword)
+			{
+				PublicVar.ReturnValue = protocol.Retval;
+			}
         }
 
         public byte[] receiveFileAsByte()
