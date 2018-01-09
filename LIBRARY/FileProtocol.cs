@@ -432,8 +432,12 @@ namespace LIBRARY
 					}
 				case RequestMode.AdminSetUserPassword:
 					{
-						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminsetuserpassword userid=\"{2}\" oldpassword=\"{3}\" newpassword=\"{4}\" /><admin adminid=\"{3}\" adminpassword=\"{4}\" /></protocol>", mode, port, userinfo.UserId,userinfo.UserPassword,newUserInfo.UserPassword, admin.Id, admin.Password);
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminsetuserpassword userid=\"{2}\" newpassword=\"{3}\" /><admin adminid=\"{4}\" adminpassword=\"{5}\" /></protocol>", mode, port, userinfo.UserId,userinfo.UserPassword, admin.Id, admin.Password);
 					}
+				//case RequestMode.AdminChargeUser:
+				//	{
+				//		return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminsetuserpassword userid=\"{2}\" password=\"{3}\" amount=\"{4}\" /><admin adminid=\"{5}\" adminpassword=\"{6}\" /></protocol>", mode, port, userinfo.UserId, userinfo.UserPassword, newUserInfo.UserPassword, admin.Id, admin.Password);
+				//	}
 				default:
 					break;
 			}
