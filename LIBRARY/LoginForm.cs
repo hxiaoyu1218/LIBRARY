@@ -162,6 +162,10 @@ namespace LIBRARY
             }
             else if (v == 2)//管理员登录
             {
+                PublicVar.ReturnValue = -233;
+                PublicVar.logUser = new ClassUserBasicInfo(UserTextBox.Text);
+                PublicVar.logUser.UserPassword = PasswordTextBox.Text;
+
                 if (RememberCheckBox.Checked == true)
                 {
                     RememberMeWrite(true, UserTextBox.Text, PasswordTextBox.Text);

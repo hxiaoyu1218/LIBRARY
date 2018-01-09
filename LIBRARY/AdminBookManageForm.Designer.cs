@@ -61,7 +61,6 @@
             this.ISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ResultDataSheet = new System.Windows.Forms.DataGridView();
             this.NoResultTextBox = new System.Windows.Forms.Label();
-            this.LoadGIFBox = new System.Windows.Forms.PictureBox();
             this.LabelButton = new System.Windows.Forms.Button();
             this.LabelBackground = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -79,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LabelBackground)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,8 +111,8 @@
             // SearchWorker
             // 
             this.SearchWorker.WorkerSupportsCancellation = true;
-            this.SearchWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SearchWorker_DoWork);
-            this.SearchWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SearchWorker_RunWorkerCompleted);
+//            this.SearchWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SearchWorker_DoWork);
+            //this.SearchWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SearchWorker_RunWorkerCompleted);
             // 
             // DividerLine
             // 
@@ -290,7 +288,7 @@
             this.JumpPTextBox.TabIndex = 31;
             this.JumpPTextBox.TabStop = false;
             this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.JumpPTextBox.TextChanged += new System.EventHandler(this.JumpPTextBox_TextChanged);
+            this.JumpPTextBox.Leave += new System.EventHandler(this.JumpPTextBox_Leave);
             // 
             // PageTextBox
             // 
@@ -444,15 +442,6 @@
             this.NoResultTextBox.TabIndex = 36;
             this.NoResultTextBox.Text = "什么都没有找到哦~添加一本图书？";
             // 
-            // LoadGIFBox
-            // 
-            this.LoadGIFBox.Image = ((System.Drawing.Image)(resources.GetObject("LoadGIFBox.Image")));
-            this.LoadGIFBox.Location = new System.Drawing.Point(449, 326);
-            this.LoadGIFBox.Name = "LoadGIFBox";
-            this.LoadGIFBox.Size = new System.Drawing.Size(102, 96);
-            this.LoadGIFBox.TabIndex = 15;
-            this.LoadGIFBox.TabStop = false;
-            // 
             // LabelButton
             // 
             this.LabelButton.BackColor = System.Drawing.Color.Transparent;
@@ -581,7 +570,6 @@
             this.Controls.Add(this.PageTextBox);
             this.Controls.Add(this.JumpPTextBox);
             this.Controls.Add(this.DividePicture);
-            this.Controls.Add(this.LoadGIFBox);
             this.Controls.Add(this.DividerLine);
             this.Controls.Add(this.ResultDataSheet);
             this.Controls.Add(this.SearchName);
@@ -616,7 +604,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.LastPButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NextPbutton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LabelBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -650,7 +637,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ISBN;
         public System.Windows.Forms.DataGridView ResultDataSheet;
         private System.Windows.Forms.Label NoResultTextBox;
-        private System.Windows.Forms.PictureBox LoadGIFBox;
         private System.Windows.Forms.Button LabelButton;
         private System.Windows.Forms.PictureBox LabelBackground;
         private System.Windows.Forms.Button button5;

@@ -48,7 +48,8 @@ namespace LIBRARY
             int v = (int)ReturnButton.Tag;
             if (v == 1)
             {
-                ClassBackEnd.ClearBookList();
+
+                PublicVar.userTotalAmount = 0;
                 MainPanel.Controls.Clear();
                 AdminFunctionForm adminFunctionForm = new AdminFunctionForm(this);
                 adminFunctionForm.TopLevel = false;
@@ -95,7 +96,7 @@ namespace LIBRARY
                     TimeWork.GetLastInputTime();
                     myworker.ReportProgress(1, ClassTime.SystemTime);
                 }
-               System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000);
             }
         }
 
@@ -120,35 +121,35 @@ namespace LIBRARY
             }
         }
 
-        
-		
+
+
 
         private void UserChangeButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
 
-		private void TitleLabel_DoubleClick(object sender, EventArgs e)
-		{
-			ProgramAboutBox abb = new ProgramAboutBox();
-			abb.ShowDialog();
-			abb.Dispose();
-		}
+        private void TitleLabel_DoubleClick(object sender, EventArgs e)
+        {
+            ProgramAboutBox abb = new ProgramAboutBox();
+            abb.ShowDialog();
+            abb.Dispose();
+        }
 
-		private void TitleLabel_MouseDown(object sender, MouseEventArgs e)
-		{
-			if(e.Button == MouseButtons.Left)
-			{
-				offset = new Point(e.X, e.Y);
-			}
-		}
+        private void TitleLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                offset = new Point(e.X, e.Y);
+            }
+        }
 
-		private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
-		{
-			if(e.Button == MouseButtons.Left)
-			{
-				Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
-			}
-		}
-	}
+        private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Location = new Point(Location.X + e.X - offset.X, Location.Y + e.Y - offset.Y);
+            }
+        }
+    }
 }
