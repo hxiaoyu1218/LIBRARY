@@ -71,6 +71,7 @@ namespace LIBRARY
 		private ClassUser user;
 		private ClassAdmin admin;
 		private ClassUserBasicInfo[] adminSearchUser;
+		private int chargeNum;
 
 
 		public FileProtocol(RequestMode mode, int port)
@@ -320,6 +321,19 @@ namespace LIBRARY
 			}
 		}
 
+		public int ChargeNum
+		{
+			get
+			{
+				return chargeNum;
+			}
+
+			set
+			{
+				chargeNum = value;
+			}
+		}
+
 		private string Escape(string ins)
 		{
 			string restring = ins;
@@ -434,10 +448,10 @@ namespace LIBRARY
 					{
 						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminsetuserpassword userid=\"{2}\" newpassword=\"{3}\" /><admin adminid=\"{4}\" adminpassword=\"{5}\" /></protocol>", mode, port, userinfo.UserId,userinfo.UserPassword, admin.Id, admin.Password);
 					}
-				//case RequestMode.AdminChargeUser:
-				//	{
-				//		return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminsetuserpassword userid=\"{2}\" password=\"{3}\" amount=\"{4}\" /><admin adminid=\"{5}\" adminpassword=\"{6}\" /></protocol>", mode, port, userinfo.UserId, userinfo.UserPassword, newUserInfo.UserPassword, admin.Id, admin.Password);
-				//	}
+				case RequestMode.AdminChargeUser:
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminchargeuser userid=\"{2}\" amount=\"{3}\" /><admin adminid=\"{4}\" adminpassword=\"{5}\" /></protocol>", mode, port, userinfo.UserId, chargeNum, admin.Id, admin.Password);
+					}
 				default:
 					break;
 			}

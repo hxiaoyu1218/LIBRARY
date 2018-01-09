@@ -396,6 +396,12 @@ namespace LIBRARY
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
 						break;
 					}
+				case RequestMode.AdminChargeUser:
+					{
+						XmlNode usernode = root.SelectSingleNode("file");
+						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+						break;
+					}
 				default:
 					break;
 			}
