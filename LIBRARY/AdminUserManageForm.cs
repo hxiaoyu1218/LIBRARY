@@ -66,12 +66,11 @@ namespace LIBRARY
             int idX = 163, idY = 51;
             int aceX = 163, aceY = 72;
 
-            int start = (page - 1) * 15 + 1;
-            int end = page * 15;
-            if (page == maxPage) end = PublicVar.userTotalAmount;
+            
+            
 
 
-            for (int i = start; i <= end; i++)
+            for (int i = 1; i <= PublicVar.userTotalAmount; i++)
             {
                 PictureBox pic = new PictureBox();
                 pic.BackColor = Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
