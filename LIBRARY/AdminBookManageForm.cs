@@ -351,6 +351,7 @@ namespace LIBRARY
                 {
                     return;
                 }
+                PublicVar.ReturnValue = -233;
                 frmMain.MainPanel.Controls.Clear();
                 AdminBookDetailForm bookDetailForm = new AdminBookDetailForm(frmMain, e.RowIndex);
                 bookDetailForm.TopLevel = false;

@@ -36,6 +36,8 @@
             this.WaitingThread = new System.ComponentModel.BackgroundWorker();
             this.ConfirmButton = new System.Windows.Forms.Button();
             this.SendingThread = new System.ComponentModel.BackgroundWorker();
+            this.BookImageUpload = new System.ComponentModel.BackgroundWorker();
+            this.WaitImageACK = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.InfoBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
             this.SuspendLayout();
@@ -112,6 +114,16 @@
             this.SendingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SendingThread_DoWork);
             this.SendingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SendingThread_RunWorkerCompleted);
             // 
+            // BookImageUpload
+            // 
+            this.BookImageUpload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookImageUpload_DoWork);
+            this.BookImageUpload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookImageUpload_RunWorkerCompleted);
+            // 
+            // WaitImageACK
+            // 
+            this.WaitImageACK.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitImageACK_DoWork);
+            this.WaitImageACK.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitImageACK_RunWorkerCompleted);
+            // 
             // LoadingBox
             // 
             this.AcceptButton = this.ConfirmButton;
@@ -147,5 +159,7 @@
         private System.ComponentModel.BackgroundWorker WaitingThread;
         private System.Windows.Forms.Button ConfirmButton;
         private System.ComponentModel.BackgroundWorker SendingThread;
+        private System.ComponentModel.BackgroundWorker BookImageUpload;
+        private System.ComponentModel.BackgroundWorker WaitImageACK;
     }
 }
