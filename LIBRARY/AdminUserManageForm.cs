@@ -85,7 +85,7 @@ namespace LIBRARY
                 pic.Click += new EventHandler(Pic_Click);
                 pic.MouseMove += new MouseEventHandler(Pic_MouseMove);
                 pic.MouseLeave += new EventHandler(Pic_MouseLeave);
-                pic.Image = PublicVar.LoadHeadImage(PublicVar.adminSearchUser[i - 1].UserName);//image load
+                pic.Image = PublicVar.LoadHeadImage(UserForm.HZToCode(PublicVar.adminSearchUser[i - 1].UserName));//image load
 
                 Label lab = new Label();
                 lab.AutoSize = true;
@@ -206,9 +206,24 @@ namespace LIBRARY
         }
         private void Label_Pic_Click(int index)
         {
+            PublicVar.ReturnValue = -233;
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminGetUserDetail, 6000);
+
+            fileProtocol.Userinfo = PublicVar.adminSearchUser[index];
+            fileProtocol.Admin = new ClassAdmin(PublicVar.logUser.UserId);
+            fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
 
 
+            LoadingBox loadingBox = new LoadingBox(RequestMode.AdminGetUserDetail, "正在加载", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
 
+
+            if (PublicVar.ReturnValue == -233)
+            {
+                return;
+            }
+            PublicVar.ReturnValue = -233;
 
             frmMain.MainPanel.Controls.Clear();
             AdminUserDetailForm userDetailAdminForm = new AdminUserDetailForm(frmMain, index);
