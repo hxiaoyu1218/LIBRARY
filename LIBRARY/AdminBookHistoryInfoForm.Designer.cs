@@ -39,9 +39,9 @@
             this.BgImage = new System.Windows.Forms.PictureBox();
             this.CreditRecordSheet = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BorrowDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CreditRecordSheet)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +98,7 @@
             this.CreditRecordSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CreditRecordSheet.CausesValidation = false;
             this.CreditRecordSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -107,12 +107,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CreditRecordSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CreditRecordSheet.ColumnHeadersHeight = 40;
-            this.CreditRecordSheet.ColumnHeadersVisible = false;
             this.CreditRecordSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Date,
-            this.Operator,
-            this.OperatorId});
+            this.UserID,
+            this.BorrowDate,
+            this.ReturnDate});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 11.5F);
@@ -121,7 +120,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.CreditRecordSheet.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CreditRecordSheet.Location = new System.Drawing.Point(66, 61);
+            this.CreditRecordSheet.Location = new System.Drawing.Point(75, 67);
             this.CreditRecordSheet.MultiSelect = false;
             this.CreditRecordSheet.Name = "CreditRecordSheet";
             this.CreditRecordSheet.ReadOnly = true;
@@ -151,29 +150,31 @@
             // 
             // ID
             // 
-            this.ID.HeaderText = "UserID";
+            this.ID.HeaderText = "序号";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Width = 50;
             // 
-            // Date
+            // UserID
             // 
-            this.Date.HeaderText = "UserName";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
+            this.UserID.HeaderText = "用户ID";
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Width = 150;
             // 
-            // Operator
+            // BorrowDate
             // 
-            this.Operator.HeaderText = "BorrowDate";
-            this.Operator.Name = "Operator";
-            this.Operator.ReadOnly = true;
-            this.Operator.Width = 125;
+            this.BorrowDate.HeaderText = "  借阅时间";
+            this.BorrowDate.Name = "BorrowDate";
+            this.BorrowDate.ReadOnly = true;
+            this.BorrowDate.Width = 125;
             // 
-            // OperatorId
+            // ReturnDate
             // 
-            this.OperatorId.HeaderText = "ReturnDate";
-            this.OperatorId.Name = "OperatorId";
-            this.OperatorId.ReadOnly = true;
-            this.OperatorId.Width = 125;
+            this.ReturnDate.HeaderText = "  归还时间";
+            this.ReturnDate.Name = "ReturnDate";
+            this.ReturnDate.ReadOnly = true;
+            this.ReturnDate.Width = 125;
             // 
             // AdminBookHistoryInfoForm
             // 
@@ -209,8 +210,8 @@
         private System.Windows.Forms.Button ShutDownButton;
         public System.Windows.Forms.DataGridView CreditRecordSheet;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OperatorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BorrowDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
     }
 }

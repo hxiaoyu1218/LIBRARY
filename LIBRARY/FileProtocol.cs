@@ -470,7 +470,7 @@ namespace LIBRARY
 					}
 				case RequestMode.AdminLoadABookHis:
 					{
-						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /></protocol>", mode, port, nowABook.BookIsbn);
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /><admin adminid=\"{3}\" adminpassword=\"{4}\" /></protocol>", mode, port, nowABook.BookIsbn,admin.Id,admin.Password);
 					}
 				default:
 					break;

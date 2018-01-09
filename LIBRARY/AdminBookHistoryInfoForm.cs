@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using LibrarySystemBackEnd;
+//using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -23,18 +23,18 @@ namespace LIBRARY
         private void SheetLoad()
         {
             int i = 0;
-            for (i = 0; i < ClassBackEnd.Bookhis.Count; i++)
+            for (i = 0; i < PublicVar.bookhis.Length; i++)
             {
-				var tmp = ClassBackEnd.Bookhis.Count - i;
+                var tmp = PublicVar.bookhis.Length - i;
 				DataGridViewRow row = new DataGridViewRow();
                 int index = CreditRecordSheet.Rows.Add(row);
-                CreditRecordSheet.Rows[i].Cells[0].Value = tmp.ToString();
-				CreditRecordSheet.Rows[i].Cells[1].Value = ClassBackEnd.Bookhis[i].Time;
-				CreditRecordSheet.Rows[i].Cells[2].Value = ClassBackEnd.Bookhis[i].Cat;
-				CreditRecordSheet.Rows[i].Cells[3].Value = ClassBackEnd.Bookhis[i].Userid;
+                CreditRecordSheet.Rows[i].Cells[0].Value = (i+1).ToString();
+                CreditRecordSheet.Rows[i].Cells[1].Value = PublicVar.bookhis[tmp - 1].UserId;
+                CreditRecordSheet.Rows[i].Cells[2].Value = PublicVar.bookhis[tmp - 1].BorrowTime.ToShortDateString();
+                CreditRecordSheet.Rows[i].Cells[3].Value = PublicVar.bookhis[tmp - 1].ReturnTime.ToShortDateString();
 				CreditRecordSheet.Rows[index].Height = 48;
             }
-            while (i < 11)
+            while (i < 10)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = CreditRecordSheet.Rows.Add(row);
@@ -53,7 +53,16 @@ namespace LIBRARY
 		}
         private void BookHistoryInfoForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.GetBookHistory(index);
+            //ClassBackEnd.GetBookHistory(index);
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminLoadABookHis, 6000);
+            fileProtocol.NowABook = new ClassABook(PublicVar.nowBook.BookIsbn+index.ToString("D4"));
+            fileProtocol.Admin = new ClassAdmin(PublicVar.logUser.UserId);
+            fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
+
+            LoadingBox loadingBox = new LoadingBox(RequestMode.AdminLoadABookHis, "正在加载", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+            if (PublicVar.ReturnValue == -233) Close();
             SheetLoad();
 
         }
@@ -63,5 +72,6 @@ namespace LIBRARY
             Close();
         }
 
+        
     }
 }
