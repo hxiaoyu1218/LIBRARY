@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminBookDetailForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminBookDetailForm));
             this.panel7 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.NextPageButton = new System.Windows.Forms.Button();
@@ -49,6 +49,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.AmountButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.BookInfoButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.BookPreserveButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.BookImageButton = new DMSkin.Controls.DM.DMButtonImage();
             this.BookInfoTextbox = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -68,17 +72,12 @@
             this.Label3Text = new System.Windows.Forms.Label();
             this.Label1Text = new System.Windows.Forms.Label();
             this.Label2Text = new System.Windows.Forms.Label();
-            this.BookNameLabel = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ResultDataSheet = new System.Windows.Forms.DataGridView();
             this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.history = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.AmountButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.BookInfoButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.BookPreserveButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.BookImageButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.BookNameLabel = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
@@ -89,8 +88,8 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel7
@@ -100,7 +99,7 @@
             this.panel7.Controls.Add(this.LastPageButton);
             this.panel7.Controls.Add(this.commentTextBox);
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(2, 1264);
+            this.panel7.Location = new System.Drawing.Point(2, 1614);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 306);
@@ -177,37 +176,37 @@
             // comment4
             // 
             this.comment4.AutoSize = true;
-            this.comment4.Location = new System.Drawing.Point(66, 1175);
+            this.comment4.Location = new System.Drawing.Point(66, 1455);
             this.comment4.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
             this.comment4.Name = "comment4";
-            this.comment4.Size = new System.Drawing.Size(844, 86);
+            this.comment4.Size = new System.Drawing.Size(844, 156);
             this.comment4.TabIndex = 38;
             // 
             // comment3
             // 
             this.comment3.AutoSize = true;
-            this.comment3.Location = new System.Drawing.Point(66, 1070);
+            this.comment3.Location = new System.Drawing.Point(66, 1280);
             this.comment3.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
             this.comment3.Name = "comment3";
-            this.comment3.Size = new System.Drawing.Size(844, 86);
+            this.comment3.Size = new System.Drawing.Size(844, 156);
             this.comment3.TabIndex = 39;
             // 
             // comment2
             // 
             this.comment2.AutoSize = true;
-            this.comment2.Location = new System.Drawing.Point(66, 965);
+            this.comment2.Location = new System.Drawing.Point(66, 1105);
             this.comment2.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
             this.comment2.Name = "comment2";
-            this.comment2.Size = new System.Drawing.Size(844, 86);
+            this.comment2.Size = new System.Drawing.Size(844, 156);
             this.comment2.TabIndex = 41;
             // 
             // comment1
             // 
             this.comment1.AutoSize = true;
-            this.comment1.Location = new System.Drawing.Point(66, 860);
+            this.comment1.Location = new System.Drawing.Point(66, 930);
             this.comment1.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
             this.comment1.Name = "comment1";
-            this.comment1.Size = new System.Drawing.Size(844, 86);
+            this.comment1.Size = new System.Drawing.Size(844, 156);
             this.comment1.TabIndex = 40;
             // 
             // comment0
@@ -217,7 +216,7 @@
             this.comment0.Location = new System.Drawing.Point(66, 755);
             this.comment0.Margin = new System.Windows.Forms.Padding(64, 16, 64, 3);
             this.comment0.Name = "comment0";
-            this.comment0.Size = new System.Drawing.Size(844, 86);
+            this.comment0.Size = new System.Drawing.Size(844, 156);
             this.comment0.TabIndex = 37;
             // 
             // label2
@@ -280,6 +279,70 @@
             this.panel2.Size = new System.Drawing.Size(480, 266);
             this.panel2.TabIndex = 18;
             // 
+            // AmountButton
+            // 
+            this.AmountButton.BackColor = System.Drawing.Color.Transparent;
+            this.AmountButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.BackgroundImage")));
+            this.AmountButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AmountButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_DownImage")));
+            this.AmountButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_HoverImage")));
+            this.AmountButton.DM_Mode = false;
+            this.AmountButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_NolImage")));
+            this.AmountButton.Location = new System.Drawing.Point(111, 148);
+            this.AmountButton.Name = "AmountButton";
+            this.AmountButton.Size = new System.Drawing.Size(96, 96);
+            this.AmountButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.AmountButton.TabIndex = 36;
+            this.AmountButton.TabStop = false;
+            // 
+            // BookInfoButton
+            // 
+            this.BookInfoButton.BackColor = System.Drawing.Color.Transparent;
+            this.BookInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.BackgroundImage")));
+            this.BookInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BookInfoButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_DownImage")));
+            this.BookInfoButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_HoverImage")));
+            this.BookInfoButton.DM_Mode = false;
+            this.BookInfoButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_NolImage")));
+            this.BookInfoButton.Location = new System.Drawing.Point(271, 25);
+            this.BookInfoButton.Name = "BookInfoButton";
+            this.BookInfoButton.Size = new System.Drawing.Size(96, 96);
+            this.BookInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.BookInfoButton.TabIndex = 35;
+            this.BookInfoButton.TabStop = false;
+            // 
+            // BookPreserveButton
+            // 
+            this.BookPreserveButton.BackColor = System.Drawing.Color.Transparent;
+            this.BookPreserveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.BackgroundImage")));
+            this.BookPreserveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BookPreserveButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_DownImage")));
+            this.BookPreserveButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_HoverImage")));
+            this.BookPreserveButton.DM_Mode = false;
+            this.BookPreserveButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_NolImage")));
+            this.BookPreserveButton.Location = new System.Drawing.Point(271, 148);
+            this.BookPreserveButton.Name = "BookPreserveButton";
+            this.BookPreserveButton.Size = new System.Drawing.Size(96, 96);
+            this.BookPreserveButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.BookPreserveButton.TabIndex = 34;
+            this.BookPreserveButton.TabStop = false;
+            // 
+            // BookImageButton
+            // 
+            this.BookImageButton.BackColor = System.Drawing.Color.Transparent;
+            this.BookImageButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.BackgroundImage")));
+            this.BookImageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BookImageButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_DownImage")));
+            this.BookImageButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_HoverImage")));
+            this.BookImageButton.DM_Mode = false;
+            this.BookImageButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_NolImage")));
+            this.BookImageButton.Location = new System.Drawing.Point(111, 25);
+            this.BookImageButton.Name = "BookImageButton";
+            this.BookImageButton.Size = new System.Drawing.Size(96, 96);
+            this.BookImageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
+            this.BookImageButton.TabIndex = 33;
+            this.BookImageButton.TabStop = false;
+            // 
             // BookInfoTextbox
             // 
             this.BookInfoTextbox.AutoSize = true;
@@ -287,6 +350,7 @@
             this.BookInfoTextbox.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.BookInfoTextbox.Location = new System.Drawing.Point(64, 270);
             this.BookInfoTextbox.Margin = new System.Windows.Forms.Padding(64, 16, 0, 0);
+            this.BookInfoTextbox.MaximumSize = new System.Drawing.Size(392, 0);
             this.BookInfoTextbox.Name = "BookInfoTextbox";
             this.BookInfoTextbox.Size = new System.Drawing.Size(50, 20);
             this.BookInfoTextbox.TabIndex = 33;
@@ -522,42 +586,6 @@
             this.Label2Text.TabIndex = 43;
             this.Label2Text.Text = "中国文学>";
             // 
-            // BookNameLabel
-            // 
-            this.BookNameLabel.AutoSize = true;
-            this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.BookNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BookNameLabel.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookNameLabel.Location = new System.Drawing.Point(66, 37);
-            this.BookNameLabel.Margin = new System.Windows.Forms.Padding(64, 35, 64, 0);
-            this.BookNameLabel.Name = "BookNameLabel";
-            this.BookNameLabel.Size = new System.Drawing.Size(245, 57);
-            this.BookNameLabel.TabIndex = 0;
-            this.BookNameLabel.Text = "人民的名义";
-            this.BookNameLabel.Click += new System.EventHandler(this.BookNameLabel_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.BookNameLabel);
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.comment0);
-            this.flowLayoutPanel1.Controls.Add(this.comment1);
-            this.flowLayoutPanel1.Controls.Add(this.comment2);
-            this.flowLayoutPanel1.Controls.Add(this.comment3);
-            this.flowLayoutPanel1.Controls.Add(this.comment4);
-            this.flowLayoutPanel1.Controls.Add(this.panel7);
-            this.flowLayoutPanel1.Controls.Add(this.hScrollBar1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(992, 697);
-            this.flowLayoutPanel1.TabIndex = 37;
-            this.flowLayoutPanel1.WrapContents = false;
-            // 
             // ResultDataSheet
             // 
             this.ResultDataSheet.AllowUserToAddRows = false;
@@ -647,76 +675,40 @@
             this.history.VisitedLinkColor = System.Drawing.Color.Blue;
             this.history.Width = 95;
             // 
-            // AmountButton
+            // BookNameLabel
             // 
-            this.AmountButton.BackColor = System.Drawing.Color.Transparent;
-            this.AmountButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.BackgroundImage")));
-            this.AmountButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AmountButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_DownImage")));
-            this.AmountButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_HoverImage")));
-            this.AmountButton.DM_Mode = false;
-            this.AmountButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_NolImage")));
-            this.AmountButton.Location = new System.Drawing.Point(111, 148);
-            this.AmountButton.Name = "AmountButton";
-            this.AmountButton.Size = new System.Drawing.Size(96, 96);
-            this.AmountButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.AmountButton.TabIndex = 36;
-            this.AmountButton.TabStop = false;
+            this.BookNameLabel.AutoSize = true;
+            this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BookNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BookNameLabel.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameLabel.Location = new System.Drawing.Point(66, 37);
+            this.BookNameLabel.Margin = new System.Windows.Forms.Padding(64, 35, 64, 0);
+            this.BookNameLabel.Name = "BookNameLabel";
+            this.BookNameLabel.Size = new System.Drawing.Size(245, 57);
+            this.BookNameLabel.TabIndex = 0;
+            this.BookNameLabel.Text = "人民的名义";
+            this.BookNameLabel.Click += new System.EventHandler(this.BookNameLabel_Click);
             // 
-            // BookInfoButton
+            // flowLayoutPanel1
             // 
-            this.BookInfoButton.BackColor = System.Drawing.Color.Transparent;
-            this.BookInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.BackgroundImage")));
-            this.BookInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookInfoButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_DownImage")));
-            this.BookInfoButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_HoverImage")));
-            this.BookInfoButton.DM_Mode = false;
-            this.BookInfoButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_NolImage")));
-            this.BookInfoButton.Location = new System.Drawing.Point(271, 25);
-            this.BookInfoButton.Name = "BookInfoButton";
-            this.BookInfoButton.Size = new System.Drawing.Size(96, 96);
-            this.BookInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.BookInfoButton.TabIndex = 35;
-            this.BookInfoButton.TabStop = false;
-            // 
-            // BookPreserveButton
-            // 
-            this.BookPreserveButton.BackColor = System.Drawing.Color.Transparent;
-            this.BookPreserveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.BackgroundImage")));
-            this.BookPreserveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookPreserveButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_DownImage")));
-            this.BookPreserveButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_HoverImage")));
-            this.BookPreserveButton.DM_Mode = false;
-            this.BookPreserveButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_NolImage")));
-            this.BookPreserveButton.Location = new System.Drawing.Point(271, 148);
-            this.BookPreserveButton.Name = "BookPreserveButton";
-            this.BookPreserveButton.Size = new System.Drawing.Size(96, 96);
-            this.BookPreserveButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.BookPreserveButton.TabIndex = 34;
-            this.BookPreserveButton.TabStop = false;
-            // 
-            // BookImageButton
-            // 
-            this.BookImageButton.BackColor = System.Drawing.Color.Transparent;
-            this.BookImageButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.BackgroundImage")));
-            this.BookImageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookImageButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_DownImage")));
-            this.BookImageButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_HoverImage")));
-            this.BookImageButton.DM_Mode = false;
-            this.BookImageButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_NolImage")));
-            this.BookImageButton.Location = new System.Drawing.Point(111, 25);
-            this.BookImageButton.Name = "BookImageButton";
-            this.BookImageButton.Size = new System.Drawing.Size(96, 96);
-            this.BookImageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.BookImageButton.TabIndex = 33;
-            this.BookImageButton.TabStop = false;
-            // 
-            // hScrollBar1
-            // 
-            this.hScrollBar1.Location = new System.Drawing.Point(2, 1570);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(80, 17);
-            this.hScrollBar1.TabIndex = 42;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.BookNameLabel);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.comment0);
+            this.flowLayoutPanel1.Controls.Add(this.comment1);
+            this.flowLayoutPanel1.Controls.Add(this.comment2);
+            this.flowLayoutPanel1.Controls.Add(this.comment3);
+            this.flowLayoutPanel1.Controls.Add(this.comment4);
+            this.flowLayoutPanel1.Controls.Add(this.panel7);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(992, 697);
+            this.flowLayoutPanel1.TabIndex = 37;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // AdminBookDetailForm
             // 
@@ -756,9 +748,9 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -809,6 +801,5 @@
         private DMSkin.Controls.DM.DMButtonImage BookInfoButton;
         private DMSkin.Controls.DM.DMButtonImage BookPreserveButton;
         private DMSkin.Controls.DM.DMButtonImage BookImageButton;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
     }
 }

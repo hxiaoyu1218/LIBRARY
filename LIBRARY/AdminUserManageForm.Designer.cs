@@ -91,7 +91,7 @@
             this.JumpPTextBox.TabIndex = 51;
             this.JumpPTextBox.TabStop = false;
             this.JumpPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.JumpPTextBox.TextChanged += new System.EventHandler(this.JumpPTextBox_TextChanged);
+            this.JumpPTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.JumpPTextBox_KeyDown);
             // 
             // NextPbutton
             // 
