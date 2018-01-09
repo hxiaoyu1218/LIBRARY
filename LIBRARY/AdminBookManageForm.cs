@@ -2,13 +2,14 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using LibrarySystemBackEnd;
+//using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
     public partial class AdminBookManageForm : DMSkin.Main
     {
         private AdminMainForm frmMain;
+        private FileProtocol fileProtocol;
         private static int maxPage;
         private static int nPage = 1;
         private int lastState;
@@ -22,62 +23,75 @@ namespace LIBRARY
             InitializeComponent();
         }
 
-        private void DataSheetLoad(int page)
+        private void searchBook()
+        {
+            PublicVar.ReturnValue = -233;
+            fileProtocol = new FileProtocol(RequestMode.UserSearchBook, 6000);
+            fileProtocol.Curnum = (nPage - 1) * 10 + 1;
+            fileProtocol.Searchwords = lastString;
+            fileProtocol.Searchcat = lastState;
+
+            LoadingBox loadingBox = new LoadingBox(RequestMode.UserSearchBook, "正在查询", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+            PublicVar.ReturnValue = -233;
+            DataSheetLoad();
+        }
+
+        private void DataSheetLoad()
         {
             ResultDataSheet.Rows.Clear();
             ResultDataSheet.Hide();
-            if (ClassBackEnd.Book.Count == 0)
-            {
-                LoadGIFBox.Hide();
-                NoResultTextBox.Show();
-                //AddBookButton.Show();
-                NextPbutton.Hide();
-                LastPButton.Hide();
-                JumpPTextBox.Hide();
-                PageTextBox.Hide();
-                DividePicture.Hide();
-                return;
-            }
-            else
-            {
-                NoResultTextBox.Hide();
-                //AddBookButton.Hide();
-                NextPbutton.Show();
-                LastPButton.Show();
-                JumpPTextBox.Show();
-                PageTextBox.Show();
-                DividePicture.Show();
-            }
-            int start = (nPage - 1) * 10;
-            int end = nPage * 10;
-            if (nPage == maxPage) end = ClassBackEnd.Book.Count;
+            if (PublicVar.currentBookList == null) return;
 
-            for (int i = start; i < end; i++)
+            //DataGridViewRow row1 = (DataGridViewRow)ResultDataSheet.RowTemplate.Clone();
+            //int index1 = ResultDataSheet.Rows.Add(row1);
+            //ResultDataSheet.Rows[index1].Cells[0].Value = "ISBN";
+            //ResultDataSheet.Rows[index1].Cells[1].Value = "书名";
+            //ResultDataSheet.Rows[index1].Cells[2].Value = "作者";
+            //ResultDataSheet.Rows[index1].Cells[3].Value = "出版社";
+            //ResultDataSheet.Rows[index1].Cells[4].Value = "操作";
+            //ResultDataSheet.Rows[index1].Cells[4].
+            for (int i = 0; i < PublicVar.currentBookList.Length; i++)
             {
-                var c = ClassBackEnd.Book[i];
+                var c = PublicVar.currentBookList[i];
                 DataGridViewRow row = (DataGridViewRow)ResultDataSheet.RowTemplate.Clone();
                 int index = ResultDataSheet.Rows.Add(row);
-                ResultDataSheet.Rows[index].Cells[0].Value = c.Bookisbn;
-                ResultDataSheet.Rows[index].Cells[1].Value = c.Bookname;
-                ResultDataSheet.Rows[index].Cells[2].Value = c.Author;
-                ResultDataSheet.Rows[index].Cells[3].Value = c.Publisher;
+                ResultDataSheet.Rows[index].Cells[0].Value = c.BookIsbn;
+                ResultDataSheet.Rows[index].Cells[1].Value = c.BookName;
+                ResultDataSheet.Rows[index].Cells[2].Value = c.BookAuthor;
+                ResultDataSheet.Rows[index].Cells[3].Value = c.BookPublisher;
                 ResultDataSheet.Rows[index].Cells[4].Value = "详情";
             }
-            LoadGIFBox.Hide();
+
+
             ResultDataSheet.Show();
             ResultDataSheet.ClearSelection();
             ResultDataSheet.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            JumpPTextBox.Text = nPage.ToString();
-            PageTextBox.Text = maxPage.ToString();
 
+            JumpPTextBox.Text = nPage.ToString();
+            maxPage = PublicVar.bookTotalAmount / 10 + (PublicVar.bookTotalAmount % 10 == 0 ? 0 : 1);
+            PageTextBox.Text = maxPage.ToString();
         }
 
         private void BookManageForm_Load(object sender, EventArgs e)
         {
-            DataSheetLoad(nPage);
+            /*if ((bool)Tag == true)
+            {
+                nPage = 1;
+                SearchBox.Text = lastString;
+                searchBook();
+            }
+            else
+            {
+                DataSheetLoad();
+                JumpPTextBox.Text = nPage.ToString();
+                PageTextBox.Text = maxPage.ToString();
 
+            }*/
             #region 返回按钮处理
-            frmMain.ReturnButton.Tag = 1;
+            frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
             Point t = new Point(61, 11);
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
@@ -335,18 +349,33 @@ namespace LIBRARY
         {
             if (e.ColumnIndex == 4)
             {
+
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookLoad, 6000);
+                fileProtocol.NowBook = PublicVar.currentBookList[e.RowIndex];
+
+                fileProtocol.Userinfo = PublicVar.logUser;
+
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.UserBookLoad, "正在加载", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
+                }
                 frmMain.MainPanel.Controls.Clear();
-                AdminBookDetailForm bookDetailAdminForm = new AdminBookDetailForm(frmMain, e.RowIndex + (nPage - 1) * 10);
-                bookDetailAdminForm.TopLevel = false;
-                bookDetailAdminForm.Dock = DockStyle.Fill;
-                frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
-                bookDetailAdminForm.Show();
+                AdminBookDetailForm bookDetailForm = new AdminBookDetailForm(frmMain, e.RowIndex);
+                bookDetailForm.TopLevel = false;
+                bookDetailForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(bookDetailForm);
+                bookDetailForm.Show();
             }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            int runFlag = 1;
+            /*int runFlag = 1;
             if (SearchBox.Text == "")
             {
                 ClassBackEnd.Book.Clear();
@@ -365,15 +394,21 @@ namespace LIBRARY
                 SearchWorker.CancelAsync();
             }
             if (runFlag != 0)
-                SearchWorker.RunWorkerAsync();
+                SearchWorker.RunWorkerAsync();*/
+            nPage = 1;
+            lastState = ButtonState;
+            lastString = SearchBox.Text;
+            searchBook();
+            /*frmMain.MainPanel.Controls.Clear();
+            AdminBookManageForm searchResultForm = new AdminBookManageForm(frmMain, ButtonState, SearchBox.Text);
+            searchResultForm.TopLevel = false;
+            searchResultForm.Dock = DockStyle.Fill;
+            frmMain.MainPanel.Controls.Add(searchResultForm);
+            searchResultForm.Tag = true;
+            searchResultForm.Show();*/
         }
 
-        private void SearchWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            ClassBackEnd.SearchBook(lastState, lastString, SearchWorker, e);
-        }
-
-        private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        /*private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled == false)
             {
@@ -388,50 +423,49 @@ namespace LIBRARY
             {
                 SearchWorker.RunWorkerAsync();
             }
-        }
+        }*/
 
         private void LastPButton_Click(object sender, EventArgs e)
         {
             if (nPage == 1) return;
             JumpPTextBox.Text = (--nPage).ToString();
-            DataSheetLoad(nPage);
+            searchBook();
         }
 
         private void NextPButton_Click(object sender, EventArgs e)
         {
             if (nPage == maxPage) return;
             JumpPTextBox.Text = (++nPage).ToString();
-            DataSheetLoad(nPage);
+            searchBook();
         }
 
-        private void JumpPTextBox_TextChanged(object sender, EventArgs e)
+        private void JumpPTextBox_Leave(object sender, EventArgs e)
         {
-            try
+            if (nPage != Convert.ToInt32(JumpPTextBox.Text))
             {
-                var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
-                if (JumpPage > maxPage)
+                try
                 {
-                    nPage = maxPage;
-                    JumpPTextBox.Text = nPage.ToString();
+                    var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
+                    if (JumpPage > maxPage)
+                    {
+                        nPage = maxPage;
+                        JumpPTextBox.Text = nPage.ToString();
+                    }
+                    else nPage = Convert.ToInt32(JumpPTextBox.Text);
+                    searchBook();
                 }
-                else nPage = Convert.ToInt32(JumpPTextBox.Text);
-                DataSheetLoad(nPage);
-            }
-            catch
-            {
-                MessageBox infoBox = new MessageBox(13);
-                infoBox.ShowDialog();
-                infoBox.Dispose();
-                JumpPTextBox.Focus();
+                catch
+                {
+                    if (JumpPTextBox.Text == "") return;
+                    MessageBox infoBox = new MessageBox(13);
+                    infoBox.ShowDialog();
+                    infoBox.Dispose();
+                    JumpPTextBox.Focus();
+                }
             }
         }
 
-        private void AddBookButton_Click(object sender, EventArgs e)
-        {
-            AdminBookAddForm addBookForm = new AdminBookAddForm();
-            addBookForm.ShowDialog();
-            addBookForm.Dispose();
-        }
+
     }
 
 }
