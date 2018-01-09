@@ -242,7 +242,14 @@ namespace LIBRARY
                         Thread.Sleep(50);
                     }
                     break;
-                default:
+				case RequestMode.AdminLoadABookHis:
+					while (PublicVar.ReturnValue == -233 && timer < 10000)
+					{
+						timer += 50;
+						Thread.Sleep(50);
+					}
+					break;
+				default:
                     break;
             }
             if (timer >= 10000)

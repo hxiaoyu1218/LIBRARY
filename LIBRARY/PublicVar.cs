@@ -191,6 +191,7 @@ namespace LIBRARY
         public static ClassAdmin nowAdmin;
         public static ClassUserBasicInfo[] adminSearchUser;
         public static int userTotalAmount = 0;
+		public static ClassBookHis[] bookhis;
 
         public class FileComparer : IComparer
         {
