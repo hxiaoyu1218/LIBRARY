@@ -77,6 +77,8 @@
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.OKButton.TabIndex = 46;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
+            this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
+            this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);
             // 
             // NPasswordCueText2
             // 
@@ -191,6 +193,7 @@
             this.ShutDownButton.BackColor = System.Drawing.Color.Transparent;
             this.ShutDownButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShutDownButton.BackgroundImage")));
             this.ShutDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ShutDownButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ShutDownButton.FlatAppearance.BorderSize = 0;
             this.ShutDownButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(42)))), ((int)(((byte)(21)))));
             this.ShutDownButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(65)))), ((int)(((byte)(39)))));

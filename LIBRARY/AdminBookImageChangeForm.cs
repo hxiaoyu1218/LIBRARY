@@ -26,7 +26,7 @@ namespace LIBRARY
 
             try
             {
-                OldImageBox.Image = Image.FromFile(ClassBackEnd.Currentbook.Bookimage);
+                //OldImageBox.Image = Image.FromFile(PublicVar.pic);
             }
             catch
             {

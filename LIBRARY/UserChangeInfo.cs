@@ -368,5 +368,15 @@ namespace LIBRARY
         {
             OKButton_Click(OKButton, new EventArgs());
         }
+
+        private void OKButton_MouseLeave(object sender, EventArgs e)
+        {
+            OKButton.BackgroundImage = OKButton.DM_NolImage;
+        }
+
+        private void OKButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            OKButton.BackgroundImage = OKButton.DM_HoverImage;
+        }
     }
 }

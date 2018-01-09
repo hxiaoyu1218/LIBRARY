@@ -13,7 +13,6 @@ namespace LIBRARY
         private void BookInfoChangeForm_Loaf(object sender, EventArgs e)
         {
             BookInfoText.Text = ClassBackEnd.Currentbook.Introduction;
-
         }
 
         private void ShutDownButton_Click(object sender, EventArgs e)

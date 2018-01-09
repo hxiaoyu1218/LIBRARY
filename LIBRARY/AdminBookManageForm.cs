@@ -21,6 +21,7 @@ namespace LIBRARY
         {
             frmMain = frm;
             InitializeComponent();
+            //SearchBox.Focus();
         }
 
         private void searchBook()
@@ -43,7 +44,10 @@ namespace LIBRARY
         {
             ResultDataSheet.Rows.Clear();
             ResultDataSheet.Hide();
-            if (PublicVar.currentBookList == null) return;
+            if (PublicVar.currentBookList == null)
+            {//NoResultTextBox.Show();
+                return;
+            }
 
             //DataGridViewRow row1 = (DataGridViewRow)ResultDataSheet.RowTemplate.Clone();
             //int index1 = ResultDataSheet.Rows.Add(row1);
@@ -64,6 +68,8 @@ namespace LIBRARY
                 ResultDataSheet.Rows[index].Cells[3].Value = c.BookPublisher;
                 ResultDataSheet.Rows[index].Cells[4].Value = "详情";
             }
+            if (PublicVar.currentBookList.Length == 0)
+                NoResultTextBox.Show();
 
 
             ResultDataSheet.Show();
@@ -108,6 +114,7 @@ namespace LIBRARY
             LabelBackground.Hide();
             ButtonState = 1;
             #endregion
+            SearchBox.Focus();
         }
 
         #region SearchResultForm 按钮动画处理
@@ -395,6 +402,7 @@ namespace LIBRARY
             }
             if (runFlag != 0)
                 SearchWorker.RunWorkerAsync();*/
+            NoResultTextBox.Hide();
             nPage = 1;
             lastState = ButtonState;
             lastString = SearchBox.Text;
@@ -465,7 +473,10 @@ namespace LIBRARY
             }
         }
 
-
+        private void JumpPTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            JumpPTextBox_Leave(JumpPTextBox, new EventArgs());
+        }
     }
 
 }

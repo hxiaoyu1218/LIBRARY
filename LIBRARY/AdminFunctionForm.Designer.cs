@@ -200,6 +200,8 @@
             this.AddBookButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
             this.AddBookButton.TabIndex = 38;
             this.AddBookButton.TabStop = false;
+            this.AddBookButton.MouseLeave += new System.EventHandler(this.AddBookButton_MouseLeave);
+            this.AddBookButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddBookButton_MouseMove);
             // 
             // AdminFunctionForm
             // 
