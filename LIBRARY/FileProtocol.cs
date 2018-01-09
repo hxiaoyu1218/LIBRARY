@@ -46,6 +46,7 @@ namespace LIBRARY
 		AdminSetUserPassword,
 		AdminChargeUser,
         AdminAddBook,
+		AdminLoadABookHis,
 	}
 	public class FileProtocol
 	{
@@ -73,6 +74,7 @@ namespace LIBRARY
 		private ClassAdmin admin;
 		private ClassUserBasicInfo[] adminSearchUser;
 		private int chargeNum;
+		private ClassBookHis[] bookHis;
 
 
 		public FileProtocol(RequestMode mode, int port)
@@ -335,6 +337,19 @@ namespace LIBRARY
 			}
 		}
 
+		public ClassBookHis[] BookHis
+		{
+			get
+			{
+				return bookHis;
+			}
+
+			set
+			{
+				bookHis = value;
+			}
+		}
+
 		private string Escape(string ins)
 		{
 			string restring = ins;
@@ -452,6 +467,10 @@ namespace LIBRARY
 				case RequestMode.AdminChargeUser:
 					{
 						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminchargeuser userid=\"{2}\" amount=\"{3}\" /><admin adminid=\"{4}\" adminpassword=\"{5}\" /></protocol>", mode, port, userinfo.UserId, chargeNum, admin.Id, admin.Password);
+					}
+				case RequestMode.AdminLoadABookHis:
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /></protocol>", mode, port, nowABook.BookIsbn);
 					}
 				default:
 					break;

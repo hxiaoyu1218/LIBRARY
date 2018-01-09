@@ -353,6 +353,11 @@ namespace LIBRARY
 			{
 				PublicVar.ReturnValue = protocol.Retval;
 			}
+			else if(protocol.Mode==RequestMode.AdminLoadABookHis)
+			{
+				PublicVar.bookhis = protocol.BookHis;
+				PublicVar.ReturnValue = 0;
+			}
         }
 
         public byte[] receiveFileAsByte()

@@ -402,11 +402,27 @@ namespace LIBRARY
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
 						break;
 					}
+				case RequestMode.AdminLoadABookHis:
+					{
+						List<ClassBookHis> bookhis = new List<ClassBookHis>();
+						XmlNodeList li = root.SelectNodes("adminloadabookhis");
+						foreach (XmlNode lli in li)
+						{
+							ClassBookHis tmp = new ClassBookHis();
+							tmp.UserId = lli.Attributes["userid"].Value;
+
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
+
+							tmp.ReturnTime = getDate(lli.Attributes["bookreturndate"].Value);
+
+							bookhis.Add(tmp);
+						}
+						pro.BookHis = bookhis.ToArray();
+						break;
+					}
 				default:
 					break;
 			}
-
-
 			return pro;
 		}
 	}
