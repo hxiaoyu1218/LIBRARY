@@ -151,30 +151,29 @@
             // 
             // ID
             // 
-            this.ID.HeaderText = "ID";
+            this.ID.HeaderText = "UserID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 50;
             // 
             // Date
             // 
-            this.Date.HeaderText = "Date";
+            this.Date.HeaderText = "UserName";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
-            this.Date.Width = 150;
             // 
             // Operator
             // 
-            this.Operator.HeaderText = "Operator";
+            this.Operator.HeaderText = "BorrowDate";
             this.Operator.Name = "Operator";
             this.Operator.ReadOnly = true;
+            this.Operator.Width = 125;
             // 
             // OperatorId
             // 
-            this.OperatorId.HeaderText = "OperatorId";
+            this.OperatorId.HeaderText = "ReturnDate";
             this.OperatorId.Name = "OperatorId";
             this.OperatorId.ReadOnly = true;
-            this.OperatorId.Width = 150;
+            this.OperatorId.Width = 125;
             // 
             // AdminBookHistoryInfoForm
             // 
