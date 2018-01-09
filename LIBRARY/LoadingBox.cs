@@ -214,6 +214,27 @@ namespace LIBRARY
                         Thread.Sleep(50);
                     }
                     break;
+                case RequestMode.AdminGetUserDetail:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
+                    break;
+                case RequestMode.AdminSetUserPassword:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
+                    break;
+                case RequestMode.AdminChargeUser:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
+                    break;
                 default:
                     break;
             }

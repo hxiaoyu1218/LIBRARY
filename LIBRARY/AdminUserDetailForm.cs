@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarySystemBackEnd;
-
+using System.Globalization;
 
 namespace LIBRARY
 {
@@ -32,7 +32,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowedBooks[i].BookName;
-                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime + " " + PublicVar.classUser.BorrowedBooks[i].ReturnTime;
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo) + " " + PublicVar.classUser.BorrowedBooks[i].ReturnTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "借阅";
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
@@ -42,7 +42,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.ScheduledBooks[i].BookName;
-                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.ScheduledBooks[i].BorrowTime + " " + PublicVar.classUser.ScheduledBooks[i].ReturnTime;
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.ScheduledBooks[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "预约";
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
@@ -69,7 +69,7 @@ namespace LIBRARY
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BookRecordSheet.Rows.Add(row);
                 BookRecordSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowHis[i].BookName;
-                BookRecordSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowHis[i].BorrowTime + " " + PublicVar.classUser.BorrowHis[i].ReturnTime;
+                BookRecordSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowHis[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo) + " " + PublicVar.classUser.BorrowHis[i].ReturnTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
                 BookRecordSheet.Rows[index].Cells[2].Value = "详情";
                 BookRecordSheet.Rows[index].Height = 60;
             }
@@ -97,7 +97,7 @@ namespace LIBRARY
             IDText.Text = PublicVar.classUser.UserBasic.UserId;
             NameText.Text = PublicVar.classUser.UserBasic.UserName;
             UserCategoryText.Text = PublicVar.classUser.UserBasic.UserType == Usertype.Student ? "学生" : "老师";
-            RegistTimeText.Text = PublicVar.classUser.UserBasic.UserRegisterDate.ToShortDateString();
+            RegistTimeText.Text = PublicVar.classUser.UserBasic.UserRegisterDate.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
         }
         private void UserDetailAdminForm_Load(object sender, EventArgs e)
         {
@@ -120,7 +120,7 @@ namespace LIBRARY
 
         private void PwdChangedLinkButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PasswordResetForm passwordChangeForm = new PasswordResetForm();
+            PasswordResetForm passwordChangeForm = new PasswordResetForm(PublicVar.classUser.UserBasic.UserId);
             passwordChangeForm.ShowDialog();
             passwordChangeForm.Dispose();
         }

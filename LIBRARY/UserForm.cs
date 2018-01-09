@@ -402,12 +402,7 @@ namespace LIBRARY
 
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PasswordResetForm passwordChangeForm = new PasswordResetForm();
-            passwordChangeForm.ShowDialog();
-            passwordChangeForm.Dispose();
-        }
+       
 
         private void BookRecordSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

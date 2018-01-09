@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using LibrarySystemBackEnd;
+using System.Text.RegularExpressions;
 
 namespace LIBRARY
 {
     public partial class PasswordResetForm : DMSkin.Main
     {
-        public PasswordResetForm()
+        private string userID;
+        public PasswordResetForm(string _userId)
         {
+            userID = _userId;
             InitializeComponent();
         }
 
@@ -25,20 +28,19 @@ namespace LIBRARY
             myPath.AddEllipse(0, 0, 80, 80);
             OKButton.Region = new Region(myPath);
         }
+        private bool IsNumAndEnCh(string input)
+        {
+            string pattern = @"^[A-Za-z0-9]{6,12}$";
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(input);
+        }
 
         private void ShutDownButton_Click(object sender, EventArgs e)
         {
             Close();
         }
         #region 按钮水印处理
-        private void OPasswordCueText_Click(object sender, EventArgs e)
-        {
-            if (OPasswordTextBox.Text == "")
-            {
-                OPasswordCueText.Hide();
-                OPasswordTextBox.Focus();
-            }
-        }
+
 
         private void NPasswordCueText1_Click(object sender, EventArgs e)
         {
@@ -58,21 +60,6 @@ namespace LIBRARY
             }
         }
 
-        private void OPasswordTextBox_Enter(object sender, EventArgs e)
-        {
-            if (OPasswordTextBox.Text == "")
-            {
-                OPasswordCueText.Hide();
-            }
-        }
-
-        private void OPasswordTextBox_Leave(object sender, EventArgs e)
-        {
-            if (OPasswordTextBox.Text == "")
-            {
-                OPasswordCueText.Show();
-            }
-        }
 
         private void NPasswordTextBox1_Enter(object sender, EventArgs e)
         {
@@ -87,6 +74,17 @@ namespace LIBRARY
             if (NPasswordTextBox1.Text == "")
             {
                 NPasswordCueText1.Show();
+            }
+            else
+            {
+                if (!IsNumAndEnCh(NPasswordTextBox1.Text.Trim()))
+                {
+                    PWD1AlertLabel.Visible = true;
+                }
+                else
+                {
+                    PWD1AlertLabel.Visible = false;
+                }
             }
         }
 
@@ -104,6 +102,17 @@ namespace LIBRARY
             {
                 NPasswordCueText2.Show();
             }
+            else
+            {
+                if (NPasswordTextBox1.Text.Trim() != NPasswordTextBox2.Text.Trim())
+                {
+                    PWD2AlertLabel.Visible = true;
+                }
+                else
+                {
+                    PWD2AlertLabel.Visible = false;
+                }
+            }
         }
         #endregion
         private void OKButton_MouseMove(object sender, MouseEventArgs e)
@@ -118,38 +127,47 @@ namespace LIBRARY
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            if (NPasswordTextBox1.Text != NPasswordTextBox2.Text)
+            if (NPasswordTextBox1.Text.Trim() == "" || NPasswordTextBox2.Text.Trim() == "")
             {
-                MessageBox ib = new MessageBox(10);
-                ib.ShowDialog();
-                ib.Dispose();
-                NPasswordTextBox1.Focus();
                 return;
+            }
+            else
+            {
+                PublicVar.ReturnValue = -233;
+
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminSetUserPassword, 6000);
+                fileProtocol.Userinfo = new ClassUserBasicInfo(userID);
+                fileProtocol.Userinfo.UserPassword = NPasswordTextBox1.Text.Trim();
+                fileProtocol.Admin = new ClassAdmin(PublicVar.logUser.UserId);
+                fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
+
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.AdminSetUserPassword, "正在提交", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
+                }
+                else if (PublicVar.ReturnValue == 0)
+                {//3
+                    MessageBox ms = new MessageBox(3);
+                    ms.ShowDialog();
+                    ms.Dispose();
+                    PublicVar.ReturnValue = -233;
+                    Close();
+                }
+                else
+                {
+                    MessageBox ms = new MessageBox(9);
+                    ms.ShowDialog();
+                    ms.Dispose();
+                    PublicVar.ReturnValue = -233;
+                }
+
             }
 
-            var v = ClassBackEnd.ChangePassword(OPasswordTextBox.Text, NPasswordTextBox1.Text);
-
-            if (v == 0)
-            {
-                MessageBox infoBox = new MessageBox(9);
-                infoBox.ShowDialog();
-                infoBox.Dispose();
-                return;
-            }
-            else if (v == 1)
-            {
-                MessageBox infoBox = new MessageBox(3);
-                infoBox.ShowDialog();
-                infoBox.Dispose();
-                Close();
-            }
-            else if (v == 2)
-            {
-                MessageBox infoBox = new MessageBox(15);
-                infoBox.ShowDialog();
-                infoBox.Dispose();
-                return;
-            }
         }
 
 
