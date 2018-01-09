@@ -235,6 +235,13 @@ namespace LIBRARY
                         Thread.Sleep(50);
                     }
                     break;
+                case RequestMode.AdminAddBook:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -251,6 +258,16 @@ namespace LIBRARY
                 TextBox.Text = "请求超时";
                 LoadGIFBox.Enabled = false;
                 ConfirmButton.Visible = true;
+            }
+            else if (mode == RequestMode.AdminAddBook)
+            {
+                if (PublicVar.ReturnValue == 0)//success
+                {
+                    PublicVar.ReturnValue = -233;
+                    BookImageUpload.RunWorkerAsync();
+                }
+                else
+                    Close();
             }
             else
                 Close();
@@ -279,6 +296,41 @@ namespace LIBRARY
             serverClient.SendMessage(fileProtocol.ToString());
 
             WaitingThread.RunWorkerAsync();
+        }
+
+        private void BookImageUpload_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //image upload 
+        }
+
+        private void BookImageUpload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //if upload success?
+            WaitImageACK.RunWorkerAsync();
+        }
+
+        private void WaitImageACK_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //.beginread()
+            int timer = 0;
+            while (PublicVar.ReturnValue == -233 && timer < 10000)
+            {
+                Thread.Sleep(50);
+                timer += 50;
+            }
+            if (timer >= 10000) e.Cancel = true;
+        }
+
+        private void WaitImageACK_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                TextBox.Text = "请求超时";
+                LoadGIFBox.Enabled = false;
+                ConfirmButton.Visible = true;
+            }
+            else
+                Close();
         }
     }
 }

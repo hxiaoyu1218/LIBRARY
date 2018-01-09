@@ -127,30 +127,41 @@ namespace LIBRARY
 
         private void BookRecordSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             //detail
             if (e.ColumnIndex == 2)
             {
-                if (ClassBackEnd.BorrowHistoryIDown(e.RowIndex) == 2)
-                {
-                    MessageBox infobox = new MessageBox(25);
-                    infobox.ShowDialog();
-                    infobox.Dispose();
-                }
-                else
-                {
-                    frmMain.MainPanel.Controls.Clear();
+                PublicVar.ReturnValue = -233;
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBookLoad, 6000);
+                fileProtocol.NowBook = new ClassBook(PublicVar.classUser.BorrowHis[e.RowIndex].BookIsbn);
+                fileProtocol.Userinfo = PublicVar.logUser;
 
-                    AdminBookDetailForm bookDetailAdminForm = new AdminBookDetailForm(frmMain, 0);
-                    bookDetailAdminForm.TopLevel = false;
-                    bookDetailAdminForm.Dock = DockStyle.Fill;
-                    frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
-                    bookDetailAdminForm.Show();
-                    frmMain.ReturnButton.Tag = 4;
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.UserBookLoad, "正在加载", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
                 }
+
+
+
+
+                frmMain.MainPanel.Controls.Clear();
+
+                AdminBookDetailForm bookDetailAdminForm = new AdminBookDetailForm(frmMain, 0);
+                bookDetailAdminForm.TopLevel = false;
+                bookDetailAdminForm.Dock = DockStyle.Fill;
+                frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
+                bookDetailAdminForm.Show();
+                frmMain.ReturnButton.Tag = 4;
+
             }
         }
 
-     
+
 
         private void PwdChangedLinkButton_Enter(object sender, EventArgs e)
         {
@@ -168,7 +179,7 @@ namespace LIBRARY
             CreditChargeForm chargeForm = new CreditChargeForm(PublicVar.classUser.UserBasic.UserId);
             chargeForm.ShowDialog();
 
-            if((bool)chargeForm.Tag==true)
+            if ((bool)chargeForm.Tag == true)
             {
                 PublicVar.ReturnValue = -233;
                 FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminGetUserDetail, 6000);

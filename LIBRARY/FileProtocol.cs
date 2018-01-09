@@ -45,6 +45,7 @@ namespace LIBRARY
 		AdminGetUserDetail,
 		AdminSetUserPassword,
 		AdminChargeUser,
+        AdminAddBook,
 	}
 	public class FileProtocol
 	{
