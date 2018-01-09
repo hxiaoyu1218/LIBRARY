@@ -150,12 +150,7 @@ namespace LIBRARY
             }
         }
 
-        private void CreditRecordButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            CreditRecordForm creditRecordForm = new CreditRecordForm();
-            creditRecordForm.ShowDialog();
-            creditRecordForm.Dispose();
-        }
+     
 
         private void PwdChangedLinkButton_Enter(object sender, EventArgs e)
         {
@@ -169,11 +164,33 @@ namespace LIBRARY
 
         private void CreditLinkText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CreditChargeForm chargeForm = new CreditChargeForm();
+
+            CreditChargeForm chargeForm = new CreditChargeForm(PublicVar.classUser.UserBasic.UserId);
             chargeForm.ShowDialog();
+
+            if((bool)chargeForm.Tag==true)
+            {
+                PublicVar.ReturnValue = -233;
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminGetUserDetail, 6000);
+
+                fileProtocol.Userinfo = PublicVar.adminSearchUser[UserIndex];
+                fileProtocol.Admin = new ClassAdmin(PublicVar.logUser.UserId);
+                fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
+
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.AdminGetUserDetail, "更新数据", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
+                }
+                PublicVar.ReturnValue = -233;
+            }
             chargeForm.Dispose();
 
-            //renew user info
             UserInfoLoad();
         }
     }

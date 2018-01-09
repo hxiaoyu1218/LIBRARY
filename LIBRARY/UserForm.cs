@@ -393,14 +393,7 @@ namespace LIBRARY
             Application.Restart();
         }
 
-        private void ChargeButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            CreditChargeForm chargeForm = new CreditChargeForm();
-            chargeForm.ShowDialog();
-            chargeForm.Dispose();
-            UserInfoLoad();
-
-        }
+       
 
        
 

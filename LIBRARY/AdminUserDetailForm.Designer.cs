@@ -193,8 +193,8 @@
             this.CreditRecordButton.Size = new System.Drawing.Size(74, 21);
             this.CreditRecordButton.TabIndex = 0;
             this.CreditRecordButton.TabStop = true;
-            this.CreditRecordButton.Text = "不良记录";
-            this.CreditRecordButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreditRecordButton_LinkClicked);
+            this.CreditRecordButton.Text = "信用充值";
+            this.CreditRecordButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreditLinkText_LinkClicked);
             this.CreditRecordButton.Enter += new System.EventHandler(this.CreditRecordButton_Enter);
             // 
             // BorrowInfoSheet
