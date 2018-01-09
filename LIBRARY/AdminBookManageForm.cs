@@ -93,6 +93,7 @@ namespace LIBRARY
             LabelBackground.Hide();
             ButtonState = 1;
             #endregion
+            NoResultTextBox.Hide();
             DataSheetLoad();
             SearchBox.Focus();
         }
