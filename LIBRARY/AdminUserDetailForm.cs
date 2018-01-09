@@ -27,14 +27,23 @@ namespace LIBRARY
             int i = 0;
 
             BorrowInfoSheet.Rows.Clear();
-            for (i = 0; i < ClassBackEnd.Userbsbook.Count; i++)
+            for (i = 0; i < PublicVar.classUser.BorrowedBooks.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
-                BorrowInfoSheet.Rows[index].Cells[0].Value = ClassBackEnd.Userbsbook[i].Bookname;
-                BorrowInfoSheet.Rows[index].Cells[1].Value = ClassBackEnd.Userbsbook[i].Bsdate + " " + ClassBackEnd.Userbsbook[i].Rgdate;
-                if (ClassBackEnd.Userbsbook[i].Isborrowed) BorrowInfoSheet.Rows[index].Cells[2].Value = "借阅";
-                else BorrowInfoSheet.Rows[index].Cells[2].Value = "预约";
+                BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowedBooks[i].BookName;
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowedBooks[i].BorrowTime + " " + PublicVar.classUser.BorrowedBooks[i].ReturnTime;
+                BorrowInfoSheet.Rows[index].Cells[2].Value = "借阅";
+                BorrowInfoSheet.Rows[index].Height = 60;
+            }
+            int offset = i;
+            for (; i < PublicVar.classUser.ScheduledBooks.Count + offset; i++)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = BorrowInfoSheet.Rows.Add(row);
+                BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.ScheduledBooks[i].BookName;
+                BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.ScheduledBooks[i].BorrowTime + " " + PublicVar.classUser.ScheduledBooks[i].ReturnTime;
+                BorrowInfoSheet.Rows[index].Cells[2].Value = "预约";
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
             while (i < 4)
@@ -55,12 +64,12 @@ namespace LIBRARY
 
 
             BookRecordSheet.Rows.Clear();
-            for (i = 0; i < ClassBackEnd.Borrowhis.Count; i++)
+            for (i = 0; i < PublicVar.classUser.BorrowHis.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BookRecordSheet.Rows.Add(row);
-                BookRecordSheet.Rows[index].Cells[0].Value = ClassBackEnd.Borrowhis[i].Bookname;
-                BookRecordSheet.Rows[index].Cells[1].Value = ClassBackEnd.Borrowhis[i].Borrowdata + " " + ClassBackEnd.Borrowhis[i].Returndata;
+                BookRecordSheet.Rows[index].Cells[0].Value = PublicVar.classUser.BorrowHis[i].BookName;
+                BookRecordSheet.Rows[index].Cells[1].Value = PublicVar.classUser.BorrowHis[i].BorrowTime + " " + PublicVar.classUser.BorrowHis[i].ReturnTime;
                 BookRecordSheet.Rows[index].Cells[2].Value = "详情";
                 BookRecordSheet.Rows[index].Height = 60;
             }
@@ -83,16 +92,16 @@ namespace LIBRARY
         }
         private void UserInfoLoad()
         {
-            AcedemicText.Text = ClassBackEnd.Currentuser.School;
-            CreditLinkText.Text = ClassBackEnd.Currentuser.Credit.ToString();
-            IDText.Text = ClassBackEnd.Currentuser.Userid;
-            NameText.Text = ClassBackEnd.Currentuser.Username;
-            UserCategoryText.Text = ClassBackEnd.Currentuser.Usertype == USERTYPE.Student ? "学生" : "老师";
-            RegistTimeText.Text = ClassBackEnd.Currentuser.RegisterDate;
+            AcedemicText.Text = PublicVar.classUser.UserBasic.UserSchool;
+            CreditLinkText.Text = PublicVar.classUser.UserBasic.UserCredit.ToString();
+            IDText.Text = PublicVar.classUser.UserBasic.UserId;
+            NameText.Text = PublicVar.classUser.UserBasic.UserName;
+            UserCategoryText.Text = PublicVar.classUser.UserBasic.UserType == Usertype.Student ? "学生" : "老师";
+            RegistTimeText.Text = PublicVar.classUser.UserBasic.UserRegisterDate.ToShortDateString();
         }
         private void UserDetailAdminForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.SearchUserIDown(UserIndex);
+
             UserInfoLoad();
             SheeetRefresh();
             #region 返回按钮处理
@@ -118,25 +127,26 @@ namespace LIBRARY
 
         private void BookRecordSheet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //detail
             if (e.ColumnIndex == 2)
             {
-				if(ClassBackEnd.BorrowHistoryIDown(e.RowIndex) == 2)
-				{
-					MessageBox infobox = new MessageBox(25);
-					infobox.ShowDialog();
-					infobox.Dispose();
-				}
-				else
-				{
-					frmMain.MainPanel.Controls.Clear();
+                if (ClassBackEnd.BorrowHistoryIDown(e.RowIndex) == 2)
+                {
+                    MessageBox infobox = new MessageBox(25);
+                    infobox.ShowDialog();
+                    infobox.Dispose();
+                }
+                else
+                {
+                    frmMain.MainPanel.Controls.Clear();
 
-					AdminBookDetailForm bookDetailAdminForm = new AdminBookDetailForm(frmMain, 0);
-					bookDetailAdminForm.TopLevel = false;
-					bookDetailAdminForm.Dock = DockStyle.Fill;
-					frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
-					bookDetailAdminForm.Show();
-					frmMain.ReturnButton.Tag = 4;
-				}			
+                    AdminBookDetailForm bookDetailAdminForm = new AdminBookDetailForm(frmMain, 0);
+                    bookDetailAdminForm.TopLevel = false;
+                    bookDetailAdminForm.Dock = DockStyle.Fill;
+                    frmMain.MainPanel.Controls.Add(bookDetailAdminForm);
+                    bookDetailAdminForm.Show();
+                    frmMain.ReturnButton.Tag = 4;
+                }
             }
         }
 
@@ -162,6 +172,8 @@ namespace LIBRARY
             CreditChargeForm chargeForm = new CreditChargeForm();
             chargeForm.ShowDialog();
             chargeForm.Dispose();
+
+            //renew user info
             UserInfoLoad();
         }
     }
