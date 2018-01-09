@@ -42,6 +42,7 @@ namespace LIBRARY
 		UserCancelScheduleBook,
 
 		AdminSearchUser,
+		AdminGetUserDetail,
 	}
 	public class FileProtocol
 	{
@@ -423,8 +424,11 @@ namespace LIBRARY
 					{
 						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><adminsearchuser searchwords=\"{2}\" curnum=\"{3}\" endnum=\"{4}\" /><admin adminid=\"{5}\" adminpassword=\"{6}\" /></protocol>", mode, port, Escape(searchwords), curnum, endnum, admin.Id, admin.Password);
 					}
+				case RequestMode.AdminGetUserDetail:
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><admingetuserdetail userid=\"{2}\" /><admin adminid=\"{3}\" adminpassword=\"{4}\" /></protocol>", mode, port, user.UserBasic.UserId, admin.Id, admin.Password);
+					}
 				default:
-
 					break;
 			}
 			return "";

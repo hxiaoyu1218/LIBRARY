@@ -340,6 +340,11 @@ namespace LIBRARY
 				PublicVar.userTotalAmount = protocol.Endnum;
 				PublicVar.ReturnValue = 0;
 			}
+			else if(protocol.Mode==RequestMode.AdminGetUserDetail)
+			{
+				PublicVar.classUser = protocol.User;
+				PublicVar.ReturnValue = 0;
+			}
         }
 
         public byte[] receiveFileAsByte()
