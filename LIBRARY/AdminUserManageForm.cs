@@ -28,9 +28,9 @@ namespace LIBRARY
             frmMain.ReturnButton.Show();
             frmMain.TitleLabel.Location = t;
             #endregion
-            PageButtonLoad(0);
-            if (ClassBackEnd.UsersearchList.Count == 0) return;
-            maxPage = (ClassBackEnd.UsersearchList.Count - 1) / 15 + 1;
+            PageButtonLoad(PublicVar.userTotalAmount);
+            if (PublicVar.userTotalAmount == 0) return;
+            maxPage = PublicVar.userTotalAmount / 15 + (PublicVar.userTotalAmount % 15 == 0 ? 0 : 1);
             JumpPTextBox.Text = nPage.ToString();
 
             ComponentDynamicLoad(nPage);
@@ -58,7 +58,7 @@ namespace LIBRARY
         {
             UserPanel.Controls.Clear();
 
-            PageButtonLoad(ClassBackEnd.UsersearchList.Count);
+            PageButtonLoad(PublicVar.userTotalAmount);
             PageTextBox.Text = maxPage.ToString();
 
             int picX = 81, picY = 20;
@@ -68,7 +68,7 @@ namespace LIBRARY
 
             int start = (page - 1) * 15 + 1;
             int end = page * 15;
-            if (page == maxPage) end = ClassBackEnd.UsersearchList.Count;
+            if (page == maxPage) end = PublicVar.userTotalAmount;
 
 
             for (int i = start; i <= end; i++)
@@ -85,7 +85,7 @@ namespace LIBRARY
                 pic.Click += new EventHandler(Pic_Click);
                 pic.MouseMove += new MouseEventHandler(Pic_MouseMove);
                 pic.MouseLeave += new EventHandler(Pic_MouseLeave);
-                pic.Image = PublicVar.LoadHeadImage(ClassBackEnd.UsersearchList[i - 1].Username);//image load
+                pic.Image = PublicVar.LoadHeadImage(PublicVar.adminSearchUser[i - 1].UserName);//image load
 
                 Label lab = new Label();
                 lab.AutoSize = true;
@@ -98,7 +98,7 @@ namespace LIBRARY
                 lab.Click += new EventHandler(Label_Click);
                 lab.MouseMove += new MouseEventHandler(Label_MouseMove);
                 lab.MouseLeave += new EventHandler(Label_MouseLeave);
-                lab.Text = ClassBackEnd.UsersearchList[i - 1].Username;//user name load
+                lab.Text = PublicVar.adminSearchUser[i - 1].UserName;//user name load
 
                 Label lab1 = new Label();
                 lab1.AutoSize = true;
@@ -111,7 +111,7 @@ namespace LIBRARY
                 lab1.Click += new EventHandler(Label_Click);
                 lab1.MouseMove += new MouseEventHandler(Label_MouseMove);
                 lab1.MouseLeave += new EventHandler(Label_MouseLeave);
-                lab1.Text = ClassBackEnd.UsersearchList[i - 1].Userid;//load user id
+                lab1.Text = PublicVar.adminSearchUser[i - 1].UserId;//load user id
 
                 Label lab2 = new Label();
                 lab2.AutoSize = true;
@@ -124,7 +124,7 @@ namespace LIBRARY
                 lab2.Click += new EventHandler(Label_Click);
                 lab2.MouseMove += new MouseEventHandler(Label_MouseMove);
                 lab2.MouseLeave += new EventHandler(Label_MouseLeave);
-                lab2.Text = ClassBackEnd.UsersearchList[i - 1].School;//load acedemic name
+                lab2.Text = PublicVar.adminSearchUser[i - 1].UserSchool;//load acedemic name
 
                 UserPanel.Controls.Add(pic);
                 UserPanel.Controls.Add(lab);
@@ -150,13 +150,34 @@ namespace LIBRARY
             }
         }
 
+        private void searchUser(int page)
+        {
+            PublicVar.ReturnValue = -233;
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminSearchUser, 6000);
+            fileProtocol.Searchwords = SearchBox.Text.Trim();
+            fileProtocol.Curnum = (page - 1) * 15 + 1;
+            fileProtocol.Admin =new ClassAdmin(PublicVar.logUser.UserId);
+            fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
+
+
+            LoadingBox loadingBox = new LoadingBox(RequestMode.AdminSearchUser, "正在查询", fileProtocol);
+            loadingBox.ShowDialog();
+            loadingBox.Dispose();
+
+
+            if (PublicVar.ReturnValue == -233)
+            {
+                return;
+            }
+            PublicVar.ReturnValue = -233;
+            nPage = page;
+            maxPage = PublicVar.userTotalAmount / 15 + (PublicVar.userTotalAmount % 15 == 0 ? 0 : 1);
+
+            JumpPTextBox.Text = page.ToString();
+            ComponentDynamicLoad(page);
+        }
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    e.Handled = true;
-            //    SearchButton_Click(sender, e);
-            //}
             if ((int)e.KeyCode == 13)
             {
                 SearchButton.PerformClick();
@@ -165,44 +186,37 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            ClassBackEnd.SearchUser(SearchBox.Text);
-            nPage = 1;
-
-            if (ClassBackEnd.UsersearchList.Count == 0)
-            {
-                UserPanel.Controls.Clear();
-                PageButtonLoad(0);
-                return;
-            }
-            maxPage = (ClassBackEnd.UsersearchList.Count - 1) / 15 + 1;
-            JumpPTextBox.Text = "1";
-            ComponentDynamicLoad(1);
+            searchUser(1);
         }
         private void Label_Click(object sender, EventArgs e)
         {
             Control c = sender as Control;
             string LabName = c.Name.Substring(1);
             int LabID = Convert.ToInt32(LabName);
-            frmMain.MainPanel.Controls.Clear();
-            AdminUserDetailForm userDetailAdminForm = new AdminUserDetailForm(frmMain, LabID);
-            userDetailAdminForm.TopLevel = false;
-            userDetailAdminForm.Dock = DockStyle.Fill;
-            frmMain.MainPanel.Controls.Add(userDetailAdminForm);
-            userDetailAdminForm.Show();
+
+            Label_Pic_Click(LabID);
         }
         private void Pic_Click(object sender, EventArgs e)
         {
             PictureBox p = sender as PictureBox;
             int PicID = Convert.ToInt32(p.Name);
-            //to do
+
+            Label_Pic_Click(PicID);
+           
+        }
+        private void Label_Pic_Click(int index)
+        {
+
+
+
+
             frmMain.MainPanel.Controls.Clear();
-            AdminUserDetailForm userDetailAdminForm = new AdminUserDetailForm(frmMain, PicID);
+            AdminUserDetailForm userDetailAdminForm = new AdminUserDetailForm(frmMain, index);
             userDetailAdminForm.TopLevel = false;
             userDetailAdminForm.Dock = DockStyle.Fill;
             frmMain.MainPanel.Controls.Add(userDetailAdminForm);
             userDetailAdminForm.Show();
         }
-
         private void Label_MouseMove(object sender, EventArgs e)
         {
             Control c = sender as Control;
@@ -275,37 +289,14 @@ namespace LIBRARY
         {
             if (nPage == 1) return;
             JumpPTextBox.Text = (--nPage).ToString();
-            ComponentDynamicLoad(nPage);
+            searchUser(nPage);
         }
 
         private void NextPbutton_Click(object sender, EventArgs e)
         {
             if (nPage == maxPage) return;
             JumpPTextBox.Text = (++nPage).ToString();
-            ComponentDynamicLoad(nPage);
-        }
-
-        private void JumpPTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
-                if (JumpPage > maxPage)
-                {
-                    nPage = maxPage;
-                    JumpPTextBox.Text = nPage.ToString();
-                }
-                else nPage = Convert.ToInt32(JumpPTextBox.Text);
-                ComponentDynamicLoad(nPage);
-            }
-            catch
-            {
-                if (JumpPTextBox.Text == "") return;
-                MessageBox infoBox = new MessageBox(13);
-                infoBox.ShowDialog();
-                infoBox.Dispose();
-                JumpPTextBox.Focus();
-            }
+            searchUser(nPage);
         }
 
         private void SearchBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -313,6 +304,14 @@ namespace LIBRARY
             if (e.KeyChar == System.Convert.ToChar(13))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void JumpPTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((int)e.KeyCode == 13)
+            {
+                SearchButton.PerformClick();
             }
         }
     }

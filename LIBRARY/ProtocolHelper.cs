@@ -13,6 +13,24 @@ namespace LIBRARY
 		private XmlNode fileNode;
 		private XmlNode root;
 
+		private DateTime getDate(string date)
+		{
+			DateTime res;
+			if (DateTime.TryParse(date, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
+			{
+				return res;
+			}
+			else if (DateTime.TryParse(date, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
+			{
+				return res;
+			}
+			else if (DateTime.TryParse(date, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
+			{
+				return res;
+			}
+			else return DateTime.Parse(date);
+		}
+
 		public ProtocolHelper(string protocol)
 		{
 			XmlDocument doc = new XmlDocument();
@@ -66,21 +84,11 @@ namespace LIBRARY
 						pro.NowBook = new ClassBook(bookNode.Attributes["bookisbn"].Value);
 						pro.NowBook.BookName = bookNode.Attributes["bookname"].Value;
 						pro.NowBook.BookPublisher = bookNode.Attributes["bookpublisher"].Value;
-						
-						DateTime res=DateTime.Now;
-						if( DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowBook.BookPublishTime = res;
-                        }
-                        else if(DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowBook.BookPublishTime = res;
-                        }
-                        else if(DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowBook.BookPublishTime = res;
-                        }
-						
+
+
+						pro.NowBook.BookPublishTime = getDate(bookNode.Attributes["bookpublishtime"].Value);
+
+
 						pro.NowBook.BookAuthor = bookNode.Attributes["bookauthor"].Value;
 						pro.NowBook.BookIntroduction = bookNode.Attributes["bookintroduction"].Value;
 						pro.NowBook.BookImage = bookNode.Attributes["bookpic"].Value;
@@ -116,19 +124,9 @@ namespace LIBRARY
 						pro.NowBook.BookName = bookNode.Attributes["bookname"].Value;
 						pro.NowBook.BookPublisher = bookNode.Attributes["bookpublisher"].Value;
 
-                        DateTime res = DateTime.Now;
-                        if (DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowBook.BookPublishTime = res;
-                        }
-                        else if (DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowBook.BookPublishTime = res;
-                        }
-                        else if (DateTime.TryParse(bookNode.Attributes["bookpublishtime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowBook.BookPublishTime = res;
-                        }
+
+						pro.NowBook.BookPublishTime = getDate(bookNode.Attributes["bookpublishtime"].Value);
+
 
 						pro.NowBook.BookAuthor = bookNode.Attributes["bookauthor"].Value;
 						pro.NowBook.BookIntroduction = bookNode.Attributes["bookintroduction"].Value;
@@ -166,21 +164,9 @@ namespace LIBRARY
 							cmt.Text = no.Attributes["text"].Value;
 							cmt.UserId = no.Attributes["userid"].Value;
 
-                            DateTime res = DateTime.Now;
-                            if (DateTime.TryParse(no.Attributes["commenttime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                cmt.CommentTime = res;
-                            }
-                            else if (DateTime.TryParse(no.Attributes["commenttime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                cmt.CommentTime = res;
-                            }
-                            else if (DateTime.TryParse(no.Attributes["commenttime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                cmt.CommentTime = res;
-                            }
-                           
+							DateTime res = DateTime.Now;
 
+							cmt.CommentTime = getDate(no.Attributes["commenttime"].Value);
 							comments.Add(cmt);
 						}
 						pro.Comments = comments.ToArray();
@@ -238,8 +224,8 @@ namespace LIBRARY
 							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
 							tmp.BookName = lli.Attributes["bookname"].Value;
 
-							tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"));
-							tmp.ReturnTime = DateTime.Parse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"));
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
+							tmp.ReturnTime = getDate(lli.Attributes["bookreturndate"].Value);
 							pro.User.BorrowedBooks.Add(tmp);
 						}
 
@@ -248,7 +234,7 @@ namespace LIBRARY
 						{
 							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
 							tmp.BookName = lli.Attributes["bookname"].Value;
-							tmp.BorrowTime = DateTime.Parse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"));
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
 							pro.User.ScheduledBooks.Add(tmp);
 						}
 
@@ -258,37 +244,11 @@ namespace LIBRARY
 							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
 							tmp.BookName = lli.Attributes["bookname"].Value;
 
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
 
-                            DateTime res = DateTime.Now;
-                            if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.BorrowTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.BorrowTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.BorrowTime = res;
-                            }
-
-
-                            if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.ReturnTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.ReturnTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.ReturnTime = res;
-                            }
+							tmp.ReturnTime = getDate(lli.Attributes["bookreturndate"].Value);
 							pro.User.BorrowHis.Add(tmp);
 						}
-
 						break;
 					}
 				case RequestMode.UserInfoChange:
@@ -303,9 +263,9 @@ namespace LIBRARY
 					{
 						XmlNode usernode = root.SelectSingleNode("userbasicinfo");
 						pro.User = new ClassUser(usernode.Attributes["userid"].Value);
-						
+
 						pro.User.BorrowedBooks = new List<ClassABook>();
-						
+
 						XmlNodeList li = root.SelectNodes("usereachborrowedbook");
 						foreach (XmlNode lli in li)
 						{
@@ -313,35 +273,12 @@ namespace LIBRARY
 							tmp.BookName = lli.Attributes["bookname"].Value;
 
 
-                            DateTime res = DateTime.Now;
-                            if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.BorrowTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.BorrowTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookborrowdate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.BorrowTime = res;
-                            }
+							DateTime res = DateTime.Now;
 
-                            if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.ReturnTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.ReturnTime = res;
-                            }
-                            else if (DateTime.TryParse(lli.Attributes["bookreturndate"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                            {
-                                tmp.ReturnTime = res;
-                            }
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
 
-                           
-                            tmp.BookImage = lli.Attributes["bookpic"].Value;
+							tmp.ReturnTime = getDate(lli.Attributes["bookreturndate"].Value);
+							tmp.BookImage = lli.Attributes["bookpic"].Value;
 							pro.User.BorrowedBooks.Add(tmp);
 						}
 						break;
@@ -357,34 +294,10 @@ namespace LIBRARY
 						pro.NowABook.BookAuthor = abook.Attributes["bookauthor"].Value;
 						pro.NowABook.BookPublisher = abook.Attributes["bookpublisher"].Value;
 
+						pro.NowABook.BorrowTime = getDate(abook.Attributes["bookborrowtime"].Value);
 
-                        DateTime res = DateTime.Now;
-                        if (DateTime.TryParse(abook.Attributes["bookborrowtime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowABook.BorrowTime = res;
-                        }
-                        else if (DateTime.TryParse(abook.Attributes["bookborrowtime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowABook.BorrowTime = res;
-                        }
-                        else if (DateTime.TryParse(abook.Attributes["bookborrowtime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowABook.BorrowTime = res;
-                        }
+						pro.NowABook.ReturnTime = getDate(abook.Attributes["bookreturntime"].Value);
 
-
-                        if (DateTime.TryParse(abook.Attributes["bookreturntime"].Value, new CultureInfo("zh-CN"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowABook.ReturnTime = res;
-                        }
-                        else if (DateTime.TryParse(abook.Attributes["bookreturntime"].Value, new CultureInfo("en-UK"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowABook.ReturnTime = res;
-                        }
-                        else if (DateTime.TryParse(abook.Attributes["bookreturntime"].Value, new CultureInfo("en-US"), DateTimeStyles.AssumeLocal, out res))
-                        {
-                            pro.NowABook.ReturnTime = res;
-                        }
 
 						pro.NowABook.BookName = abook.Attributes["bookname"].Value;
 						pro.NowABook.BookImage = abook.Attributes["bookpic"].Value;
@@ -406,6 +319,75 @@ namespace LIBRARY
 					{
 						XmlNode usernode = root.SelectSingleNode("file");
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+						break;
+					}
+				case RequestMode.AdminSearchUser:
+					{
+						XmlNode searchnode = root.SelectSingleNode("adminsearchuser");
+						pro.Curnum = Convert.ToInt32(searchnode.Attributes["curnum"].Value);
+						pro.Endnum = Convert.ToInt32(searchnode.Attributes["endnum"].Value);
+						pro.Amo = Convert.ToInt32(searchnode.Attributes["amo"].Value);
+						XmlNodeList li = root.SelectNodes("userbasic");
+						List<ClassUserBasicInfo> users = new List<ClassUserBasicInfo>();
+						foreach (XmlNode no in li)
+						{
+							ClassUserBasicInfo ub = new ClassUserBasicInfo(no.Attributes["userid"].Value);
+							ub.UserSchool = no.Attributes["userschool"].Value;
+							ub.UserName = no.Attributes["username"].Value;
+							users.Add(ub);
+						}
+						pro.AdminSearchUser = users.ToArray();
+						break;
+					}
+				case RequestMode.AdminGetUserDetail:
+					{
+						XmlNode usernode = root.SelectSingleNode("userbasicinfo");
+						pro.User = new ClassUser(usernode.Attributes["userid"].Value);
+						pro.User.UserBasic.UserName = usernode.Attributes["username"].Value;
+						pro.User.UserBasic.UserSchool = usernode.Attributes["userschool"].Value;
+						pro.User.UserBasic.UserCredit = Convert.ToInt32(usernode.Attributes["usercredit"].Value);
+						pro.User.UserBasic.UserCurrentBorrowedAmount = Convert.ToInt32(usernode.Attributes["usercurrentborrowedamount"].Value);
+						pro.User.UserBasic.UserCurrentMaxBorrowableAmount = Convert.ToInt32(usernode.Attributes["usercurrentmaxborrowableamount"].Value);
+						pro.User.UserBasic.UserCurrentScheduleAmount = Convert.ToInt32(usernode.Attributes["usercurrentscheduleamount"].Value);
+						pro.User.UserBasic.UserRegisterDate = getDate(usernode.Attributes["userregistdate"].Value);
+
+						pro.User.BorrowedBooks = new List<ClassABook>();
+						pro.User.ScheduledBooks = new List<ClassABook>();
+						pro.User.BorrowHis = new List<ClassABook>();
+
+						XmlNodeList li = root.SelectNodes("usereachborrowedbook");
+						foreach (XmlNode lli in li)
+						{
+							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
+							tmp.BookName = lli.Attributes["bookname"].Value;
+
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
+							tmp.ReturnTime = getDate(lli.Attributes["bookreturndate"].Value);
+							pro.User.BorrowedBooks.Add(tmp);
+						}
+
+						li = root.SelectNodes("usereachscheduledbook");
+						foreach (XmlNode lli in li)
+						{
+							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
+							tmp.BookName = lli.Attributes["bookname"].Value;
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
+							pro.User.ScheduledBooks.Add(tmp);
+						}
+
+						li = root.SelectNodes("usereachborrowhis");
+						foreach (XmlNode lli in li)
+						{
+							ClassABook tmp = new ClassABook(lli.Attributes["bookisbn"].Value);
+							tmp.BookName = lli.Attributes["bookname"].Value;
+
+							tmp.BorrowTime = getDate(lli.Attributes["bookborrowdate"].Value);
+
+							tmp.ReturnTime = getDate(lli.Attributes["bookreturndate"].Value);
+
+							pro.User.BorrowHis.Add(tmp);
+						}
+
 						break;
 					}
 				default:
