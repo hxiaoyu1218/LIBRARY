@@ -49,14 +49,6 @@ namespace LIBRARY
                 return;
             }
 
-            //DataGridViewRow row1 = (DataGridViewRow)ResultDataSheet.RowTemplate.Clone();
-            //int index1 = ResultDataSheet.Rows.Add(row1);
-            //ResultDataSheet.Rows[index1].Cells[0].Value = "ISBN";
-            //ResultDataSheet.Rows[index1].Cells[1].Value = "书名";
-            //ResultDataSheet.Rows[index1].Cells[2].Value = "作者";
-            //ResultDataSheet.Rows[index1].Cells[3].Value = "出版社";
-            //ResultDataSheet.Rows[index1].Cells[4].Value = "操作";
-            //ResultDataSheet.Rows[index1].Cells[4].
             for (int i = 0; i < PublicVar.currentBookList.Length; i++)
             {
                 var c = PublicVar.currentBookList[i];
@@ -83,19 +75,6 @@ namespace LIBRARY
 
         private void BookManageForm_Load(object sender, EventArgs e)
         {
-            /*if ((bool)Tag == true)
-            {
-                nPage = 1;
-                SearchBox.Text = lastString;
-                searchBook();
-            }
-            else
-            {
-                DataSheetLoad();
-                JumpPTextBox.Text = nPage.ToString();
-                PageTextBox.Text = maxPage.ToString();
-
-            }*/
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;//1 第一层  2 第二层
             Point t = new Point(61, 11);
@@ -114,6 +93,7 @@ namespace LIBRARY
             LabelBackground.Hide();
             ButtonState = 1;
             #endregion
+            DataSheetLoad();
             SearchBox.Focus();
         }
 
@@ -377,61 +357,24 @@ namespace LIBRARY
                 bookDetailForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(bookDetailForm);
                 bookDetailForm.Show();
+                //loadingBox.Dispose();
+
+
+
+                //DataSheetLoad();
             }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            /*int runFlag = 1;
-            if (SearchBox.Text == "")
-            {
-                ClassBackEnd.Book.Clear();
-                nPage = 1;
-                DataSheetLoad(1);
-                return;
-            }
-            NoResultTextBox.Hide();
-            ResultDataSheet.Rows.Clear();
-            lastState = ButtonState;
-            lastString = SearchBox.Text;
-            LoadGIFBox.Show();
-            if (SearchWorker.IsBusy)
-            {
-                runFlag = 0;
-                SearchWorker.CancelAsync();
-            }
-            if (runFlag != 0)
-                SearchWorker.RunWorkerAsync();*/
+            
             NoResultTextBox.Hide();
             nPage = 1;
             lastState = ButtonState;
             lastString = SearchBox.Text;
             searchBook();
-            /*frmMain.MainPanel.Controls.Clear();
-            AdminBookManageForm searchResultForm = new AdminBookManageForm(frmMain, ButtonState, SearchBox.Text);
-            searchResultForm.TopLevel = false;
-            searchResultForm.Dock = DockStyle.Fill;
-            frmMain.MainPanel.Controls.Add(searchResultForm);
-            searchResultForm.Tag = true;
-            searchResultForm.Show();*/
+            
         }
-
-        /*private void SearchWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Cancelled == false)
-            {
-                if (ClassBackEnd.Book.Count <= 10) maxPage = 1;
-                else maxPage = ClassBackEnd.Book.Count / 10 + 1;
-                PageTextBox.Text = maxPage.ToString();
-                JumpPTextBox.Text = "1";
-                nPage = 1;
-                DataSheetLoad(1);
-            }
-            else
-            {
-                SearchWorker.RunWorkerAsync();
-            }
-        }*/
 
         private void LastPButton_Click(object sender, EventArgs e)
         {
