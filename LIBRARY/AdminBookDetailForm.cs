@@ -372,6 +372,7 @@ namespace LIBRARY
             if (PublicVar.ReturnValue == 0)
             {
                 System.Windows.Forms.MessageBox.Show("delete error!");
+                PublicVar.ReturnValue = -233;
                 return;
             }
             if (PublicVar.ReturnValue == -233)
