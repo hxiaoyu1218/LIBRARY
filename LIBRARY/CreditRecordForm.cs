@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -44,7 +43,6 @@ namespace LIBRARY
         }
         private void CreditRecordForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.GetUserCreditFile(ref list);
             SheetLoad();
 
         }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibrarySystemBackEnd;
 using System.Xml;
 
 namespace LIBRARY
@@ -36,7 +35,6 @@ namespace LIBRARY
 			{
 				Application.Run(new AdminMainForm());
 			}
-			ClassBackEnd.StopTime();
 			//   Application.Run(new AddBookForm());
 		}
 

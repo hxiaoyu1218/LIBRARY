@@ -73,17 +73,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsFormsControlLibrary1">
-      <HintPath>..\..\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1\bin\Release\WindowsFormsControlLibrary1.dll</HintPath>
+    <Reference Include="WindowsFormsControlLibrary1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\WindowsFormsControlLibrary1.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminBookMaintainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminBookMaintainForm.Designer.cs">
-      <DependentUpon>AdminBookMaintainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminBookImageChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,12 +134,6 @@
     <Compile Include="UserBookDetailForm.Designer.cs">
       <DependentUpon>UserBookDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminBookInfoChangeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminBookInfoChangeForm.Designer.cs">
-      <DependentUpon>AdminBookInfoChangeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminBookAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,12 +157,6 @@
     </Compile>
     <Compile Include="CreditRecordForm.Designer.cs">
       <DependentUpon>CreditRecordForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminSystemLogForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminSystemLogForm.Designer.cs">
-      <DependentUpon>AdminSystemLogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgramAboutBox.cs">
       <SubType>Form</SubType>
@@ -224,7 +207,6 @@
     <Compile Include="AdminBookManageForm.Designer.cs">
       <DependentUpon>AdminBookManageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TimeWork.cs" />
     <Compile Include="AdminUserDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,9 +260,6 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminBookMaintainForm.resx">
-      <DependentUpon>AdminBookMaintainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminBookImageChangeForm.resx">
       <DependentUpon>AdminBookImageChangeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,9 +278,6 @@
     <EmbeddedResource Include="UserBookDetailForm.resx">
       <DependentUpon>UserBookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminBookInfoChangeForm.resx">
-      <DependentUpon>AdminBookInfoChangeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminBookAddForm.resx">
       <DependentUpon>AdminBookAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,9 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreditRecordForm.resx">
       <DependentUpon>CreditRecordForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminSystemLogForm.resx">
-      <DependentUpon>AdminSystemLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgramAboutBox.resx">
       <DependentUpon>ProgramAboutBox.cs</DependentUpon>
@@ -520,12 +493,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LibrarySystemBackEnd\LibrarySystemBackEnd.csproj">
-      <Project>{c6368479-15b7-4803-b229-5b6281c0c56a}</Project>
-      <Name>LibrarySystemBackEnd</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

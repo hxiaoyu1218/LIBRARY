@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
-using LibrarySystemBackEnd;
 using System.IO;
 using System.IO.Compression;
 using System.Threading;
@@ -18,7 +17,7 @@ namespace LIBRARY
 {
     public partial class LoginForm : DMSkin.Main
     {
-        private static string RememberMeFileName = @"data\remember.lbs";
+        private static string RememberMeFileName = @"remember.lbs";
 
         public LoginForm()
         {
@@ -267,7 +266,9 @@ namespace LIBRARY
 
         private void PasswordForgetLink_Click(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+			MessageBox box = new MessageBox(27);
+			box.ShowDialog();
+			box.Dispose();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibrarySystemBackEnd;
 using System.IO;
 using System.Collections;
 
@@ -36,22 +35,7 @@ namespace LIBRARY
         }
         private void PageButtonLoad()
         {
-            if (ClassBackEnd.Userbsbook.Count == 0)
-            {
-                LastPButton.Hide();
-                NextPbutton.Hide();
-                JumpPTextBox.Hide();
-                PageTextBox.Hide();
-                DividePicture.Hide();
-            }
-            else
-            {
-                LastPButton.Show();
-                NextPbutton.Show();
-                JumpPTextBox.Show();
-                PageTextBox.Show();
-                DividePicture.Show();
-            }
+            
         }
         private void ComponentDynamicLoad(int page)
         {
@@ -65,7 +49,6 @@ namespace LIBRARY
             }
             picList.Clear();
             Panel.Controls.Clear();
-            PageButtonLoad();
 
             PageTextBox.Text = maxPage.ToString();
             JumpPTextBox.Text = page.ToString();
