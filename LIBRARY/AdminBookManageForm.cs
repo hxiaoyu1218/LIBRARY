@@ -11,14 +11,16 @@ namespace LIBRARY
         private FileProtocol fileProtocol;
         private static int maxPage;
         private static int nPage = 1;
-        private int lastState;
-        private string lastString;
+        public static int lastState;
+        public static string lastString;
         private int flag = 1;
         private int ButtonState;// 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER 6 LABEL
 
-        public AdminBookManageForm(AdminMainForm frm)
+        public AdminBookManageForm(AdminMainForm frm, int state, string searchS)
         {
             frmMain = frm;
+            lastState = state;
+            lastString = searchS;
             InitializeComponent();
             PageButtonLoad(PublicVar.bookTotalAmount);
             //SearchBox.Focus();
@@ -379,11 +381,6 @@ namespace LIBRARY
                 bookDetailForm.Dock = DockStyle.Fill;
                 frmMain.MainPanel.Controls.Add(bookDetailForm);
                 bookDetailForm.Show();
-                //loadingBox.Dispose();
-
-
-
-                //DataSheetLoad();
             }
         }
 

@@ -58,7 +58,7 @@ namespace LIBRARY
             else if (v == 2)
             {
                 MainPanel.Controls.Clear();
-                AdminBookManageForm bookManageForm = new AdminBookManageForm(this);
+                AdminBookManageForm bookManageForm = new AdminBookManageForm(this,AdminBookManageForm.lastState,AdminBookManageForm.lastString);
                 bookManageForm.TopLevel = false;
                 bookManageForm.Dock = DockStyle.Fill;
                 MainPanel.Controls.Add(bookManageForm);
