@@ -394,6 +394,10 @@ namespace LIBRARY
             {
                 PublicVar.ReturnValue = protocol.Retval;
             }
+			else if(protocol.Mode==RequestMode.AdminGetSchedule)
+			{
+				PublicVar.ReturnValue = 0;
+			}
         }
 
         public byte[] receiveFileAsByte()

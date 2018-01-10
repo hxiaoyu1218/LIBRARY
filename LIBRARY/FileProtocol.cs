@@ -48,7 +48,8 @@ namespace LIBRARY
         AdminAddBook,
 		AdminLoadABookHis,
         AdminSendImageAck,
-    }
+		AdminGetSchedule,
+	}
 	public class FileProtocol
 	{
 		private RequestMode mode;
@@ -76,6 +77,7 @@ namespace LIBRARY
 		private ClassUserBasicInfo[] adminSearchUser;
 		private int chargeNum;
 		private ClassBookHis[] bookHis;
+		private ClassBookHis[] schedule;
 
 
 		public FileProtocol(RequestMode mode, int port)
@@ -351,6 +353,19 @@ namespace LIBRARY
 			}
 		}
 
+		public ClassBookHis[] Schedule
+		{
+			get
+			{
+				return schedule;
+			}
+
+			set
+			{
+				schedule = value;
+			}
+		}
+
 		private string Escape(string ins)
 		{
 			string restring = ins;
@@ -480,6 +495,10 @@ namespace LIBRARY
 						ret += String.Format("<book bookname=\"{0}\" bookisbn=\"{1}\" bookamount=\"{2}\" publishtime=\"{3}\" booklabel1=\"{4}\" booklabel2=\"{5}\" booklabel3=\"{6}\" publisher=\"{7}\" author=\"{8}\" introduction=\"{9}\" />", Escape(nowBook.BookName), nowBook.BookIsbn, nowBook.BookAmount, nowBook.BookPublishTime, Escape(nowBook.BookLable1), Escape(nowBook.BookLable2), Escape(nowBook.BookLable3), Escape(nowBook.BookPublisher), Escape(nowBook.BookAuthor), Escape(nowBook.BookIntroduction));
 						ret += "</protocol>";
 						return ret;
+					}
+				case RequestMode.AdminGetSchedule:
+					{
+						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><book bookisbn=\"{2}\" /><admin adminid=\"{3}\" adminpassword=\"{4}\" /></protocol>", mode, port, nowBook.BookIsbn, admin.Id, admin.Password);
 					}
 				default:
 					break;
