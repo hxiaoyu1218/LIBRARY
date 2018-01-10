@@ -82,7 +82,7 @@ namespace LIBRARY
                 pic.Click += new EventHandler(Pic_Click);
                 pic.MouseMove += new MouseEventHandler(Pic_MouseMove);
                 pic.MouseLeave += new EventHandler(Pic_MouseLeave);
-                pic.Image = PublicVar.LoadHeadImage(UserForm.HZToCode(PublicVar.adminSearchUser[i - 1].UserName));//image load
+                pic.Image = PublicVar.PickHeadImage(PublicVar.adminSearchUser[i - 1].UserName);//image load
 
                 Label lab = new Label();
                 lab.AutoSize = true;
