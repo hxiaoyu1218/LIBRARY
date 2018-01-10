@@ -29,6 +29,10 @@ namespace LIBRARY
             frmMain = frm;
             commentPage = 1;
             InitializeComponent();
+            if (PublicVar.scheduleList.Length < 5)
+            {
+                schQueDataSheet.Size = new Size(425, (PublicVar.scheduleList.Length+2) * 41);
+            }
 
         }
         public void BookListRefresh()
@@ -64,14 +68,15 @@ namespace LIBRARY
             ResultDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ResultDataSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-
+            
             schQueDataSheet.Rows.Clear();
             for (int i = 0; i < PublicVar.scheduleList.Length; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = schQueDataSheet.Rows.Add(row);
                 schQueDataSheet.Rows[index].Cells[0].Value = PublicVar.scheduleList[i].UserId;
-                schQueDataSheet.Rows[index].Cells[0].Value = PublicVar.scheduleList[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
+                schQueDataSheet.Rows[index].Cells[1].Value = PublicVar.scheduleList[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
+                schQueDataSheet.Rows[index].Height = 40;
             }
 
 
@@ -79,7 +84,7 @@ namespace LIBRARY
             schQueDataSheet.ClearSelection();
             schQueDataSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             schQueDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+            schQueDataSheet.Refresh();
 
         }
         private void BookDetailLoad()
@@ -156,26 +161,6 @@ namespace LIBRARY
 
             PublicVar.DeletePath = "";
         }
-
-        private void BookPreserveButton_Click(object sender, EventArgs e)
-        {
-
-            /*AdminBookMaintainForm bookMaintainForm = new AdminBookMaintainForm();
-            bookMaintainForm.ShowDialog();
-            bookMaintainForm.Dispose();
-            BookListRefresh();
-
-            if (PublicVar.Delpic != null && PublicVar.Delpic != "")
-            {
-                BookPictureBox.Image.Dispose();
-                File.Delete(PublicVar.Delpic);
-                PublicVar.Delpic = null;
-                frmMain.ReturnButton.Tag = 2;
-                ClassBackEnd.ClearBookList();
-                frmMain.ReturnButton.PerformClick();
-            }*/
-        }
-
 
 
         private void AmountButton_Click(object sender, EventArgs e)
