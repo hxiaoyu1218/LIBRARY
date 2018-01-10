@@ -28,10 +28,7 @@ namespace LIBRARY
             frmMain = frm;
             commentPage = 1;
             InitializeComponent();
-            if (PublicVar.scheduleList.Length < 5)
-            {
-                schQueDataSheet.Size = new Size(425, (PublicVar.scheduleList.Length + 2) * 41);
-            }
+         //   if (PublicVar.scheduleList.Length == 0) label1.Hide();
 
         }
         public void BookListRefresh()

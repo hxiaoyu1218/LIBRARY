@@ -242,15 +242,15 @@ namespace LIBRARY
                         Thread.Sleep(50);
                     }
                     break;
-				case RequestMode.AdminLoadABookHis:
-					while (PublicVar.ReturnValue == -233 && timer < 10000)
-					{
-						timer += 50;
-						Thread.Sleep(50);
-					}
-					break;
-               
-				default:
+                case RequestMode.AdminLoadABookHis:
+                    while (PublicVar.ReturnValue == -233 && timer < 10000)
+                    {
+                        timer += 50;
+                        Thread.Sleep(50);
+                    }
+                    break;
+
+                default:
                     break;
             }
             if (timer >= 10000)
@@ -309,7 +309,7 @@ namespace LIBRARY
         private void BookImageUpload_DoWork(object sender, DoWorkEventArgs e)
         {
 
-            
+
             //image upload 
         }
 
@@ -339,8 +339,17 @@ namespace LIBRARY
                 LoadGIFBox.Enabled = false;
                 ConfirmButton.Visible = true;
             }
-            else
+            else if (PublicVar.ReturnValue == 0)
+            {
                 Close();
+            }
+
+            else
+            {
+                TextBox.Text = "添加失败";
+                LoadGIFBox.Enabled = false;
+                ConfirmButton.Visible = true;
+            }
         }
     }
 }
