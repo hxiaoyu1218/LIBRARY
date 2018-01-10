@@ -173,6 +173,8 @@ namespace LIBRARY
         
         private Image PickHeadImage()
         {
+			if (PublicVar.classUser.UserBasic.UserName.Substring(0, 1) == "蒯")
+				return Properties.Resources.K;
             if ((PublicVar.classUser.UserBasic.UserName[0]>='a'&& PublicVar.classUser.UserBasic.UserName[0]<='z')||(PublicVar.classUser.UserBasic.UserName[0] >= 'A' && PublicVar.classUser.UserBasic.UserName[0] <= 'Z'))
             {
                 switch (PublicVar.classUser.UserBasic.UserName[0])
