@@ -426,6 +426,22 @@ namespace LIBRARY
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
 						break;
 					}
+				case RequestMode.AdminGetSchedule:
+					{
+						List<ClassBookHis> schedule = new List<ClassBookHis>();
+						XmlNodeList li = root.SelectNodes("admingetschedule");
+						foreach (XmlNode lli in li)
+						{
+							ClassBookHis tmp = new ClassBookHis();
+							tmp.UserId = lli.Attributes["userid"].Value;
+
+							tmp.BorrowTime = getDate(lli.Attributes["scheduledate"].Value);
+							
+							schedule.Add(tmp);
+						}
+						pro.Schedule = schedule.ToArray();
+						break;
+					}
 				default:
 					break;
 			}
