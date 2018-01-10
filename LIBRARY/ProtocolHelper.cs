@@ -55,6 +55,12 @@ namespace LIBRARY
 						//ClassUserBasicInfo user = new ClassUserBasicInfo(usernode);
 						//pro.Userinfo = user;
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+
+						XmlNode info = root.SelectSingleNode("info");
+						pro.BookAmount = Convert.ToInt32(info.Attributes["bookamount"].Value);
+						pro.UserAmount = Convert.ToInt32(info.Attributes["useramount"].Value);
+						pro.BorrowRate = Convert.ToDouble(info.Attributes["borrowrate"].Value);
+
 						break;
 					}
 				case RequestMode.UserRegist:

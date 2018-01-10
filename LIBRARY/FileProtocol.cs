@@ -77,7 +77,7 @@ namespace LIBRARY
 		private int chargeNum;
 		private ClassBookHis[] bookHis;
 		private ClassBookHis[] schedule;
-
+		int bookAmount, userAmount; double borrowRate;
 
 		public FileProtocol(RequestMode mode, int port)
 		{
@@ -362,6 +362,45 @@ namespace LIBRARY
 			set
 			{
 				schedule = value;
+			}
+		}
+
+		public int BookAmount
+		{
+			get
+			{
+				return bookAmount;
+			}
+
+			set
+			{
+				bookAmount = value;
+			}
+		}
+
+		public int UserAmount
+		{
+			get
+			{
+				return userAmount;
+			}
+
+			set
+			{
+				userAmount = value;
+			}
+		}
+
+		public double BorrowRate
+		{
+			get
+			{
+				return borrowRate;
+			}
+
+			set
+			{
+				borrowRate = value;
 			}
 		}
 

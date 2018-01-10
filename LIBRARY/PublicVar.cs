@@ -194,7 +194,10 @@ namespace LIBRARY
 		public static ClassBookHis[] bookhis;
 		public static ClassBookHis[] scheduleList;
 
-        public class FileComparer : IComparer
+		public static int bookAmount, userAmount;
+		public static double borrowRate;
+
+		public class FileComparer : IComparer
         {
             int IComparer.Compare(Object o1, Object o2)
             {
