@@ -31,7 +31,7 @@ namespace LIBRARY
             InitializeComponent();
             if (PublicVar.scheduleList.Length < 5)
             {
-                schQueDataSheet.Size = new Size(425, (PublicVar.scheduleList.Length+2) * 41);
+                schQueDataSheet.Size = new Size(425, (PublicVar.scheduleList.Length + 2) * 41);
             }
 
         }
@@ -68,8 +68,17 @@ namespace LIBRARY
             ResultDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ResultDataSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            
+
             schQueDataSheet.Rows.Clear();
+
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.Font = new Font("微软雅黑", 12);
+            style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            foreach (DataGridViewColumn col in this.schQueDataSheet.Columns)
+            {
+                col.HeaderCell.Style = style;
+            }
             for (int i = 0; i < PublicVar.scheduleList.Length; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
