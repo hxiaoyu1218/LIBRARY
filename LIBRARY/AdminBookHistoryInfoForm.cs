@@ -55,7 +55,7 @@ namespace LIBRARY
         {
             //ClassBackEnd.GetBookHistory(index);
             FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminLoadABookHis, 6000);
-            fileProtocol.NowABook = new ClassABook(PublicVar.nowBook.BookIsbn+index.ToString("D4"));
+            fileProtocol.NowABook = new ClassABook(PublicVar.eachBookState[index].BookIsbn);
             fileProtocol.Admin = new ClassAdmin(PublicVar.logUser.UserId);
             fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
 

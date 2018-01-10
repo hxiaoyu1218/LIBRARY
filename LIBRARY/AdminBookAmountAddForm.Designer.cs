@@ -36,6 +36,7 @@
             this.AmountTextBox = new System.Windows.Forms.TextBox();
             this.MoneyBg = new System.Windows.Forms.PictureBox();
             this.OKButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MoneyBg)).BeginInit();
             this.SuspendLayout();
@@ -134,6 +135,15 @@
             this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
             this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(376, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(19, 13);
+            this.button1.TabIndex = 26;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AdminBookAmountAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -147,6 +157,7 @@
             this.Controls.Add(this.ShutDownButton);
             this.Controls.Add(this.BgImage);
             this.Controls.Add(this.TitleLabel);
+            this.Controls.Add(this.button1);
             this.DM_CanResize = false;
             this.DM_howBorder = false;
             this.DM_ShadowWidth = 6;
@@ -173,5 +184,6 @@
         private System.Windows.Forms.TextBox AmountTextBox;
         private System.Windows.Forms.PictureBox MoneyBg;
         private DMSkin.Controls.DM.DMButtonImage OKButton;
+        private System.Windows.Forms.Button button1;
     }
 }
