@@ -17,11 +17,13 @@ namespace LIBRARY
         private int index;
         public AdminBookHistoryInfoForm(int i)
         {
+            //CreditRecordSheet.Rows.Clear();
             InitializeComponent();
             index = i;
         }
         private void SheetLoad()
         {
+            CreditRecordSheet.Rows.Clear();
             int i = 0;
             for (i = 0; i < PublicVar.bookhis.Length; i++)
             {
@@ -64,6 +66,7 @@ namespace LIBRARY
             loadingBox.Dispose();
             if (PublicVar.ReturnValue == -233) Close();
             SheetLoad();
+            PublicVar.ReturnValue = -233;
 
         }
 

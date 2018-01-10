@@ -62,6 +62,19 @@ namespace LIBRARY
             ResultDataSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ResultDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ResultDataSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            schQueDataSheet.Rows.Clear();
+            //for(int i=0;i<PublicVar)
+            DataGridViewRow row = new DataGridViewRow();
+            int index = schQueDataSheet.Rows.Add(row);
+
+
+            schQueDataSheet.ClearSelection();
+            schQueDataSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            schQueDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
         }
         private void BookDetailLoad()
         {
@@ -372,6 +385,7 @@ namespace LIBRARY
             if (PublicVar.ReturnValue == 0)
             {
                 System.Windows.Forms.MessageBox.Show("delete error!");
+                PublicVar.ReturnValue = -233;
                 return;
             }
             if (PublicVar.ReturnValue == -233)

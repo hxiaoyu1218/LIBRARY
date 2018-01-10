@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminBookDetailForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminBookDetailForm));
             this.panel7 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.NextPageButton = new System.Windows.Forms.Button();
@@ -44,10 +49,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.AmountButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.BookInfoButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.BookPreserveButton = new DMSkin.Controls.DM.DMButtonImage();
-            this.BookImageButton = new DMSkin.Controls.DM.DMButtonImage();
+            this.schQueDataSheet = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookInfoTextbox = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -73,15 +77,17 @@
             this.history = new System.Windows.Forms.DataGridViewLinkColumn();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoadGIFBox = new System.Windows.Forms.PictureBox();
             this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
             this.BookCommentRequest = new System.ComponentModel.BackgroundWorker();
             this.WaitingThread = new System.ComponentModel.BackgroundWorker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schQueDataSheet)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,8 +96,8 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel7
@@ -101,7 +107,7 @@
             this.panel7.Controls.Add(this.LastPageButton);
             this.panel7.Controls.Add(this.commentTextBox);
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(2, 831);
+            this.panel7.Location = new System.Drawing.Point(2, 828);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 306);
@@ -179,11 +185,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 22F);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 21F);
             this.label2.Location = new System.Drawing.Point(50, 720);
             this.label2.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 39);
+            this.label2.Size = new System.Drawing.Size(99, 36);
             this.label2.TabIndex = 2;
             this.label2.Text = "评论：";
             // 
@@ -227,86 +233,91 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.AmountButton);
-            this.panel2.Controls.Add(this.BookInfoButton);
-            this.panel2.Controls.Add(this.BookPreserveButton);
-            this.panel2.Controls.Add(this.BookImageButton);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.schQueDataSheet);
             this.panel2.Location = new System.Drawing.Point(487, 257);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(481, 266);
             this.panel2.TabIndex = 18;
             // 
-            // AmountButton
+            // schQueDataSheet
             // 
-            this.AmountButton.BackColor = System.Drawing.Color.Transparent;
-            this.AmountButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.BackgroundImage")));
-            this.AmountButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AmountButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_DownImage")));
-            this.AmountButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_HoverImage")));
-            this.AmountButton.DM_Mode = false;
-            this.AmountButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("AmountButton.DM_NolImage")));
-            this.AmountButton.Location = new System.Drawing.Point(111, 148);
-            this.AmountButton.Name = "AmountButton";
-            this.AmountButton.Size = new System.Drawing.Size(96, 96);
-            this.AmountButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.AmountButton.TabIndex = 36;
-            this.AmountButton.TabStop = false;
-            this.AmountButton.Click += new System.EventHandler(this.AmountButton_Click);
-            this.AmountButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AmountButton_MouseMove);
+            this.schQueDataSheet.AllowUserToAddRows = false;
+            this.schQueDataSheet.AllowUserToDeleteRows = false;
+            this.schQueDataSheet.AllowUserToResizeColumns = false;
+            this.schQueDataSheet.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.schQueDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.schQueDataSheet.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.schQueDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.schQueDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.schQueDataSheet.CausesValidation = false;
+            this.schQueDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schQueDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.schQueDataSheet.ColumnHeadersHeight = 40;
+            this.schQueDataSheet.ColumnHeadersVisible = false;
+            this.schQueDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.schQueDataSheet.DefaultCellStyle = dataGridViewCellStyle3;
+            this.schQueDataSheet.Location = new System.Drawing.Point(28, 49);
+            this.schQueDataSheet.MultiSelect = false;
+            this.schQueDataSheet.Name = "schQueDataSheet";
+            this.schQueDataSheet.ReadOnly = true;
+            this.schQueDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.schQueDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.schQueDataSheet.RowHeadersVisible = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schQueDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.schQueDataSheet.RowTemplate.Height = 40;
+            this.schQueDataSheet.RowTemplate.ReadOnly = true;
+            this.schQueDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.schQueDataSheet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.schQueDataSheet.ShowEditingIcon = false;
+            this.schQueDataSheet.Size = new System.Drawing.Size(425, 204);
+            this.schQueDataSheet.StandardTab = true;
+            this.schQueDataSheet.TabIndex = 37;
+            this.schQueDataSheet.TabStop = false;
             // 
-            // BookInfoButton
+            // dataGridViewTextBoxColumn1
             // 
-            this.BookInfoButton.BackColor = System.Drawing.Color.Transparent;
-            this.BookInfoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.BackgroundImage")));
-            this.BookInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookInfoButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_DownImage")));
-            this.BookInfoButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_HoverImage")));
-            this.BookInfoButton.DM_Mode = false;
-            this.BookInfoButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookInfoButton.DM_NolImage")));
-            this.BookInfoButton.Location = new System.Drawing.Point(271, 25);
-            this.BookInfoButton.Name = "BookInfoButton";
-            this.BookInfoButton.Size = new System.Drawing.Size(96, 96);
-            this.BookInfoButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.BookInfoButton.TabIndex = 35;
-            this.BookInfoButton.TabStop = false;
-            this.BookInfoButton.Click += new System.EventHandler(this.BookInfoButton_Click);
-            this.BookInfoButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookInfoButton_MouseMove);
+            this.dataGridViewTextBoxColumn1.HeaderText = "UserID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 220;
             // 
-            // BookPreserveButton
+            // dataGridViewTextBoxColumn2
             // 
-            this.BookPreserveButton.BackColor = System.Drawing.Color.Transparent;
-            this.BookPreserveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.BackgroundImage")));
-            this.BookPreserveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookPreserveButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_DownImage")));
-            this.BookPreserveButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_HoverImage")));
-            this.BookPreserveButton.DM_Mode = false;
-            this.BookPreserveButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookPreserveButton.DM_NolImage")));
-            this.BookPreserveButton.Location = new System.Drawing.Point(271, 148);
-            this.BookPreserveButton.Name = "BookPreserveButton";
-            this.BookPreserveButton.Size = new System.Drawing.Size(96, 96);
-            this.BookPreserveButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.BookPreserveButton.TabIndex = 34;
-            this.BookPreserveButton.TabStop = false;
-            this.BookPreserveButton.Click += new System.EventHandler(this.BookPreserveButton_Click);
-            this.BookPreserveButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookPreserveButton_MouseMove);
-            // 
-            // BookImageButton
-            // 
-            this.BookImageButton.BackColor = System.Drawing.Color.Transparent;
-            this.BookImageButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.BackgroundImage")));
-            this.BookImageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookImageButton.DM_DownImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_DownImage")));
-            this.BookImageButton.DM_HoverImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_HoverImage")));
-            this.BookImageButton.DM_Mode = false;
-            this.BookImageButton.DM_NolImage = ((System.Drawing.Image)(resources.GetObject("BookImageButton.DM_NolImage")));
-            this.BookImageButton.Location = new System.Drawing.Point(111, 25);
-            this.BookImageButton.Name = "BookImageButton";
-            this.BookImageButton.Size = new System.Drawing.Size(96, 96);
-            this.BookImageButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.BookImageButton.TabIndex = 33;
-            this.BookImageButton.TabStop = false;
-            this.BookImageButton.Click += new System.EventHandler(this.BookImageButton_Click);
-            this.BookImageButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BookImageButton_MouseMove);
+            this.dataGridViewTextBoxColumn2.HeaderText = "SchDate";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 185;
             // 
             // BookInfoTextbox
             // 
@@ -557,56 +568,56 @@
             this.ResultDataSheet.AllowUserToDeleteRows = false;
             this.ResultDataSheet.AllowUserToResizeColumns = false;
             this.ResultDataSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.ResultDataSheet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ResultDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ResultDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ResultDataSheet.CausesValidation = false;
             this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.ResultDataSheet.ColumnHeadersHeight = 40;
             this.ResultDataSheet.ColumnHeadersVisible = false;
             this.ResultDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookID,
             this.BookState,
             this.history});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle8;
             this.ResultDataSheet.Location = new System.Drawing.Point(515, 25);
             this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
             this.ResultDataSheet.ReadOnly = true;
             this.ResultDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.ResultDataSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.ResultDataSheet.RowTemplate.Height = 40;
             this.ResultDataSheet.RowTemplate.ReadOnly = true;
             this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -647,8 +658,8 @@
             this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.BookNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BookNameLabel.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookNameLabel.Location = new System.Drawing.Point(66, 37);
-            this.BookNameLabel.Margin = new System.Windows.Forms.Padding(64, 35, 64, 0);
+            this.BookNameLabel.Location = new System.Drawing.Point(62, 37);
+            this.BookNameLabel.Margin = new System.Windows.Forms.Padding(60, 35, 64, 0);
             this.BookNameLabel.Name = "BookNameLabel";
             this.BookNameLabel.Size = new System.Drawing.Size(245, 57);
             this.BookNameLabel.TabIndex = 0;
@@ -673,6 +684,16 @@
             this.flowLayoutPanel1.TabIndex = 37;
             this.flowLayoutPanel1.WrapContents = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pictureBox1.Location = new System.Drawing.Point(32, 684);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(30, 32, 3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(920, 1);
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            // 
             // LoadGIFBox
             // 
             this.LoadGIFBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -680,7 +701,7 @@
             this.LoadGIFBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.LoadGIFBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.LoadGIFBox.Image = ((System.Drawing.Image)(resources.GetObject("LoadGIFBox.Image")));
-            this.LoadGIFBox.Location = new System.Drawing.Point(5, 778);
+            this.LoadGIFBox.Location = new System.Drawing.Point(5, 775);
             this.LoadGIFBox.Name = "LoadGIFBox";
             this.LoadGIFBox.Size = new System.Drawing.Size(965, 50);
             this.LoadGIFBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -703,15 +724,16 @@
             this.WaitingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitingThread_DoWork);
             this.WaitingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitingThread_RunWorkerCompleted);
             // 
-            // pictureBox1
+            // label1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 684);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(30, 32, 3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(920, 1);
-            this.pictureBox1.TabIndex = 43;
-            this.pictureBox1.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 21F);
+            this.label1.Location = new System.Drawing.Point(-6, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 36);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "预约信息：";
             // 
             // AdminBookDetailForm
             // 
@@ -739,6 +761,8 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schQueDataSheet)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -754,8 +778,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -797,14 +821,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BookID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookState;
         private System.Windows.Forms.DataGridViewLinkColumn history;
-        private DMSkin.Controls.DM.DMButtonImage AmountButton;
-        private DMSkin.Controls.DM.DMButtonImage BookInfoButton;
-        private DMSkin.Controls.DM.DMButtonImage BookPreserveButton;
-        private DMSkin.Controls.DM.DMButtonImage BookImageButton;
         private System.ComponentModel.BackgroundWorker BookImageRequest;
         private System.Windows.Forms.PictureBox LoadGIFBox;
         private System.ComponentModel.BackgroundWorker BookCommentRequest;
         private System.ComponentModel.BackgroundWorker WaitingThread;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.DataGridView schQueDataSheet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Label label1;
     }
 }
