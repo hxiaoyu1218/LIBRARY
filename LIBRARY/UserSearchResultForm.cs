@@ -414,6 +414,7 @@ namespace LIBRARY
                         JumpPTextBox.Text = nPage.ToString();
                     }
                     else nPage = Convert.ToInt32(JumpPTextBox.Text);
+                    if (nPage <= 0) nPage = 1;
                     searchBook();
                 }
                 catch

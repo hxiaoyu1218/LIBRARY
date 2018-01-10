@@ -47,7 +47,8 @@ namespace LIBRARY
 		AdminChargeUser,
         AdminAddBook,
 		AdminLoadABookHis,
-	}
+        AdminSendImageAck,
+    }
 	public class FileProtocol
 	{
 		private RequestMode mode;

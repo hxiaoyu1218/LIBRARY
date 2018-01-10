@@ -249,6 +249,7 @@ namespace LIBRARY
 						Thread.Sleep(50);
 					}
 					break;
+               
 				default:
                     break;
             }
@@ -271,7 +272,7 @@ namespace LIBRARY
                 if (PublicVar.ReturnValue == 0)//success
                 {
                     PublicVar.ReturnValue = -233;
-                    BookImageUpload.RunWorkerAsync();
+                    WaitImageACK.RunWorkerAsync();
                 }
                 else
                     Close();
@@ -307,6 +308,8 @@ namespace LIBRARY
 
         private void BookImageUpload_DoWork(object sender, DoWorkEventArgs e)
         {
+
+            
             //image upload 
         }
 
