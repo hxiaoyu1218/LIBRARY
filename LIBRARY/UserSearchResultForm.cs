@@ -402,18 +402,39 @@ namespace LIBRARY
 
         private void JumpPTextBox_Leave(object sender, EventArgs e)
         {
-            if (nPage != Convert.ToInt32(JumpPTextBox.Text))
+
+        }
+
+        private void JumpPTextBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            label1.Focus();
+        }
+
+        private void JumpPTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==13)
             {
                 try
                 {
+                    nPage = Convert.ToInt32(JumpPTextBox.Text.Trim());
+                    // if(Convert.ToInt32(JumpPTextBox.Text)<)
                     var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
                     if (JumpPage > maxPage)
                     {
                         nPage = maxPage;
                         JumpPTextBox.Text = nPage.ToString();
                     }
+                    else if (Convert.ToInt32(JumpPTextBox.Text) <= 1)
+                    {
+                        nPage = 1;
+                        JumpPTextBox.Text = nPage.ToString();
+                    }
                     else nPage = Convert.ToInt32(JumpPTextBox.Text);
-                    if (nPage <= 0) nPage = 1;
                     searchBook();
                 }
                 catch
@@ -427,14 +448,9 @@ namespace LIBRARY
             }
         }
 
-        private void JumpPTextBox_Enter(object sender, EventArgs e)
+        private void JumpPTextBox_Leave_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            label1.Focus();
+            this.Focus();
         }
     }
 
