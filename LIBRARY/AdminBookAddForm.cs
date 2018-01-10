@@ -30,7 +30,7 @@ namespace LIBRARY
             AddImageButton.Location = new Point(40, 77);
             AddImageButton.BringToFront();
 
-            IDTextBox.Text = ClassTime.getNextIsbn();//max 99 books per day
+            //IDTextBox.Text = ClassTime.getNextIsbn();//max 99 books per day
 
 
         }
@@ -265,8 +265,10 @@ namespace LIBRARY
             DialogResult result = OpenImage.ShowDialog();
             if (result == DialogResult.OK)
             {
-                string path = OpenImage.FileName;              
+                tmp = 1;
+                string path = OpenImage.FileName;
                 BookImagePictureBox.Image = Image.FromFile(path);
+                PublicVar.pic = PublicVar.ImageToBytes(BookImagePictureBox.Image);
                 OpenImage.InitialDirectory = path.Substring(0, path.Length - OpenImage.SafeFileName.Length);
             }
         }
@@ -275,6 +277,7 @@ namespace LIBRARY
             try
             {
                 var amount = Convert.ToInt32(BookAmountTextBox.Text);
+                if (tmp == 0) return false;
             }
             catch
             {
@@ -291,19 +294,38 @@ namespace LIBRARY
 
             if (CheckInput())
             {
-                //if ()//success
-                //{
-                //    MessageBox infoBox = new MessageBox(26);
-                //    infoBox.ShowDialog();
-                //    infoBox.Dispose();
-                //    Close();
-                //}
-                //else
-                //{
-                //    MessageBox infoBox = new MessageBox(9);
-                //    infoBox.ShowDialog();
-                //    infoBox.Dispose();
-                //}
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminAddBook, 6000);
+                fileProtocol.Admin = new ClassAdmin(PublicVar.logUser.UserId);
+                fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
+                fileProtocol.NowBook = new ClassBook(IDTextBox.Text.Trim());
+                fileProtocol.NowBook.BookAmount = Convert.ToInt32(BookAmountTextBox.Text.Trim());
+                fileProtocol.NowBook.BookName = BookNameTextBox.Text.Trim();
+                fileProtocol.NowBook.BookAuthor = AuthorTextBox.Text.Trim();
+                fileProtocol.NowBook.BookLable1 = Label1TextBox.Text.Trim();
+                fileProtocol.NowBook.BookLable2 = Label2TextBox.Text.Trim();
+                fileProtocol.NowBook.BookLable3 = Label3TextBox.Text.Trim();
+                fileProtocol.NowBook.BookPublisher = PublisherTextBox.Text.Trim();
+                fileProtocol.NowBook.BookPublishTime = DateTime.Now;
+                fileProtocol.NowBook.BookIntroduction = BookInfoTextBox.Text.Trim();
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.AdminAddBook, "正在提交", fileProtocol);
+                loadingBox.ShowDialog();
+                loadingBox.Dispose();
+
+
+                if (PublicVar.ReturnValue == -233)
+                {
+                    return;
+
+                }
+                else
+                {
+                    PublicVar.ReturnValue = -233;
+                    MessageBox infoBox = new MessageBox(26);
+                    infoBox.ShowDialog();
+                    infoBox.Dispose();
+                    Close();
+                }
             }
 
 

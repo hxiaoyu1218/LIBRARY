@@ -247,121 +247,153 @@ namespace LIBRARY
             ProtocolHelper helper = new ProtocolHelper(pro);
             FileProtocol protocol = helper.GetProtocol();
 
-			if (protocol.Mode == RequestMode.UserLogin)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserRegist)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserSearchBook)
-			{
-				PublicVar.currentBookList = protocol.Resbook;
-				PublicVar.bookTotalAmount = protocol.Endnum;
-				PublicVar.ReturnValue = 0;
-			}
-			else if (protocol.Mode == RequestMode.UserBookDetailLoad)
-			{
-				PublicVar.nowBook = protocol.NowBook;
-				PublicVar.ReturnValue = 0;
-			}
-			else if (protocol.Mode == RequestMode.UserBookStateLoad)
-			{
-				PublicVar.eachBookState = protocol.EachBookState;
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserBookCommentLoad)
-			{
-				PublicVar.currentCommentList = protocol.Comments;
-				PublicVar.commentTotalAmount = protocol.Endnum;
-				PublicVar.ReturnValue = 0;
-			}
-			else if (protocol.Mode == RequestMode.UserBookLoad)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-				PublicVar.nowBook = protocol.NowBook;
-				PublicVar.eachBookState = protocol.EachBookState;
-			}
-			else if (protocol.Mode == RequestMode.UserCommentBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserDelComment)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserBorrowBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserSearchBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserOrderBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserInfoLoad)
-			{
-				PublicVar.ReturnValue = 1;
-				PublicVar.classUser = protocol.User;
-			}
-			else if (protocol.Mode == RequestMode.UserInfoChange)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserAbookLoad)
-			{
-				PublicVar.nowABook = protocol.NowABook;
-				PublicVar.ReturnValue = 0;
-			}
-			else if (protocol.Mode == RequestMode.UserReturnBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserDelayBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserCancelScheduleBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.UserBorrowedBook)
-			{
-				PublicVar.ReturnValue = 1;
-				PublicVar.classUser = protocol.User;
-			}
-			else if (protocol.Mode == RequestMode.AdminSearchUser)
-			{
-				PublicVar.adminSearchUser = protocol.AdminSearchUser;
-				PublicVar.userTotalAmount = protocol.Endnum;
-				PublicVar.ReturnValue = 0;
-			}
-			else if (protocol.Mode == RequestMode.AdminGetUserDetail)
-			{
-				PublicVar.classUser = protocol.User;
-				PublicVar.ReturnValue = 0;
-			}
-			else if (protocol.Mode == RequestMode.AdminSetUserPassword)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if (protocol.Mode == RequestMode.AdminChargeUser)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
-			else if(protocol.Mode==RequestMode.AdminLoadABookHis)
-			{
-				PublicVar.bookhis = protocol.BookHis;
-				PublicVar.ReturnValue = 0;
-			}
-			else if(protocol.Mode==RequestMode.AdminAddBook)
-			{
-				PublicVar.ReturnValue = protocol.Retval;
-			}
+            if (protocol.Mode == RequestMode.UserLogin)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserRegist)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserSearchBook)
+            {
+                PublicVar.currentBookList = protocol.Resbook;
+                PublicVar.bookTotalAmount = protocol.Endnum;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.UserBookDetailLoad)
+            {
+                PublicVar.nowBook = protocol.NowBook;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.UserBookStateLoad)
+            {
+                PublicVar.eachBookState = protocol.EachBookState;
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserBookCommentLoad)
+            {
+                PublicVar.currentCommentList = protocol.Comments;
+                PublicVar.commentTotalAmount = protocol.Endnum;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.UserBookLoad)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+                PublicVar.nowBook = protocol.NowBook;
+                PublicVar.eachBookState = protocol.EachBookState;
+            }
+            else if (protocol.Mode == RequestMode.UserCommentBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserDelComment)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserBorrowBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserSearchBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserOrderBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserInfoLoad)
+            {
+                PublicVar.ReturnValue = 1;
+                PublicVar.classUser = protocol.User;
+            }
+            else if (protocol.Mode == RequestMode.UserInfoChange)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserAbookLoad)
+            {
+                PublicVar.nowABook = protocol.NowABook;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.UserReturnBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserDelayBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserCancelScheduleBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.UserBorrowedBook)
+            {
+                PublicVar.ReturnValue = 1;
+                PublicVar.classUser = protocol.User;
+            }
+            else if (protocol.Mode == RequestMode.AdminSearchUser)
+            {
+                PublicVar.adminSearchUser = protocol.AdminSearchUser;
+                PublicVar.userTotalAmount = protocol.Endnum;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.AdminGetUserDetail)
+            {
+                PublicVar.classUser = protocol.User;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.AdminSetUserPassword)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.AdminChargeUser)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
+            else if (protocol.Mode == RequestMode.AdminLoadABookHis)
+            {
+                PublicVar.bookhis = protocol.BookHis;
+                PublicVar.ReturnValue = 0;
+            }
+            else if (protocol.Mode == RequestMode.AdminAddBook)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+                if (protocol.Retval != 0) return;
+                lock (steamToServe)
+                {
+                    steamToServe.Write(PublicVar.pic, 0, PublicVar.pic.Length);
+                }
+
+
+                List<byte> fileBuffer = new List<byte>();
+                byte[] tmp = new byte[1024];
+
+                int bytesRead;
+                int totalBytes = 0;
+                do
+                {
+                    bytesRead = steamToServe.Read(tmp, 0, 1024);
+                    for (int i = 0; i < bytesRead; i++)
+                        fileBuffer.Add(tmp[i]);
+
+                    totalBytes += bytesRead;
+                    //Console.WriteLine("Reveiving {0} bytes ...", totalBytes);
+                } while (bytesRead > 0);
+                string[] s = handler.GetProtocol(Encoding.Unicode.GetString(fileBuffer.ToArray(), 0, fileBuffer.ToArray().Length));
+
+                foreach (string ss in s)
+                {
+                    handleProtocol(ss);
+                }
+
+            }
+            else if (protocol.Mode == RequestMode.AdminSendImageAck)
+            {
+                PublicVar.ReturnValue = protocol.Retval;
+            }
         }
 
         public byte[] receiveFileAsByte()

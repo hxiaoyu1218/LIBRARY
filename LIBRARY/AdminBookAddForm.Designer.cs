@@ -121,7 +121,6 @@
             this.IDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.IDTextBox.Location = new System.Drawing.Point(91, 79);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.ReadOnly = true;
             this.IDTextBox.Size = new System.Drawing.Size(254, 22);
             this.IDTextBox.TabIndex = 34;
             this.IDTextBox.TabStop = false;
