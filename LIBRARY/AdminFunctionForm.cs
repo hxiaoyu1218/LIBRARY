@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -97,15 +96,6 @@ namespace LIBRARY
             userManageForm.Show();
         }
 
-        private void SystemLogButton_Click(object sender, EventArgs e)
-        {
-            frmMain.MainPanel.Controls.Clear();
-            AdminSystemLogForm adminSystemLogForm = new AdminSystemLogForm(frmMain);
-            adminSystemLogForm.TopLevel = false;
-            adminSystemLogForm.Dock = DockStyle.Fill;
-            frmMain.MainPanel.Controls.Add(adminSystemLogForm);
-            adminSystemLogForm.Show();
-        }
         private void AddBookButton_Click(object sender, EventArgs e)
         {
             AdminBookAddForm adminBookAddForm = new AdminBookAddForm();
