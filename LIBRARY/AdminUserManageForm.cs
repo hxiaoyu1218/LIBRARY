@@ -69,10 +69,6 @@ namespace LIBRARY
             int idX = 163, idY = 51;
             int aceX = 163, aceY = 72;
 
-            
-            
-
-
             for (int i = 1; i <= PublicVar.userTotalAmount; i++)
             {
                 PictureBox pic = new PictureBox();

@@ -21,6 +21,7 @@ namespace LIBRARY
         {
             frmMain = frm;
             InitializeComponent();
+            PageButtonLoad(PublicVar.bookTotalAmount);
             //SearchBox.Focus();
         }
 
@@ -38,6 +39,26 @@ namespace LIBRARY
 
             PublicVar.ReturnValue = -233;
             DataSheetLoad();
+        }
+
+        private void PageButtonLoad(int num)
+        {
+            if (num == 0)
+            {
+                LastPButton.Hide();
+                NextPbutton.Hide();
+                JumpPTextBox.Hide();
+                PageTextBox.Hide();
+                DividePicture.Hide();
+            }
+            else
+            {
+                LastPButton.Show();
+                NextPbutton.Show();
+                JumpPTextBox.Show();
+                PageTextBox.Show();
+                DividePicture.Show();
+            }
         }
 
         private void DataSheetLoad()
@@ -369,13 +390,13 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-
+            
             NoResultTextBox.Hide();
             nPage = 1;
             lastState = ButtonState;
             lastString = SearchBox.Text;
             searchBook();
-
+            PageButtonLoad(PublicVar.bookTotalAmount);
         }
 
         private void LastPButton_Click(object sender, EventArgs e)
@@ -429,7 +450,7 @@ namespace LIBRARY
             {
                 try
                 {
-                    nPage = Convert.ToInt32(JumpPTextBox.Text);
+                    nPage = Convert.ToInt32(JumpPTextBox.Text.Trim());
                     // if(Convert.ToInt32(JumpPTextBox.Text)<)
                     var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
                     if (JumpPage > maxPage)
