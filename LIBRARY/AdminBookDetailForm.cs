@@ -80,23 +80,7 @@ namespace LIBRARY
             BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
             BookImageRequest.RunWorkerAsync();
 
-            /*if (ClassBackEnd.Currentbook.Introduction == "")
-            {
-                BookInfoTextbox.Text = "该书暂无相关简介。";
-            }
-            else
-            {
-                BookInfoTextbox.Text = ClassBackEnd.Currentbook.Introduction;
-            }
-            try
-            {
-                BookPictureBox.Image = Image.FromFile(ClassBackEnd.Currentbook.Bookimage);
-            }
-            catch
-            {
-                BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
-            }*/
-
+            
         }
 
 
@@ -401,12 +385,6 @@ namespace LIBRARY
                 LoadGIFBox.Visible = true;
                 BookCommentRequest.RunWorkerAsync();
             }
-        }
-
-
-        private void ResultDataSheet_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

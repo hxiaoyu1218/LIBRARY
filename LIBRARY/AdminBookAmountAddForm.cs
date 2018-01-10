@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using LibrarySystemBackEnd;
+//using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -17,6 +17,7 @@ namespace LIBRARY
         public AdminBookAmountAddForm()
         {
             InitializeComponent();
+            this.AcceptButton = button1;
         }
 
         private void ChargeForm_Load(object sender, EventArgs e)
@@ -71,11 +72,16 @@ namespace LIBRARY
             try
             {
                 var num = Convert.ToInt32(AmountTextBox.Text);
-                if(!ClassBackEnd.AddBookAmount(num))
+                FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminLoadABookHis, 6000);
+                fileProtocol.NowBook.BookAmount = fileProtocol.NowBook.BookAmount + num;
+                //fileProtocol.NowABook = new ClassABook(PublicVar.nowBook.BookIsbn + index.ToString("D4"));
+                //fileProtocol.Admin = new ClassAdmin(PublicVar.logUser.UserId);
+                //fileProtocol.Admin.Password = PublicVar.logUser.UserPassword;
+
+                LoadingBox loadingBox = new LoadingBox(RequestMode.AdminLoadABookHis, "正在修改", fileProtocol);
+                loadingBox.ShowDialog();
+                if (PublicVar.ReturnValue == -233)
                 {
-                    MessageBox ib = new MessageBox(9);
-                    ib.ShowDialog();
-                    ib.Dispose();
                     return;
                 }
 
@@ -91,6 +97,11 @@ namespace LIBRARY
                 infoBox.Dispose();
                 AmountTextBox.Focus();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OKButton_Click(OKButton, new EventArgs());
         }
     }
 }
