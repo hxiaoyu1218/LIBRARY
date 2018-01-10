@@ -388,6 +388,13 @@ namespace LIBRARY
 
         }
 
-
+        private void ISBNCueText_Click(object sender, EventArgs e)
+        {
+            if(IDTextBox.Text=="")
+            {
+                ISBNCueText.Hide();
+                IDTextBox.Focus();
+            }
+        }
     }
 }

@@ -490,6 +490,7 @@
             this.ISBNCueText.Size = new System.Drawing.Size(39, 15);
             this.ISBNCueText.TabIndex = 63;
             this.ISBNCueText.Text = "ISBN";
+            this.ISBNCueText.Click += new System.EventHandler(this.ISBNCueText_Click);
             // 
             // button1
             // 
