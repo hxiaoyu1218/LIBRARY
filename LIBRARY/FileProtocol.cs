@@ -472,6 +472,14 @@ namespace LIBRARY
 					{
 						return String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" /><abook bookisbn=\"{2}\" /><admin adminid=\"{3}\" adminpassword=\"{4}\" /></protocol>", mode, port, nowABook.BookIsbn,admin.Id,admin.Password);
 					}
+				case RequestMode.AdminAddBook:
+					{
+						string ret = String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" />", mode, port);
+						ret += String.Format("<admin adminid=\"{0}\" adminpassword=\"{1}\" />", admin.Id, admin.Password);
+						ret += String.Format("<book bookname=\"{0}\" bookisbn=\"{1}\" bookamount=\"{2}\" publishtime=\"{3}\" booklabel1=\"{4}\" booklabel2=\"{5}\" booklabel3=\"{6}\" publisher=\"{7}\" author=\"{8}\" introduction=\"{9}\" />", nowBook.BookName, nowBook.BookIsbn, nowBook.BookAmount, nowBook.BookPublishTime, nowBook.BookLable1, nowBook.BookLable2, nowBook.BookLable3, nowBook.BookPublisher, nowBook.BookAuthor, nowBook.BookIntroduction);
+						ret += "</protocol>";
+						return ret;
+					}
 				default:
 					break;
 			}

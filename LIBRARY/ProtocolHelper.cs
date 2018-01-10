@@ -420,6 +420,12 @@ namespace LIBRARY
 						pro.BookHis = bookhis.ToArray();
 						break;
 					}
+				case RequestMode.AdminAddBook:
+					{
+						XmlNode usernode = root.SelectSingleNode("file");
+						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+						break;
+					}
 				default:
 					break;
 			}

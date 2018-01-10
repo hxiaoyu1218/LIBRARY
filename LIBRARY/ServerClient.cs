@@ -358,6 +358,10 @@ namespace LIBRARY
 				PublicVar.bookhis = protocol.BookHis;
 				PublicVar.ReturnValue = 0;
 			}
+			else if(protocol.Mode==RequestMode.AdminAddBook)
+			{
+				PublicVar.ReturnValue = protocol.Retval;
+			}
         }
 
         public byte[] receiveFileAsByte()
