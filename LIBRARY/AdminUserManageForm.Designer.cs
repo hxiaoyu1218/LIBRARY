@@ -52,7 +52,7 @@
             this.SearchBox.Multiline = true;
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(530, 46);
-            this.SearchBox.TabIndex = 1;
+            this.SearchBox.TabIndex = 0;
             this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
             this.SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBox_KeyPress);
             // 
@@ -70,6 +70,7 @@
             this.SearchButton.Text = "搜索";
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.SearchButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchButton_KeyDown);
             // 
             // PageTextBox
             // 
