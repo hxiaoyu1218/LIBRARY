@@ -265,14 +265,7 @@ namespace LIBRARY
             DialogResult result = OpenImage.ShowDialog();
             if (result == DialogResult.OK)
             {
-                string path = OpenImage.FileName;
-                if (!File.Exists(@"data\book\pic\" + OpenImage.SafeFileName))
-                    System.IO.File.Copy(path, @"data\book\pic\" + OpenImage.SafeFileName, true);
-                else
-                {
-                    tmp = 1;
-                }
-                SavePath = @"data\book\pic\" + OpenImage.SafeFileName;
+                string path = OpenImage.FileName;              
                 BookImagePictureBox.Image = Image.FromFile(path);
                 OpenImage.InitialDirectory = path.Substring(0, path.Length - OpenImage.SafeFileName.Length);
             }

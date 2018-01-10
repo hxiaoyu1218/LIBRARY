@@ -106,7 +106,12 @@ namespace LIBRARY
             frmMain.MainPanel.Controls.Add(adminSystemLogForm);
             adminSystemLogForm.Show();
         }
-
+        private void AddBookButton_Click(object sender, EventArgs e)
+        {
+            AdminBookAddForm adminBookAddForm = new AdminBookAddForm();
+            adminBookAddForm.ShowDialog();
+            adminBookAddForm.Dispose();
+        }
         private void AddBookButton_MouseLeave(object sender, EventArgs e)
         {
             AddBookButton.BackgroundImage = AddBookButton.DM_NolImage;
@@ -116,5 +121,7 @@ namespace LIBRARY
         {
             AddBookButton.BackgroundImage = AddBookButton.DM_HoverImage;
         }
+
+      
     }
 }
