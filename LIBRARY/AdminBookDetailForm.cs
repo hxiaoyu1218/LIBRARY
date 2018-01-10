@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Threading;
 using WindowsFormsControlLibrary1;
 using System.IO;
+using System.Globalization;
 //using LibrarySystemBackEnd;
 
 namespace LIBRARY
@@ -28,7 +29,11 @@ namespace LIBRARY
             frmMain = frm;
             commentPage = 1;
             InitializeComponent();
-            
+            if (PublicVar.scheduleList.Length < 5)
+            {
+                schQueDataSheet.Size = new Size(425, (PublicVar.scheduleList.Length + 2) * 41);
+            }
+
         }
         public void BookListRefresh()
         {
@@ -62,6 +67,34 @@ namespace LIBRARY
             ResultDataSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ResultDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ResultDataSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            schQueDataSheet.Rows.Clear();
+
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.Font = new Font("微软雅黑", 12);
+            style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            foreach (DataGridViewColumn col in this.schQueDataSheet.Columns)
+            {
+                col.HeaderCell.Style = style;
+            }
+            for (int i = 0; i < PublicVar.scheduleList.Length; i++)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = schQueDataSheet.Rows.Add(row);
+                schQueDataSheet.Rows[index].Cells[0].Value = PublicVar.scheduleList[i].UserId;
+                schQueDataSheet.Rows[index].Cells[1].Value = PublicVar.scheduleList[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
+                schQueDataSheet.Rows[index].Height = 40;
+            }
+
+
+
+            schQueDataSheet.ClearSelection();
+            schQueDataSheet.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            schQueDataSheet.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            schQueDataSheet.Refresh();
+
         }
         private void BookDetailLoad()
         {
@@ -80,7 +113,7 @@ namespace LIBRARY
             BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
             BookImageRequest.RunWorkerAsync();
 
-            
+
         }
 
 
@@ -106,9 +139,7 @@ namespace LIBRARY
             #region 设置圆形按钮区域
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 96, 96);
-            BookInfoButton.Region = new Region(myPath);
-            BookPreserveButton.Region = new Region(myPath);
-            BookImageButton.Region = new Region(myPath);
+
             #endregion
 
             SetStyle(ControlStyles.UserPaint, true);
@@ -140,66 +171,6 @@ namespace LIBRARY
             PublicVar.DeletePath = "";
         }
 
-        private void BookPreserveButton_Click(object sender, EventArgs e)
-        {
-
-            /*AdminBookMaintainForm bookMaintainForm = new AdminBookMaintainForm();
-            bookMaintainForm.ShowDialog();
-            bookMaintainForm.Dispose();
-            BookListRefresh();
-
-            if (PublicVar.Delpic != null && PublicVar.Delpic != "")
-            {
-                BookPictureBox.Image.Dispose();
-                File.Delete(PublicVar.Delpic);
-                PublicVar.Delpic = null;
-                frmMain.ReturnButton.Tag = 2;
-                ClassBackEnd.ClearBookList();
-                frmMain.ReturnButton.PerformClick();
-            }*/
-        }
-
-        #region Animate
-        private void BookImageButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            BookImageButton.BackgroundImage = BookImageButton.DM_HoverImage;
-        }
-
-        private void BookImageButton_MouseLeave(object sender, EventArgs e)
-        {
-            BookImageButton.BackgroundImage = BookImageButton.DM_NolImage;
-        }
-
-        private void BookInfoButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            BookInfoButton.BackgroundImage = BookInfoButton.DM_HoverImage;
-        }
-
-        private void BookInfoButton_MouseLeave(object sender, EventArgs e)
-        {
-            BookInfoButton.BackgroundImage = BookInfoButton.DM_NolImage;
-        }
-
-        private void BookPreserveButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            BookPreserveButton.BackgroundImage = BookPreserveButton.DM_HoverImage;
-        }
-
-        private void BookPreserveButton_MouseLeave(object sender, EventArgs e)
-        {
-            BookPreserveButton.BackgroundImage = BookPreserveButton.DM_NolImage;
-        }
-
-        private void AmountButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            AmountButton.BackgroundImage = AmountButton.DM_HoverImage;
-        }
-
-        private void AmountButton_MouseLeave(object sender, EventArgs e)
-        {
-            AmountButton.BackgroundImage = AmountButton.DM_NolImage;
-        }
-        #endregion
 
         private void AmountButton_Click(object sender, EventArgs e)
         {
@@ -350,7 +321,7 @@ namespace LIBRARY
                 for (int i = 0; i < PublicVar.currentCommentList.Length; i++)
                 {
                     commentControlList[i].setDeleteBtn(false);
-                    
+
                     commentControlList[i].setTime(PublicVar.currentCommentList[i].CommentTime.ToShortDateString());
                     commentControlList[i].setText(PublicVar.currentCommentList[i].Text);
                     commentControlList[i].UserControlDeleteBtnClicked += new UserControl1.deleteBtnClickHandle(this.CommentDeleteBtn_Click);
