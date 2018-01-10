@@ -12,7 +12,6 @@ using System.Threading;
 using WindowsFormsControlLibrary1;
 using System.IO;
 using System.Globalization;
-//using LibrarySystemBackEnd;
 
 namespace LIBRARY
 {
@@ -149,14 +148,7 @@ namespace LIBRARY
             BookListRefresh();
 
         }
-
-        private void BookInfoButton_Click(object sender, EventArgs e)
-        {
-            AdminBookInfoChangeForm bookInfoChangeForm = new AdminBookInfoChangeForm();
-            bookInfoChangeForm.ShowDialog();
-            bookInfoChangeForm.Dispose();
-            BookDetailLoad();
-        }
+		
 
         private void BookImageButton_Click(object sender, EventArgs e)
         {
