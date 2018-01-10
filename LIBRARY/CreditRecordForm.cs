@@ -43,7 +43,6 @@ namespace LIBRARY
         }
         private void CreditRecordForm_Load(object sender, EventArgs e)
         {
-            ClassBackEnd.GetUserCreditFile(ref list);
             SheetLoad();
 
         }

@@ -37,11 +37,7 @@ namespace LIBRARY
             BookManageButton.Region = new Region(myPath);
             SystemLogButton.Region = new Region(myPath);
             #endregion
-
-
-            BookAmountText.Text = ClassBackEnd.Bookamount.ToString();
-            UserAmountText.Text = ClassBackEnd.Useramount.ToString();
-            BorrowRateText.Text = ClassBackEnd.Lendingrate.ToString();
+			
         }
 
         #region Button Animate

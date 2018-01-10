@@ -35,7 +35,6 @@ namespace LIBRARY
 			{
 				Application.Run(new AdminMainForm());
 			}
-			ClassBackEnd.StopTime();
 			//   Application.Run(new AddBookForm());
 		}
 
