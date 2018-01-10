@@ -88,7 +88,7 @@ namespace LIBRARY
                 else
                 {
                     UserCueText.Hide();
-                    UserAlertLabel.Show();
+                    UserAlertLabel.Hide();
                 }
 
             }
