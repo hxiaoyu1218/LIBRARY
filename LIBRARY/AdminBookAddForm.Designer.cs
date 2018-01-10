@@ -62,6 +62,8 @@
             this.Label3CueText = new System.Windows.Forms.Label();
             this.Label3TextBox = new System.Windows.Forms.TextBox();
             this.Label3BG = new System.Windows.Forms.PictureBox();
+            this.ISBNCueText = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BgImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDBg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BookNameBg)).BeginInit();
@@ -122,8 +124,9 @@
             this.IDTextBox.Location = new System.Drawing.Point(91, 79);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(254, 22);
-            this.IDTextBox.TabIndex = 34;
-            this.IDTextBox.TabStop = false;
+            this.IDTextBox.TabIndex = 1;
+            this.IDTextBox.Enter += new System.EventHandler(this.IDTextBox_Enter);
+            this.IDTextBox.Leave += new System.EventHandler(this.IDTextBox_Leave);
             // 
             // IDBg
             // 
@@ -157,7 +160,7 @@
             this.BookNameTextBox.Location = new System.Drawing.Point(91, 130);
             this.BookNameTextBox.Name = "BookNameTextBox";
             this.BookNameTextBox.Size = new System.Drawing.Size(254, 22);
-            this.BookNameTextBox.TabIndex = 1;
+            this.BookNameTextBox.TabIndex = 2;
             this.BookNameTextBox.Enter += new System.EventHandler(this.BookNameTextBox_Enter);
             this.BookNameTextBox.Leave += new System.EventHandler(this.BookNameTextBox_Leave);
             // 
@@ -192,7 +195,7 @@
             this.AuthorTextBox.Location = new System.Drawing.Point(91, 181);
             this.AuthorTextBox.Name = "AuthorTextBox";
             this.AuthorTextBox.Size = new System.Drawing.Size(254, 22);
-            this.AuthorTextBox.TabIndex = 2;
+            this.AuthorTextBox.TabIndex = 3;
             this.AuthorTextBox.Enter += new System.EventHandler(this.AuthorTextBox_Enter);
             this.AuthorTextBox.Leave += new System.EventHandler(this.AuthorTextBox_Leave);
             // 
@@ -228,7 +231,7 @@
             this.PublisherTextBox.Location = new System.Drawing.Point(91, 232);
             this.PublisherTextBox.Name = "PublisherTextBox";
             this.PublisherTextBox.Size = new System.Drawing.Size(254, 22);
-            this.PublisherTextBox.TabIndex = 3;
+            this.PublisherTextBox.TabIndex = 4;
             this.PublisherTextBox.Enter += new System.EventHandler(this.PublisherTextBox_Enter);
             this.PublisherTextBox.Leave += new System.EventHandler(this.PublisherTextBox_Leave);
             // 
@@ -264,7 +267,7 @@
             this.BookAmountTextBox.Location = new System.Drawing.Point(91, 283);
             this.BookAmountTextBox.Name = "BookAmountTextBox";
             this.BookAmountTextBox.Size = new System.Drawing.Size(254, 22);
-            this.BookAmountTextBox.TabIndex = 4;
+            this.BookAmountTextBox.TabIndex = 5;
             this.BookAmountTextBox.Enter += new System.EventHandler(this.BookAmountTextBox_Enter);
             this.BookAmountTextBox.Leave += new System.EventHandler(this.BookAmountTextBox_Leave);
             // 
@@ -301,7 +304,7 @@
             this.BookInfoTextBox.Multiline = true;
             this.BookInfoTextBox.Name = "BookInfoTextBox";
             this.BookInfoTextBox.Size = new System.Drawing.Size(254, 121);
-            this.BookInfoTextBox.TabIndex = 8;
+            this.BookInfoTextBox.TabIndex = 9;
             this.BookInfoTextBox.Enter += new System.EventHandler(this.BookInfoTextBox_Enter);
             this.BookInfoTextBox.Leave += new System.EventHandler(this.BookInfoTextBox_Leave);
             // 
@@ -340,8 +343,7 @@
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(96, 96);
             this.OKButton.State = DMSkin.Controls.DM.DMButtonImage.BtnState.Nol;
-            this.OKButton.TabIndex = 53;
-            this.OKButton.TabStop = false;
+            this.OKButton.TabIndex = 0;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             this.OKButton.MouseLeave += new System.EventHandler(this.OKButton_MouseLeave);
             this.OKButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OKButton_MouseMove);
@@ -378,7 +380,7 @@
             this.Label1CueText.Location = new System.Drawing.Point(86, 337);
             this.Label1CueText.Name = "Label1CueText";
             this.Label1CueText.Size = new System.Drawing.Size(47, 15);
-            this.Label1CueText.TabIndex = 5;
+            this.Label1CueText.TabIndex = 6;
             this.Label1CueText.Text = "标签1";
             this.Label1CueText.Click += new System.EventHandler(this.Label1CueText_Click);
             // 
@@ -391,7 +393,7 @@
             this.Label1TextBox.Location = new System.Drawing.Point(91, 335);
             this.Label1TextBox.Name = "Label1TextBox";
             this.Label1TextBox.Size = new System.Drawing.Size(99, 22);
-            this.Label1TextBox.TabIndex = 5;
+            this.Label1TextBox.TabIndex = 6;
             this.Label1TextBox.Enter += new System.EventHandler(this.Label1TextBox_Enter);
             this.Label1TextBox.Leave += new System.EventHandler(this.Label1TextBox_Leave);
             // 
@@ -427,7 +429,7 @@
             this.Label2TextBox.Location = new System.Drawing.Point(252, 335);
             this.Label2TextBox.Name = "Label2TextBox";
             this.Label2TextBox.Size = new System.Drawing.Size(99, 22);
-            this.Label2TextBox.TabIndex = 6;
+            this.Label2TextBox.TabIndex = 7;
             this.Label2TextBox.Enter += new System.EventHandler(this.Label2TextBox_Enter);
             this.Label2TextBox.Leave += new System.EventHandler(this.Label2TextBox_Leave);
             // 
@@ -463,7 +465,7 @@
             this.Label3TextBox.Location = new System.Drawing.Point(91, 386);
             this.Label3TextBox.Name = "Label3TextBox";
             this.Label3TextBox.Size = new System.Drawing.Size(254, 22);
-            this.Label3TextBox.TabIndex = 7;
+            this.Label3TextBox.TabIndex = 8;
             this.Label3TextBox.Enter += new System.EventHandler(this.Label3TextBox_Enter);
             this.Label3TextBox.Leave += new System.EventHandler(this.Label3TextBox_Leave);
             // 
@@ -477,12 +479,35 @@
             this.Label3BG.TabIndex = 62;
             this.Label3BG.TabStop = false;
             // 
+            // ISBNCueText
+            // 
+            this.ISBNCueText.AutoSize = true;
+            this.ISBNCueText.BackColor = System.Drawing.Color.White;
+            this.ISBNCueText.Font = new System.Drawing.Font("黑体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ISBNCueText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.ISBNCueText.Location = new System.Drawing.Point(86, 82);
+            this.ISBNCueText.Name = "ISBNCueText";
+            this.ISBNCueText.Size = new System.Drawing.Size(39, 15);
+            this.ISBNCueText.TabIndex = 63;
+            this.ISBNCueText.Text = "ISBN";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(428, 337);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(10, 10);
+            this.button1.TabIndex = 64;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AdminBookAddForm
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
             this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.ISBNCueText);
             this.Controls.Add(this.Label3CueText);
             this.Controls.Add(this.Label3TextBox);
             this.Controls.Add(this.Label3BG);
@@ -515,6 +540,7 @@
             this.Controls.Add(this.ShutDownButton);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.BgImage);
+            this.Controls.Add(this.button1);
             this.DM_CanResize = false;
             this.DM_howBorder = false;
             this.DM_ShadowWidth = 6;
@@ -577,5 +603,7 @@
         private System.Windows.Forms.Label Label3CueText;
         private System.Windows.Forms.TextBox Label3TextBox;
         private System.Windows.Forms.PictureBox Label3BG;
+        private System.Windows.Forms.Label ISBNCueText;
+        private System.Windows.Forms.Button button1;
     }
 }

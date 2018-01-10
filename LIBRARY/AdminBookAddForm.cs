@@ -258,6 +258,24 @@ namespace LIBRARY
             OKButton.BackgroundImage = OKButton.DM_NolImage;
         }
 
+        private void IDTextBox_Enter(object sender, EventArgs e)
+        {
+            if (IDTextBox.Text == "")
+                ISBNCueText.Hide();
+
+        }
+
+        private void IDTextBox_Leave(object sender, EventArgs e)
+        {
+            if (IDTextBox.Text == "")
+                ISBNCueText.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OKButton_Click(OKButton, new EventArgs());
+        }
+
         #endregion
 
         private void AddImageButton_Click(object sender, EventArgs e)
@@ -270,14 +288,54 @@ namespace LIBRARY
                 BookImagePictureBox.Image = Image.FromFile(path);
                 PublicVar.pic = PublicVar.ImageToBytes(BookImagePictureBox.Image);
                 OpenImage.InitialDirectory = path.Substring(0, path.Length - OpenImage.SafeFileName.Length);
+                AddImageButton.Hide();
             }
         }
         private bool CheckInput()
         {
+            if (IDTextBox.Text == "" || BookNameTextBox.Text == "" || AuthorTextBox.Text == "" || PublisherTextBox.Text == "" || BookAmountTextBox.Text == "" || Label1TextBox.Text == "" || Label2TextBox.Text == "" || Label3TextBox.Text == "" || BookInfoTextBox.Text == "")
+            {
+                MessageBox infoBox = new MessageBox(33);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                this.Focus();
+                //BookAmountTextBox.Focus();
+                return false;
+            }
+            try
+            {
+                var Isbn = Convert.ToString(IDTextBox.Text.Trim());
+
+                //if(IDTextBox.Text.Length==13)
+                //var amount = Convert.ToInt32(BookAmountTextBox.Text.Trim());
+                if (Isbn.Length!=13)
+                {
+                    MessageBox infoBox = new MessageBox(35);
+                    infoBox.ShowDialog();
+                    infoBox.Dispose();
+                    //BookAmountTextBox.Focus();
+                    return false; ;
+                }
+            }
+            catch
+            {
+                MessageBox infoBox = new MessageBox(35);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                //BookAmountTextBox.Focus();
+                return false;
+            }
             try
             {
                 var amount = Convert.ToInt32(BookAmountTextBox.Text);
-                if (tmp == 0) return false;
+                if (tmp == 0)
+                {
+                    MessageBox infoBox = new MessageBox(34);
+                    infoBox.ShowDialog();
+                    infoBox.Dispose();
+                    //BookAmountTextBox.Focus();
+                    return false; ;
+                }
             }
             catch
             {

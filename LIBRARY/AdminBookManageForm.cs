@@ -45,7 +45,7 @@ namespace LIBRARY
             ResultDataSheet.Rows.Clear();
             ResultDataSheet.Hide();
             if (PublicVar.currentBookList == null)
-            {//NoResultTextBox.Show();
+            {
                 return;
             }
 
@@ -369,13 +369,13 @@ namespace LIBRARY
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            
+
             NoResultTextBox.Hide();
             nPage = 1;
             lastState = ButtonState;
             lastString = SearchBox.Text;
             searchBook();
-            
+
         }
 
         private void LastPButton_Click(object sender, EventArgs e)
@@ -394,14 +394,52 @@ namespace LIBRARY
 
         private void JumpPTextBox_Leave(object sender, EventArgs e)
         {
-            if (nPage != Convert.ToInt32(JumpPTextBox.Text))
+            try
+            {
+                nPage = Convert.ToInt32(JumpPTextBox.Text);
+                   // if(Convert.ToInt32(JumpPTextBox.Text)<)
+                var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
+                if (JumpPage > maxPage)
+                {
+                    nPage = maxPage;
+                    JumpPTextBox.Text = nPage.ToString();
+                }
+                else if (Convert.ToInt32(JumpPTextBox.Text) <= 1)
+                {
+                    nPage = 1;
+                    JumpPTextBox.Text = nPage.ToString();
+                }
+                else nPage = Convert.ToInt32(JumpPTextBox.Text);
+                searchBook();
+            }
+            catch
+            {
+                if (JumpPTextBox.Text == "") return;
+                MessageBox infoBox = new MessageBox(13);
+                infoBox.ShowDialog();
+                infoBox.Dispose();
+                JumpPTextBox.Focus();
+            }
+
+        }
+
+        private void JumpPTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
             {
                 try
                 {
+                    nPage = Convert.ToInt32(JumpPTextBox.Text);
+                    // if(Convert.ToInt32(JumpPTextBox.Text)<)
                     var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
                     if (JumpPage > maxPage)
                     {
                         nPage = maxPage;
+                        JumpPTextBox.Text = nPage.ToString();
+                    }
+                    else if (Convert.ToInt32(JumpPTextBox.Text) <= 1)
+                    {
+                        nPage = 1;
                         JumpPTextBox.Text = nPage.ToString();
                     }
                     else nPage = Convert.ToInt32(JumpPTextBox.Text);
@@ -416,11 +454,12 @@ namespace LIBRARY
                     JumpPTextBox.Focus();
                 }
             }
+                //JumpPTextBox_Leave(JumpPTextBox, new EventArgs());
         }
 
-        private void JumpPTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void JumpPTextBox_Leave_1(object sender, EventArgs e)
         {
-            JumpPTextBox_Leave(JumpPTextBox, new EventArgs());
+            this.Focus();
         }
     }
 

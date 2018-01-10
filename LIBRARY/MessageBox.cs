@@ -171,6 +171,18 @@ namespace LIBRARY
             {
                 TextBox.Text = "请输入您要更改的信息！";//cbXG
             }
+            else if (textType == 33)
+            {
+                TextBox.Text = "输入信息不能为空！";//cbXG
+            }
+            else if (textType == 34)
+            {
+                TextBox.Text = "请添加图片！";//cbXG
+            }
+            else if (textType == 35)
+            {
+                TextBox.Text = "请输入正确的13位ISBN！";//cbXG
+            }
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)

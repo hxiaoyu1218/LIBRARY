@@ -153,6 +153,7 @@
             this.ID.HeaderText = "序号";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ID.Width = 50;
             // 
             // UserID
@@ -160,13 +161,15 @@
             this.UserID.HeaderText = "用户ID";
             this.UserID.Name = "UserID";
             this.UserID.ReadOnly = true;
+            this.UserID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.UserID.Width = 150;
             // 
             // BorrowDate
             // 
-            this.BorrowDate.HeaderText = "  借阅时间";
+            this.BorrowDate.HeaderText = "借阅时间";
             this.BorrowDate.Name = "BorrowDate";
             this.BorrowDate.ReadOnly = true;
+            this.BorrowDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.BorrowDate.Width = 125;
             // 
             // ReturnDate
@@ -174,6 +177,7 @@
             this.ReturnDate.HeaderText = "  归还时间";
             this.ReturnDate.Name = "ReturnDate";
             this.ReturnDate.ReadOnly = true;
+            this.ReturnDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.ReturnDate.Width = 125;
             // 
             // AdminBookHistoryInfoForm
