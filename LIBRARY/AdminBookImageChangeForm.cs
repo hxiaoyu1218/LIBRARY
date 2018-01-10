@@ -26,7 +26,8 @@ namespace LIBRARY
 
             try
             {
-                //OldImageBox.Image = Image.FromFile(PublicVar.pic);
+                OldImageBox.Image = PublicVar.BytesToImage(PublicVar.pic);
+                OldImageBox.BorderStyle = BorderStyle.None;
             }
             catch
             {
@@ -79,12 +80,12 @@ namespace LIBRARY
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            PublicVar.DeletePath = ClassBackEnd.Currentbook.Bookimage;
+            /*PublicVar.DeletePath = ClassBackEnd.Currentbook.Bookimage;
             if (OpenPath != "" && SavePath != "")
                 System.IO.File.Copy(OpenPath, SavePath, true);
             ClassBackEnd.ChangeBookImage(SavePath);
             OldImageBox.Image.Dispose();
-            Close();
+            Close();*/
         }
     }
 }

@@ -477,7 +477,7 @@ namespace LIBRARY
 					{
 						string ret = String.Format("<protocol><file mode=\"{0}\" port=\"{1}\" />", mode, port);
 						ret += String.Format("<admin adminid=\"{0}\" adminpassword=\"{1}\" />", admin.Id, admin.Password);
-						ret += String.Format("<book bookname=\"{0}\" bookisbn=\"{1}\" bookamount=\"{2}\" publishtime=\"{3}\" booklabel1=\"{4}\" booklabel2=\"{5}\" booklabel3=\"{6}\" publisher=\"{7}\" author=\"{8}\" introduction=\"{9}\" />", nowBook.BookName, nowBook.BookIsbn, nowBook.BookAmount, nowBook.BookPublishTime, nowBook.BookLable1, nowBook.BookLable2, nowBook.BookLable3, nowBook.BookPublisher, nowBook.BookAuthor, nowBook.BookIntroduction);
+						ret += String.Format("<book bookname=\"{0}\" bookisbn=\"{1}\" bookamount=\"{2}\" publishtime=\"{3}\" booklabel1=\"{4}\" booklabel2=\"{5}\" booklabel3=\"{6}\" publisher=\"{7}\" author=\"{8}\" introduction=\"{9}\" />", Escape(nowBook.BookName), nowBook.BookIsbn, nowBook.BookAmount, nowBook.BookPublishTime, Escape(nowBook.BookLable1), Escape(nowBook.BookLable2), Escape(nowBook.BookLable3), Escape(nowBook.BookPublisher), Escape(nowBook.BookAuthor), Escape(nowBook.BookIntroduction));
 						ret += "</protocol>";
 						return ret;
 					}
