@@ -327,10 +327,12 @@ namespace LIBRARY
 
         private void UserInfoButton_Click(object sender, EventArgs e)
         {
-            //ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(UserTextBox.Text, "", PasswordTextBox.Text, "", Usertype.Student);
+            
+
+            PublicVar.ReturnValue = -233;
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserInfoLoad, 6000);
             fileProtocol.Userinfo = PublicVar.logUser;
-            
+
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserInfoLoad, "正在获取", fileProtocol);
             loadingBox.ShowDialog();
             loadingBox.Dispose();
@@ -349,7 +351,9 @@ namespace LIBRARY
                 userForm.Show();
                 PublicVar.ReturnValue = -233;
             }
-  
+            else
+                PublicVar.ReturnValue = -233; 
+
         }
 
         private void BookReturnButton_Click(object sender, EventArgs e)
@@ -364,7 +368,7 @@ namespace LIBRARY
             loadingBox.ShowDialog();
             loadingBox.Dispose();
 
-            if(PublicVar.ReturnValue==-233)
+            if (PublicVar.ReturnValue == -233)
             {
                 return;
             }

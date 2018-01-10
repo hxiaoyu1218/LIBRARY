@@ -328,7 +328,7 @@ namespace LIBRARY
                 ib.Dispose();
                 return;
             }
-
+            PublicVar.ReturnValue = -233;
             ClassUserBasicInfo classUserBasicInfo = new ClassUserBasicInfo(IDTextBox.Text, UserTextBox.Text, PasswordTextBox1.Text, AcademicTextBox.Text, type);
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserRegist, 6000);
             fileProtocol.Userinfo = classUserBasicInfo;
@@ -338,6 +338,10 @@ namespace LIBRARY
             loadingBox.ShowDialog();
             loadingBox.Dispose();
 
+            if (PublicVar.ReturnValue == -233)
+            {
+                return;
+            }
             var v = PublicVar.ReturnValue;
             //暂时无取消功能
             if (v == -2333)//cancel

@@ -137,7 +137,10 @@ namespace LIBRARY
             loadingBox.ShowDialog();
             loadingBox.Dispose();
 
-
+            if(PublicVar.ReturnValue==-233)
+            {
+                return;
+            }
 
             var v = PublicVar.ReturnValue;
             if (v == 1)//用户登录
@@ -156,6 +159,7 @@ namespace LIBRARY
                 {
                     RememberMeWrite(false);
                 }
+                PublicVar.ReturnValue = -233;
                 Tag = 1;
                 Close();
             }
@@ -173,6 +177,7 @@ namespace LIBRARY
                 {
                     RememberMeWrite(false);
                 }
+                PublicVar.ReturnValue = -233;
                 Tag = 2;
                 Close();
             }
@@ -181,6 +186,7 @@ namespace LIBRARY
                 MessageBox ib = new MessageBox(5);
                 ib.ShowDialog();
                 ib.Dispose();
+                PublicVar.ReturnValue = -233;
             }
         }
 

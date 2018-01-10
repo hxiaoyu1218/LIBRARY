@@ -246,7 +246,7 @@ namespace LIBRARY
             try
             {
                 ((PictureBox)picList[(int)e.Result]).Image = PublicVar.BytesToImage((byte[])PublicVar.picList[index]);
-
+                ((PictureBox)picList[(int)e.Result]).BorderStyle = BorderStyle.None;
             }
             catch (Exception ee)
             {

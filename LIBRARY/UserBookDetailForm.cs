@@ -328,7 +328,7 @@ namespace LIBRARY
             try
             {
                 BookPictureBox.Image = PublicVar.BytesToImage(PublicVar.pic);
-
+                BookPictureBox.BorderStyle = BorderStyle.None;
             }
             catch (Exception ee)
             {
