@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Threading;
 using WindowsFormsControlLibrary1;
 using System.IO;
+using System.Globalization;
 //using LibrarySystemBackEnd;
 
 namespace LIBRARY
@@ -28,7 +29,7 @@ namespace LIBRARY
             frmMain = frm;
             commentPage = 1;
             InitializeComponent();
-            
+
         }
         public void BookListRefresh()
         {
@@ -65,9 +66,14 @@ namespace LIBRARY
 
 
             schQueDataSheet.Rows.Clear();
-            //for(int i=0;i<PublicVar)
-            DataGridViewRow row = new DataGridViewRow();
-            int index = schQueDataSheet.Rows.Add(row);
+            for (int i = 0; i < PublicVar.scheduleList.Length; i++)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = schQueDataSheet.Rows.Add(row);
+                schQueDataSheet.Rows[index].Cells[0].Value = PublicVar.scheduleList[i].UserId;
+                schQueDataSheet.Rows[index].Cells[0].Value = PublicVar.scheduleList[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
+            }
+
 
 
             schQueDataSheet.ClearSelection();
@@ -93,7 +99,7 @@ namespace LIBRARY
             BookPictureBox.Image = Properties.Resources.BookNullImage;//set default image
             BookImageRequest.RunWorkerAsync();
 
-            
+
         }
 
 
@@ -119,9 +125,7 @@ namespace LIBRARY
             #region 设置圆形按钮区域
             GraphicsPath myPath = new GraphicsPath();
             myPath.AddEllipse(0, 0, 96, 96);
-            BookInfoButton.Region = new Region(myPath);
-            BookPreserveButton.Region = new Region(myPath);
-            BookImageButton.Region = new Region(myPath);
+
             #endregion
 
             SetStyle(ControlStyles.UserPaint, true);
@@ -172,47 +176,7 @@ namespace LIBRARY
             }*/
         }
 
-        #region Animate
-        private void BookImageButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            BookImageButton.BackgroundImage = BookImageButton.DM_HoverImage;
-        }
 
-        private void BookImageButton_MouseLeave(object sender, EventArgs e)
-        {
-            BookImageButton.BackgroundImage = BookImageButton.DM_NolImage;
-        }
-
-        private void BookInfoButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            BookInfoButton.BackgroundImage = BookInfoButton.DM_HoverImage;
-        }
-
-        private void BookInfoButton_MouseLeave(object sender, EventArgs e)
-        {
-            BookInfoButton.BackgroundImage = BookInfoButton.DM_NolImage;
-        }
-
-        private void BookPreserveButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            BookPreserveButton.BackgroundImage = BookPreserveButton.DM_HoverImage;
-        }
-
-        private void BookPreserveButton_MouseLeave(object sender, EventArgs e)
-        {
-            BookPreserveButton.BackgroundImage = BookPreserveButton.DM_NolImage;
-        }
-
-        private void AmountButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            AmountButton.BackgroundImage = AmountButton.DM_HoverImage;
-        }
-
-        private void AmountButton_MouseLeave(object sender, EventArgs e)
-        {
-            AmountButton.BackgroundImage = AmountButton.DM_NolImage;
-        }
-        #endregion
 
         private void AmountButton_Click(object sender, EventArgs e)
         {
@@ -363,7 +327,7 @@ namespace LIBRARY
                 for (int i = 0; i < PublicVar.currentCommentList.Length; i++)
                 {
                     commentControlList[i].setDeleteBtn(false);
-                    
+
                     commentControlList[i].setTime(PublicVar.currentCommentList[i].CommentTime.ToShortDateString());
                     commentControlList[i].setText(PublicVar.currentCommentList[i].Text);
                     commentControlList[i].UserControlDeleteBtnClicked += new UserControl1.deleteBtnClickHandle(this.CommentDeleteBtn_Click);
