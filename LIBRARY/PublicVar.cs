@@ -192,6 +192,7 @@ namespace LIBRARY
         public static ClassUserBasicInfo[] adminSearchUser;
         public static int userTotalAmount = 0;
 		public static ClassBookHis[] bookhis;
+		public static ClassBookHis[] scheduleList;
 
         public class FileComparer : IComparer
         {

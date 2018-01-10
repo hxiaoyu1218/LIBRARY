@@ -149,6 +149,19 @@ namespace LIBRARY
 						XmlNode usernode = root.SelectSingleNode("file");
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
 						pro.EachBookState = bk.ToArray();
+
+						li = root.SelectNodes("admingetschedule");
+						List<ClassBookHis> hi = new List<ClassBookHis>();
+						foreach (XmlNode no in li)
+						{
+							ClassBookHis abk = new ClassBookHis();
+							abk.UserId = no.Attributes["userid"].Value;
+							abk.BorrowTime = getDate(no.Attributes["scheduledate"].Value);
+
+							hi.Add(abk);
+						}
+						pro.Schedule = hi.ToArray();
+
 						break;
 					}
 				case RequestMode.UserBookCommentLoad:
@@ -424,22 +437,6 @@ namespace LIBRARY
 					{
 						XmlNode usernode = root.SelectSingleNode("file");
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
-						break;
-					}
-				case RequestMode.AdminGetSchedule:
-					{
-						List<ClassBookHis> schedule = new List<ClassBookHis>();
-						XmlNodeList li = root.SelectNodes("admingetschedule");
-						foreach (XmlNode lli in li)
-						{
-							ClassBookHis tmp = new ClassBookHis();
-							tmp.UserId = lli.Attributes["userid"].Value;
-
-							tmp.BorrowTime = getDate(lli.Attributes["scheduledate"].Value);
-							
-							schedule.Add(tmp);
-						}
-						pro.Schedule = schedule.ToArray();
 						break;
 					}
 				default:
