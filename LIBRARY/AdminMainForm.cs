@@ -18,7 +18,6 @@ namespace LIBRARY
 
         public AdminMainForm()
         {
-            ClassBackEnd.StartTime();
             InitializeComponent();
         }
 
@@ -91,11 +90,8 @@ namespace LIBRARY
             BackgroundWorker myworker = (BackgroundWorker)sender;
             while (true)
             {
-                if (myworker.CancellationPending != true)
-                {
-                    TimeWork.GetLastInputTime();
-                    myworker.ReportProgress(1, ClassTime.SystemTime);
-                }
+                myworker.ReportProgress(1, DateTime.Now);
+
                 System.Threading.Thread.Sleep(1000);
             }
         }
