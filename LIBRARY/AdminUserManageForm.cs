@@ -17,11 +17,12 @@ namespace LIBRARY
             frmMain = frm;
             InitializeComponent();
             SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor, true);
+            //SearchBox.Focus();
         }
 
         private void UserManageForm_Load(object sender, EventArgs e)
         {
-
+            SearchBox.Focus();
             #region 返回按钮处理
             frmMain.ReturnButton.Tag = 1;
             Point t = new Point(61, 11);
@@ -32,8 +33,10 @@ namespace LIBRARY
             if (PublicVar.userTotalAmount == 0) return;
             maxPage = PublicVar.userTotalAmount / 15 + (PublicVar.userTotalAmount % 15 == 0 ? 0 : 1);
             JumpPTextBox.Text = nPage.ToString();
+            //SearchBox.Focus();
 
             ComponentDynamicLoad(nPage);
+            //SearchBox.Focus();
         }
         private void PageButtonLoad(int num)
         {
@@ -327,6 +330,12 @@ namespace LIBRARY
             {
                 SearchButton.PerformClick();
             }
+        }
+
+        private void SearchButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SearchButton_Click(SearchButton, new EventArgs());
         }
     }
 
