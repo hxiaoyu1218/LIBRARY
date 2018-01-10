@@ -40,9 +40,9 @@ namespace LIBRARY
             #endregion
 
 
-            BookAmountText.Text = ClassBackEnd.Bookamount.ToString();
-            UserAmountText.Text = ClassBackEnd.Useramount.ToString();
-            BorrowRateText.Text = ClassBackEnd.Lendingrate.ToString();
+            BookAmountText.Text = PublicVar.bookAmount.ToString();
+            UserAmountText.Text = PublicVar.userAmount.ToString();
+            BorrowRateText.Text = (PublicVar.borrowRate*100).ToString().Substring(0,5)+"%";
         }
 
         #region Button Animate
