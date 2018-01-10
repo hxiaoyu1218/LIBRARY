@@ -77,6 +77,7 @@
             this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
             this.BookCommentRequest = new System.ComponentModel.BackgroundWorker();
             this.WaitingThread = new System.ComponentModel.BackgroundWorker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
@@ -90,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel7
@@ -99,7 +101,7 @@
             this.panel7.Controls.Add(this.LastPageButton);
             this.panel7.Controls.Add(this.commentTextBox);
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(2, 795);
+            this.panel7.Location = new System.Drawing.Point(2, 831);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(969, 306);
@@ -178,7 +180,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 22F);
-            this.label2.Location = new System.Drawing.Point(50, 684);
+            this.label2.Location = new System.Drawing.Point(50, 720);
             this.label2.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 39);
@@ -658,6 +660,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.BookNameLabel);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.LoadGIFBox);
             this.flowLayoutPanel1.Controls.Add(this.panel7);
@@ -677,7 +680,7 @@
             this.LoadGIFBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.LoadGIFBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.LoadGIFBox.Image = ((System.Drawing.Image)(resources.GetObject("LoadGIFBox.Image")));
-            this.LoadGIFBox.Location = new System.Drawing.Point(5, 742);
+            this.LoadGIFBox.Location = new System.Drawing.Point(5, 778);
             this.LoadGIFBox.Name = "LoadGIFBox";
             this.LoadGIFBox.Size = new System.Drawing.Size(965, 50);
             this.LoadGIFBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -699,6 +702,16 @@
             // 
             this.WaitingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitingThread_DoWork);
             this.WaitingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitingThread_RunWorkerCompleted);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pictureBox1.Location = new System.Drawing.Point(32, 684);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(30, 32, 3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(920, 1);
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
             // 
             // AdminBookDetailForm
             // 
@@ -742,6 +755,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -791,5 +805,6 @@
         private System.Windows.Forms.PictureBox LoadGIFBox;
         private System.ComponentModel.BackgroundWorker BookCommentRequest;
         private System.ComponentModel.BackgroundWorker WaitingThread;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
