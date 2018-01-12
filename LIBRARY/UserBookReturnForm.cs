@@ -249,7 +249,7 @@ namespace LIBRARY
                 ((PictureBox)picList[(int)e.Result]).BorderStyle = BorderStyle.None;
             }
             catch (Exception ee)
-            {
+            {u
                 System.Windows.Forms.MessageBox.Show(ee.Message);
                 return;
             }
