@@ -12,6 +12,7 @@ namespace LIBRARY
         private FileProtocol fileProtocol;
         private static int maxPage;
         private static int nPage;
+        private int tmpPage;//解决翻页跳页临时断网 页码修改问题 引入的中间变量
         public static int lastState;
         public static string lastString;
         private static int ButtonState;//控制滑块位置 1 ALL 2 ISBN 3 NAME 4 AUTHOR 5 PUBLISHER 6 Label
@@ -37,7 +38,10 @@ namespace LIBRARY
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserSearchBook, "正在查询", fileProtocol);
             loadingBox.ShowDialog();
             loadingBox.Dispose();
+            if (PublicVar.ReturnValue == -233)
+                return;
 
+            tmpPage = nPage;
             PublicVar.ReturnValue = -233;
             DataSheetLoad();
         }
@@ -389,15 +393,21 @@ namespace LIBRARY
         private void LastPButton_Click(object sender, EventArgs e)
         {
             if (nPage == 1) return;
-            JumpPTextBox.Text = (--nPage).ToString();
+            tmpPage = nPage;
+            nPage--;
             searchBook();
+            JumpPTextBox.Text = tmpPage.ToString();
+            nPage = tmpPage;
         }
 
         private void NextPButton_Click(object sender, EventArgs e)
         {
             if (nPage == maxPage) return;
-            JumpPTextBox.Text = (++nPage).ToString();
+            tmpPage = nPage;
+            nPage++;
             searchBook();
+            JumpPTextBox.Text = tmpPage.ToString();
+            nPage = tmpPage;
         }
 
         private void JumpPTextBox_Leave(object sender, EventArgs e)
@@ -417,25 +427,28 @@ namespace LIBRARY
 
         private void JumpPTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar==13)
+            if (e.KeyChar == 13)
             {
                 try
                 {
+                    tmpPage = nPage;
                     nPage = Convert.ToInt32(JumpPTextBox.Text.Trim());
                     // if(Convert.ToInt32(JumpPTextBox.Text)<)
                     var JumpPage = Convert.ToInt32(JumpPTextBox.Text);
                     if (JumpPage > maxPage)
                     {
                         nPage = maxPage;
-                        JumpPTextBox.Text = nPage.ToString();
+                        //JumpPTextBox.Text = nPage.ToString();
                     }
                     else if (Convert.ToInt32(JumpPTextBox.Text) <= 1)
                     {
                         nPage = 1;
-                        JumpPTextBox.Text = nPage.ToString();
+                        //JumpPTextBox.Text = nPage.ToString();
                     }
                     else nPage = Convert.ToInt32(JumpPTextBox.Text);
                     searchBook();
+                    JumpPTextBox.Text = tmpPage.ToString();
+                    nPage = tmpPage;
                 }
                 catch
                 {

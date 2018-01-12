@@ -67,8 +67,8 @@ namespace LIBRARY
             int nameX = 161, nameY = 16;
             int idX = 163, idY = 51;
             int aceX = 163, aceY = 72;
-
-            for (int i = 1; i <= PublicVar.userTotalAmount; i++)
+            
+            for (int i = 1; i <= PublicVar.adminSearchUser.Length; i++)
             {
                 PictureBox pic = new PictureBox();
                 pic.BackColor = Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
