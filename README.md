@@ -74,5 +74,5 @@
 
 
 - **Peter Xiao** **肖智轩** - *Back-end Build* - [xzxxzx401](https://github.com/xzxxzx401)
-- **Xingguo Jiang 姜兴国** - *Test work* - [Augusto111](https://github.com/Augusto111)
+- **Xingguo Jiang 姜兴国** - *Front-end & Test work* - [Augusto111](https://github.com/Augusto111)
 
