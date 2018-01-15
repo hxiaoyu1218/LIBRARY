@@ -62,11 +62,11 @@
 
 ## Tests 运行实例
 
-![1](https://github.com/Kou-Akira/LIBRARY/blob/master/LIBRARY/DescribeImage/1.png)
+![1](https://github.com/Kou-Akira/LIBRARY/blob/master/DescribeImage/1.png)
 
-![2](https://github.com/Kou-Akira/LIBRARY/blob/master/LIBRARY/DescribeImage/2.png)
+![2](https://github.com/Kou-Akira/LIBRARY/blob/master/DescribeImage/2.png)
 
-![3](https://github.com/Kou-Akira/LIBRARY/blob/master/LIBRARY/DescribeImage/3.png)
+![3](https://github.com/Kou-Akira/LIBRARY/blob/master/DescribeImage/3.png)
 
 ## Contributors 参与者
 
