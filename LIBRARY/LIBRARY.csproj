@@ -111,12 +111,6 @@
     <Compile Include="ClassComment.cs" />
     <Compile Include="ClassUserBasic.cs" />
     <Compile Include="FileProtocol.cs" />
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoadingBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,9 +262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminBookDetailForm.resx">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingBox.resx">
       <DependentUpon>LoadingBox.cs</DependentUpon>
