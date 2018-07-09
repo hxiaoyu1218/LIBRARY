@@ -48,6 +48,7 @@ namespace LIBRARY
         AdminAddBook,
 		AdminLoadABookHis,
         AdminSendImageAck,
+				AdminLogin,
 	}
 	public class FileProtocol
 	{

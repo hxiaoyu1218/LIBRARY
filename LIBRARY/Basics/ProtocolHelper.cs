@@ -57,12 +57,27 @@ namespace LIBRARY
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
 
 						XmlNode info = root.SelectSingleNode("info");
+					if (info != null) {
 						pro.BookAmount = Convert.ToInt32(info.Attributes["bookamount"].Value);
 						pro.UserAmount = Convert.ToInt32(info.Attributes["useramount"].Value);
 						pro.BorrowRate = Convert.ToDouble(info.Attributes["borrowrate"].Value);
-
+					}
 						break;
 					}
+				case RequestMode.AdminLogin: {
+					XmlNode usernode = root.SelectSingleNode("file");
+					//ClassUserBasicInfo user = new ClassUserBasicInfo(usernode);
+					//pro.Userinfo = user;
+					pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+
+					XmlNode info = root.SelectSingleNode("info");
+					if (info != null) {
+						pro.BookAmount = Convert.ToInt32(info.Attributes["bookamount"].Value);
+						pro.UserAmount = Convert.ToInt32(info.Attributes["useramount"].Value);
+						pro.BorrowRate = Convert.ToDouble(info.Attributes["borrowrate"].Value);
+					}
+					break;
+				}
 				case RequestMode.UserRegist:
 					{
 						XmlNode usernode = root.SelectSingleNode("file");

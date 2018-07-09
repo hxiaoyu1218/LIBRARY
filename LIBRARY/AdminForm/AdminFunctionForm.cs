@@ -41,7 +41,7 @@ namespace LIBRARY
 
             BookAmountText.Text = PublicVar.bookAmount.ToString();
             UserAmountText.Text = PublicVar.userAmount.ToString();
-            BorrowRateText.Text = (PublicVar.borrowRate*100).ToString().Substring(0,5)+"%";
+            BorrowRateText.Text = (PublicVar.borrowRate*100).ToString("P3");
         }
 
         #region Button Animate
