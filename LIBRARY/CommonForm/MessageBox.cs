@@ -183,6 +183,9 @@ namespace LIBRARY
             {
                 TextBox.Text = "请输入正确的13位ISBN！";//cbXG
             }
+						else if(textType == 36) {
+				TextBox.Text = "请配置正确的服务器IP地址！";
+			}
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)

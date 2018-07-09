@@ -38,6 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +55,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>ProgramICON.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DMSkin, Version=0.3.1.6, Culture=neutral, processorArchitecture=MSIL">
@@ -79,242 +83,242 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminBookImageChangeForm.cs">
+    <Compile Include="AdminForm\AdminBookImageChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminBookImageChangeForm.Designer.cs">
+    <Compile Include="AdminForm\AdminBookImageChangeForm.Designer.cs">
       <DependentUpon>AdminBookImageChangeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminMainForm.cs">
+    <Compile Include="AdminForm\AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminMainForm.Designer.cs">
+    <Compile Include="AdminForm\AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminBookDetailForm.cs">
+    <Compile Include="AdminForm\AdminBookDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminBookDetailForm.Designer.cs">
+    <Compile Include="AdminForm\AdminBookDetailForm.Designer.cs">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassAdmin.cs" />
-    <Compile Include="ClassBookHis.cs" />
-    <Compile Include="ClassUser.cs" />
-    <Compile Include="UserChangeInfo.cs">
+    <Compile Include="Basics\ClassAdmin.cs" />
+    <Compile Include="Basics\ClassBookHis.cs" />
+    <Compile Include="Basics\ClassUser.cs" />
+    <Compile Include="UserForm\UserChangeInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserChangeInfo.Designer.cs">
+    <Compile Include="UserForm\UserChangeInfo.Designer.cs">
       <DependentUpon>UserChangeInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassABook.cs" />
-    <Compile Include="ClassBook.cs" />
-    <Compile Include="ClassComment.cs" />
-    <Compile Include="ClassUserBasic.cs" />
-    <Compile Include="FileProtocol.cs" />
-    <Compile Include="LoadingBox.cs">
+    <Compile Include="Basics\ClassABook.cs" />
+    <Compile Include="Basics\ClassBook.cs" />
+    <Compile Include="Basics\ClassComment.cs" />
+    <Compile Include="Basics\ClassUserBasic.cs" />
+    <Compile Include="Basics\FileProtocol.cs" />
+    <Compile Include="CommonForm\LoadingBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadingBox.Designer.cs">
+    <Compile Include="CommonForm\LoadingBox.Designer.cs">
       <DependentUpon>LoadingBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProtocolHandler.cs" />
-    <Compile Include="ProtocolHelper.cs" />
-    <Compile Include="SendStatus.cs" />
-    <Compile Include="Server.cs" />
-    <Compile Include="ServerClient.cs" />
-    <Compile Include="UserBookDetailForm.cs">
+    <Compile Include="Basics\ProtocolHandler.cs" />
+    <Compile Include="Basics\ProtocolHelper.cs" />
+    <Compile Include="Basics\SendStatus.cs" />
+    <Compile Include="Basics\Server.cs" />
+    <Compile Include="Basics\ServerClient.cs" />
+    <Compile Include="UserForm\UserBookDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserBookDetailForm.Designer.cs">
+    <Compile Include="UserForm\UserBookDetailForm.Designer.cs">
       <DependentUpon>UserBookDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminBookAddForm.cs">
+    <Compile Include="AdminForm\AdminBookAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminBookAddForm.Designer.cs">
+    <Compile Include="AdminForm\AdminBookAddForm.Designer.cs">
       <DependentUpon>AdminBookAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminBookHistoryInfoForm.cs">
+    <Compile Include="AdminForm\AdminBookHistoryInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminBookHistoryInfoForm.Designer.cs">
+    <Compile Include="AdminForm\AdminBookHistoryInfoForm.Designer.cs">
       <DependentUpon>AdminBookHistoryInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminBookAmountAddForm.cs">
+    <Compile Include="AdminForm\AdminBookAmountAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminBookAmountAddForm.Designer.cs">
+    <Compile Include="AdminForm\AdminBookAmountAddForm.Designer.cs">
       <DependentUpon>AdminBookAmountAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreditRecordForm.cs">
+    <Compile Include="UserForm\CreditRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreditRecordForm.Designer.cs">
+    <Compile Include="UserForm\CreditRecordForm.Designer.cs">
       <DependentUpon>CreditRecordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgramAboutBox.cs">
+    <Compile Include="CommonForm\ProgramAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgramAboutBox.Designer.cs">
+    <Compile Include="CommonForm\ProgramAboutBox.Designer.cs">
       <DependentUpon>ProgramAboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUserManageForm.cs">
+    <Compile Include="AdminForm\AdminUserManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminUserManageForm.Designer.cs">
+    <Compile Include="AdminForm\AdminUserManageForm.Designer.cs">
       <DependentUpon>AdminUserManageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserBookReturnForm.cs">
+    <Compile Include="UserForm\UserBookReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserBookReturnForm.Designer.cs">
+    <Compile Include="UserForm\UserBookReturnForm.Designer.cs">
       <DependentUpon>UserBookReturnForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreditChargeForm.cs">
+    <Compile Include="UserForm\CreditChargeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreditChargeForm.Designer.cs">
+    <Compile Include="UserForm\CreditChargeForm.Designer.cs">
       <DependentUpon>CreditChargeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PublicVar.cs" />
-    <Compile Include="MessageBox.cs">
+    <Compile Include="Basics\PublicVar.cs" />
+    <Compile Include="CommonForm\MessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MessageBox.Designer.cs">
+    <Compile Include="CommonForm\MessageBox.Designer.cs">
       <DependentUpon>MessageBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="CommonForm\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="CommonForm\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminFunctionForm.cs">
+    <Compile Include="AdminForm\AdminFunctionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminFunctionForm.Designer.cs">
+    <Compile Include="AdminForm\AdminFunctionForm.Designer.cs">
       <DependentUpon>AdminFunctionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminBookManageForm.cs">
+    <Compile Include="AdminForm\AdminBookManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminBookManageForm.Designer.cs">
+    <Compile Include="AdminForm\AdminBookManageForm.Designer.cs">
       <DependentUpon>AdminBookManageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUserDetailForm.cs">
+    <Compile Include="AdminForm\AdminUserDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminUserDetailForm.Designer.cs">
+    <Compile Include="AdminForm\AdminUserDetailForm.Designer.cs">
       <DependentUpon>AdminUserDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMainForm.cs">
+    <Compile Include="UserForm\UserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserMainForm.Designer.cs">
+    <Compile Include="UserForm\UserMainForm.Designer.cs">
       <DependentUpon>UserMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PasswordResetForm.cs">
+    <Compile Include="UserForm\PasswordResetForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PasswordResetForm.Designer.cs">
+    <Compile Include="UserForm\PasswordResetForm.Designer.cs">
       <DependentUpon>PasswordResetForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Basics\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistForm.cs">
+    <Compile Include="CommonForm\RegistForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistForm.Designer.cs">
+    <Compile Include="CommonForm\RegistForm.Designer.cs">
       <DependentUpon>RegistForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserReturnForm.cs">
+    <Compile Include="UserForm\UserReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserReturnForm.Designer.cs">
+    <Compile Include="UserForm\UserReturnForm.Designer.cs">
       <DependentUpon>UserReturnForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserSearchForm.cs">
+    <Compile Include="UserForm\UserSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserSearchForm.Designer.cs">
+    <Compile Include="UserForm\UserSearchForm.Designer.cs">
       <DependentUpon>UserSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserSearchResultForm.cs">
+    <Compile Include="UserForm\UserSearchResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserSearchResultForm.Designer.cs">
+    <Compile Include="UserForm\UserSearchResultForm.Designer.cs">
       <DependentUpon>UserSearchResultForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserForm.cs">
+    <Compile Include="UserForm\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserForm.Designer.cs">
+    <Compile Include="UserForm\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminBookImageChangeForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminBookImageChangeForm.resx">
       <DependentUpon>AdminBookImageChangeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminMainForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminBookDetailForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminBookDetailForm.resx">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadingBox.resx">
+    <EmbeddedResource Include="CommonForm\LoadingBox.resx">
       <DependentUpon>LoadingBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserBookDetailForm.resx">
+    <EmbeddedResource Include="UserForm\UserBookDetailForm.resx">
       <DependentUpon>UserBookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminBookAddForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminBookAddForm.resx">
       <DependentUpon>AdminBookAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminBookHistoryInfoForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminBookHistoryInfoForm.resx">
       <DependentUpon>AdminBookHistoryInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminBookAmountAddForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminBookAmountAddForm.resx">
       <DependentUpon>AdminBookAmountAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreditRecordForm.resx">
+    <EmbeddedResource Include="UserForm\CreditRecordForm.resx">
       <DependentUpon>CreditRecordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgramAboutBox.resx">
+    <EmbeddedResource Include="CommonForm\ProgramAboutBox.resx">
       <DependentUpon>ProgramAboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUserManageForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminUserManageForm.resx">
       <DependentUpon>AdminUserManageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserBookReturnForm.resx">
+    <EmbeddedResource Include="UserForm\UserBookReturnForm.resx">
       <DependentUpon>UserBookReturnForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreditChargeForm.resx">
+    <EmbeddedResource Include="UserForm\CreditChargeForm.resx">
       <DependentUpon>CreditChargeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MessageBox.resx">
+    <EmbeddedResource Include="CommonForm\MessageBox.resx">
       <DependentUpon>MessageBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="CommonForm\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminFunctionForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminFunctionForm.resx">
       <DependentUpon>AdminFunctionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminBookManageForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminBookManageForm.resx">
       <DependentUpon>AdminBookManageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUserDetailForm.resx">
+    <EmbeddedResource Include="AdminForm\AdminUserDetailForm.resx">
       <DependentUpon>AdminUserDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserChangeInfo.resx">
+    <EmbeddedResource Include="UserForm\UserChangeInfo.resx">
       <DependentUpon>UserChangeInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMainForm.resx">
+    <EmbeddedResource Include="UserForm\UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PasswordResetForm.resx">
+    <EmbeddedResource Include="UserForm\PasswordResetForm.resx">
       <DependentUpon>PasswordResetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -327,19 +331,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegistForm.resx">
+    <EmbeddedResource Include="CommonForm\RegistForm.resx">
       <DependentUpon>RegistForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserReturnForm.resx">
+    <EmbeddedResource Include="UserForm\UserReturnForm.resx">
       <DependentUpon>UserReturnForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserSearchForm.resx">
+    <EmbeddedResource Include="UserForm\UserSearchForm.resx">
       <DependentUpon>UserSearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserSearchResultForm.resx">
+    <EmbeddedResource Include="UserForm\UserSearchResultForm.resx">
       <DependentUpon>UserSearchResultForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserForm.resx">
+    <EmbeddedResource Include="UserForm\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -465,6 +469,7 @@
     <None Include="Resources\书籍借阅率.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Configs\ClientConfigTemplate.xml" />
     <Content Include="DescribeImage\1.png" />
     <Content Include="DescribeImage\2.png" />
     <Content Include="DescribeImage\3.png" />
@@ -486,6 +491,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "$(TargetDir)ClientConfig.xml" copy $(ProjectDir)ClientConfigTemplate.xml $(TargetDir)ClientConfig.xml</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

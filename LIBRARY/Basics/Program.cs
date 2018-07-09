@@ -40,15 +40,21 @@ namespace LIBRARY
 
 		static void LoadServerInformation()
 		{
-			string configFile = @"config.xml";
+			string configFile = @"ClientConfig.xml";
 			XmlNode sqlNode;
 			XmlNode root;
 
 			XmlDocument doc = new XmlDocument();
 			doc.Load(configFile);
 			root = doc.DocumentElement;
-			sqlNode = root.SelectSingleNode("serverconfig");
-			ServerClient.remoteServerIp = sqlNode.SelectSingleNode("ipaddress").InnerText;
+			sqlNode = root.SelectSingleNode("ClientConfig");
+			ServerClient.remoteServerIp = sqlNode.SelectSingleNode("ServerIpAddress").InnerText;
+			if(ServerClient.remoteServerIp.Trim()=="") {
+				MessageBox messageBox = new MessageBox(36);
+				messageBox.ShowDialog();
+				messageBox.Dispose();
+				System.Environment.Exit(1);
+			}
 		}
 	}
 }
