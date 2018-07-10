@@ -159,7 +159,9 @@ namespace LIBRARY
             BookBorrowButton.Enabled = false;
 
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserBorrowBook, 6000);
-            fileProtocol.NowBook = PublicVar.currentBookList[bookIndex];
+			if (PublicVar.currentBookList != null)
+				fileProtocol.NowBook = PublicVar.currentBookList[bookIndex];
+			else { PublicVar.currentBookList = new ClassBook[1]; PublicVar.currentBookList[0] = fileProtocol.NowBook = PublicVar.nowBook; };
             fileProtocol.Userinfo = PublicVar.logUser;
             PublicVar.ReturnValue = -233;
 
@@ -222,7 +224,9 @@ namespace LIBRARY
         {
             BookOrderButton.Enabled = false;
             FileProtocol fileProtocol = new FileProtocol(RequestMode.UserOrderBook, 6000);
-            fileProtocol.NowBook = PublicVar.currentBookList[bookIndex];
+			if (PublicVar.currentBookList != null)
+				fileProtocol.NowBook = PublicVar.currentBookList[bookIndex];
+			else { PublicVar.currentBookList = new ClassBook[1];PublicVar.currentBookList[0] = fileProtocol.NowBook = PublicVar.nowBook; }
             fileProtocol.Userinfo = PublicVar.logUser;
             PublicVar.ReturnValue = -233;
 
