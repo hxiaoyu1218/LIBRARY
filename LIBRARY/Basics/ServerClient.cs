@@ -250,9 +250,6 @@ namespace LIBRARY
             if (protocol.Mode == RequestMode.UserLogin)
             {
                 PublicVar.ReturnValue = protocol.Retval;
-            }
-						else if(protocol.Mode == RequestMode.AdminLogin) {
-				PublicVar.ReturnValue = protocol.Retval;
 				PublicVar.borrowRate = protocol.BorrowRate;
 				PublicVar.bookAmount = protocol.BookAmount;
 				PublicVar.userAmount = protocol.UserAmount;
