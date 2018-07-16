@@ -12,8 +12,10 @@ namespace LIBRARY
 {
     public partial class DeleteBox : DMSkin.Main
     {
-        public DeleteBox()
+		string bookIsbn;
+        public DeleteBox(string bookIsbn)
         {
+			this.bookIsbn = bookIsbn;
             InitializeComponent();
         }
 
@@ -30,9 +32,10 @@ namespace LIBRARY
         private void AccrptButton_Click(object sender, EventArgs e)
         {
             PublicVar.ReturnValue = -233;
-            FileProtocol fileProtocol = new FileProtocol(RequestMode.UserDelComment, 6000);
+            FileProtocol fileProtocol = new FileProtocol(RequestMode.AdminDeleteBook, 6000);
+			fileProtocol.NowBook = new ClassBook(bookIsbn);
 
-            LoadingBox loadingBox = new LoadingBox(RequestMode.UserDelComment, "正在删除", fileProtocol);
+            LoadingBox loadingBox = new LoadingBox(RequestMode.AdminDeleteBook, "正在删除", fileProtocol);
             loadingBox.ShowDialog();
             loadingBox.Dispose();
             if (PublicVar.ReturnValue == 0)
@@ -43,12 +46,19 @@ namespace LIBRARY
             }
             if (PublicVar.ReturnValue == -233)
             {
-                return;
+				System.Windows.Forms.MessageBox.Show("time out!");
+				return;
             }
             else
             {
-                PublicVar.ReturnValue = -233;
+				System.Windows.Forms.MessageBox.Show("success!");
+				Close();
+				return;
             }
         }
-    }
+
+		private void ShutDownButton_Click(object sender, EventArgs e) {
+			Close();
+		}
+	}
 }

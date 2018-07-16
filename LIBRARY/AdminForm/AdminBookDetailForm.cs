@@ -373,9 +373,17 @@ namespace LIBRARY
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //删除图书
-            DeleteBox deleteBox = new DeleteBox();
-            deleteBox.Show();
+			//删除图书
+			DeleteBox deleteBox = new DeleteBox(PublicVar.nowBook.BookIsbn);
+			deleteBox.ShowDialog();
+           // deleteBox.Show();
+			if(PublicVar.ReturnValue == 1) {
+				PublicVar.ReturnValue = -233;
+				frmMain.ReturnButton_Click(sender, e);
+				//this.Close();
+			} else {
+
+			}
         }
     }
 }

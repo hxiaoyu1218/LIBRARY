@@ -249,7 +249,13 @@ namespace LIBRARY
                         Thread.Sleep(50);
                     }
                     break;
-
+				case RequestMode.AdminDeleteBook: {
+					while (PublicVar.ReturnValue == -233 && timer < 10000) {
+						timer += 50;
+						Thread.Sleep(50);
+					}
+					break;
+				}
                 default:
                     break;
             }

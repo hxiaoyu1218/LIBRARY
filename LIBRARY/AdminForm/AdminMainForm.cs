@@ -17,7 +17,12 @@ namespace LIBRARY
 
         public AdminMainForm()
         {
-            InitializeComponent();
+			try {
+				InitializeComponent();
+			} catch (Exception e) {
+				MessageBox message = new MessageBox(1);
+				message.Show();
+			}
         }
 
         private void AdminMainForm_Load(object sender, EventArgs e)
@@ -41,7 +46,7 @@ namespace LIBRARY
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void ReturnButton_Click(object sender, EventArgs e)
+        public void ReturnButton_Click(object sender, EventArgs e)
         {
             int v = (int)ReturnButton.Tag;
             if (v == 1)
@@ -59,6 +64,7 @@ namespace LIBRARY
             {
                 MainPanel.Controls.Clear();
                 AdminBookManageForm bookManageForm = new AdminBookManageForm(this,AdminBookManageForm.lastState,AdminBookManageForm.lastString);
+				bookManageForm.searchBook();
                 bookManageForm.TopLevel = false;
                 bookManageForm.Dock = DockStyle.Fill;
                 MainPanel.Controls.Add(bookManageForm);

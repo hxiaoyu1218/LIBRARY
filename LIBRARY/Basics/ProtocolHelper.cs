@@ -446,6 +446,11 @@ namespace LIBRARY
 						pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
 						break;
 					}
+				case RequestMode.AdminDeleteBook: {
+					XmlNode usernode = root.SelectSingleNode("file");
+					pro.Retval = Convert.ToInt32(usernode.Attributes["retval"].Value);
+					break;
+				}
 				default:
 					break;
 			}

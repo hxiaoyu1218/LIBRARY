@@ -27,7 +27,7 @@ namespace LIBRARY
             //SearchBox.Focus();
         }
 
-        private void searchBook()
+        public void searchBook()
         {
             PublicVar.ReturnValue = -233;
             fileProtocol = new FileProtocol(RequestMode.UserSearchBook, 6000);

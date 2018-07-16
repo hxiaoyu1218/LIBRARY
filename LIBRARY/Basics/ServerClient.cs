@@ -398,6 +398,9 @@ namespace LIBRARY
             {
                 PublicVar.ReturnValue = protocol.Retval;
             }
+						else if(protocol.Mode == RequestMode.AdminDeleteBook) {
+				PublicVar.ReturnValue = protocol.Retval;
+			}
         }
 
         public byte[] receiveFileAsByte()
