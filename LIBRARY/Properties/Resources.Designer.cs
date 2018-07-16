@@ -183,6 +183,26 @@ namespace LIBRARY.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Exclamation_mark {
+            get {
+                object obj = ResourceManager.GetObject("Exclamation mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Exclamation_mark1 {
+            get {
+                object obj = ResourceManager.GetObject("Exclamation mark1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap F {
             get {
                 object obj = ResourceManager.GetObject("F", resourceCulture);

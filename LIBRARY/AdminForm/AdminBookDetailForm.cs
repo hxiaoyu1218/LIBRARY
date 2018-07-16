@@ -20,6 +20,7 @@ namespace LIBRARY
         private AdminMainForm frmMain;
         private int commentPage;
         private int bookIndex;//booklist索引
+        private int canDeleteFlag = 0;//可否删除图书
         private UserControl1[] commentControlList;
         public AdminBookDetailForm(AdminMainForm frm, int bookindex)
         {
@@ -28,6 +29,7 @@ namespace LIBRARY
             frmMain = frm;
             commentPage = 1;
             InitializeComponent();
+            button2.Show();
          //   if (PublicVar.scheduleList.Length == 0) label1.Hide();
 
         }
@@ -46,14 +48,17 @@ namespace LIBRARY
                 else if (PublicVar.eachBookState[i].BookState == Bookstate.Borrowed)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "已借";
+                    canDeleteFlag = 1;
                 }
                 else if (PublicVar.eachBookState[i].BookState == Bookstate.Unavailable)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "不可用";
+                    canDeleteFlag = 1;
                 }
                 else if (PublicVar.eachBookState[i].BookState == Bookstate.Scheduled)
                 {
                     ResultDataSheet.Rows[index].Cells[1].Value = "仅预约";
+                    canDeleteFlag = 1;
                 }
                 ResultDataSheet.Rows[index].Cells[2].Value = "查看历史";
 
@@ -75,6 +80,8 @@ namespace LIBRARY
             {
                 col.HeaderCell.Style = style;
             }
+            if (PublicVar.scheduleList.Length == 0)
+                canDeleteFlag = 1;
             for (int i = 0; i < PublicVar.scheduleList.Length; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
@@ -143,32 +150,10 @@ namespace LIBRARY
             SetStyle(ControlStyles.DoubleBuffer, true);
 
             BookListRefresh();
-
-        }
-		
-
-        private void BookImageButton_Click(object sender, EventArgs e)
-        {
-
-            AdminBookImageChangeForm changeBookImageForm = new AdminBookImageChangeForm();
-            changeBookImageForm.ShowDialog();
-            changeBookImageForm.Dispose();
-            BookPictureBox.Image.Dispose();
-            if (PublicVar.DeletePath != "") System.IO.File.Delete(PublicVar.DeletePath);
-            BookDetailLoad();
-
-            PublicVar.DeletePath = "";
+            button2.Hide();
         }
 
-
-        private void AmountButton_Click(object sender, EventArgs e)
-        {
-            AdminBookAmountAddForm bookAmountAddForm = new AdminBookAmountAddForm();
-            bookAmountAddForm.ShowDialog();
-            bookAmountAddForm.Dispose();
-            BookDetailLoad();
-            BookListRefresh();
-        }
+        
 
         private void BookNameLabel_Click(object sender, EventArgs e)
         {
@@ -383,6 +368,13 @@ namespace LIBRARY
                     BookCommentRequest.RunWorkerAsync();
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //删除图书
+            DeleteBox deleteBox = new DeleteBox();
+            deleteBox.Show();
         }
     }
 }

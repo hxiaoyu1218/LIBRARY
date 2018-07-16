@@ -47,7 +47,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BookPictureBox = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ResultDataSheet = new System.Windows.Forms.DataGridView();
+            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.history = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.schQueDataSheet = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookInfoTextbox = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -67,13 +77,7 @@
             this.Label3Text = new System.Windows.Forms.Label();
             this.Label1Text = new System.Windows.Forms.Label();
             this.Label2Text = new System.Windows.Forms.Label();
-            this.ResultDataSheet = new System.Windows.Forms.DataGridView();
-            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.history = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.schQueDataSheet = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookPictureBox = new System.Windows.Forms.PictureBox();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,24 +85,21 @@
             this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
             this.BookCommentRequest = new System.ComponentModel.BackgroundWorker();
             this.WaitingThread = new System.ComponentModel.BackgroundWorker();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schQueDataSheet)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schQueDataSheet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel7
@@ -202,9 +203,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.BookPictureBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.BookInfoTextbox, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BookPictureBox, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 126);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 32, 0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -214,262 +215,56 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(971, 447);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // BookPictureBox
+            // panel2
             // 
-            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BookPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BookPictureBox.Image = global::LIBRARY.Properties.Resources.BookNullImage;
-            this.BookPictureBox.Location = new System.Drawing.Point(64, 11);
-            this.BookPictureBox.Margin = new System.Windows.Forms.Padding(64, 11, 3, 3);
-            this.BookPictureBox.Name = "BookPictureBox";
-            this.BookPictureBox.Size = new System.Drawing.Size(170, 240);
-            this.BookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BookPictureBox.TabIndex = 1;
-            this.BookPictureBox.TabStop = false;
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.ResultDataSheet);
+            this.panel2.Controls.Add(this.schQueDataSheet);
+            this.panel2.Location = new System.Drawing.Point(487, 3);
+            this.panel2.MinimumSize = new System.Drawing.Size(481, 0);
+            this.panel2.Name = "panel2";
+            this.tableLayoutPanel1.SetRowSpan(this.panel2, 2);
+            this.panel2.Size = new System.Drawing.Size(481, 441);
+            this.panel2.TabIndex = 44;
             // 
-            // BookInfoTextbox
+            // label4
             // 
-            this.BookInfoTextbox.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.BookInfoTextbox, 2);
-            this.BookInfoTextbox.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.BookInfoTextbox.Location = new System.Drawing.Point(64, 270);
-            this.BookInfoTextbox.Margin = new System.Windows.Forms.Padding(64, 16, 0, 0);
-            this.BookInfoTextbox.MaximumSize = new System.Drawing.Size(392, 0);
-            this.BookInfoTextbox.Name = "BookInfoTextbox";
-            this.BookInfoTextbox.Size = new System.Drawing.Size(50, 20);
-            this.BookInfoTextbox.TabIndex = 33;
-            this.BookInfoTextbox.Text = "label1";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(3, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 30);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "书籍列表：";
             // 
-            // flowLayoutPanel2
+            // button2
             // 
-            this.flowLayoutPanel2.AutoSize = true;
-            this.flowLayoutPanel2.Controls.Add(this.panel1);
-            this.flowLayoutPanel2.Controls.Add(this.panel3);
-            this.flowLayoutPanel2.Controls.Add(this.panel4);
-            this.flowLayoutPanel2.Controls.Add(this.panel5);
-            this.flowLayoutPanel2.Controls.Add(this.panel6);
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(245, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(208, 220);
-            this.flowLayoutPanel2.TabIndex = 34;
-            this.flowLayoutPanel2.WrapContents = false;
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(74, 84);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 32);
+            this.button2.TabIndex = 44;
+            this.button2.Text = "删除图书";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // panel1
+            // label1
             // 
-            this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.authorLabel);
-            this.panel1.Controls.Add(this.AuthorText);
-            this.panel1.Location = new System.Drawing.Point(8, 8);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.panel1.MaximumSize = new System.Drawing.Size(220, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(133, 20);
-            this.panel1.TabIndex = 45;
-            // 
-            // authorLabel
-            // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.BackColor = System.Drawing.Color.Transparent;
-            this.authorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.authorLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.authorLabel.Location = new System.Drawing.Point(3, 0);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(65, 20);
-            this.authorLabel.TabIndex = 33;
-            this.authorLabel.Text = "作　者：";
-            // 
-            // AuthorText
-            // 
-            this.AuthorText.AutoSize = true;
-            this.AuthorText.BackColor = System.Drawing.Color.Transparent;
-            this.AuthorText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AuthorText.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.AuthorText.Location = new System.Drawing.Point(65, 0);
-            this.AuthorText.MaximumSize = new System.Drawing.Size(140, 0);
-            this.AuthorText.Name = "AuthorText";
-            this.AuthorText.Size = new System.Drawing.Size(65, 20);
-            this.AuthorText.TabIndex = 36;
-            this.AuthorText.Text = "测试作者";
-            // 
-            // panel3
-            // 
-            this.panel3.AutoSize = true;
-            this.panel3.Controls.Add(this.PublisherLabel);
-            this.panel3.Controls.Add(this.PublisherText);
-            this.panel3.Location = new System.Drawing.Point(8, 36);
-            this.panel3.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.panel3.MaximumSize = new System.Drawing.Size(220, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(147, 20);
-            this.panel3.TabIndex = 46;
-            // 
-            // PublisherLabel
-            // 
-            this.PublisherLabel.AutoSize = true;
-            this.PublisherLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PublisherLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PublisherLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.PublisherLabel.Location = new System.Drawing.Point(3, 0);
-            this.PublisherLabel.Name = "PublisherLabel";
-            this.PublisherLabel.Size = new System.Drawing.Size(65, 20);
-            this.PublisherLabel.TabIndex = 34;
-            this.PublisherLabel.Text = "出版社：";
-            // 
-            // PublisherText
-            // 
-            this.PublisherText.AutoSize = true;
-            this.PublisherText.BackColor = System.Drawing.Color.Transparent;
-            this.PublisherText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PublisherText.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.PublisherText.Location = new System.Drawing.Point(65, 0);
-            this.PublisherText.MaximumSize = new System.Drawing.Size(140, 0);
-            this.PublisherText.Name = "PublisherText";
-            this.PublisherText.Size = new System.Drawing.Size(79, 20);
-            this.PublisherText.TabIndex = 38;
-            this.PublisherText.Text = "测试出版社";
-            // 
-            // panel4
-            // 
-            this.panel4.AutoSize = true;
-            this.panel4.Controls.Add(this.BookIDLabel);
-            this.panel4.Controls.Add(this.BookIDText);
-            this.panel4.Location = new System.Drawing.Point(8, 64);
-            this.panel4.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.panel4.MaximumSize = new System.Drawing.Size(220, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(138, 20);
-            this.panel4.TabIndex = 47;
-            // 
-            // BookIDLabel
-            // 
-            this.BookIDLabel.AutoSize = true;
-            this.BookIDLabel.BackColor = System.Drawing.Color.Transparent;
-            this.BookIDLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BookIDLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.BookIDLabel.Location = new System.Drawing.Point(3, 0);
-            this.BookIDLabel.Name = "BookIDLabel";
-            this.BookIDLabel.Size = new System.Drawing.Size(65, 20);
-            this.BookIDLabel.TabIndex = 35;
-            this.BookIDLabel.Text = "书　号：";
-            // 
-            // BookIDText
-            // 
-            this.BookIDText.AutoSize = true;
-            this.BookIDText.BackColor = System.Drawing.Color.Transparent;
-            this.BookIDText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BookIDText.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.BookIDText.Location = new System.Drawing.Point(65, 0);
-            this.BookIDText.Margin = new System.Windows.Forms.Padding(0);
-            this.BookIDText.MaximumSize = new System.Drawing.Size(140, 0);
-            this.BookIDText.Name = "BookIDText";
-            this.BookIDText.Size = new System.Drawing.Size(73, 20);
-            this.BookIDText.TabIndex = 37;
-            this.BookIDText.Text = "12345678";
-            // 
-            // panel5
-            // 
-            this.panel5.AutoSize = true;
-            this.panel5.Controls.Add(this.AmountLabel);
-            this.panel5.Controls.Add(this.AmountText);
-            this.panel5.Location = new System.Drawing.Point(8, 92);
-            this.panel5.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.panel5.MaximumSize = new System.Drawing.Size(220, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(93, 20);
-            this.panel5.TabIndex = 48;
-            // 
-            // AmountLabel
-            // 
-            this.AmountLabel.AutoSize = true;
-            this.AmountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.AmountLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AmountLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.AmountLabel.Location = new System.Drawing.Point(3, 0);
-            this.AmountLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.AmountLabel.Name = "AmountLabel";
-            this.AmountLabel.Size = new System.Drawing.Size(65, 20);
-            this.AmountLabel.TabIndex = 39;
-            this.AmountLabel.Text = "总　数：";
-            // 
-            // AmountText
-            // 
-            this.AmountText.AutoSize = true;
-            this.AmountText.BackColor = System.Drawing.Color.Transparent;
-            this.AmountText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AmountText.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.AmountText.Location = new System.Drawing.Point(65, 0);
-            this.AmountText.MaximumSize = new System.Drawing.Size(140, 0);
-            this.AmountText.Name = "AmountText";
-            this.AmountText.Size = new System.Drawing.Size(25, 20);
-            this.AmountText.TabIndex = 41;
-            this.AmountText.Text = "12";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.LabelLabel);
-            this.panel6.Controls.Add(this.Label3Text);
-            this.panel6.Controls.Add(this.Label1Text);
-            this.panel6.Controls.Add(this.Label2Text);
-            this.panel6.Location = new System.Drawing.Point(8, 120);
-            this.panel6.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(200, 100);
-            this.panel6.TabIndex = 49;
-            // 
-            // LabelLabel
-            // 
-            this.LabelLabel.AutoSize = true;
-            this.LabelLabel.BackColor = System.Drawing.Color.Transparent;
-            this.LabelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.LabelLabel.Location = new System.Drawing.Point(3, 0);
-            this.LabelLabel.Name = "LabelLabel";
-            this.LabelLabel.Size = new System.Drawing.Size(65, 20);
-            this.LabelLabel.TabIndex = 40;
-            this.LabelLabel.Text = "标　签：";
-            // 
-            // Label3Text
-            // 
-            this.Label3Text.AutoSize = true;
-            this.Label3Text.BackColor = System.Drawing.Color.Transparent;
-            this.Label3Text.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Label3Text.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.Label3Text.Location = new System.Drawing.Point(65, 40);
-            this.Label3Text.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.Label3Text.MaximumSize = new System.Drawing.Size(140, 0);
-            this.Label3Text.Name = "Label3Text";
-            this.Label3Text.Size = new System.Drawing.Size(93, 20);
-            this.Label3Text.TabIndex = 44;
-            this.Label3Text.Text = "中国古典文学";
-            // 
-            // Label1Text
-            // 
-            this.Label1Text.AutoSize = true;
-            this.Label1Text.BackColor = System.Drawing.Color.Transparent;
-            this.Label1Text.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Label1Text.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.Label1Text.Location = new System.Drawing.Point(65, 0);
-            this.Label1Text.MaximumSize = new System.Drawing.Size(140, 0);
-            this.Label1Text.Name = "Label1Text";
-            this.Label1Text.Size = new System.Drawing.Size(47, 20);
-            this.Label1Text.TabIndex = 42;
-            this.Label1Text.Text = "文学>";
-            // 
-            // Label2Text
-            // 
-            this.Label2Text.AutoSize = true;
-            this.Label2Text.BackColor = System.Drawing.Color.Transparent;
-            this.Label2Text.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Label2Text.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.Label2Text.Location = new System.Drawing.Point(65, 20);
-            this.Label2Text.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.Label2Text.MaximumSize = new System.Drawing.Size(140, 0);
-            this.Label2Text.Name = "Label2Text";
-            this.Label2Text.Size = new System.Drawing.Size(75, 20);
-            this.Label2Text.TabIndex = 43;
-            this.Label2Text.Text = "中国文学>";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(3, 240);
+            this.label1.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 30);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "预约列表：";
             // 
             // ResultDataSheet
             // 
@@ -644,6 +439,264 @@
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn2.Width = 185;
             // 
+            // BookInfoTextbox
+            // 
+            this.BookInfoTextbox.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.BookInfoTextbox, 2);
+            this.BookInfoTextbox.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.BookInfoTextbox.Location = new System.Drawing.Point(64, 270);
+            this.BookInfoTextbox.Margin = new System.Windows.Forms.Padding(64, 16, 0, 0);
+            this.BookInfoTextbox.MaximumSize = new System.Drawing.Size(392, 0);
+            this.BookInfoTextbox.Name = "BookInfoTextbox";
+            this.BookInfoTextbox.Size = new System.Drawing.Size(50, 20);
+            this.BookInfoTextbox.TabIndex = 33;
+            this.BookInfoTextbox.Text = "label1";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.Controls.Add(this.panel1);
+            this.flowLayoutPanel2.Controls.Add(this.panel3);
+            this.flowLayoutPanel2.Controls.Add(this.panel4);
+            this.flowLayoutPanel2.Controls.Add(this.panel5);
+            this.flowLayoutPanel2.Controls.Add(this.panel6);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(245, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(208, 248);
+            this.flowLayoutPanel2.TabIndex = 34;
+            this.flowLayoutPanel2.WrapContents = false;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.authorLabel);
+            this.panel1.Controls.Add(this.AuthorText);
+            this.panel1.Location = new System.Drawing.Point(8, 8);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.panel1.MaximumSize = new System.Drawing.Size(220, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(133, 20);
+            this.panel1.TabIndex = 45;
+            // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.authorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.authorLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.authorLabel.Location = new System.Drawing.Point(3, 0);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(65, 20);
+            this.authorLabel.TabIndex = 33;
+            this.authorLabel.Text = "作　者：";
+            // 
+            // AuthorText
+            // 
+            this.AuthorText.AutoSize = true;
+            this.AuthorText.BackColor = System.Drawing.Color.Transparent;
+            this.AuthorText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AuthorText.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.AuthorText.Location = new System.Drawing.Point(65, 0);
+            this.AuthorText.MaximumSize = new System.Drawing.Size(140, 0);
+            this.AuthorText.Name = "AuthorText";
+            this.AuthorText.Size = new System.Drawing.Size(65, 20);
+            this.AuthorText.TabIndex = 36;
+            this.AuthorText.Text = "测试作者";
+            // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.PublisherLabel);
+            this.panel3.Controls.Add(this.PublisherText);
+            this.panel3.Location = new System.Drawing.Point(8, 36);
+            this.panel3.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.panel3.MaximumSize = new System.Drawing.Size(220, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(147, 20);
+            this.panel3.TabIndex = 46;
+            // 
+            // PublisherLabel
+            // 
+            this.PublisherLabel.AutoSize = true;
+            this.PublisherLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PublisherLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PublisherLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.PublisherLabel.Location = new System.Drawing.Point(3, 0);
+            this.PublisherLabel.Name = "PublisherLabel";
+            this.PublisherLabel.Size = new System.Drawing.Size(65, 20);
+            this.PublisherLabel.TabIndex = 34;
+            this.PublisherLabel.Text = "出版社：";
+            // 
+            // PublisherText
+            // 
+            this.PublisherText.AutoSize = true;
+            this.PublisherText.BackColor = System.Drawing.Color.Transparent;
+            this.PublisherText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PublisherText.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.PublisherText.Location = new System.Drawing.Point(65, 0);
+            this.PublisherText.MaximumSize = new System.Drawing.Size(140, 0);
+            this.PublisherText.Name = "PublisherText";
+            this.PublisherText.Size = new System.Drawing.Size(79, 20);
+            this.PublisherText.TabIndex = 38;
+            this.PublisherText.Text = "测试出版社";
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.BookIDLabel);
+            this.panel4.Controls.Add(this.BookIDText);
+            this.panel4.Location = new System.Drawing.Point(8, 64);
+            this.panel4.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.panel4.MaximumSize = new System.Drawing.Size(220, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(138, 20);
+            this.panel4.TabIndex = 47;
+            // 
+            // BookIDLabel
+            // 
+            this.BookIDLabel.AutoSize = true;
+            this.BookIDLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BookIDLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BookIDLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.BookIDLabel.Location = new System.Drawing.Point(3, 0);
+            this.BookIDLabel.Name = "BookIDLabel";
+            this.BookIDLabel.Size = new System.Drawing.Size(65, 20);
+            this.BookIDLabel.TabIndex = 35;
+            this.BookIDLabel.Text = "书　号：";
+            // 
+            // BookIDText
+            // 
+            this.BookIDText.AutoSize = true;
+            this.BookIDText.BackColor = System.Drawing.Color.Transparent;
+            this.BookIDText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BookIDText.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.BookIDText.Location = new System.Drawing.Point(65, 0);
+            this.BookIDText.Margin = new System.Windows.Forms.Padding(0);
+            this.BookIDText.MaximumSize = new System.Drawing.Size(140, 0);
+            this.BookIDText.Name = "BookIDText";
+            this.BookIDText.Size = new System.Drawing.Size(73, 20);
+            this.BookIDText.TabIndex = 37;
+            this.BookIDText.Text = "12345678";
+            // 
+            // panel5
+            // 
+            this.panel5.AutoSize = true;
+            this.panel5.Controls.Add(this.AmountLabel);
+            this.panel5.Controls.Add(this.AmountText);
+            this.panel5.Location = new System.Drawing.Point(8, 92);
+            this.panel5.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.panel5.MaximumSize = new System.Drawing.Size(220, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(93, 20);
+            this.panel5.TabIndex = 48;
+            // 
+            // AmountLabel
+            // 
+            this.AmountLabel.AutoSize = true;
+            this.AmountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.AmountLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AmountLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.AmountLabel.Location = new System.Drawing.Point(3, 0);
+            this.AmountLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.AmountLabel.Name = "AmountLabel";
+            this.AmountLabel.Size = new System.Drawing.Size(65, 20);
+            this.AmountLabel.TabIndex = 39;
+            this.AmountLabel.Text = "总　数：";
+            // 
+            // AmountText
+            // 
+            this.AmountText.AutoSize = true;
+            this.AmountText.BackColor = System.Drawing.Color.Transparent;
+            this.AmountText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AmountText.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.AmountText.Location = new System.Drawing.Point(65, 0);
+            this.AmountText.MaximumSize = new System.Drawing.Size(140, 0);
+            this.AmountText.Name = "AmountText";
+            this.AmountText.Size = new System.Drawing.Size(25, 20);
+            this.AmountText.TabIndex = 41;
+            this.AmountText.Text = "12";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button2);
+            this.panel6.Controls.Add(this.LabelLabel);
+            this.panel6.Controls.Add(this.Label3Text);
+            this.panel6.Controls.Add(this.Label1Text);
+            this.panel6.Controls.Add(this.Label2Text);
+            this.panel6.Location = new System.Drawing.Point(8, 120);
+            this.panel6.Margin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 128);
+            this.panel6.TabIndex = 49;
+            // 
+            // LabelLabel
+            // 
+            this.LabelLabel.AutoSize = true;
+            this.LabelLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LabelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.LabelLabel.Location = new System.Drawing.Point(3, 0);
+            this.LabelLabel.Name = "LabelLabel";
+            this.LabelLabel.Size = new System.Drawing.Size(65, 20);
+            this.LabelLabel.TabIndex = 40;
+            this.LabelLabel.Text = "标　签：";
+            // 
+            // Label3Text
+            // 
+            this.Label3Text.AutoSize = true;
+            this.Label3Text.BackColor = System.Drawing.Color.Transparent;
+            this.Label3Text.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Label3Text.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.Label3Text.Location = new System.Drawing.Point(65, 40);
+            this.Label3Text.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.Label3Text.MaximumSize = new System.Drawing.Size(140, 0);
+            this.Label3Text.Name = "Label3Text";
+            this.Label3Text.Size = new System.Drawing.Size(93, 20);
+            this.Label3Text.TabIndex = 44;
+            this.Label3Text.Text = "中国古典文学";
+            // 
+            // Label1Text
+            // 
+            this.Label1Text.AutoSize = true;
+            this.Label1Text.BackColor = System.Drawing.Color.Transparent;
+            this.Label1Text.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Label1Text.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.Label1Text.Location = new System.Drawing.Point(65, 0);
+            this.Label1Text.MaximumSize = new System.Drawing.Size(140, 0);
+            this.Label1Text.Name = "Label1Text";
+            this.Label1Text.Size = new System.Drawing.Size(47, 20);
+            this.Label1Text.TabIndex = 42;
+            this.Label1Text.Text = "文学>";
+            // 
+            // Label2Text
+            // 
+            this.Label2Text.AutoSize = true;
+            this.Label2Text.BackColor = System.Drawing.Color.Transparent;
+            this.Label2Text.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Label2Text.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.Label2Text.Location = new System.Drawing.Point(65, 20);
+            this.Label2Text.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.Label2Text.MaximumSize = new System.Drawing.Size(140, 0);
+            this.Label2Text.Name = "Label2Text";
+            this.Label2Text.Size = new System.Drawing.Size(75, 20);
+            this.Label2Text.TabIndex = 43;
+            this.Label2Text.Text = "中国文学>";
+            // 
+            // BookPictureBox
+            // 
+            this.BookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BookPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BookPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BookPictureBox.Image = global::LIBRARY.Properties.Resources.BookNullImage;
+            this.BookPictureBox.Location = new System.Drawing.Point(64, 11);
+            this.BookPictureBox.Margin = new System.Windows.Forms.Padding(64, 11, 3, 3);
+            this.BookPictureBox.Name = "BookPictureBox";
+            this.BookPictureBox.Size = new System.Drawing.Size(170, 240);
+            this.BookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BookPictureBox.TabIndex = 1;
+            this.BookPictureBox.TabStop = false;
+            // 
             // BookNameLabel
             // 
             this.BookNameLabel.AutoSize = true;
@@ -716,44 +769,6 @@
             this.WaitingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitingThread_DoWork);
             this.WaitingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitingThread_RunWorkerCompleted);
             // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.ResultDataSheet);
-            this.panel2.Controls.Add(this.schQueDataSheet);
-            this.panel2.Location = new System.Drawing.Point(487, 3);
-            this.panel2.MinimumSize = new System.Drawing.Size(481, 0);
-            this.panel2.Name = "panel2";
-            this.tableLayoutPanel1.SetRowSpan(this.panel2, 2);
-            this.panel2.Size = new System.Drawing.Size(481, 441);
-            this.panel2.TabIndex = 44;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 16F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(3, 240);
-            this.label1.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 30);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "预约列表：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 16F);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(3, 8);
-            this.label4.Margin = new System.Windows.Forms.Padding(48, 32, 3, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 30);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "书籍列表：";
-            // 
             // AdminBookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -778,7 +793,10 @@
             this.panel7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schQueDataSheet)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -791,14 +809,11 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schQueDataSheet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookPictureBox)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -850,5 +865,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
     }
 }

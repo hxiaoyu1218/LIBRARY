@@ -104,6 +104,12 @@
     <Compile Include="Basics\ClassAdmin.cs" />
     <Compile Include="Basics\ClassBookHis.cs" />
     <Compile Include="Basics\ClassUser.cs" />
+    <Compile Include="CommonForm\DeleteBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\DeleteBox.Designer.cs">
+      <DependentUpon>DeleteBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\UserChangeInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm\AdminBookDetailForm.resx">
       <DependentUpon>AdminBookDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\DeleteBox.resx">
+      <DependentUpon>DeleteBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\LoadingBox.resx">
       <DependentUpon>LoadingBox.cs</DependentUpon>
@@ -476,6 +485,7 @@
     <Content Include="icons.ico" />
     <Content Include="Resources\C.png" />
     <Content Include="ProgramICON.ico" />
+    <None Include="Resources\Exclamation mark.png" />
     <None Include="Resources\LoadGIFBox.Image.gif" />
   </ItemGroup>
   <ItemGroup>

@@ -118,215 +118,100 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="UserFormBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sbsbb11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BookNullImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\noimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="C" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\C.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="D" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DefaultHead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0moren.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="E" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\E.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="F" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\F.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="G" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\G.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="H" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="I" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\I.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="J" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\J.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="K" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\K.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="用户到馆率down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\用户到馆率down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="L" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="M" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\M.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="N" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\N.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="O" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\O.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="R" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="S" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\S.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="T" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="U" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\U.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="V" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\V.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="W" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\W.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="X" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\X.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="E" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\E.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Y" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Y.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Z" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Z.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="书籍借阅率" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\书籍借阅率.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="不可预约" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\不可预约.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DelDisable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\删除图书disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="N" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\N.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlreadyBorrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\详情页已借阅按钮.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AlreadyOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\详情页已预约.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="X" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\X.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="书籍借阅率" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\书籍借阅率.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="书籍借阅率down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\书籍借阅率down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="书籍借阅率touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\书籍借阅率touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="用户到馆率" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\用户到馆率.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="用户到馆率down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\用户到馆率down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="用户到馆率touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\用户到馆率touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="系统日志查看" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\系统日志查看.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DefaultHead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0moren.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="系统日志查看down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\系统日志查看down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="系统日志查看touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\系统日志查看touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="K" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\V.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\S.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="书籍借阅率touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\书籍借阅率touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DelDisable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\删除图书disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exclamation mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exclamation mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="G" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\G.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserFormBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sbsbb11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="R" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="用户到馆率touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\用户到馆率touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlreadyOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\详情页已预约.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\C.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="M" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BookBorrowButton" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
   <data name="BookOrderButton" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAFR1JREFUeF7t
@@ -422,5 +307,126 @@
         f0TAqV7ka8dEwFs40XCmSkRdKFwqfFCYIlwtsNQ3VSA0vFH4RO4v3ynnOPWoz3mcf6HvPhOPLWX/D1nV
         N0Qs99dqAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="用户到馆率" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\用户到馆率.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BookNullImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="W" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\W.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="U" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\U.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="O" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\O.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Z" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Z.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="系统日志查看" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\系统日志查看.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\I.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="书籍借阅率down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\书籍借阅率down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="J" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\J.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BookBorrowButton" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="系统日志查看touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\系统日志查看touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="F" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\F.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exclamation mark1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exclamation mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
