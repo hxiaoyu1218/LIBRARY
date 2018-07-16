@@ -80,7 +80,7 @@ namespace LIBRARY
             {
                 col.HeaderCell.Style = style;
             }
-            if (PublicVar.scheduleList.Length == 0)
+            if (PublicVar.scheduleList.Length != 0)
                 canDeleteFlag = 1;
             for (int i = 0; i < PublicVar.scheduleList.Length; i++)
             {
@@ -150,7 +150,8 @@ namespace LIBRARY
             SetStyle(ControlStyles.DoubleBuffer, true);
 
             BookListRefresh();
-            button2.Hide();
+            if (canDeleteFlag == 1)
+                button2.Hide();
         }
 
         
