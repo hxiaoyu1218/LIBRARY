@@ -49,7 +49,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ResultDataSheet = new System.Windows.Forms.DataGridView();
             this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,18 +72,20 @@
             this.AmountLabel = new System.Windows.Forms.Label();
             this.AmountText = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.LabelLabel = new System.Windows.Forms.Label();
             this.Label3Text = new System.Windows.Forms.Label();
             this.Label1Text = new System.Windows.Forms.Label();
             this.Label2Text = new System.Windows.Forms.Label();
             this.BookPictureBox = new System.Windows.Forms.PictureBox();
-            this.BookNameLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoadGIFBox = new System.Windows.Forms.PictureBox();
             this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
             this.BookCommentRequest = new System.ComponentModel.BackgroundWorker();
             this.WaitingThread = new System.ComponentModel.BackgroundWorker();
+            this.BookNameLabel = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -100,6 +101,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel7
@@ -240,19 +242,6 @@
             this.label4.Size = new System.Drawing.Size(123, 30);
             this.label4.TabIndex = 40;
             this.label4.Text = "书籍列表：";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(74, 84);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "删除图书";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -619,7 +608,6 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button2);
             this.panel6.Controls.Add(this.LabelLabel);
             this.panel6.Controls.Add(this.Label3Text);
             this.panel6.Controls.Add(this.Label1Text);
@@ -629,6 +617,19 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(200, 128);
             this.panel6.TabIndex = 49;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(876, 52);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 32);
+            this.button2.TabIndex = 44;
+            this.button2.Text = "删除图书";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // LabelLabel
             // 
@@ -697,24 +698,10 @@
             this.BookPictureBox.TabIndex = 1;
             this.BookPictureBox.TabStop = false;
             // 
-            // BookNameLabel
-            // 
-            this.BookNameLabel.AutoSize = true;
-            this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.BookNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BookNameLabel.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookNameLabel.Location = new System.Drawing.Point(62, 37);
-            this.BookNameLabel.Margin = new System.Windows.Forms.Padding(60, 35, 64, 0);
-            this.BookNameLabel.Name = "BookNameLabel";
-            this.BookNameLabel.Size = new System.Drawing.Size(245, 57);
-            this.BookNameLabel.TabIndex = 0;
-            this.BookNameLabel.Text = "人民的名义";
-            this.BookNameLabel.Click += new System.EventHandler(this.BookNameLabel_Click);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.BookNameLabel);
+            this.flowLayoutPanel1.Controls.Add(this.panel8);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Controls.Add(this.label2);
@@ -769,6 +756,32 @@
             this.WaitingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitingThread_DoWork);
             this.WaitingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitingThread_RunWorkerCompleted);
             // 
+            // BookNameLabel
+            // 
+            this.BookNameLabel.AutoSize = true;
+            this.BookNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BookNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BookNameLabel.Font = new System.Drawing.Font("微软雅黑", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameLabel.Location = new System.Drawing.Point(64, 35);
+            this.BookNameLabel.Margin = new System.Windows.Forms.Padding(60, 35, 64, 0);
+            this.BookNameLabel.MaximumSize = new System.Drawing.Size(750, 0);
+            this.BookNameLabel.Name = "BookNameLabel";
+            this.BookNameLabel.Size = new System.Drawing.Size(245, 57);
+            this.BookNameLabel.TabIndex = 0;
+            this.BookNameLabel.Text = "人民的名义";
+            this.BookNameLabel.Click += new System.EventHandler(this.BookNameLabel_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.AutoSize = true;
+            this.panel8.Controls.Add(this.button2);
+            this.panel8.Controls.Add(this.BookNameLabel);
+            this.panel8.Location = new System.Drawing.Point(2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(954, 92);
+            this.panel8.TabIndex = 44;
+            // 
             // AdminBookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -814,6 +827,8 @@
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadGIFBox)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -848,7 +863,6 @@
         private System.Windows.Forms.Label Label3Text;
         private System.Windows.Forms.Label Label1Text;
         private System.Windows.Forms.Label Label2Text;
-        private System.Windows.Forms.Label BookNameLabel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.DataGridView ResultDataSheet;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookID;
@@ -866,5 +880,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label BookNameLabel;
     }
 }
