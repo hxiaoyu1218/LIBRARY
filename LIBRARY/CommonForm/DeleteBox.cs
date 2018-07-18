@@ -58,6 +58,7 @@ namespace LIBRARY
                 MessageBox ib = new MessageBox(23);
                 ib.ShowDialog();
                 ib.Dispose();
+                PublicVar.bookAmount--;
                 Close();
 				return;
             }
