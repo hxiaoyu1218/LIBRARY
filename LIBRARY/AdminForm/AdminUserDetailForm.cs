@@ -35,9 +35,18 @@ namespace LIBRARY
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "借阅";
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
-            int offset = i;
-            for (; i < PublicVar.classUser.ScheduledBooks.Count + offset; i++)
-            {
+            //int offset = i;
+            //for (; i < PublicVar.classUser.ScheduledBooks.Count + offset; i++)
+            //{
+            //    DataGridViewRow row = new DataGridViewRow();
+            //    int index = BorrowInfoSheet.Rows.Add(row);
+            //    BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.ScheduledBooks[i].BookName;
+            //    BorrowInfoSheet.Rows[index].Cells[1].Value = PublicVar.classUser.ScheduledBooks[i].BorrowTime.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
+            //    BorrowInfoSheet.Rows[index].Cells[2].Value = "预约";
+            //    BorrowInfoSheet.Rows[index].Height = 60;
+            //}
+            
+            for (i = 0; i < PublicVar.classUser.ScheduledBooks.Count; i++) {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.ScheduledBooks[i].BookName;
