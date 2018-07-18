@@ -40,19 +40,25 @@ namespace LIBRARY
             loadingBox.Dispose();
             if (PublicVar.ReturnValue == 0)
             {
-                System.Windows.Forms.MessageBox.Show("delete error!");
+                //System.Windows.Forms.MessageBox.Show("delete error!");
+                MessageBox ib = new MessageBox(24);
+                ib.ShowDialog();
+                ib.Dispose();
                 PublicVar.ReturnValue = -233;
                 return;
             }
             if (PublicVar.ReturnValue == -233)
             {
-				System.Windows.Forms.MessageBox.Show("time out!");
-				return;
+				//System.Windows.Forms.MessageBox.Show("time out!");
+                return;
             }
             else
             {
-				System.Windows.Forms.MessageBox.Show("success!");
-				Close();
+				//System.Windows.Forms.MessageBox.Show("success!");
+                MessageBox ib = new MessageBox(23);
+                ib.ShowDialog();
+                ib.Dispose();
+                Close();
 				return;
             }
         }
