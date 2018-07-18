@@ -54,12 +54,12 @@ namespace LIBRARY
             }
             else
             {
-				//System.Windows.Forms.MessageBox.Show("success!");
+                Close();
+                //System.Windows.Forms.MessageBox.Show("success!");
                 MessageBox ib = new MessageBox(23);
                 ib.ShowDialog();
                 ib.Dispose();
                 PublicVar.bookAmount--;
-                Close();
 				return;
             }
         }

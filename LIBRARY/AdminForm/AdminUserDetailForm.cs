@@ -35,7 +35,7 @@ namespace LIBRARY
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "借阅";
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
-            //int offset = i;
+            int offset = i;
             //for (; i < PublicVar.classUser.ScheduledBooks.Count + offset; i++)
             //{
             //    DataGridViewRow row = new DataGridViewRow();
@@ -46,7 +46,7 @@ namespace LIBRARY
             //    BorrowInfoSheet.Rows[index].Height = 60;
             //}
             
-            for (i = 0; i < PublicVar.classUser.ScheduledBooks.Count; i++) {
+            for (i = 0; i < PublicVar.classUser.ScheduledBooks.Count; offset++, i++) {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
                 BorrowInfoSheet.Rows[index].Cells[0].Value = PublicVar.classUser.ScheduledBooks[i].BookName;
@@ -54,7 +54,7 @@ namespace LIBRARY
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "预约";
                 BorrowInfoSheet.Rows[index].Height = 60;
             }
-            while (i < 4)
+            while (offset < 4)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = BorrowInfoSheet.Rows.Add(row);
@@ -62,7 +62,7 @@ namespace LIBRARY
                 BorrowInfoSheet.Rows[index].Cells[1].Value = "";
                 BorrowInfoSheet.Rows[index].Cells[2].Value = "";
                 BorrowInfoSheet.Rows[index].Height = 60;
-                i++;
+                offset++;
             }
             BorrowInfoSheet.ClearSelection();
             BorrowInfoSheet.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
