@@ -268,9 +268,6 @@ namespace LIBRARY
             }
             else
             {
-
-
-                commentTextBox.Text = "";
                 LoadGIFBox.Visible = false;
                 if (commentControlList != null)
                 {
@@ -331,43 +328,6 @@ namespace LIBRARY
                 commentPage = 1;
                 LoadGIFBox.Visible = true;
                 BookCommentRequest.RunWorkerAsync();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (commentTextBox.Text.Trim() == "")
-            {
-                return;
-            }
-            else
-            {
-                PublicVar.ReturnValue = -233;
-                FileProtocol fileProtocol = new FileProtocol(RequestMode.UserCommentBook, 6000);
-                fileProtocol.NowComment = new ClassComment();
-                fileProtocol.NowComment.CommentIsbn = PublicVar.nowBook.BookIsbn;
-                fileProtocol.NowComment.UserId = PublicVar.logUser.UserId;
-                fileProtocol.NowComment.Text = commentTextBox.Text.Trim();
-
-                LoadingBox loadingBox = new LoadingBox(RequestMode.UserCommentBook, "正在提交", fileProtocol);
-                loadingBox.ShowDialog();
-                loadingBox.Dispose();
-                if (PublicVar.ReturnValue == 0)
-                {
-                    System.Windows.Forms.MessageBox.Show("submit error!");
-                    return;
-                }
-                if (PublicVar.ReturnValue == -233)
-                {
-                    return;
-                }
-                else
-                {
-                    PublicVar.ReturnValue = -233;
-                    commentPage = 1;
-                    LoadGIFBox.Visible = true;
-                    BookCommentRequest.RunWorkerAsync();
-                }
             }
         }
 
