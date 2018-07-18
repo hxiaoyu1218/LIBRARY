@@ -212,7 +212,9 @@ namespace LIBRARY
 			if (s == "") return null;
 			if (s.Substring(0, 1) == "蒯")
 				return Properties.Resources.K;
-			if ((s[0] >= 'a' && s[0] <= 'z') || (s[0] >= 'A' && s[0] <= 'Z'))
+            else if (s.Substring(0, 1) == "柚")
+                return Properties.Resources.Y;
+            if ((s[0] >= 'a' && s[0] <= 'z') || (s[0] >= 'A' && s[0] <= 'Z'))
 			{
 				switch (s[0])
 				{

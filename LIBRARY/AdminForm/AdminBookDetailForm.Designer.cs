@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminBookDetailForm));
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -77,12 +77,12 @@
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoadGIFBox = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.NextPageButton = new System.Windows.Forms.Button();
+            this.LastPageButton = new System.Windows.Forms.Button();
             this.BookImageRequest = new System.ComponentModel.BackgroundWorker();
             this.BookCommentRequest = new System.ComponentModel.BackgroundWorker();
             this.WaitingThread = new System.ComponentModel.BackgroundWorker();
-            this.LastPageButton = new System.Windows.Forms.Button();
-            this.NextPageButton = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResultDataSheet)).BeginInit();
@@ -176,56 +176,56 @@
             this.ResultDataSheet.AllowUserToDeleteRows = false;
             this.ResultDataSheet.AllowUserToResizeColumns = false;
             this.ResultDataSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            this.ResultDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.ResultDataSheet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ResultDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ResultDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ResultDataSheet.CausesValidation = false;
             this.ResultDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.ResultDataSheet.ColumnHeadersHeight = 40;
             this.ResultDataSheet.ColumnHeadersVisible = false;
             this.ResultDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookID,
             this.BookState,
             this.history});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.DefaultCellStyle = dataGridViewCellStyle13;
             this.ResultDataSheet.Location = new System.Drawing.Point(32, 53);
             this.ResultDataSheet.MultiSelect = false;
             this.ResultDataSheet.Name = "ResultDataSheet";
             this.ResultDataSheet.ReadOnly = true;
             this.ResultDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ResultDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.ResultDataSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ResultDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.ResultDataSheet.RowTemplate.Height = 40;
             this.ResultDataSheet.RowTemplate.ReadOnly = true;
             this.ResultDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -266,55 +266,55 @@
             this.schQueDataSheet.AllowUserToDeleteRows = false;
             this.schQueDataSheet.AllowUserToResizeColumns = false;
             this.schQueDataSheet.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.schQueDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.schQueDataSheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.schQueDataSheet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.schQueDataSheet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.schQueDataSheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.schQueDataSheet.CausesValidation = false;
             this.schQueDataSheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schQueDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schQueDataSheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.schQueDataSheet.ColumnHeadersHeight = 40;
             this.schQueDataSheet.ColumnHeadersVisible = false;
             this.schQueDataSheet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.schQueDataSheet.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.schQueDataSheet.DefaultCellStyle = dataGridViewCellStyle18;
             this.schQueDataSheet.Location = new System.Drawing.Point(32, 281);
             this.schQueDataSheet.MultiSelect = false;
             this.schQueDataSheet.Name = "schQueDataSheet";
             this.schQueDataSheet.ReadOnly = true;
             this.schQueDataSheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.schQueDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.schQueDataSheet.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.schQueDataSheet.RowHeadersVisible = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schQueDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schQueDataSheet.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.schQueDataSheet.RowTemplate.Height = 40;
             this.schQueDataSheet.RowTemplate.ReadOnly = true;
             this.schQueDataSheet.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -682,35 +682,15 @@
             this.LoadGIFBox.TabStop = false;
             this.LoadGIFBox.Visible = false;
             // 
-            // BookImageRequest
+            // panel7
             // 
-            this.BookImageRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookImageRequest_DoWork);
-            this.BookImageRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookImageRequest_RunWorkerCompleted);
-            // 
-            // BookCommentRequest
-            // 
-            this.BookCommentRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookCommentRequest_DoWork);
-            this.BookCommentRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookCommentRequest_RunWorkerCompleted);
-            // 
-            // WaitingThread
-            // 
-            this.WaitingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitingThread_DoWork);
-            this.WaitingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitingThread_RunWorkerCompleted);
-            // 
-            // LastPageButton
-            // 
-            this.LastPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LastPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
-            this.LastPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.LastPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LastPageButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.LastPageButton.Location = new System.Drawing.Point(789, 15);
-            this.LastPageButton.Name = "LastPageButton";
-            this.LastPageButton.Size = new System.Drawing.Size(50, 30);
-            this.LastPageButton.TabIndex = 44;
-            this.LastPageButton.TabStop = false;
-            this.LastPageButton.Text = "上页";
-            this.LastPageButton.UseVisualStyleBackColor = false;
+            this.panel7.Controls.Add(this.NextPageButton);
+            this.panel7.Controls.Add(this.LastPageButton);
+            this.panel7.Location = new System.Drawing.Point(2, 749);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(969, 79);
+            this.panel7.TabIndex = 39;
             // 
             // NextPageButton
             // 
@@ -726,16 +706,38 @@
             this.NextPageButton.TabStop = false;
             this.NextPageButton.Text = "下页";
             this.NextPageButton.UseVisualStyleBackColor = false;
+            this.NextPageButton.Click += new System.EventHandler(this.NextPageButton_Click);
             // 
-            // panel7
+            // LastPageButton
             // 
-            this.panel7.Controls.Add(this.NextPageButton);
-            this.panel7.Controls.Add(this.LastPageButton);
-            this.panel7.Location = new System.Drawing.Point(2, 749);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(969, 79);
-            this.panel7.TabIndex = 39;
+            this.LastPageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LastPageButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(148)))), ((int)(((byte)(129)))));
+            this.LastPageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.LastPageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LastPageButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.LastPageButton.Location = new System.Drawing.Point(789, 15);
+            this.LastPageButton.Name = "LastPageButton";
+            this.LastPageButton.Size = new System.Drawing.Size(50, 30);
+            this.LastPageButton.TabIndex = 44;
+            this.LastPageButton.TabStop = false;
+            this.LastPageButton.Text = "上页";
+            this.LastPageButton.UseVisualStyleBackColor = false;
+            this.LastPageButton.Click += new System.EventHandler(this.LastPageButton_Click);
+            // 
+            // BookImageRequest
+            // 
+            this.BookImageRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookImageRequest_DoWork);
+            this.BookImageRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookImageRequest_RunWorkerCompleted);
+            // 
+            // BookCommentRequest
+            // 
+            this.BookCommentRequest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BookCommentRequest_DoWork);
+            this.BookCommentRequest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BookCommentRequest_RunWorkerCompleted);
+            // 
+            // WaitingThread
+            // 
+            this.WaitingThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.WaitingThread_DoWork);
+            this.WaitingThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.WaitingThread_RunWorkerCompleted);
             // 
             // AdminBookDetailForm
             // 

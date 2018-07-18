@@ -345,5 +345,25 @@ namespace LIBRARY
 
 			}
         }
+
+        private void LastPageButton_Click(object sender, EventArgs e) {
+            if (commentPage == 1)
+                return;
+            else {
+                commentPage -= 5;
+                LoadGIFBox.Visible = true;
+                BookCommentRequest.RunWorkerAsync();
+            }
+        }
+
+        private void NextPageButton_Click(object sender, EventArgs e) {
+            if (commentPage + 5 > PublicVar.commentTotalAmount) {
+                return;
+            } else {
+                commentPage += 5;
+                LoadGIFBox.Visible = true;
+                BookCommentRequest.RunWorkerAsync();
+            }
+        }
     }
 }
