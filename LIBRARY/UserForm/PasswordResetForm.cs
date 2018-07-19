@@ -126,7 +126,7 @@ namespace LIBRARY
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            if (NPasswordTextBox1.Text.Trim() == "" || NPasswordTextBox2.Text.Trim() == "")
+            if (PWD1AlertLabel.Visible == true || PWD2AlertLabel.Visible == true || NPasswordTextBox1.Text.Trim() == "" || NPasswordTextBox2.Text.Trim() == "")
             {
                 return;
             }
