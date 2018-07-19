@@ -33,7 +33,7 @@ namespace LIBRARY
             fileProtocol = new FileProtocol(RequestMode.UserSearchBook, 6000);
             fileProtocol.Curnum = (nPage - 1) * 10 + 1;
             fileProtocol.Searchwords = lastString;
-            fileProtocol.Searchcat = lastState;
+            fileProtocol.Searchcat = lastState == 0 ? 1 : lastState;
 
             LoadingBox loadingBox = new LoadingBox(RequestMode.UserSearchBook, "正在查询", fileProtocol);
             loadingBox.ShowDialog();

@@ -216,7 +216,7 @@
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(88, 25);
             this.TitleLabel.TabIndex = 38;
-            this.TitleLabel.Text = "修改密码";
+            this.TitleLabel.Text = "修改信息";
             // 
             // BgImage
             // 
