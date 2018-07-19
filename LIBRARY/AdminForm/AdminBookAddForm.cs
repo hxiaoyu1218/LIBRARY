@@ -379,6 +379,7 @@ namespace LIBRARY
                 {
                     PublicVar.ReturnValue = -233;
                     MessageBox infoBox = new MessageBox(26);
+                    PublicVar.bookAmount++;
                     infoBox.ShowDialog();
                     infoBox.Dispose();
                     Close();
